@@ -396,19 +396,19 @@
         "Goalkeeper",
         "Midfield"
       ],
-      "topElevenValueEur": 129500000,
+      "topElevenValueEur": 116500000,
       "topElevenPlayers": [
-        "Santiago Gimenez",
-        "Armando González",
-        "Edson Álvarez",
-        "Julián Quiñones",
-        "Érik Lira",
+        "Raúl Rangel",
         "Johan Vásquez",
-        "Gilberto Mora",
+        "César Montes",
+        "Mateo Chávez",
+        "Israel Reyes",
+        "Edson Álvarez",
+        "Érik Lira",
         "Obed Vargas",
-        "Alexis Vega",
-        "Brian Gutiérrez",
-        "César Montes"
+        "Gilberto Mora",
+        "Santiago Gimenez",
+        "Armando González"
       ],
       "topPlayer": {
         "number": "11",
@@ -814,19 +814,19 @@
         "Goalkeeper",
         "Midfield"
       ],
-      "topElevenValueEur": 142000000,
+      "topElevenValueEur": 139000000,
       "topElevenPlayers": [
-        "Ladislav Krejčí",
-        "Pavel Sulc",
         "Lukas Hornicek",
-        "Patrik Schick",
-        "Adam Hlozek",
+        "Ladislav Krejčí",
         "Robin Hranac",
         "Stepan Chaloupek",
+        "David Zima",
         "Tomáš Souček",
-        "Lukas Provod",
-        "Matej Kovar",
-        "Michal Sadílek"
+        "Michal Sadílek",
+        "Lukas Cerv",
+        "Pavel Sulc",
+        "Patrik Schick",
+        "Adam Hlozek"
       ],
       "topPlayer": {
         "number": "7",
@@ -1232,19 +1232,19 @@
         "Goalkeeper",
         "Midfield"
       ],
-      "topElevenValueEur": 119500000,
+      "topElevenValueEur": 111500000,
       "topElevenPlayers": [
-        "Kang-in Lee",
+        "Bum-keun Song",
         "Min-jae Kim",
-        "Heung-min Son",
-        "Hyeon-gyu Oh",
-        "Jens Castrop",
-        "In-beom Hwang",
+        "Han-beom Lee",
+        "Tae-seok Lee",
         "Young-woo Seol",
-        "Hee-chan Hwang",
-        "Hyun-jun Yang",
+        "In-beom Hwang",
+        "Jens Castrop",
+        "Kang-in Lee",
         "Jun-ho Bae",
-        "Han-beom Lee"
+        "Heung-min Son",
+        "Hyeon-gyu Oh"
       ],
       "topPlayer": {
         "number": "19",
@@ -1650,19 +1650,19 @@
         "Goalkeeper",
         "Midfield"
       ],
-      "topElevenValueEur": 32900000,
+      "topElevenValueEur": 29800000,
       "topElevenPlayers": [
-        "Lyle Foster",
+        "Sipho Chaine",
         "Mbekezeli Mbokazi",
-        "Relebohile Mofokeng",
-        "Iqraam Rayners",
-        "Teboho Mokoena",
-        "Oswin Appollis",
-        "Samukele Kabini",
         "Ime Okon",
         "Olwethu Makhanya",
+        "Samukele Kabini",
+        "Teboho Mokoena",
         "Thalente Mbatha",
-        "Aubrey Modiba"
+        "Jayden Adams",
+        "Yaya Sithole",
+        "Relebohile Mofokeng",
+        "Lyle Foster"
       ],
       "topPlayer": {
         "number": "9",
@@ -2068,19 +2068,19 @@
         "Goalkeeper",
         "Midfield"
       ],
-      "topElevenValueEur": 263000000,
+      "topElevenValueEur": 254000000,
       "topElevenPlayers": [
-        "Johan Manzambi",
         "Gregor Kobel",
-        "Dan Ndoye",
+        "Manuel Akanji",
+        "Aurèle Amenda",
+        "Luca Jaquez",
+        "Nico Elvedi",
         "Ardon Jashari",
         "Denis Zakaria",
-        "Noah Okafor",
-        "Manuel Akanji",
-        "Breel Embolo",
+        "Johan Manzambi",
         "Fabian Rieder",
-        "Rubén Vargas",
-        "Aurèle Amenda"
+        "Noah Okafor",
+        "Dan Ndoye"
       ],
       "topPlayer": {
         "number": "9",
@@ -2472,19 +2472,19 @@
         "Goalkeeper",
         "Midfield"
       ],
-      "topElevenValueEur": 165500000,
+      "topElevenValueEur": 155000000,
       "topElevenPlayers": [
-        "Alphonso Davies",
-        "Jonathan David",
-        "Ismaël Koné",
-        "Promise David",
-        "Tajon Buchanan",
-        "Alistair Johnston",
-        "Nathan-Dylan Saliba",
+        "Dayne St. Clair",
         "Moïse Bombito",
-        "Tani Oluwaseyi",
         "Alfie Jones",
-        "Stephen Eustaquio"
+        "Alphonso Davies",
+        "Alistair Johnston",
+        "Ismaël Koné",
+        "Nathan-Dylan Saliba",
+        "Stephen Eustaquio",
+        "Ali Ahmed",
+        "Jonathan David",
+        "Promise David"
       ],
       "topPlayer": {
         "number": "19",
@@ -2890,19 +2890,19 @@
         "Goalkeeper",
         "Midfield"
       ],
-      "topElevenValueEur": 122500000,
+      "topElevenValueEur": 118500000,
       "topElevenPlayers": [
+        "Nikola Vasilj",
         "Tarik Muharemović",
-        "Ermedin Demirovic",
-        "Kerim Alajbegovic",
-        "Amar Dedić",
-        "Esmir Bajraktarevic",
         "Nidal Celik",
+        "Sead Kolasinac",
+        "Amar Dedić",
+        "Amir Hadziahmetovic",
+        "Benjamin Tahirović",
         "Ermin Mahmic",
         "Amar Memić",
-        "Benjamin Tahirović",
-        "Nikola Vasilj",
-        "Amir Hadziahmetovic"
+        "Kerim Alajbegovic",
+        "Ermedin Demirovic"
       ],
       "topPlayer": {
         "number": "4",
@@ -3308,19 +3308,19 @@
         "Goalkeeper",
         "Midfield"
       ],
-      "topElevenValueEur": 16175000,
+      "topElevenValueEur": 14375000,
       "topElevenPlayers": [
-        "Akram Afif",
-        "Almoez Ali",
-        "Edmílson Junior",
         "Meshaal Barsham",
-        "Ahmed Al-Ganehi",
+        "Lucas Mendes",
         "Homam Al-Amin",
+        "Sultan Al-Brake",
+        "Ayoub Al-Oui",
         "Jassem Gaber",
         "Mohamed Al-Mannai",
-        "Mahmoud Abunada",
-        "Salah Zakaria",
-        "Ayoub Al-Oui"
+        "Assim Madibo",
+        "Hasan Al-Haydos",
+        "Akram Afif",
+        "Almoez Ali"
       ],
       "topPlayer": {
         "number": "11",
@@ -3726,19 +3726,19 @@
         "Goalkeeper",
         "Midfield"
       ],
-      "topElevenValueEur": 715000000,
+      "topElevenValueEur": 554000000,
       "topElevenPlayers": [
-        "Vinicius Junior",
+        "Alisson",
         "Gabriel",
-        "Matheus Cunha",
-        "Bruno Guimarães",
-        "Raphinha",
-        "Igor Thiago",
-        "Rayan",
-        "Gabriel Martinelli",
-        "Endrick",
+        "Bremer",
+        "Marquinhos",
         "Wesley",
-        "Bremer"
+        "Fabinho",
+        "Bruno Guimarães",
+        "Danilo",
+        "Lucas Paquetá",
+        "Vinicius Junior",
+        "Matheus Cunha"
       ],
       "topPlayer": {
         "number": "7",
@@ -4144,19 +4144,19 @@
         "Goalkeeper",
         "Midfield"
       ],
-      "topElevenValueEur": 385000000,
+      "topElevenValueEur": 356000000,
       "topElevenPlayers": [
+        "Yassine Bounou",
+        "Chadi Riad",
         "Achraf Hakimi",
+        "Noussair Mazraoui",
+        "Zakaria El Ouahdi",
         "Ayyoub Bouaddi",
-        "Abde Ezzalzouli",
+        "Neil El Aynaoui",
         "Ismael Saibari",
         "Bilal El Khannouss",
-        "Brahim Díaz",
-        "Chemsdine Talbi",
-        "Neil El Aynaoui",
-        "Samir El Mourabet",
-        "Noussair Mazraoui",
-        "Zakaria El Ouahdi"
+        "Abde Ezzalzouli",
+        "Brahim Díaz"
       ],
       "topPlayer": {
         "number": "2",
@@ -4562,19 +4562,19 @@
         "Goalkeeper",
         "Midfield"
       ],
-      "topElevenValueEur": 146000000,
+      "topElevenValueEur": 142000000,
       "topElevenPlayers": [
-        "Scott McTominay",
+        "Angus Gunn",
+        "Kieran Tierney",
+        "Andrew Robertson",
         "Aaron Hickey",
-        "Ben Gannon-Doak",
+        "Nathan Patterson",
+        "Scott McTominay",
         "Lewis Ferguson",
         "John McGinn",
-        "George Hirst",
-        "Nathan Patterson",
-        "Kieran Tierney",
         "Ryan Christie",
-        "Andrew Robertson",
-        "Ché Adams"
+        "Ben Gannon-Doak",
+        "George Hirst"
       ],
       "topPlayer": {
         "number": "4",
@@ -4980,19 +4980,19 @@
         "Goalkeeper",
         "Midfield"
       ],
-      "topElevenValueEur": 51300000,
+      "topElevenValueEur": 47700000,
       "topElevenPlayers": [
-        "Wilson Isidor",
-        "Jean-Ricner Bellegarde",
-        "Danley Jean Jacques",
-        "Josué Casimir",
+        "Alexandre Pierre",
         "Hannes Delcroix",
         "Jean-Kévin Duverne",
-        "Lenny Joseph",
         "Carlens Arcus",
-        "Frantzdy Pierrot",
-        "Louicius Deedson",
-        "Derrick Etienne Jr."
+        "Wilguens Paugain",
+        "Danley Jean Jacques",
+        "Dominique Simon",
+        "Leverton Pierre",
+        "Jean-Ricner Bellegarde",
+        "Josué Casimir",
+        "Wilson Isidor"
       ],
       "topPlayer": {
         "number": "18",
@@ -5398,19 +5398,19 @@
         "Goalkeeper",
         "Midfield"
       ],
-      "topElevenValueEur": 384000000,
+      "topElevenValueEur": 372000000,
       "topElevenPlayers": [
-        "Arda Güler",
-        "Kenan Yıldız",
-        "Can Uzun",
+        "Uğurcan Çakır",
+        "Ozan Kabak",
+        "Merih Demiral",
         "Ferdi Kadıoğlu",
-        "Barış Alper Yılmaz",
-        "Orkun Kökçü",
-        "Kerem Aktürkoğlu",
-        "Yunus Akgün",
+        "Zeki Çelik",
         "Hakan Çalhanoğlu",
-        "İsmail Yüksek",
-        "Ozan Kabak"
+        "Orkun Kökçü",
+        "Arda Güler",
+        "Can Uzun",
+        "Kenan Yıldız",
+        "Barış Alper Yılmaz"
       ],
       "topPlayer": {
         "number": "8",
@@ -5816,19 +5816,19 @@
         "Goalkeeper",
         "Midfield"
       ],
-      "topElevenValueEur": 305000000,
+      "topElevenValueEur": 264500000,
       "topElevenPlayers": [
-        "Christian Pulisic",
-        "Folarin Balogun",
-        "Malik Tillman",
-        "Ricardo Pepi",
-        "Weston McKennie",
+        "Chris Brady",
         "Chris Richards",
-        "Tyler Adams",
         "Antonee Robinson",
+        "Sergiño Dest",
+        "Joe Scally",
+        "Tyler Adams",
+        "Weston McKennie",
+        "Malik Tillman",
         "Brenden Aaronson",
-        "Timothy Weah",
-        "Sergiño Dest"
+        "Christian Pulisic",
+        "Folarin Balogun"
       ],
       "topPlayer": {
         "number": "10",
@@ -6234,19 +6234,19 @@
         "Goalkeeper",
         "Midfield"
       ],
-      "topElevenValueEur": 124000000,
+      "topElevenValueEur": 118500000,
       "topElevenPlayers": [
+        "Orlando Gill",
+        "Omar Alderete",
+        "Gustavo Gómez",
+        "Alexandro Maidana",
+        "Juan José Cáceres",
         "Diego Gómez",
+        "Damián Bobadilla",
         "Julio Enciso",
         "Mauricio",
-        "Omar Alderete",
         "Ramón Sosa",
-        "Isidro Pitta",
-        "Miguel Almirón",
-        "Damián Bobadilla",
-        "Orlando Gill",
-        "Juan José Cáceres",
-        "Andrés Cubas"
+        "Isidro Pitta"
       ],
       "topPlayer": {
         "number": "8",
@@ -6654,17 +6654,17 @@
       ],
       "topElevenValueEur": 66600000,
       "topElevenPlayers": [
+        "Mathew Ryan",
         "Alessandro Circati",
-        "Jordan Bos",
-        "Cristian Volpato",
-        "Mohamed Touré",
-        "Nestory Irankunda",
         "Lucas Herrington",
         "Harry Souttar",
+        "Jordan Bos",
         "Aiden O'Neill",
-        "Cammy Devlin",
         "Kai Trewin",
-        "Mathew Ryan"
+        "Cammy Devlin",
+        "Cristian Volpato",
+        "Nestory Irankunda",
+        "Mohamed Touré"
       ],
       "topPlayer": {
         "number": "3",
@@ -7070,19 +7070,19 @@
         "Goalkeeper",
         "Midfield"
       ],
-      "topElevenValueEur": 695000000,
+      "topElevenValueEur": 640000000,
       "topElevenPlayers": [
+        "Alexander Nübel",
+        "Nico Schlotterbeck",
+        "Malick Thiaw",
+        "Jonathan Tah",
+        "Nathaniel Brown",
+        "Aleksandar Pavlovic",
         "Florian Wirtz",
         "Jamal Musiala",
-        "Aleksandar Pavlovic",
         "Lennart Karl",
         "Kai Havertz",
-        "Nick Woltemade",
-        "Nico Schlotterbeck",
-        "Felix Nmecha",
-        "Angelo Stiller",
-        "Malick Thiaw",
-        "Jamie Leweling"
+        "Nick Woltemade"
       ],
       "topPlayer": {
         "number": "17",
@@ -7488,19 +7488,19 @@
         "Goalkeeper",
         "Midfield"
       ],
-      "topElevenValueEur": 400000000,
+      "topElevenValueEur": 323000000,
       "topElevenPlayers": [
-        "Yan Diomande",
-        "Amad Diallo",
+        "Yahia Fofana",
         "Ousmane Diomande",
-        "Bazoumana Touré",
-        "Ange-Yoan Bonny",
         "Evan Ndicka",
-        "Evann Guessand",
-        "Christ Inao Oulaï",
         "Wilfried Singo",
-        "Simon Adingra",
-        "Guéla Doué"
+        "Guéla Doué",
+        "Ibrahim Sangaré",
+        "Christ Inao Oulaï",
+        "Franck Kessié",
+        "Seko Fofana",
+        "Yan Diomande",
+        "Amad Diallo"
       ],
       "topPlayer": {
         "number": "11",
@@ -7906,19 +7906,19 @@
         "Goalkeeper",
         "Midfield"
       ],
-      "topElevenValueEur": 329000000,
+      "topElevenValueEur": 323800000,
       "topElevenPlayers": [
-        "Moisés Caicedo",
+        "Gonzalo Valle",
         "Willian Pacho",
         "Piero Hincapié",
         "Joel Ordóñez",
-        "Nilson Angulo",
         "Pervis Estupiñán",
-        "Gonzalo Plata",
-        "Kendry Páez",
+        "Moisés Caicedo",
         "Denil Castillo",
-        "Jeremy Arévalo",
-        "Kevin Rodríguez"
+        "Kendry Páez",
+        "Pedro Vite",
+        "Nilson Angulo",
+        "Gonzalo Plata"
       ],
       "topPlayer": {
         "number": "23",
@@ -8324,19 +8324,19 @@
         "Goalkeeper",
         "Midfield"
       ],
-      "topElevenValueEur": 20600000,
+      "topElevenValueEur": 19300000,
       "topElevenPlayers": [
+        "Eloy Room",
         "Armando Obispo",
-        "Sontje Hansen",
-        "Tahith Chong",
-        "Juninho Bacuna",
         "Deveron Fonville",
         "Riechedly Bazoer",
         "Shurandy Sambo",
+        "Kevin Felida",
+        "Juninho Bacuna",
+        "Tahith Chong",
+        "Tyrese Noslin",
         "Jearl Margaritha",
-        "Joshua Brenet",
-        "Jeremy Antonisse",
-        "Sherel Floranus"
+        "Sontje Hansen"
       ],
       "topPlayer": {
         "number": "18",
@@ -8742,19 +8742,19 @@
         "Goalkeeper",
         "Midfield"
       ],
-      "topElevenValueEur": 550000000,
+      "topElevenValueEur": 540000000,
       "topElevenPlayers": [
-        "Ryan Gravenberch",
-        "Jurriën Timber",
-        "Cody Gakpo",
-        "Micky van de Ven",
-        "Tijjani Reijnders",
-        "Donyell Malen",
-        "Jan Paul van Hecke",
         "Bart Verbruggen",
+        "Micky van de Ven",
+        "Jan Paul van Hecke",
         "Jorrel Hato",
-        "Crysencio Summerville",
-        "Frenkie de Jong"
+        "Jurriën Timber",
+        "Ryan Gravenberch",
+        "Tijjani Reijnders",
+        "Frenkie de Jong",
+        "Justin Kluivert",
+        "Cody Gakpo",
+        "Donyell Malen"
       ],
       "topPlayer": {
         "number": "8",
@@ -9160,19 +9160,19 @@
         "Goalkeeper",
         "Midfield"
       ],
-      "topElevenValueEur": 352000000,
+      "topElevenValueEur": 328000000,
       "topElevenPlayers": [
-        "Alexander Isak",
-        "Viktor Gyökeres",
+        "Viktor Johansson",
+        "Isak Hien",
+        "Gustaf Lagerbielke",
+        "Daniel Svensson",
+        "Gabriel Gudmundsson",
         "Lucas Bergvall",
         "Yasin Ayari",
-        "Anthony Elanga",
-        "Daniel Svensson",
-        "Isak Hien",
-        "Gabriel Gudmundsson",
+        "Mattias Svanberg",
         "Benjamin Nygren",
-        "Viktor Johansson",
-        "Gustaf Lagerbielke"
+        "Alexander Isak",
+        "Viktor Gyökeres"
       ],
       "topPlayer": {
         "number": "9",
@@ -9578,19 +9578,19 @@
         "Goalkeeper",
         "Midfield"
       ],
-      "topElevenValueEur": 202000000,
+      "topElevenValueEur": 172500000,
       "topElevenPlayers": [
-        "Kaishu Sano",
-        "Yuito Suzuki",
-        "Takefusa Kubo",
         "Zion Suzuki",
         "Hiroki Ito",
-        "Ayase Ueda",
-        "Ritsu Doan",
+        "Tsuyoshi Watanabe",
+        "Ko Itakura",
+        "Yukinari Sugawara",
+        "Kaishu Sano",
+        "Wataru Endo",
         "Ao Tanaka",
-        "Daizen Maeda",
         "Daichi Kamada",
-        "Keisuke Goto"
+        "Takefusa Kubo",
+        "Yuito Suzuki"
       ],
       "topPlayer": {
         "number": "24",
@@ -9996,19 +9996,19 @@
         "Goalkeeper",
         "Midfield"
       ],
-      "topElevenValueEur": 55000000,
+      "topElevenValueEur": 52300000,
       "topElevenPlayers": [
-        "Hannibal",
+        "Abdelmouhib Chamakh",
         "Montassar Talbi",
-        "Ellyes Skhiri",
-        "Ismaël Gharbi",
-        "Sebastian Tounekti",
         "Adem Arous",
-        "Anis Ben Slimane",
-        "Elias Achouri",
         "Ali Abdi",
-        "Elias Saad",
-        "Mohamed Belhadj Mahmoud"
+        "Yan Valery",
+        "Ellyes Skhiri",
+        "Mohamed Belhadj Mahmoud",
+        "Anis Ben Slimane",
+        "Hannibal",
+        "Ismaël Gharbi",
+        "Sebastian Tounekti"
       ],
       "topPlayer": {
         "number": "10",
@@ -10414,19 +10414,19 @@
         "Goalkeeper",
         "Midfield"
       ],
-      "topElevenValueEur": 376000000,
+      "topElevenValueEur": 373000000,
       "topElevenPlayers": [
-        "Jérémy Doku",
-        "Amadou Onana",
-        "Matias Fernandez-Pardo",
         "Senne Lammens",
-        "Charles De Ketelaere",
-        "Youri Tielemans",
         "Zeno Debast",
-        "Diego Moreira",
-        "Mike Penders",
         "Nathan Ngoy",
-        "Koni De Winter"
+        "Koni De Winter",
+        "Maxim De Cuyper",
+        "Amadou Onana",
+        "Youri Tielemans",
+        "Charles De Ketelaere",
+        "Diego Moreira",
+        "Jérémy Doku",
+        "Matias Fernandez-Pardo"
       ],
       "topPlayer": {
         "number": "11",
@@ -10832,19 +10832,19 @@
         "Goalkeeper",
         "Midfield"
       ],
-      "topElevenValueEur": 101500000,
+      "topElevenValueEur": 93000000,
       "topElevenPlayers": [
-        "Omar Marmoush",
-        "Mohamed Salah",
-        "Trezeguet",
-        "Emam Ashour",
-        "Marwan Ateya",
-        "Haissem Hassan",
-        "Zizo",
-        "Mohanad Lasheen",
-        "Ibrahim Adel",
+        "Mohamed Alaa",
         "Mohamed Abdelmonem",
-        "Hossam Abdelmaguid"
+        "Hossam Abdelmaguid",
+        "Ahmed Fatouh",
+        "Mohamed Hany",
+        "Marwan Ateya",
+        "Mohanad Lasheen",
+        "Hamdy Fathy",
+        "Emam Ashour",
+        "Mohamed Salah",
+        "Omar Marmoush"
       ],
       "topPlayer": {
         "number": "22",
@@ -11250,19 +11250,19 @@
         "Goalkeeper",
         "Midfield"
       ],
-      "topElevenValueEur": 28000000,
+      "topElevenValueEur": 27750000,
       "topElevenPlayers": [
-        "Chris Wood",
-        "Joe Bell",
+        "Max Crocombe",
         "Tyler Bindon",
+        "Finn Surman",
+        "Liberato Cacace",
+        "Ben Old",
+        "Joe Bell",
+        "Ryan Thomas",
         "Marko Stamenić",
         "Callum McCowatt",
         "Elijah Just",
-        "Liberato Cacace",
-        "Ben Old",
-        "Finn Surman",
-        "Max Crocombe",
-        "Jesse Randall"
+        "Chris Wood"
       ],
       "topPlayer": {
         "number": "9",
@@ -11668,19 +11668,19 @@
         "Goalkeeper",
         "Midfield"
       ],
-      "topElevenValueEur": 22200000,
+      "topElevenValueEur": 18100000,
       "topElevenPlayers": [
-        "Mehdi Ghayedi",
-        "Mohammad Mohebi",
-        "Amirhossein Hosseinzadeh",
-        "Dennis Eckert Ayensa",
-        "Mehdi Taremi",
-        "Saeed Ezatolahi",
-        "Ali Alipour",
+        "Payam Niazmand",
         "Hossein Kanaani",
+        "Danial Eiri",
+        "Milad Mohammadi",
         "Arya Yousefi",
+        "Saeed Ezatolahi",
+        "Mohammad Ghorbani",
         "Amirmohammad Razzaghinia",
-        "Mehdi Torabi"
+        "Saman Ghoddos",
+        "Mehdi Ghayedi",
+        "Mohammad Mohebi"
       ],
       "topPlayer": {
         "number": "10",
@@ -12086,19 +12086,19 @@
         "Goalkeeper",
         "Midfield"
       ],
-      "topElevenValueEur": 840000000,
+      "topElevenValueEur": 835000000,
       "topElevenPlayers": [
-        "Lamine Yamal",
-        "Pedri",
-        "Pau Cubarsí",
-        "Martín Zubimendi",
-        "Dani Olmo",
-        "Ferran Torres",
-        "Marc Cucurella",
-        "Rodri",
         "Joan García",
-        "Álex Baena",
-        "Eric García"
+        "Pau Cubarsí",
+        "Eric García",
+        "Marc Pubill",
+        "Marc Cucurella",
+        "Martín Zubimendi",
+        "Rodri",
+        "Pedri",
+        "Dani Olmo",
+        "Lamine Yamal",
+        "Ferran Torres"
       ],
       "topPlayer": {
         "number": "19",
@@ -12504,19 +12504,19 @@
         "Goalkeeper",
         "Midfield"
       ],
-      "topElevenValueEur": 291000000,
+      "topElevenValueEur": 277000000,
       "topElevenPlayers": [
-        "Federico Valverde",
-        "Maxi Araújo",
-        "Rodrigo Zalazar",
-        "Manuel Ugarte",
-        "Darwin Núñez",
-        "Rodrigo Bentancur",
+        "Santiago Mele",
         "Ronald Araujo",
+        "Maxi Araújo",
         "Mathías Olivera",
-        "Giorgian de Arrascaeta",
         "Joaquín Piquerez",
-        "Santiago Bueno"
+        "Manuel Ugarte",
+        "Rodrigo Bentancur",
+        "Federico Valverde",
+        "Rodrigo Zalazar",
+        "Agustín Canobbio",
+        "Darwin Núñez"
       ],
       "topPlayer": {
         "number": "8",
@@ -12922,19 +12922,19 @@
         "Goalkeeper",
         "Midfield"
       ],
-      "topElevenValueEur": 47000000,
+      "topElevenValueEur": 46700000,
       "topElevenPlayers": [
-        "Logan Costa",
-        "Wagner Pina",
-        "Kevin Lenini",
-        "Sidny Lopes Cabral",
-        "Telmo Arcanjo",
-        "Hélio Varela",
-        "Deroy Duarte",
-        "Steven Moreira",
-        "Benchimol",
         "CJ dos Santos",
-        "Jovane Cabral"
+        "Logan Costa",
+        "Sidny Lopes Cabral",
+        "Wagner Pina",
+        "Steven Moreira",
+        "Kevin Lenini",
+        "Laros Duarte",
+        "João Paulo",
+        "Deroy Duarte",
+        "Hélio Varela",
+        "Telmo Arcanjo"
       ],
       "topPlayer": {
         "number": "5",
@@ -13340,19 +13340,19 @@
         "Goalkeeper",
         "Midfield"
       ],
-      "topElevenValueEur": 31400000,
+      "topElevenValueEur": 29150000,
       "topElevenPlayers": [
-        "Saud Abdulhamid",
-        "Musab Al-Juwayr",
-        "Firas Al-Buraikan",
-        "Khalid Al-Ghannam",
+        "Nawaf Al-Aqidi",
         "Hassan Tambakti",
-        "Mohammed Abu Al-Shamat",
         "Abdulelah Al-Amri",
-        "Ali Majrashi",
-        "Moteb Al-Harbi",
-        "Nawaf Boushal",
-        "Ayman Yahya"
+        "Saud Abdulhamid",
+        "Mohammed Abu Al-Shamat",
+        "Ziyad Al-Johani",
+        "Musab Al-Juwayr",
+        "Nasser Al-Dawsari",
+        "Mohamed Kanno",
+        "Khalid Al-Ghannam",
+        "Firas Al-Buraikan"
       ],
       "topPlayer": {
         "number": "12",
@@ -13758,19 +13758,19 @@
         "Goalkeeper",
         "Midfield"
       ],
-      "topElevenValueEur": 1090000000,
+      "topElevenValueEur": 930000000,
       "topElevenPlayers": [
-        "Kylian Mbappé",
-        "Michael Olise",
-        "Désiré Doué",
-        "Ousmane Dembélé",
+        "Robin Risser",
         "William Saliba",
-        "Rayan Cherki",
-        "Warren Zaïre-Emery",
-        "Aurélien Tchouaméni",
-        "Bradley Barcola",
         "Dayot Upamecano",
-        "Jules Koundé"
+        "Maxence Lacroix",
+        "Jules Koundé",
+        "Aurélien Tchouaméni",
+        "Warren Zaïre-Emery",
+        "Manu Koné",
+        "Rayan Cherki",
+        "Michael Olise",
+        "Kylian Mbappé"
       ],
       "topPlayer": {
         "number": "10",
@@ -14176,19 +14176,19 @@
         "Goalkeeper",
         "Midfield"
       ],
-      "topElevenValueEur": 496000000,
+      "topElevenValueEur": 429000000,
       "topElevenPlayers": [
-        "Erling Haaland",
-        "Martin Ødegaard",
-        "Jørgen Strand Larsen",
-        "Antonio Nusa",
-        "Andreas Schjelderup",
-        "Oscar Bobb",
+        "Sander Tangvik",
+        "Kristoffer Ajer",
+        "Leo Østigård",
+        "Torbjørn Heggem",
         "Julian Ryerson",
         "Sander Berge",
-        "Alexander Sørloth",
-        "Kristoffer Ajer",
-        "Fredrik Aursnes"
+        "Fredrik Aursnes",
+        "Kristian Thorstvedt",
+        "Martin Ødegaard",
+        "Erling Haaland",
+        "Jørgen Strand Larsen"
       ],
       "topPlayer": {
         "number": "9",
@@ -14594,19 +14594,19 @@
         "Goalkeeper",
         "Midfield"
       ],
-      "topElevenValueEur": 390000000,
+      "topElevenValueEur": 322000000,
       "topElevenPlayers": [
-        "Iliman Ndiaye",
-        "Ismaïla Sarr",
+        "Yehvann Diouf",
+        "Mamadou Sarr",
+        "Moussa Niakhaté",
+        "Antoine Mendy",
+        "El Hadji Malick Diouf",
         "Lamine Camara",
-        "Nicolas Jackson",
         "Pape Gueye",
         "Habib Diarra",
-        "Assane Diao",
-        "Ibrahim Mbaye",
         "Pape Matar Sarr",
-        "El Hadji Malick Diouf",
-        "Mamadou Sarr"
+        "Iliman Ndiaye",
+        "Ismaïla Sarr"
       ],
       "topPlayer": {
         "number": "13",
@@ -15012,19 +15012,19 @@
         "Goalkeeper",
         "Midfield"
       ],
-      "topElevenValueEur": 15450000,
+      "topElevenValueEur": 13450000,
       "topElevenPlayers": [
-        "Ahmed Qasem",
-        "Marko Farji",
+        "Ahmed Basil Fadhil",
+        "Akam Hashem",
+        "Zaid Tahseen",
         "Merchas Doski",
-        "Aimar Sher",
-        "Ali Al-Hamadi",
-        "Mohanad Ali",
+        "Ahmed Yahya",
         "Amir Al-Ammari",
+        "Aimar Sher",
         "Zidane Iqbal",
         "Kevin Yakob",
-        "Ibrahim Bayesh",
-        "Akam Hashem"
+        "Marko Farji",
+        "Ahmed Qasem"
       ],
       "topPlayer": {
         "number": "11",
@@ -15430,19 +15430,19 @@
         "Goalkeeper",
         "Midfield"
       ],
-      "topElevenValueEur": 640000000,
+      "topElevenValueEur": 598000000,
       "topElevenPlayers": [
-        "Julián Álvarez",
-        "Enzo Fernández",
-        "Lautaro Martínez",
-        "Nico Paz",
-        "Alexis Mac Allister",
+        "Emiliano Martínez",
         "Cristian Romero",
-        "Giuliano Simeone",
         "Lisandro Martínez",
+        "Facundo Medina",
+        "Leonardo Balerdi",
+        "Enzo Fernández",
+        "Alexis Mac Allister",
         "Valentín Barco",
-        "Exequiel Palacios",
-        "José Manuel López"
+        "Nico Paz",
+        "Julián Álvarez",
+        "Lautaro Martínez"
       ],
       "topPlayer": {
         "number": "9",
@@ -15848,19 +15848,19 @@
         "Goalkeeper",
         "Midfield"
       ],
-      "topElevenValueEur": 212500000,
+      "topElevenValueEur": 193000000,
       "topElevenPlayers": [
-        "Ibrahim Maza",
+        "Luca Zidane",
+        "Ramy Bensebaini",
         "Rayan Aït-Nouri",
-        "Amine Gouiri",
-        "Anis Hadj Moussa",
-        "Mohamed Amoura",
-        "Farès Chaïbi",
-        "Hicham Boudaoui",
-        "Houssem Aouar",
-        "Farès Ghedjemis",
         "Jaouen Hadjam",
-        "Rafik Belghali"
+        "Rafik Belghali",
+        "Hicham Boudaoui",
+        "Ibrahim Maza",
+        "Farès Chaïbi",
+        "Houssem Aouar",
+        "Anis Hadj Moussa",
+        "Amine Gouiri"
       ],
       "topPlayer": {
         "number": "22",
@@ -16252,19 +16252,19 @@
         "Goalkeeper",
         "Midfield"
       ],
-      "topElevenValueEur": 196000000,
+      "topElevenValueEur": 182200000,
       "topElevenPlayers": [
+        "Florian Wiegele",
+        "David Affengruber",
+        "Kevin Danso",
+        "Marco Friedl",
         "Konrad Laimer",
         "Nicolas Seiwald",
         "Paul Wanner",
         "Carney Chukwuemeka",
-        "David Affengruber",
-        "Kevin Danso",
         "Romano Schmid",
         "Patrick Wimmer",
-        "Marco Friedl",
-        "Philipp Lienhart",
-        "Xaver Schlager"
+        "Sasa Kalajdzic"
       ],
       "topPlayer": {
         "number": "20",
@@ -16670,19 +16670,19 @@
         "Goalkeeper",
         "Midfield"
       ],
-      "topElevenValueEur": 16100000,
+      "topElevenValueEur": 15600000,
       "topElevenPlayers": [
-        "Mousa Tamari",
+        "Yazeed Abulaila",
         "Yazan Al-Arab",
-        "Ali Olwan",
-        "Shararh",
-        "Nizar Al-Rashdan",
+        "Saed Al-Rousan",
+        "Abdallah Nasib",
         "Mohannad Abu Taha",
+        "Nizar Al-Rashdan",
         "Amer Jamous",
         "Ibrahim Saadeh",
-        "Ibrahim Sabra",
         "Noor Al-Rawabdeh",
-        "Saed Al-Rousan"
+        "Mousa Tamari",
+        "Ali Olwan"
       ],
       "topPlayer": {
         "number": "10",
@@ -17090,17 +17090,17 @@
       ],
       "topElevenValueEur": 730000000,
       "topElevenPlayers": [
-        "João Neves",
-        "Vitinha",
-        "Nuno Mendes",
-        "Pedro Neto",
-        "Rúben Dias",
-        "Matheus Nunes",
-        "Rafael Leão",
         "Diogo Costa",
-        "Francisco Trincão",
+        "Rúben Dias",
         "Gonçalo Inácio",
-        "Bruno Fernandes"
+        "Nuno Mendes",
+        "Matheus Nunes",
+        "Vitinha",
+        "João Neves",
+        "Francisco Trincão",
+        "Bruno Fernandes",
+        "Rafael Leão",
+        "Pedro Neto"
       ],
       "topPlayer": {
         "number": "15",
@@ -17506,19 +17506,19 @@
         "Goalkeeper",
         "Midfield"
       ],
-      "topElevenValueEur": 252000000,
+      "topElevenValueEur": 222000000,
       "topElevenPlayers": [
-        "Luis Díaz",
-        "Luis Suárez",
-        "Richard Ríos",
-        "Daniel Muñoz",
+        "Álvaro Montero",
         "Jhon Lucumí",
-        "Cucho Hernández",
         "Davinson Sánchez",
-        "Jhon Arias",
+        "Willer Ditta",
+        "Daniel Muñoz",
+        "Richard Ríos",
+        "Jefferson Lerma",
+        "Gustavo Puerta",
         "Jorge Carrascal",
-        "Andrés Gómez",
-        "Gustavo Puerta"
+        "Luis Díaz",
+        "Luis Suárez"
       ],
       "topPlayer": {
         "number": "7",
@@ -17924,19 +17924,19 @@
         "Goalkeeper",
         "Midfield"
       ],
-      "topElevenValueEur": 125000000,
+      "topElevenValueEur": 124000000,
       "topElevenPlayers": [
-        "Noah Sadiki",
-        "Yoane Wissa",
-        "Aaron Wan-Bissaka",
-        "Ngal'ayel Mukau",
-        "Simon Banza",
         "Matthieu Epolo",
         "Axel Tuanzebe",
-        "Edo Kayembe",
-        "Théo Bongonda",
+        "Steve Kapuadi",
+        "Arthur Masuaku",
+        "Aaron Wan-Bissaka",
+        "Ngal'ayel Mukau",
         "Charles Pickel",
-        "Steve Kapuadi"
+        "Noah Sadiki",
+        "Edo Kayembe",
+        "Yoane Wissa",
+        "Simon Banza"
       ],
       "topPlayer": {
         "number": "14",
@@ -18342,19 +18342,19 @@
         "Goalkeeper",
         "Midfield"
       ],
-      "topElevenValueEur": 76100000,
+      "topElevenValueEur": 74650000,
       "topElevenPlayers": [
-        "Abdukodir Khusanov",
-        "Abbosbek Fayzullaev",
-        "Eldor Shomurodov",
-        "Aziz Ganiev",
-        "Oston Urunov",
         "Abduvokhid Nematov",
+        "Abdukodir Khusanov",
+        "Rustam Ashurmatov",
+        "Sherzod Nasrullaev",
+        "Khozhiakbar Alizhonov",
+        "Aziz Ganiev",
         "Otabek Shukurov",
         "Akmal Mozgovoy",
-        "Khozhiakbar Alizhonov",
-        "Igor Sergeev",
-        "Sherzod Nasrullaev"
+        "Jamshid Iskanderov",
+        "Abbosbek Fayzullaev",
+        "Eldor Shomurodov"
       ],
       "topPlayer": {
         "number": "2",
@@ -18760,19 +18760,19 @@
         "Goalkeeper",
         "Midfield"
       ],
-      "topElevenValueEur": 925000000,
+      "topElevenValueEur": 863000000,
       "topElevenPlayers": [
-        "Jude Bellingham",
-        "Declan Rice",
-        "Bukayo Saka",
-        "Morgan Rogers",
-        "Elliot Anderson",
-        "Kobbie Mainoo",
+        "Dean Henderson",
         "Marc Guéhi",
+        "Jarell Quansah",
         "Nico O'Reilly",
+        "Reece James",
+        "Declan Rice",
+        "Elliot Anderson",
+        "Jude Bellingham",
+        "Morgan Rogers",
         "Anthony Gordon",
-        "Eberechi Eze",
-        "Harry Kane"
+        "Bukayo Saka"
       ],
       "topPlayer": {
         "number": "10",
@@ -19178,19 +19178,19 @@
         "Goalkeeper",
         "Midfield"
       ],
-      "topElevenValueEur": 316000000,
+      "topElevenValueEur": 311000000,
       "topElevenPlayers": [
+        "Dominik Kotarski",
         "Josko Gvardiol",
         "Luka Vuskovic",
+        "Josip Sutalo",
         "Josip Stanisic",
         "Petar Sučić",
-        "Martin Baturina",
-        "Igor Matanovic",
-        "Josip Sutalo",
-        "Petar Musa",
         "Luka Sucic",
         "Mateo Kovacic",
-        "Nikola Vlašić"
+        "Martin Baturina",
+        "Igor Matanovic",
+        "Petar Musa"
       ],
       "topPlayer": {
         "number": "4",
@@ -19596,19 +19596,19 @@
         "Goalkeeper",
         "Midfield"
       ],
-      "topElevenValueEur": 197000000,
+      "topElevenValueEur": 150500000,
       "topElevenPlayers": [
-        "Antoine Semenyo",
-        "Abdul Fatawu",
-        "Kamaldeen Sulemana",
-        "Brandon Thomas-Asante",
-        "Christopher Bonsu Baah",
-        "Caleb Yirenkyi",
-        "Ernest Nuamah",
+        "Lawrence Ati Zigi",
         "Kojo Peprah Oppong",
-        "Iñaki Williams",
         "Alidu Seidu",
-        "Augustine Boakye"
+        "Jonas Adjetey",
+        "Jerome Opoku",
+        "Elisha Owusu",
+        "Thomas Partey",
+        "Caleb Yirenkyi",
+        "Augustine Boakye",
+        "Antoine Semenyo",
+        "Abdul Fatawu"
       ],
       "topPlayer": {
         "number": "11",
@@ -20014,19 +20014,19 @@
         "Goalkeeper",
         "Midfield"
       ],
-      "topElevenValueEur": 29000000,
+      "topElevenValueEur": 27500000,
       "topElevenPlayers": [
-        "Amir Murillo",
+        "Orlando Mosquera",
         "José Córdoba",
-        "Adalberto Carrasquilla",
         "Andrés Andrade",
+        "Amir Murillo",
         "César Blackman",
+        "Cristian Martínez",
+        "Carlos Harvey",
+        "Aníbal Godoy",
+        "Adalberto Carrasquilla",
         "José Luis Rodríguez",
-        "Ismael Díaz",
-        "Azarías Londoño",
-        "Tomás Rodríguez",
-        "Edgardo Fariña",
-        "Cristian Martínez"
+        "Ismael Díaz"
       ],
       "topPlayer": {
         "number": "23",

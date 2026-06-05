@@ -19,6 +19,13 @@ const state = {
 
 const els = {};
 
+const TOP_ELEVEN_SHAPE = [
+  { group: "Goalkeeper", count: 1 },
+  { group: "Defender", count: 4 },
+  { group: "Midfield", count: 4 },
+  { group: "Attack", count: 2 },
+];
+
 document.addEventListener("DOMContentLoaded", () => {
   cacheElements();
   init();
@@ -64,7 +71,7 @@ async function init() {
       ...match,
       date: new Date(match.utc),
     }));
-    state.teams = state.teamData.teams || [];
+    state.teams = (state.teamData.teams || []).map(normalizeTeamTopEleven);
     state.teamMap = new Map(state.teams.map((team) => [team.name, team]));
     state.flagMap = buildScheduleFlagMap(state.matches);
 
@@ -546,7 +553,14 @@ function teamReportCard(team, maxMetricValue) {
   const isExpanded = state.expandedTeams.has(team.name);
   const previewCount = team.previewPlayers?.length || team.topElevenPlayers.length;
   const canExpand = team.matchingPlayers.length > previewCount || isExpanded;
-  const listLabel = isExpanded ? "Full squad shown" : team.isPlayerFiltered ? "Filtered top XI shown" : "Top XI shown";
+  const listLabel =
+    isExpanded && team.isPlayerFiltered
+      ? "All matching players shown"
+      : isExpanded
+        ? "Full squad shown"
+        : team.isPlayerFiltered
+          ? "Top matching players shown"
+          : "Formation top XI shown";
 
   return `
     <article class="team-report-card" style="--team-rank-progress: ${metricWidth}%">
@@ -831,14 +845,16 @@ function getVisibleTeams() {
             .includes(query);
         return positionMatch && playerMatchesQuery;
       });
-      const topElevenPlayers = topElevenByValue(team.players);
+      const topElevenPlayers = topElevenByFormation(team.players);
       const isExpanded = state.expandedTeams.has(team.name);
       const playerFilterActive = state.position !== "all" || (query && !teamMatchesQuery);
-      const previewPlayers = playerFilterActive ? topElevenByValue(matchingPlayers) : topElevenPlayers;
+      const previewPlayers = playerFilterActive ? topPlayersByValue(matchingPlayers, 11) : topElevenPlayers;
       const displayPlayers = sortPlayersByPosition(isExpanded ? matchingPlayers : previewPlayers);
+      const topElevenValueEur = topElevenPlayers.reduce((total, player) => total + player.valueEur, 0);
 
       return {
         ...team,
+        topElevenValueEur,
         matchingPlayers: sortPlayersByPosition(matchingPlayers),
         topElevenPlayers,
         previewPlayers,
@@ -853,13 +869,48 @@ function getVisibleTeams() {
     .map((team, index) => ({ ...team, rank: index + 1 }));
 }
 
-function topElevenByValue(players) {
+function normalizeTeamTopEleven(team) {
+  const topElevenPlayers = topElevenByFormation(team.players || []);
+  return {
+    ...team,
+    topElevenValueEur: topElevenPlayers.reduce((total, player) => total + player.valueEur, 0),
+    topElevenPlayers: topElevenPlayers.map((player) => player.name),
+  };
+}
+
+function topElevenByFormation(players) {
+  const selected = [];
+  const selectedKeys = new Set();
+  const addPlayer = (player) => {
+    const key = player.sourceUrl || `${player.name}-${player.number || ""}-${player.position || ""}`;
+    if (selectedKeys.has(key)) return;
+    selectedKeys.add(key);
+    selected.push(player);
+  };
+
+  for (const { group, count } of TOP_ELEVEN_SHAPE) {
+    topPlayersByValue(
+      players.filter((player) => player.positionGroup === group),
+      count
+    ).forEach(addPlayer);
+  }
+
+  for (const player of playersByValue(players)) {
+    if (selected.length >= 11) break;
+    addPlayer(player);
+  }
+
+  return sortPlayersByPosition(selected);
+}
+
+function topPlayersByValue(players, limit) {
   return sortPlayersByPosition(
-    players
-      .slice()
-      .sort((a, b) => b.valueEur - a.valueEur || a.name.localeCompare(b.name))
-      .slice(0, 11)
+    playersByValue(players).slice(0, limit)
   );
+}
+
+function playersByValue(players) {
+  return players.slice().sort((a, b) => b.valueEur - a.valueEur || a.name.localeCompare(b.name));
 }
 
 function sortPlayersByPosition(players) {

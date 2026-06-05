@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import https from "node:https";
+import { rankPlayersByValue, topElevenByFormation } from "./team-top-eleven.mjs";
 
 const BASE_URL = "https://www.transfermarkt.us";
 const PARTICIPANTS_URL = `${BASE_URL}/world-cup/teilnehmer/pokalwettbewerb/FIWC`;
@@ -179,8 +180,8 @@ function addGroupData(teams) {
 }
 
 function summarizeTeam(team, players) {
-  const rankedPlayers = players.slice().sort((a, b) => b.valueEur - a.valueEur || a.name.localeCompare(b.name));
-  const topEleven = rankedPlayers.slice(0, 11);
+  const rankedPlayers = rankPlayersByValue(players);
+  const topEleven = topElevenByFormation(players);
   const positions = [...new Set(players.map((player) => player.positionGroup || player.position).filter(Boolean))].sort();
 
   return {

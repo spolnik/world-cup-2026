@@ -1,4 +1,5 @@
 import fs from "node:fs";
+import { TOP_ELEVEN_SHAPE, topElevenByFormation } from "./team-top-eleven.mjs";
 
 const data = JSON.parse(fs.readFileSync("data/matches.json", "utf8"));
 const teamsData = JSON.parse(fs.readFileSync("data/teams.json", "utf8"));
@@ -49,8 +50,32 @@ for (const team of teamsData.teams ?? []) {
   if (!team.group) errors.push(`Team ${team.name} has no group`);
   if (!Number.isFinite(team.marketValueEur)) errors.push(`Team ${team.name} has invalid marketValueEur`);
   if (!Number.isFinite(team.topElevenValueEur)) errors.push(`Team ${team.name} has invalid topElevenValueEur`);
+  if (!Array.isArray(team.topElevenPlayers) || team.topElevenPlayers.length !== 11) {
+    errors.push(`Team ${team.name} must have 11 topElevenPlayers`);
+  }
   if (!Array.isArray(team.players) || team.players.length === 0) errors.push(`Team ${team.name} has no players`);
   playerCount += team.players?.length ?? 0;
+
+  const expectedTopEleven = topElevenByFormation(team.players ?? []);
+  const expectedNames = expectedTopEleven.map((player) => player.name);
+  const actualNames = team.topElevenPlayers ?? [];
+  if (expectedNames.join("|") !== actualNames.join("|")) {
+    errors.push(`Team ${team.name} topElevenPlayers do not match the 1-4-4-2 market-value selection`);
+  }
+
+  const expectedTopElevenValue = expectedTopEleven.reduce((total, player) => total + player.valueEur, 0);
+  if (team.topElevenValueEur !== expectedTopElevenValue) {
+    errors.push(`Team ${team.name} topElevenValueEur expected ${expectedTopElevenValue}, got ${team.topElevenValueEur}`);
+  }
+
+  for (const { group, count } of TOP_ELEVEN_SHAPE) {
+    const available = (team.players ?? []).filter((player) => player.positionGroup === group).length;
+    const selected = expectedTopEleven.filter((player) => player.positionGroup === group).length;
+    if (available >= count && selected !== count) {
+      errors.push(`Team ${team.name} top XI should include ${count} ${group} players, got ${selected}`);
+    }
+  }
+
   for (const player of team.players ?? []) {
     if (!player.name) errors.push(`Team ${team.name} has a player without a name`);
     if (!player.position) errors.push(`Player ${player.name} has no position`);

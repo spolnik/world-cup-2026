@@ -41,7 +41,7 @@ node scripts/import-transfermarkt.mjs
 node scripts/validate-data.mjs
 ```
 
-The import includes squad value, average value, top-11 value, player list, positions, clubs, and player market values. Treat it as a Transfermarkt snapshot, not FIFA's official squad registry.
+The import includes squad value, average value, formation-aware top XI value, player list, positions, clubs, and player market values. Top XI uses a 1-4-4-2 shape: 1 goalkeeper, 4 defenders, 4 midfielders, and 2 attackers by market value. Treat it as a Transfermarkt snapshot, not FIFA's official squad registry.
 
 ## GitHub Pages
 
