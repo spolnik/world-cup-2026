@@ -4,6 +4,7 @@ const state = {
   matches: [],
   teams: [],
   teamMap: new Map(),
+  flagMap: new Map(),
   tab: "fixtures",
   query: "",
   stage: "all",
@@ -64,6 +65,7 @@ async function init() {
     }));
     state.teams = state.teamData.teams || [];
     state.teamMap = new Map(state.teams.map((team) => [team.name, team]));
+    state.flagMap = buildScheduleFlagMap(state.matches);
 
     hydrateFilters();
     bindEvents();
@@ -697,8 +699,49 @@ function team(side) {
 }
 
 function teamFlag(team) {
-  if (!team?.flag) return `<span class="team-report-flag placeholder">${escapeHTML(initials(team?.name || "TBD"))}</span>`;
-  return `<span class="team-report-flag"><img src="${escapeAttribute(team.flag)}" alt="" loading="lazy"></span>`;
+  const src = teamFlagSrc(team, 160);
+  if (!src) return `<span class="team-report-flag placeholder">${escapeHTML(initials(team?.name || "TBD"))}</span>`;
+  return `
+    <span class="team-report-flag">
+      <img
+        src="${escapeAttribute(src)}"
+        ${flagSrcSet(team) ? `srcset="${escapeAttribute(flagSrcSet(team))}"` : ""}
+        sizes="72px"
+        alt=""
+        loading="lazy"
+      >
+    </span>
+  `;
+}
+
+function buildScheduleFlagMap(matches) {
+  const flagMap = new Map();
+  matches.forEach((match) => {
+    [match.home, match.away].forEach((side) => {
+      if (side?.name && side.flag?.startsWith("https://")) {
+        flagMap.set(side.name, side.flag);
+      }
+    });
+  });
+  return flagMap;
+}
+
+function teamFlagSrc(team, size = 160) {
+  if (!team) return "";
+  const source = state.flagMap.get(team.name) || team.flag || "";
+  return qualityFlagUrl(source, size);
+}
+
+function flagSrcSet(team) {
+  const source = state.flagMap.get(team?.name) || "";
+  if (!source.includes("flagcdn.com")) return "";
+  return [80, 160, 320].map((size) => `${qualityFlagUrl(source, size)} ${size}w`).join(", ");
+}
+
+function qualityFlagUrl(source, size) {
+  if (!source) return "";
+  if (source.includes("flagcdn.com")) return source.replace(/\/w\d+\//, `/w${size}/`);
+  return source;
 }
 
 function playerPortrait(player) {
@@ -714,9 +757,10 @@ function clubLogo(player) {
 }
 
 function miniFlag(side) {
-  const hasFlag = side.flag && side.flag.startsWith("https://");
+  const qualitySrc = teamFlagSrc({ name: side.team || side.name, flag: side.flag }, 80);
+  const hasFlag = qualitySrc && qualitySrc.startsWith("https://");
   const flag = hasFlag
-    ? `<img src="${escapeAttribute(side.flag)}" alt="" loading="lazy">`
+    ? `<img src="${escapeAttribute(qualitySrc)}" alt="" loading="lazy">`
     : `<span>${escapeHTML(initials(side.team || side.name))}</span>`;
   return `<span class="mini-flag ${hasFlag ? "" : "placeholder"}">${flag}</span>`;
 }

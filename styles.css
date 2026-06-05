@@ -731,7 +731,7 @@ select {
 .mini-flag img {
   width: 28px;
   height: 20px;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .standings-wrap {
@@ -1154,7 +1154,7 @@ select {
 
 .team-report-head {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 64px;
+  grid-template-columns: minmax(0, 1fr) 84px;
   gap: 14px;
   align-items: start;
 }
@@ -1208,18 +1208,22 @@ select {
 .team-report-flag {
   display: inline-grid;
   place-items: center;
-  width: 64px;
-  height: 46px;
+  width: 84px;
+  height: 58px;
+  padding: 5px;
   overflow: hidden;
   border: 1px solid rgba(20, 33, 30, 0.14);
   border-radius: var(--radius);
-  background: #e9e3d5;
+  background:
+    linear-gradient(135deg, rgba(255, 253, 247, 0.95), rgba(238, 232, 217, 0.7)),
+    #e9e3d5;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.62);
 }
 
 .team-report-flag img {
-  width: 64px;
-  height: 46px;
-  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .team-value-grid {
@@ -1800,10 +1804,19 @@ select {
     font-size: 1.45rem;
   }
 
-  .team-report-flag,
+  .team-report-head {
+    grid-template-columns: minmax(0, 1fr) 66px;
+  }
+
+  .team-report-flag {
+    width: 66px;
+    height: 46px;
+    padding: 4px;
+  }
+
   .team-report-flag img {
-    width: 54px;
-    height: 38px;
+    width: 100%;
+    height: 100%;
   }
 
   .next-matchup,
