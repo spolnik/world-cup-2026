@@ -350,78 +350,80 @@ function renderGroups(matches) {
 
           return `
             <article class="group-card" style="--group-progress: ${progress}%">
-              <div class="group-card-head">
-                <div>
-                  <span class="group-kicker">Group</span>
-                  <h3>${escapeHTML(group)}</h3>
+              <div class="group-overview">
+                <div class="group-card-head">
+                  <div>
+                    <span class="group-kicker">Group</span>
+                    <h3>${escapeHTML(group)}</h3>
+                  </div>
+                  <div class="progress-ring" aria-label="${playedMatches} of ${groupMatches.length} matches played">
+                    <strong>${playedMatches}</strong>
+                    <span>of ${groupMatches.length}</span>
+                  </div>
                 </div>
-                <div class="progress-ring" aria-label="${playedMatches} of ${groupMatches.length} matches played">
-                  <strong>${playedMatches}</strong>
-                  <span>of ${groupMatches.length}</span>
-                </div>
-              </div>
 
-              <div class="group-team-strip" aria-label="Group ${escapeAttribute(group)} teams">
-                ${rows
-                  .map(
-                    (row) => `
-                      <span class="team-pill">
-                        ${miniFlag(row)}
-                        <span>${escapeHTML(row.team)}</span>
-                        <strong>${escapeHTML(formatMoney(teamValue(row.team)))}</strong>
-                      </span>
-                    `
-                  )
-                  .join("")}
-              </div>
+                <div class="group-team-strip" aria-label="Group ${escapeAttribute(group)} teams">
+                  ${rows
+                    .map(
+                      (row) => `
+                        <span class="team-pill">
+                          ${miniFlag(row)}
+                          <span>${escapeHTML(row.team)}</span>
+                          <strong>${escapeHTML(formatMoney(teamValue(row.team)))}</strong>
+                        </span>
+                      `
+                    )
+                    .join("")}
+                </div>
 
-              <div class="group-market-panel">
-                <div>
-                  <span>Group value</span>
-                  <strong>${escapeHTML(formatMoney(groupMarketValue))}</strong>
+                <div class="group-market-panel">
+                  <div>
+                    <span>Group value</span>
+                    <strong>${escapeHTML(formatMoney(groupMarketValue))}</strong>
+                  </div>
+                  <div>
+                    <span>Top XI power</span>
+                    <strong>${escapeHTML(formatMoney(groupTopElevenValue))}</strong>
+                  </div>
+                  <div>
+                    <span>Market leader</span>
+                    <strong>${escapeHTML(richestTeam?.name || "TBD")}</strong>
+                  </div>
                 </div>
-                <div>
-                  <span>Top XI power</span>
-                  <strong>${escapeHTML(formatMoney(groupTopElevenValue))}</strong>
-                </div>
-                <div>
-                  <span>Market leader</span>
-                  <strong>${escapeHTML(richestTeam?.name || "TBD")}</strong>
-                </div>
-              </div>
 
-              <div class="market-bars" aria-label="Group ${escapeAttribute(group)} market values">
-                ${groupTeams
-                  .map(
-                    (team) => `
-                      <div class="market-bar-row">
-                        <span>${escapeHTML(team.name)}</span>
-                        <div class="market-track">
-                          <span style="width: ${Math.max(8, Math.round((team.marketValueEur / maxTeamValue) * 100))}%"></span>
+                <div class="market-bars" aria-label="Group ${escapeAttribute(group)} market values">
+                  ${groupTeams
+                    .map(
+                      (team) => `
+                        <div class="market-bar-row">
+                          <span>${escapeHTML(team.name)}</span>
+                          <div class="market-track">
+                            <span style="width: ${Math.max(8, Math.round((team.marketValueEur / maxTeamValue) * 100))}%"></span>
+                          </div>
+                          <strong>${escapeHTML(formatMoney(team.marketValueEur))}</strong>
                         </div>
-                        <strong>${escapeHTML(formatMoney(team.marketValueEur))}</strong>
-                      </div>
-                    `
-                  )
-                  .join("")}
-              </div>
+                      `
+                    )
+                    .join("")}
+                </div>
 
-              <div class="standings-wrap">
-                <table class="standings">
-                  <thead>
-                    <tr>
-                      <th>Rank</th>
-                      <th>Team</th>
-                      <th>P</th>
-                      <th>GD</th>
-                      <th>Pts</th>
-                      <th>Path</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    ${rows.map(standingRow).join("")}
-                  </tbody>
-                </table>
+                <div class="standings-wrap">
+                  <table class="standings">
+                    <thead>
+                      <tr>
+                        <th>Rank</th>
+                        <th>Team</th>
+                        <th>P</th>
+                        <th>GD</th>
+                        <th>Pts</th>
+                        <th>Path</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      ${rows.map(standingRow).join("")}
+                    </tbody>
+                  </table>
+                </div>
               </div>
 
               <div class="group-fixtures">

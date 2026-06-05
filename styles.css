@@ -590,7 +590,7 @@ select {
 
 .group-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   gap: 18px;
 }
 
@@ -614,6 +614,7 @@ select {
 .group-card {
   position: relative;
   display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(360px, 0.9fr);
   gap: 0;
   overflow: hidden;
   background:
@@ -630,6 +631,17 @@ select {
   background:
     linear-gradient(120deg, rgba(11, 107, 67, 0.1), transparent 36%),
     repeating-linear-gradient(90deg, rgba(20, 33, 30, 0.045) 0 1px, transparent 1px 58px);
+}
+
+.group-overview,
+.group-fixtures {
+  position: relative;
+  min-width: 0;
+}
+
+.group-overview {
+  display: grid;
+  align-content: start;
 }
 
 .group-card-head {
@@ -915,17 +927,21 @@ select {
 }
 
 .group-fixtures {
-  position: relative;
   display: grid;
   gap: 7px;
-  padding: 0 16px 16px;
+  align-content: start;
+  padding: 18px;
+  border-left: 1px solid rgba(20, 33, 30, 0.1);
+  background:
+    linear-gradient(180deg, rgba(255, 253, 247, 0.72), rgba(255, 253, 247, 0.5)),
+    rgba(238, 232, 217, 0.5);
 }
 
 .group-fixture-title {
   display: flex;
   justify-content: space-between;
   gap: 12px;
-  margin-top: 2px;
+  margin-bottom: 3px;
   color: var(--muted);
   font-size: 0.76rem;
   font-weight: 900;
@@ -973,6 +989,7 @@ select {
 
 .fixture-meta {
   grid-column: 2 / 4;
+  grid-row: 2;
   color: var(--muted);
   font-size: 0.76rem;
   font-weight: 760;
@@ -980,6 +997,9 @@ select {
 }
 
 .fixture-state {
+  grid-column: 3;
+  grid-row: 1;
+  justify-self: end;
   padding: 3px 8px;
   color: #fff;
   background: var(--pitch);
@@ -1608,6 +1628,15 @@ select {
     grid-template-columns: 1fr;
   }
 
+  .group-card {
+    grid-template-columns: 1fr;
+  }
+
+  .group-fixtures {
+    border-top: 1px solid rgba(20, 33, 30, 0.1);
+    border-left: 0;
+  }
+
   .rank-podium {
     grid-template-columns: 1fr;
   }
@@ -1709,6 +1738,7 @@ select {
   .fixture-meta,
   .fixture-state {
     grid-column: 2;
+    grid-row: auto;
   }
 
   .fixture-state {
