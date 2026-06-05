@@ -1317,90 +1317,12 @@ select {
   font-weight: 750;
 }
 
-.top-three-players {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 8px;
-}
-
-.top-three-players div {
-  display: grid;
-  gap: 4px;
-  min-height: 78px;
-  padding: 10px;
-  border: 1px solid rgba(20, 33, 30, 0.1);
-  border-radius: var(--radius);
-  background: rgba(255, 253, 247, 0.72);
-}
-
-.top-three-players span {
-  display: inline-grid;
-  place-items: center;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  color: #fff;
-  background: var(--pitch-dark);
-  font-size: 0.72rem;
-  font-weight: 950;
-}
-
-.top-three-players strong {
-  font-size: 0.88rem;
-  line-height: 1.15;
-}
-
-.top-three-players em {
-  color: var(--muted);
-  font-size: 0.72rem;
-  font-style: normal;
-  font-weight: 780;
-  line-height: 1.2;
-}
-
-.position-mix {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 8px;
-}
-
-.position-mix div {
-  display: grid;
-  gap: 5px;
-  min-width: 0;
-}
-
-.position-mix span {
-  color: var(--muted);
-  font-size: 0.68rem;
-  font-weight: 900;
-  text-transform: uppercase;
-}
-
-.position-mix strong {
-  color: var(--ink);
-  font-size: 0.9rem;
-}
-
-.position-track {
-  height: 7px;
-  overflow: hidden;
-  border-radius: 999px;
-  background: rgba(20, 33, 30, 0.1);
-}
-
-.position-track span {
-  display: block;
-  height: 100%;
-  border-radius: inherit;
-  background: var(--blue);
-}
-
 .player-list-head {
   display: flex;
   gap: 12px;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   color: var(--muted);
 }
 
@@ -1408,6 +1330,43 @@ select {
   color: var(--ink);
   font-size: 0.78rem;
   text-align: right;
+}
+
+.squad-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 34px;
+  padding: 8px 12px;
+  border: 1px solid rgba(12, 86, 92, 0.24);
+  border-radius: 999px;
+  color: var(--ink);
+  background: rgba(255, 253, 247, 0.84);
+  box-shadow: 0 8px 20px rgba(20, 33, 30, 0.08);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.76rem;
+  font-weight: 950;
+  line-height: 1;
+  white-space: nowrap;
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    background 160ms ease;
+}
+
+.squad-toggle:hover,
+.squad-toggle:focus-visible {
+  border-color: rgba(12, 86, 92, 0.52);
+  background: #fffdf7;
+  transform: translateY(-1px);
+}
+
+.squad-toggle svg {
+  width: 15px;
+  height: 15px;
+  stroke-width: 3;
 }
 
 .player-table-wrap {
@@ -1649,8 +1608,7 @@ select {
     grid-template-columns: 1fr;
   }
 
-  .rank-podium,
-  .top-three-players {
+  .rank-podium {
     grid-template-columns: 1fr;
   }
 
@@ -1769,10 +1727,6 @@ select {
     justify-self: start;
   }
 
-  .position-mix {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   .top-player-card {
     grid-template-columns: 50px minmax(0, 1fr);
   }
@@ -1794,6 +1748,10 @@ select {
 
   .player-list-head strong {
     text-align: left;
+  }
+
+  .squad-toggle {
+    width: 100%;
   }
 
   .player-table {

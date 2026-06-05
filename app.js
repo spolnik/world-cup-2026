@@ -14,6 +14,7 @@ const state = {
   position: "all",
   teamMetric: "marketValueEur",
   timeMode: "user",
+  expandedTeams: new Set(),
 };
 
 const els = {};
@@ -128,6 +129,7 @@ function bindEvents() {
     state.status = "all";
     state.position = "all";
     state.teamMetric = "marketValueEur";
+    state.expandedTeams.clear();
     els.search.value = "";
     els.stage.value = "all";
     els.group.value = "all";
@@ -136,6 +138,19 @@ function bindEvents() {
     els.position.value = "all";
     els.teamMetric.value = "marketValueEur";
     renderViews();
+  });
+
+  els.teams.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-team-toggle]");
+    if (!button) return;
+    const teamName = button.dataset.teamToggle;
+    if (state.expandedTeams.has(teamName)) {
+      state.expandedTeams.delete(teamName);
+    } else {
+      state.expandedTeams.add(teamName);
+    }
+    renderTeams();
+    refreshIcons();
   });
 
   els.tabs.addEventListener("click", (event) => {
@@ -311,7 +326,7 @@ function renderResults(matches) {
 function renderGroups(matches) {
   const groups = buildStandings(matches);
   const groupMatchCount = groups.reduce((total, group) => total + group.matches.length, 0);
-  els.resultCount.textContent = `${groups.length} groups · ${groupMatchCount} group matches`;
+  els.resultCount.textContent = `${groups.length} groups - ${groupMatchCount} group matches`;
 
   if (!groups.length) {
     els.groups.innerHTML = emptyState("No groups found", "Try clearing a filter or switching back to the group stage.");
@@ -426,9 +441,8 @@ function renderGroups(matches) {
 
 function renderTeams() {
   const teams = getVisibleTeams();
-  const visiblePlayers = teams.reduce((total, team) => total + team.visiblePlayers.length, 0);
   const metric = teamMetricConfig();
-  els.resultCount.textContent = `${teams.length} teams · ${visiblePlayers} players · ranked by ${metric.label}`;
+  els.resultCount.textContent = `${teams.length} teams - ranked by ${metric.label}`;
 
   if (!teams.length) {
     els.teams.innerHTML = emptyState("No teams found", "Try another player, club, position, or group filter.");
@@ -458,7 +472,7 @@ function renderTeams() {
       <article class="rank-feature compact">
         <span>Top player value</span>
         <strong>${escapeHTML(mostValuablePlayer?.name || "TBD")}</strong>
-        <em>${escapeHTML(mostValuablePlayer ? `${mostValuablePlayer.team} · ${formatMoney(mostValuablePlayer.valueEur)}` : "-")}</em>
+        <em>${escapeHTML(mostValuablePlayer ? `${mostValuablePlayer.team} - ${formatMoney(mostValuablePlayer.valueEur)}` : "-")}</em>
       </article>
     </div>
     <div class="team-report-grid">
@@ -522,20 +536,15 @@ function podiumCard(team, maxMetricValue) {
 
 function teamReportCard(team, maxMetricValue) {
   const topPlayer = team.topPlayer;
-  const playerRows = team.visiblePlayers
-    .slice()
-    .sort((a, b) => b.valueEur - a.valueEur || a.name.localeCompare(b.name))
-    .map(playerRow)
-    .join("");
+  const playerRows = team.displayPlayers.map(playerRow).join("");
   const topElevenShare = team.marketValueEur ? Math.round(((team.topElevenValueEur || 0) / team.marketValueEur) * 100) : 0;
   const metric = teamMetricConfig();
   const metricValue = teamMetricValue(team);
   const metricWidth = Math.max(6, Math.round((metricValue / maxMetricValue) * 100));
-  const topPlayers = team.players
-    .slice()
-    .sort((a, b) => b.valueEur - a.valueEur || a.name.localeCompare(b.name))
-    .slice(0, 3);
-  const positionRows = positionSummary(team.players);
+  const isExpanded = state.expandedTeams.has(team.name);
+  const previewCount = team.previewPlayers?.length || team.topElevenPlayers.length;
+  const canExpand = team.matchingPlayers.length > previewCount || isExpanded;
+  const listLabel = isExpanded ? "Full squad shown" : team.isPlayerFiltered ? "Filtered top XI shown" : "Top XI shown";
 
   return `
     <article class="team-report-card" style="--team-rank-progress: ${metricWidth}%">
@@ -581,46 +590,26 @@ function teamReportCard(team, maxMetricValue) {
         <div>
           <span>Most valuable player</span>
           <strong>${escapeHTML(topPlayer?.name || "TBD")}</strong>
-          <em>${escapeHTML(topPlayer ? `${topPlayer.position} · ${topPlayer.club}` : "-")}</em>
+          <em>${escapeHTML(topPlayer ? `${topPlayer.position} - ${topPlayer.club}` : "-")}</em>
         </div>
         <strong>${escapeHTML(formatMoney(topPlayer?.valueEur || 0))}</strong>
-      </div>
-
-      <div class="top-three-players" aria-label="${escapeAttribute(team.name)} top players by market value">
-        ${topPlayers
-          .map(
-            (player, index) => `
-              <div>
-                <span>${index + 1}</span>
-                <strong>${escapeHTML(player.name)}</strong>
-                <em>${escapeHTML(`${player.position} · ${formatMoney(player.valueEur)}`)}</em>
-              </div>
-            `
-          )
-          .join("")}
       </div>
 
       <div class="top-eleven-meter" aria-label="Top eleven share of squad market value">
         <span style="width: ${Math.min(100, Math.max(4, topElevenShare))}%"></span>
       </div>
 
-      <div class="position-mix" aria-label="${escapeAttribute(team.name)} squad positions">
-        ${positionRows
-          .map(
-            (row) => `
-              <div>
-                <span>${escapeHTML(row.label)}</span>
-                <strong>${row.count}</strong>
-                <div class="position-track"><span style="width: ${row.percent}%"></span></div>
-              </div>
-            `
-          )
-          .join("")}
-      </div>
-
       <div class="player-list-head">
-        <span>${team.visiblePlayers.length}/${team.playerCount} players shown</span>
-        <strong>${escapeHTML(team.positions.join(" · "))}</strong>
+        <span>${escapeHTML(listLabel)}</span>
+        <strong>Sorted GK -> ST</strong>
+        ${
+          canExpand
+            ? `<button class="squad-toggle" type="button" data-team-toggle="${escapeAttribute(team.name)}" aria-expanded="${isExpanded}">
+                <i data-lucide="${isExpanded ? "chevron-up" : "chevron-down"}" aria-hidden="true"></i>
+                ${isExpanded ? "Show top XI" : "Show all"}
+              </button>`
+            : ""
+        }
       </div>
 
       <div class="player-table-wrap">
@@ -797,7 +786,7 @@ function groupFixture(match) {
         ${miniFlag(match.away)}
         <strong>${escapeHTML(match.away.name)}</strong>
       </span>
-      <span class="fixture-meta">${escapeHTML(formatPrimaryTime(match))} · ${escapeHTML(match.city)}</span>
+      <span class="fixture-meta">${escapeHTML(formatPrimaryTime(match))} - ${escapeHTML(match.city)}</span>
       <span class="fixture-state ${status.className}">${status.label}</span>
     </div>
   `;
@@ -829,7 +818,7 @@ function getVisibleTeams() {
           .join(" ")
           .toLowerCase()
           .includes(query);
-      const visiblePlayers = team.players.filter((player) => {
+      const matchingPlayers = team.players.filter((player) => {
         const positionMatch = state.position === "all" || player.positionGroup === state.position;
         const playerMatchesQuery =
           !query ||
@@ -840,14 +829,61 @@ function getVisibleTeams() {
             .includes(query);
         return positionMatch && playerMatchesQuery;
       });
+      const topElevenPlayers = topElevenByValue(team.players);
+      const isExpanded = state.expandedTeams.has(team.name);
+      const playerFilterActive = state.position !== "all" || (query && !teamMatchesQuery);
+      const previewPlayers = playerFilterActive ? topElevenByValue(matchingPlayers) : topElevenPlayers;
+      const displayPlayers = sortPlayersByPosition(isExpanded ? matchingPlayers : previewPlayers);
 
-      return { ...team, visiblePlayers };
+      return {
+        ...team,
+        matchingPlayers: sortPlayersByPosition(matchingPlayers),
+        topElevenPlayers,
+        previewPlayers,
+        displayPlayers,
+        isPlayerFiltered: playerFilterActive,
+      };
     })
-    .filter((team) => team.visiblePlayers.length || (!query && state.position === "all"))
+    .filter((team) => team.displayPlayers.length || (!query && state.position === "all"))
     .sort((a, b) => {
       return teamMetricValue(b, metric.key) - teamMetricValue(a, metric.key) || b.marketValueEur - a.marketValueEur || a.name.localeCompare(b.name);
     })
     .map((team, index) => ({ ...team, rank: index + 1 }));
+}
+
+function topElevenByValue(players) {
+  return sortPlayersByPosition(
+    players
+      .slice()
+      .sort((a, b) => b.valueEur - a.valueEur || a.name.localeCompare(b.name))
+      .slice(0, 11)
+  );
+}
+
+function sortPlayersByPosition(players) {
+  return players.slice().sort((a, b) => {
+    return positionRank(a) - positionRank(b) || b.valueEur - a.valueEur || a.name.localeCompare(b.name);
+  });
+}
+
+function positionRank(player) {
+  const group = (player.positionGroup || "").toLowerCase();
+  const position = (player.position || "").toLowerCase();
+  if (group === "goalkeeper" || position.includes("goalkeeper")) return 0;
+  if (position.includes("centre-back")) return 100;
+  if (position.includes("left-back")) return 120;
+  if (position.includes("right-back")) return 130;
+  if (group === "defender") return 140;
+  if (position.includes("defensive midfield")) return 200;
+  if (position.includes("central midfield")) return 220;
+  if (position.includes("attacking midfield")) return 240;
+  if (position.includes("midfield")) return 260;
+  if (position.includes("left winger")) return 320;
+  if (position.includes("right winger")) return 330;
+  if (position.includes("second striker")) return 380;
+  if (position.includes("centre-forward") || position.includes("striker")) return 400;
+  if (group === "attack") return 360;
+  return 500;
 }
 
 function teamValue(teamName) {
@@ -869,27 +905,12 @@ function teamMetricValue(team, key = teamMetricConfig().key) {
   return team[key] || 0;
 }
 
-function positionSummary(players) {
-  const labels = ["Goalkeeper", "Defender", "Midfield", "Attack"];
-  const counts = new Map(labels.map((label) => [label, 0]));
-  players.forEach((player) => {
-    const label = counts.has(player.positionGroup) ? player.positionGroup : "Attack";
-    counts.set(label, (counts.get(label) || 0) + 1);
-  });
-  const total = Math.max(players.length, 1);
-  return labels.map((label) => ({
-    label,
-    count: counts.get(label) || 0,
-    percent: Math.round(((counts.get(label) || 0) / total) * 100),
-  }));
-}
-
 function formatMoney(value) {
-  if (!value) return "€0";
-  if (value >= 1_000_000_000) return `€${trimNumber(value / 1_000_000_000)}bn`;
-  if (value >= 1_000_000) return `€${trimNumber(value / 1_000_000)}m`;
-  if (value >= 1_000) return `€${trimNumber(value / 1_000)}k`;
-  return `€${value}`;
+  if (!value) return "\u20ac0";
+  if (value >= 1_000_000_000) return `\u20ac${trimNumber(value / 1_000_000_000)}bn`;
+  if (value >= 1_000_000) return `\u20ac${trimNumber(value / 1_000_000)}m`;
+  if (value >= 1_000) return `\u20ac${trimNumber(value / 1_000)}k`;
+  return `\u20ac${value}`;
 }
 
 function scoreMarkup(match) {
