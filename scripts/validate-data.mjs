@@ -1,6 +1,7 @@
 import fs from "node:fs";
 
 const data = JSON.parse(fs.readFileSync("data/matches.json", "utf8"));
+const teamsData = JSON.parse(fs.readFileSync("data/teams.json", "utf8"));
 
 const errors = [];
 
@@ -31,9 +32,39 @@ for (let id = 1; id <= 104; id += 1) {
   if (!ids.has(id)) errors.push(`Missing match id ${id}`);
 }
 
+if (teamsData.teamCount !== 48) errors.push(`Expected teamCount to be 48, got ${teamsData.teamCount}`);
+if (!Array.isArray(teamsData.teams) || teamsData.teams.length !== 48) {
+  errors.push(`Expected 48 teams, got ${teamsData.teams?.length ?? "missing"}`);
+}
+
+const scheduleTeams = new Set();
+for (const match of data.matches.filter((entry) => entry.group)) {
+  scheduleTeams.add(match.home.name);
+  scheduleTeams.add(match.away.name);
+}
+
+let playerCount = 0;
+for (const team of teamsData.teams ?? []) {
+  if (!scheduleTeams.has(team.name)) errors.push(`Team ${team.name} is not mapped to the group-stage schedule`);
+  if (!team.group) errors.push(`Team ${team.name} has no group`);
+  if (!Number.isFinite(team.marketValueEur)) errors.push(`Team ${team.name} has invalid marketValueEur`);
+  if (!Number.isFinite(team.topElevenValueEur)) errors.push(`Team ${team.name} has invalid topElevenValueEur`);
+  if (!Array.isArray(team.players) || team.players.length === 0) errors.push(`Team ${team.name} has no players`);
+  playerCount += team.players?.length ?? 0;
+  for (const player of team.players ?? []) {
+    if (!player.name) errors.push(`Team ${team.name} has a player without a name`);
+    if (!player.position) errors.push(`Player ${player.name} has no position`);
+    if (!Number.isFinite(player.valueEur)) errors.push(`Player ${player.name} has invalid valueEur`);
+  }
+}
+
+if (playerCount !== teamsData.playerCount) {
+  errors.push(`Expected playerCount ${teamsData.playerCount}, counted ${playerCount}`);
+}
+
 if (errors.length) {
   console.error(errors.join("\n"));
   process.exit(1);
 }
 
-console.log("Validated 104 matches.");
+console.log(`Validated ${data.matches.length} matches, ${teamsData.teams.length} teams, and ${playerCount} players.`);

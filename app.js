@@ -1,12 +1,16 @@
 const state = {
   data: null,
+  teamData: null,
   matches: [],
+  teams: [],
+  teamMap: new Map(),
   tab: "fixtures",
   query: "",
   stage: "all",
   group: "all",
   city: "all",
   status: "all",
+  position: "all",
   timeMode: "user",
 };
 
@@ -26,12 +30,14 @@ function cacheElements() {
     group: document.querySelector("#groupFilter"),
     city: document.querySelector("#cityFilter"),
     status: document.querySelector("#statusFilter"),
+    position: document.querySelector("#positionFilter"),
     reset: document.querySelector("#resetFilters"),
     tabs: document.querySelector("#tabs"),
     viewTitle: document.querySelector("#viewTitle"),
     resultCount: document.querySelector("#resultCount"),
     fixtures: document.querySelector("#fixtures"),
     groups: document.querySelector("#groups"),
+    teams: document.querySelector("#teams"),
     venues: document.querySelector("#venues"),
     results: document.querySelector("#results"),
     lastChecked: document.querySelector("#lastChecked"),
@@ -41,13 +47,21 @@ function cacheElements() {
 
 async function init() {
   try {
-    const response = await fetch("data/matches.json", { cache: "no-store" });
-    if (!response.ok) throw new Error(`Could not load schedule (${response.status})`);
-    state.data = await response.json();
+    const [matchesResponse, teamsResponse] = await Promise.all([
+      fetch("data/matches.json", { cache: "no-store" }),
+      fetch("data/teams.json", { cache: "no-store" }),
+    ]);
+    if (!matchesResponse.ok) throw new Error(`Could not load schedule (${matchesResponse.status})`);
+    if (!teamsResponse.ok) throw new Error(`Could not load team reports (${teamsResponse.status})`);
+
+    state.data = await matchesResponse.json();
+    state.teamData = await teamsResponse.json();
     state.matches = state.data.matches.map((match) => ({
       ...match,
       date: new Date(match.utc),
     }));
+    state.teams = state.teamData.teams || [];
+    state.teamMap = new Map(state.teams.map((team) => [team.name, team]));
 
     hydrateFilters();
     bindEvents();
@@ -72,10 +86,14 @@ function hydrateFilters() {
     "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("")
   );
   const cities = unique(state.matches.map((match) => match.city)).sort((a, b) => a.localeCompare(b));
+  const positions = unique(
+    state.teams.flatMap((team) => team.players.map((player) => player.positionGroup).filter(Boolean))
+  ).sort((a, b) => a.localeCompare(b));
 
   fillSelect(els.stage, [["all", "All stages"], ...stages.map((stage) => [stage, stage])]);
   fillSelect(els.group, [["all", "All groups"], ...groups.map((group) => [group, `Group ${group}`])]);
   fillSelect(els.city, [["all", "All cities"], ...cities.map((city) => [city, city])]);
+  fillSelect(els.position, [["all", "All positions"], ...positions.map((position) => [position, position])]);
 }
 
 function bindEvents() {
@@ -89,6 +107,7 @@ function bindEvents() {
     [els.group, "group"],
     [els.city, "city"],
     [els.status, "status"],
+    [els.position, "position"],
   ].forEach(([element, key]) => {
     element.addEventListener("change", (event) => {
       state[key] = event.target.value;
@@ -102,11 +121,13 @@ function bindEvents() {
     state.group = "all";
     state.city = "all";
     state.status = "all";
+    state.position = "all";
     els.search.value = "";
     els.stage.value = "all";
     els.group.value = "all";
     els.city.value = "all";
     els.status.value = "all";
+    els.position.value = "all";
     renderViews();
   });
 
@@ -156,12 +177,16 @@ function renderViews() {
     fixtures: renderFixtures,
     results: renderResults,
     groups: renderGroups,
+    teams: renderTeams,
     venues: renderVenues,
   };
+
+  document.body.dataset.view = state.tab;
 
   Object.entries({
     fixtures: els.fixtures,
     groups: els.groups,
+    teams: els.teams,
     venues: els.venues,
     results: els.results,
   }).forEach(([key, element]) => {
@@ -175,19 +200,18 @@ function renderViews() {
 
 function renderSummary() {
   const now = new Date();
-  const completed = state.matches.filter(isCompleted);
-  const live = state.matches.filter((match) => match.status === "live");
-  const venues = unique(state.matches.map((match) => match.venue));
+  const totalPlayers = state.teamData?.playerCount || state.teams.reduce((total, team) => total + team.playerCount, 0);
+  const totalValue = state.teamData?.totalMarketValueEur || state.teams.reduce((total, team) => total + team.marketValueEur, 0);
+  const topElevenPeak = Math.max(...state.teams.map((team) => team.topElevenValueEur || 0), 0);
   const next = state.matches
     .filter((match) => !isCompleted(match) && match.date >= now)
     .sort((a, b) => a.date - b.date)[0];
-  const goals = completed.reduce((total, match) => total + match.score.home + match.score.away, 0);
 
   els.stats.innerHTML = [
     statCard("104", "Matches"),
-    statCard(String(venues.length), "Host venues"),
-    statCard(String(completed.length), "Final scores"),
-    statCard(String(goals), "Goals tracked"),
+    statCard(String(state.teams.length || 48), "Team reports"),
+    statCard(String(totalPlayers), "Players tracked"),
+    statCard(formatMoney(totalValue || topElevenPeak), "Squad value"),
   ].join("");
 
   if (!next) {
@@ -279,48 +303,156 @@ function renderResults(matches) {
 
 function renderGroups(matches) {
   const groups = buildStandings(matches);
-  els.resultCount.textContent = `${groups.length} groups`;
+  const groupMatchCount = groups.reduce((total, group) => total + group.matches.length, 0);
+  els.resultCount.textContent = `${groups.length} groups · ${groupMatchCount} group matches`;
+
+  if (!groups.length) {
+    els.groups.innerHTML = emptyState("No groups found", "Try clearing a filter or switching back to the group stage.");
+    return;
+  }
+
   els.groups.innerHTML = `
     <div class="group-grid">
       ${groups
-        .map(({ group, rows }) => {
+        .map(({ group, rows, matches: groupMatches, playedMatches }) => {
+          const progress = Math.round((playedMatches / groupMatches.length) * 100);
+          const nextFixtures = groupMatches
+            .slice()
+            .sort((a, b) => a.date - b.date || a.id - b.id)
+            .slice(0, 6);
+          const groupTeams = rows.map((row) => state.teamMap.get(row.team)).filter(Boolean);
+          const groupMarketValue = groupTeams.reduce((total, team) => total + team.marketValueEur, 0);
+          const groupTopElevenValue = groupTeams.reduce((total, team) => total + (team.topElevenValueEur || 0), 0);
+          const richestTeam = groupTeams.slice().sort((a, b) => b.marketValueEur - a.marketValueEur)[0];
+          const maxTeamValue = Math.max(...groupTeams.map((team) => team.marketValueEur), 1);
+
           return `
-            <article class="group-card">
-              <h3>Group ${escapeHTML(group)}</h3>
-              <table class="standings">
-                <thead>
-                  <tr>
-                    <th>Team</th>
-                    <th>P</th>
-                    <th>W</th>
-                    <th>D</th>
-                    <th>L</th>
-                    <th>GD</th>
-                    <th>Pts</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  ${rows
-                    .map(
-                      (row) => `
-                        <tr>
-                          <td>${escapeHTML(row.team)}</td>
-                          <td>${row.played}</td>
-                          <td>${row.wins}</td>
-                          <td>${row.draws}</td>
-                          <td>${row.losses}</td>
-                          <td>${signed(row.gf - row.ga)}</td>
-                          <td><strong>${row.points}</strong></td>
-                        </tr>
-                      `
-                    )
-                    .join("")}
-                </tbody>
-              </table>
+            <article class="group-card" style="--group-progress: ${progress}%">
+              <div class="group-card-head">
+                <div>
+                  <span class="group-kicker">Group</span>
+                  <h3>${escapeHTML(group)}</h3>
+                </div>
+                <div class="progress-ring" aria-label="${playedMatches} of ${groupMatches.length} matches played">
+                  <strong>${playedMatches}</strong>
+                  <span>of ${groupMatches.length}</span>
+                </div>
+              </div>
+
+              <div class="group-team-strip" aria-label="Group ${escapeAttribute(group)} teams">
+                ${rows
+                  .map(
+                    (row) => `
+                      <span class="team-pill">
+                        ${miniFlag(row)}
+                        <span>${escapeHTML(row.team)}</span>
+                        <strong>${escapeHTML(formatMoney(teamValue(row.team)))}</strong>
+                      </span>
+                    `
+                  )
+                  .join("")}
+              </div>
+
+              <div class="group-market-panel">
+                <div>
+                  <span>Group value</span>
+                  <strong>${escapeHTML(formatMoney(groupMarketValue))}</strong>
+                </div>
+                <div>
+                  <span>Top XI power</span>
+                  <strong>${escapeHTML(formatMoney(groupTopElevenValue))}</strong>
+                </div>
+                <div>
+                  <span>Market leader</span>
+                  <strong>${escapeHTML(richestTeam?.name || "TBD")}</strong>
+                </div>
+              </div>
+
+              <div class="market-bars" aria-label="Group ${escapeAttribute(group)} market values">
+                ${groupTeams
+                  .map(
+                    (team) => `
+                      <div class="market-bar-row">
+                        <span>${escapeHTML(team.name)}</span>
+                        <div class="market-track">
+                          <span style="width: ${Math.max(8, Math.round((team.marketValueEur / maxTeamValue) * 100))}%"></span>
+                        </div>
+                        <strong>${escapeHTML(formatMoney(team.marketValueEur))}</strong>
+                      </div>
+                    `
+                  )
+                  .join("")}
+              </div>
+
+              <div class="standings-wrap">
+                <table class="standings">
+                  <thead>
+                    <tr>
+                      <th>Rank</th>
+                      <th>Team</th>
+                      <th>P</th>
+                      <th>GD</th>
+                      <th>Pts</th>
+                      <th>Path</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    ${rows.map(standingRow).join("")}
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="group-fixtures">
+                <div class="group-fixture-title">
+                  <span>Group fixtures</span>
+                  <strong>${playedMatches}/${groupMatches.length} played</strong>
+                </div>
+                ${nextFixtures.map(groupFixture).join("")}
+              </div>
             </article>
           `;
         })
         .join("")}
+    </div>
+  `;
+}
+
+function renderTeams() {
+  const teams = getVisibleTeams();
+  const visiblePlayers = teams.reduce((total, team) => total + team.visiblePlayers.length, 0);
+  els.resultCount.textContent = `${teams.length} teams · ${visiblePlayers} players`;
+
+  if (!teams.length) {
+    els.teams.innerHTML = emptyState("No teams found", "Try another player, club, position, or group filter.");
+    return;
+  }
+
+  const richest = teams.slice().sort((a, b) => b.marketValueEur - a.marketValueEur)[0];
+  const strongestTopEleven = teams.slice().sort((a, b) => (b.topElevenValueEur || 0) - (a.topElevenValueEur || 0))[0];
+  const mostValuablePlayer = teams
+    .flatMap((team) => team.players.map((player) => ({ ...player, team: team.name })))
+    .sort((a, b) => b.valueEur - a.valueEur)[0];
+
+  els.teams.innerHTML = `
+    <div class="team-report-hero">
+      <article>
+        <span>Most valuable squad</span>
+        <strong>${escapeHTML(richest?.name || "TBD")}</strong>
+        <em>${escapeHTML(formatMoney(richest?.marketValueEur || 0))}</em>
+      </article>
+      <article>
+        <span>Highest top XI</span>
+        <strong>${escapeHTML(strongestTopEleven?.name || "TBD")}</strong>
+        <em>${escapeHTML(formatMoney(strongestTopEleven?.topElevenValueEur || 0))}</em>
+      </article>
+      <article>
+        <span>Top player value</span>
+        <strong>${escapeHTML(mostValuablePlayer?.name || "TBD")}</strong>
+        <em>${escapeHTML(mostValuablePlayer ? `${mostValuablePlayer.team} · ${formatMoney(mostValuablePlayer.valueEur)}` : "-")}</em>
+      </article>
+    </div>
+    <div class="team-report-grid">
+      ${teams.map(teamReportCard).join("")}
     </div>
   `;
 }
@@ -365,6 +497,102 @@ function renderVenues(matches) {
   `;
 }
 
+function teamReportCard(team) {
+  const topPlayer = team.topPlayer;
+  const playerRows = team.visiblePlayers
+    .slice()
+    .sort((a, b) => b.valueEur - a.valueEur || a.name.localeCompare(b.name))
+    .map(playerRow)
+    .join("");
+  const topElevenShare = team.marketValueEur ? Math.round(((team.topElevenValueEur || 0) / team.marketValueEur) * 100) : 0;
+
+  return `
+    <article class="team-report-card">
+      <div class="team-report-head">
+        <div>
+          <span class="group-badge">Group ${escapeHTML(team.group || "-")}</span>
+          <h3>${escapeHTML(team.name)}</h3>
+          <a href="${escapeAttribute(team.squadUrl)}" target="_blank" rel="noreferrer">Transfermarkt squad</a>
+        </div>
+        ${teamFlag(team)}
+      </div>
+
+      <div class="team-value-grid">
+        <div>
+          <span>Squad value</span>
+          <strong>${escapeHTML(formatMoney(team.marketValueEur))}</strong>
+        </div>
+        <div>
+          <span>Top XI</span>
+          <strong>${escapeHTML(formatMoney(team.topElevenValueEur || 0))}</strong>
+        </div>
+        <div>
+          <span>Players</span>
+          <strong>${team.playerCount}</strong>
+        </div>
+        <div>
+          <span>Avg age</span>
+          <strong>${team.averageAge || "-"}</strong>
+        </div>
+      </div>
+
+      <div class="top-player-card">
+        <span class="player-photo">${playerPortrait(topPlayer)}</span>
+        <div>
+          <span>Most valuable player</span>
+          <strong>${escapeHTML(topPlayer?.name || "TBD")}</strong>
+          <em>${escapeHTML(topPlayer ? `${topPlayer.position} · ${topPlayer.club}` : "-")}</em>
+        </div>
+        <strong>${escapeHTML(formatMoney(topPlayer?.valueEur || 0))}</strong>
+      </div>
+
+      <div class="top-eleven-meter" aria-label="Top eleven share of squad market value">
+        <span style="width: ${Math.min(100, Math.max(4, topElevenShare))}%"></span>
+      </div>
+
+      <div class="player-list-head">
+        <span>${team.visiblePlayers.length}/${team.playerCount} players shown</span>
+        <strong>${escapeHTML(team.positions.join(" · "))}</strong>
+      </div>
+
+      <div class="player-table-wrap">
+        <table class="player-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Player</th>
+              <th>Pos</th>
+              <th>Club</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>${playerRows}</tbody>
+        </table>
+      </div>
+    </article>
+  `;
+}
+
+function playerRow(player) {
+  return `
+    <tr>
+      <td>${escapeHTML(player.number || "-")}</td>
+      <td>
+        <a href="${escapeAttribute(player.sourceUrl)}" target="_blank" rel="noreferrer">${escapeHTML(player.name)}</a>
+        <span>${player.age ? `${player.age} yrs` : ""}</span>
+      </td>
+      <td>${escapeHTML(player.position)}</td>
+      <td>
+        <span class="club-cell">
+          ${clubLogo(player)}
+          ${escapeHTML(player.club || "-")}
+        </span>
+      </td>
+      <td><strong>${escapeHTML(formatMoney(player.valueEur))}</strong></td>
+    </tr>
+  `;
+}
+
 function matchCard(match) {
   const status = statusInfo(match);
   const score = isCompleted(match) || match.score ? scoreMarkup(match) : `<span class="score-label">${formatPrimaryTime(match)}</span>`;
@@ -402,6 +630,124 @@ function team(side) {
   `;
 }
 
+function teamFlag(team) {
+  if (!team?.flag) return `<span class="team-report-flag placeholder">${escapeHTML(initials(team?.name || "TBD"))}</span>`;
+  return `<span class="team-report-flag"><img src="${escapeAttribute(team.flag)}" alt="" loading="lazy"></span>`;
+}
+
+function playerPortrait(player) {
+  if (!player?.portrait || player.portrait.startsWith("data:image")) {
+    return escapeHTML(initials(player?.name || "TBD"));
+  }
+  return `<img src="${escapeAttribute(player.portrait)}" alt="" loading="lazy">`;
+}
+
+function clubLogo(player) {
+  if (!player.clubLogo) return "";
+  return `<img src="${escapeAttribute(player.clubLogo)}" alt="" loading="lazy">`;
+}
+
+function miniFlag(side) {
+  const hasFlag = side.flag && side.flag.startsWith("https://");
+  const flag = hasFlag
+    ? `<img src="${escapeAttribute(side.flag)}" alt="" loading="lazy">`
+    : `<span>${escapeHTML(initials(side.team || side.name))}</span>`;
+  return `<span class="mini-flag ${hasFlag ? "" : "placeholder"}">${flag}</span>`;
+}
+
+function standingRow(row, index) {
+  const rank = index + 1;
+  const path = groupPathLabel(rank);
+  return `
+    <tr class="${rank <= 2 ? "qualify-row" : rank === 3 ? "third-row" : ""}">
+      <td><span class="rank-badge">${rank}</span></td>
+      <td>
+        <span class="standing-team">
+          ${miniFlag(row)}
+          <span>${escapeHTML(row.team)}</span>
+        </span>
+      </td>
+      <td>${row.played}</td>
+      <td>${signed(row.gf - row.ga)}</td>
+      <td><strong>${row.points}</strong></td>
+      <td><span class="path-chip ${path.className}">${path.label}</span></td>
+    </tr>
+  `;
+}
+
+function groupFixture(match) {
+  const status = statusInfo(match);
+  return `
+    <div class="fixture-strip">
+      <span class="fixture-match">M${match.id}</span>
+      <span class="fixture-teams">
+        ${miniFlag(match.home)}
+        <strong>${escapeHTML(match.home.name)}</strong>
+        <span>v</span>
+        ${miniFlag(match.away)}
+        <strong>${escapeHTML(match.away.name)}</strong>
+      </span>
+      <span class="fixture-meta">${escapeHTML(formatPrimaryTime(match))} · ${escapeHTML(match.city)}</span>
+      <span class="fixture-state ${status.className}">${status.label}</span>
+    </div>
+  `;
+}
+
+function groupPathLabel(rank) {
+  if (rank <= 2) return { label: "R32 slot", className: "direct" };
+  if (rank === 3) return { label: "Best 3rd", className: "third" };
+  return { label: "Chase", className: "chase" };
+}
+
+function getVisibleTeams() {
+  const query = state.query;
+
+  return state.teams
+    .filter((team) => state.group === "all" || team.group === state.group)
+    .map((team) => {
+      const teamMatchesQuery =
+        !query ||
+        [
+          team.name,
+          team.transfermarktName,
+          `Group ${team.group}`,
+          team.marketValue,
+          team.topPlayer?.name,
+          team.topPlayer?.club,
+        ]
+          .join(" ")
+          .toLowerCase()
+          .includes(query);
+      const visiblePlayers = team.players.filter((player) => {
+        const positionMatch = state.position === "all" || player.positionGroup === state.position;
+        const playerMatchesQuery =
+          !query ||
+          teamMatchesQuery ||
+          [player.name, player.position, player.positionGroup, player.club, player.value]
+            .join(" ")
+            .toLowerCase()
+            .includes(query);
+        return positionMatch && playerMatchesQuery;
+      });
+
+      return { ...team, visiblePlayers };
+    })
+    .filter((team) => team.visiblePlayers.length || (!query && state.position === "all"))
+    .sort((a, b) => b.marketValueEur - a.marketValueEur || a.name.localeCompare(b.name));
+}
+
+function teamValue(teamName) {
+  return state.teamMap.get(teamName)?.marketValueEur || 0;
+}
+
+function formatMoney(value) {
+  if (!value) return "€0";
+  if (value >= 1_000_000_000) return `€${trimNumber(value / 1_000_000_000)}bn`;
+  if (value >= 1_000_000) return `€${trimNumber(value / 1_000_000)}m`;
+  if (value >= 1_000) return `€${trimNumber(value / 1_000)}k`;
+  return `€${value}`;
+}
+
 function scoreMarkup(match) {
   if (!match.score) return `<span class="score-label">${formatPrimaryTime(match)}</span>`;
   return `
@@ -414,7 +760,10 @@ function scoreMarkup(match) {
 }
 
 function buildStandings(filteredMatches) {
-  const visibleGroups = new Set(filteredMatches.map((match) => match.group).filter(Boolean));
+  const groupMatchesInFilter = filteredMatches.filter((match) => match.group);
+  if (filteredMatches.length && !groupMatchesInFilter.length) return [];
+
+  const visibleGroups = new Set(groupMatchesInFilter.map((match) => match.group));
   const allGroupMatches = state.matches.filter((match) => match.group && (visibleGroups.size ? visibleGroups.has(match.group) : true));
   const grouped = groupBy(allGroupMatches, (match) => match.group);
 
@@ -422,11 +771,14 @@ function buildStandings(filteredMatches) {
     .sort(([a], [b]) => a.localeCompare(b))
     .map(([group, matches]) => {
       const table = new Map();
+      let order = 0;
       matches.forEach((match) => {
-        [match.home.name, match.away.name].forEach((teamName) => {
-          if (!table.has(teamName)) {
-            table.set(teamName, {
-              team: teamName,
+        [match.home, match.away].forEach((side) => {
+          if (!table.has(side.name)) {
+            table.set(side.name, {
+              team: side.name,
+              flag: side.flag,
+              order,
               played: 0,
               wins: 0,
               draws: 0,
@@ -435,6 +787,7 @@ function buildStandings(filteredMatches) {
               ga: 0,
               points: 0,
             });
+            order += 1;
           }
         });
 
@@ -469,11 +822,16 @@ function buildStandings(filteredMatches) {
           b.points - a.points ||
           b.gf - b.ga - (a.gf - a.ga) ||
           b.gf - a.gf ||
-          a.team.localeCompare(b.team)
+          a.order - b.order
         );
       });
 
-      return { group, rows };
+      return {
+        group,
+        rows,
+        matches,
+        playedMatches: matches.filter(isCompleted).length,
+      };
     });
 }
 
@@ -565,6 +923,7 @@ function titleForTab(tab) {
     fixtures: "Fixtures",
     results: "Results",
     groups: "Groups",
+    teams: "Teams",
     venues: "Venues",
   }[tab];
 }
@@ -615,6 +974,10 @@ function initials(name) {
 
 function signed(number) {
   return number > 0 ? `+${number}` : String(number);
+}
+
+function trimNumber(number) {
+  return number >= 100 ? number.toFixed(0) : number >= 10 ? number.toFixed(1).replace(/\.0$/, "") : number.toFixed(2).replace(/\.00$/, "");
 }
 
 function plural(count, singular, pluralValue) {

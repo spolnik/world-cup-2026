@@ -25,6 +25,17 @@ Fixtures live in `data/matches.json`. To add a result, set the match to final an
 
 For live matches, use `"status": "live"` and include the current score.
 
+## Refresh Team Values
+
+Team reports live in `data/teams.json` and are generated from Transfermarkt:
+
+```powershell
+node scripts/import-transfermarkt.mjs
+node scripts/validate-data.mjs
+```
+
+The import includes squad value, average value, top-11 value, player list, positions, clubs, and player market values. Treat it as a Transfermarkt snapshot, not FIFA's official squad registry.
+
 ## GitHub Pages
 
 This repo includes `.github/workflows/pages.yml`. In GitHub, go to `Settings > Pages` and set the source to `GitHub Actions`. Pushing to `main` will deploy the static site.
@@ -35,3 +46,4 @@ The site can also be hosted from the repository root using the classic branch-ba
 
 - FIFA updated match schedule PDF: <https://digitalhub.fifa.com/asset/4b5d4417-3343-4732-9cdf-14b6662af407/FWC26-Match-Schedule_English.pdf>
 - WorldCuply structured fixture list: <https://worldcuply.com/schedule.html>
+- Transfermarkt World Cup participants and squad market values: <https://www.transfermarkt.us/world-cup/teilnehmer/pokalwettbewerb/FIWC>

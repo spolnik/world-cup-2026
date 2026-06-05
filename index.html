@@ -27,6 +27,7 @@
         <a href="#fixtures" data-nav-tab="fixtures">Fixtures</a>
         <a href="#results" data-nav-tab="results">Results</a>
         <a href="#groups" data-nav-tab="groups">Groups</a>
+        <a href="#teams" data-nav-tab="teams">Teams</a>
         <a href="#venues" data-nav-tab="venues">Venues</a>
         <a href="data/matches.json">Data</a>
       </nav>
@@ -52,28 +53,34 @@
       <section class="control-band" aria-label="Match filters">
         <div class="search-field">
           <i data-lucide="search" aria-hidden="true"></i>
-          <input id="searchInput" type="search" autocomplete="off" placeholder="Search team, city, venue, match number">
+          <input id="searchInput" type="search" autocomplete="off" placeholder="Search team, player, club, city, venue">
         </div>
 
-        <label>
+        <label class="filter-stage">
           <span>Stage</span>
           <select id="stageFilter"></select>
         </label>
-        <label>
+        <label class="filter-group">
           <span>Group</span>
           <select id="groupFilter"></select>
         </label>
-        <label>
+        <label class="filter-city">
           <span>City</span>
           <select id="cityFilter"></select>
         </label>
-        <label>
+        <label class="filter-status">
           <span>Status</span>
           <select id="statusFilter">
             <option value="all">All statuses</option>
             <option value="scheduled">Scheduled</option>
             <option value="live">Live</option>
             <option value="final">Final</option>
+          </select>
+        </label>
+        <label class="filter-position">
+          <span>Players</span>
+          <select id="positionFilter">
+            <option value="all">All positions</option>
           </select>
         </label>
 
@@ -95,6 +102,10 @@
           <button class="tab" type="button" data-tab="groups">
             <i data-lucide="table-2" aria-hidden="true"></i>
             Groups
+          </button>
+          <button class="tab" type="button" data-tab="teams">
+            <i data-lucide="users-round" aria-hidden="true"></i>
+            Teams
           </button>
           <button class="tab" type="button" data-tab="venues">
             <i data-lucide="map" aria-hidden="true"></i>
@@ -118,6 +129,7 @@
 
       <section id="fixtures" class="content-view" aria-label="Fixtures"></section>
       <section id="groups" class="content-view" aria-label="Groups" hidden></section>
+      <section id="teams" class="content-view" aria-label="Teams" hidden></section>
       <section id="venues" class="content-view" aria-label="Venues" hidden></section>
       <section id="results" class="content-view" aria-label="Results" hidden></section>
     </main>
