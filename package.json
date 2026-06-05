@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "build": "npm run build:css",
     "build:css": "tailwindcss -i ./src/styles.css -o ./styles.css",
     "watch:css": "tailwindcss -i ./src/styles.css -o ./styles.css --watch"
   },

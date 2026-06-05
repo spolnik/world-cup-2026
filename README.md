@@ -47,7 +47,9 @@ The import includes squad value, average value, top-11 value, player list, posit
 
 This repo includes `.github/workflows/pages.yml`. In GitHub, go to `Settings > Pages` and set the source to `GitHub Actions`. Pushing to `main` will deploy the static site.
 
-The generated `styles.css` is committed, so GitHub Pages can still host the repository root as a static site. When editing Tailwind styles, change `src/styles.css` and run `npm run build:css` before committing.
+The workflow installs dependencies, builds Tailwind CSS, validates the JavaScript and data, prepares a clean `dist` artifact, and publishes that artifact to GitHub Pages. The generated `styles.css` is still committed so the site can also be served locally from the repository root.
+
+When editing Tailwind styles, change `src/styles.css` and run `npm run build` before committing.
 
 ## Data Sources
 

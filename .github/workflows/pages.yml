@@ -25,13 +25,36 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build site assets
+        run: npm run build
+
+      - name: Validate app data
+        run: |
+          node --check app.js
+          node scripts/validate-data.mjs
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
+
+      - name: Prepare static artifact
+        run: |
+          mkdir -p dist
+          cp index.html app.js styles.css .nojekyll dist/
+          cp -R data dist/data
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: dist
 
       - name: Deploy
         id: deployment
