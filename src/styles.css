@@ -1,110 +1,5 @@
-*, ::before, ::after {
-  --tw-border-spacing-x: 0;
-  --tw-border-spacing-y: 0;
-  --tw-translate-x: 0;
-  --tw-translate-y: 0;
-  --tw-rotate: 0;
-  --tw-skew-x: 0;
-  --tw-skew-y: 0;
-  --tw-scale-x: 1;
-  --tw-scale-y: 1;
-  --tw-pan-x:  ;
-  --tw-pan-y:  ;
-  --tw-pinch-zoom:  ;
-  --tw-scroll-snap-strictness: proximity;
-  --tw-gradient-from-position:  ;
-  --tw-gradient-via-position:  ;
-  --tw-gradient-to-position:  ;
-  --tw-ordinal:  ;
-  --tw-slashed-zero:  ;
-  --tw-numeric-figure:  ;
-  --tw-numeric-spacing:  ;
-  --tw-numeric-fraction:  ;
-  --tw-ring-inset:  ;
-  --tw-ring-offset-width: 0px;
-  --tw-ring-offset-color: #fff;
-  --tw-ring-color: rgb(59 130 246 / 0.5);
-  --tw-ring-offset-shadow: 0 0 #0000;
-  --tw-ring-shadow: 0 0 #0000;
-  --tw-shadow: 0 0 #0000;
-  --tw-shadow-colored: 0 0 #0000;
-  --tw-blur:  ;
-  --tw-brightness:  ;
-  --tw-contrast:  ;
-  --tw-grayscale:  ;
-  --tw-hue-rotate:  ;
-  --tw-invert:  ;
-  --tw-saturate:  ;
-  --tw-sepia:  ;
-  --tw-drop-shadow:  ;
-  --tw-backdrop-blur:  ;
-  --tw-backdrop-brightness:  ;
-  --tw-backdrop-contrast:  ;
-  --tw-backdrop-grayscale:  ;
-  --tw-backdrop-hue-rotate:  ;
-  --tw-backdrop-invert:  ;
-  --tw-backdrop-opacity:  ;
-  --tw-backdrop-saturate:  ;
-  --tw-backdrop-sepia:  ;
-  --tw-contain-size:  ;
-  --tw-contain-layout:  ;
-  --tw-contain-paint:  ;
-  --tw-contain-style:  ;
-}
-
-::backdrop {
-  --tw-border-spacing-x: 0;
-  --tw-border-spacing-y: 0;
-  --tw-translate-x: 0;
-  --tw-translate-y: 0;
-  --tw-rotate: 0;
-  --tw-skew-x: 0;
-  --tw-skew-y: 0;
-  --tw-scale-x: 1;
-  --tw-scale-y: 1;
-  --tw-pan-x:  ;
-  --tw-pan-y:  ;
-  --tw-pinch-zoom:  ;
-  --tw-scroll-snap-strictness: proximity;
-  --tw-gradient-from-position:  ;
-  --tw-gradient-via-position:  ;
-  --tw-gradient-to-position:  ;
-  --tw-ordinal:  ;
-  --tw-slashed-zero:  ;
-  --tw-numeric-figure:  ;
-  --tw-numeric-spacing:  ;
-  --tw-numeric-fraction:  ;
-  --tw-ring-inset:  ;
-  --tw-ring-offset-width: 0px;
-  --tw-ring-offset-color: #fff;
-  --tw-ring-color: rgb(59 130 246 / 0.5);
-  --tw-ring-offset-shadow: 0 0 #0000;
-  --tw-ring-shadow: 0 0 #0000;
-  --tw-shadow: 0 0 #0000;
-  --tw-shadow-colored: 0 0 #0000;
-  --tw-blur:  ;
-  --tw-brightness:  ;
-  --tw-contrast:  ;
-  --tw-grayscale:  ;
-  --tw-hue-rotate:  ;
-  --tw-invert:  ;
-  --tw-saturate:  ;
-  --tw-sepia:  ;
-  --tw-drop-shadow:  ;
-  --tw-backdrop-blur:  ;
-  --tw-backdrop-brightness:  ;
-  --tw-backdrop-contrast:  ;
-  --tw-backdrop-grayscale:  ;
-  --tw-backdrop-hue-rotate:  ;
-  --tw-backdrop-invert:  ;
-  --tw-backdrop-opacity:  ;
-  --tw-backdrop-saturate:  ;
-  --tw-backdrop-sepia:  ;
-  --tw-contain-size:  ;
-  --tw-contain-layout:  ;
-  --tw-contain-paint:  ;
-  --tw-contain-style:  ;
-}
+@tailwind base;
+@tailwind components;
 
 :root {
   color-scheme: light;
@@ -210,8 +105,7 @@ a:focus-visible {
     rgba(247, 244, 236, 0.78);
   border-bottom: 1px solid rgba(222, 216, 201, 0.72);
   box-shadow: 0 8px 28px rgba(20, 33, 30, 0.08);
-  -webkit-backdrop-filter: blur(18px) saturate(1.18);
-          backdrop-filter: blur(18px) saturate(1.18);
+  backdrop-filter: blur(18px) saturate(1.18);
 }
 
 .brand,
@@ -344,12 +238,7 @@ h1 {
 .venue-card,
 .rank-feature,
 .podium-card {
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 300ms;
-  transition-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+  @apply transition duration-300 ease-stadium;
   isolation: isolate;
   position: relative;
   overflow: hidden;
@@ -466,7 +355,6 @@ h1 {
 .countdown {
   display: inline-flex;
   align-items: center;
-  width: -moz-fit-content;
   width: fit-content;
   min-height: 30px;
   padding: 4px 10px;
@@ -528,8 +416,7 @@ h1 {
     linear-gradient(145deg, rgba(255, 253, 247, 0.2), rgba(255, 253, 247, 0.04)),
     rgba(8, 61, 45, 0.22);
   box-shadow: 0 22px 58px rgba(8, 61, 45, 0.12);
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 }
 
 .control-band label,
@@ -770,7 +657,6 @@ select {
 .stage-chip {
   display: inline-flex;
   align-items: center;
-  width: -moz-fit-content;
   width: fit-content;
   min-height: 27px;
   padding: 4px 9px;
@@ -842,8 +728,7 @@ select {
 .flag-box img {
   width: 46px;
   height: 34px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .flag-box.placeholder {
@@ -1071,8 +956,7 @@ select {
 .mini-flag img {
   width: 28px;
   height: 20px;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 
 .standings-wrap {
@@ -1543,7 +1427,6 @@ select {
   display: inline-flex;
   min-height: 26px;
   align-items: center;
-  width: -moz-fit-content;
   width: fit-content;
   padding: 4px 9px;
   border-radius: 999px;
@@ -1557,7 +1440,6 @@ select {
   display: inline-flex;
   min-height: 30px;
   align-items: center;
-  width: -moz-fit-content;
   width: fit-content;
   padding: 5px 10px;
   border-radius: 999px;
@@ -1588,8 +1470,7 @@ select {
 .team-report-flag img {
   width: 100%;
   height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 
 .team-value-grid {
@@ -1667,8 +1548,7 @@ select {
 .player-photo img {
   width: 58px;
   height: 58px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .top-player-card strong {
@@ -1794,8 +1674,7 @@ select {
 .club-cell img {
   width: 22px;
   height: 22px;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 
 .venue-card {
@@ -1893,7 +1772,6 @@ select {
   from {
     background-position: -260px 0;
   }
-
   to {
     background-position: 260px 0;
   }
@@ -1904,7 +1782,6 @@ select {
     opacity: 0.55;
     transform: translateX(-1.5%);
   }
-
   to {
     opacity: 0.88;
     transform: translateX(1.5%);
@@ -1918,7 +1795,6 @@ select {
       inset 0 0 0 1px rgba(255, 255, 255, 0.2),
       0 0 0 rgba(147, 189, 60, 0);
   }
-
   50% {
     box-shadow:
       inset 0 0 0 1px rgba(255, 255, 255, 0.26),
@@ -2213,75 +2089,4 @@ select {
   }
 }
 
-.visible {
-  visibility: visible;
-}
-
-.static {
-  position: static;
-}
-
-.block {
-  display: block;
-}
-
-.\!table {
-  display: table !important;
-}
-
-.table {
-  display: table;
-}
-
-.hidden {
-  display: none;
-}
-
-.min-h-screen {
-  min-height: 100vh;
-}
-
-.antialiased {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.filter {
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
-}
-
-.selection\:bg-gold\/30 *::-moz-selection {
-  background-color: rgb(214 167 43 / 0.3);
-}
-
-.selection\:bg-gold\/30 *::selection {
-  background-color: rgb(214 167 43 / 0.3);
-}
-
-.selection\:text-ink *::-moz-selection {
-  --tw-text-opacity: 1;
-  color: rgb(20 33 30 / var(--tw-text-opacity, 1));
-}
-
-.selection\:text-ink *::selection {
-  --tw-text-opacity: 1;
-  color: rgb(20 33 30 / var(--tw-text-opacity, 1));
-}
-
-.selection\:bg-gold\/30::-moz-selection {
-  background-color: rgb(214 167 43 / 0.3);
-}
-
-.selection\:bg-gold\/30::selection {
-  background-color: rgb(214 167 43 / 0.3);
-}
-
-.selection\:text-ink::-moz-selection {
-  --tw-text-opacity: 1;
-  color: rgb(20 33 30 / var(--tw-text-opacity, 1));
-}
-
-.selection\:text-ink::selection {
-  --tw-text-opacity: 1;
-  color: rgb(20 33 30 / var(--tw-text-opacity, 1));
-}
+@tailwind utilities;

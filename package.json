@@ -1,0 +1,12 @@
+{
+  "name": "world-cup-2026-match-centre",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/styles.css -o ./styles.css",
+    "watch:css": "tailwindcss -i ./src/styles.css -o ./styles.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}

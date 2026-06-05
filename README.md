@@ -4,7 +4,14 @@ A static GitHub Pages site for browsing every FIFA World Cup 2026 match, group, 
 
 ## Run Locally
 
-No build step is required. Serve the repository root so `fetch("data/matches.json")` works:
+Install dependencies once, then build the Tailwind stylesheet:
+
+```powershell
+npm install
+npm run build:css
+```
+
+Serve the repository root so `fetch("data/matches.json")` works:
 
 ```powershell
 python -m http.server 4173
@@ -40,7 +47,7 @@ The import includes squad value, average value, top-11 value, player list, posit
 
 This repo includes `.github/workflows/pages.yml`. In GitHub, go to `Settings > Pages` and set the source to `GitHub Actions`. Pushing to `main` will deploy the static site.
 
-The site can also be hosted from the repository root using the classic branch-based Pages setting because there is no build output directory.
+The generated `styles.css` is committed, so GitHub Pages can still host the repository root as a static site. When editing Tailwind styles, change `src/styles.css` and run `npm run build:css` before committing.
 
 ## Data Sources
 
