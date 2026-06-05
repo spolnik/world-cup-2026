@@ -1,0 +1,2098 @@
+{
+  "tournament": "FIFA World Cup 2026",
+  "lastChecked": "2026-06-05",
+  "matchCount": 104,
+  "note": "Scores are null before kickoff. Update status to live or final and add score { home, away } as results arrive.",
+  "sources": [
+    {
+      "name": "FIFA updated match schedule PDF",
+      "url": "https://digitalhub.fifa.com/asset/4b5d4417-3343-4732-9cdf-14b6662af407/FWC26-Match-Schedule_English.pdf"
+    },
+    {
+      "name": "WorldCuply structured fixture list",
+      "url": "https://worldcuply.com/schedule.html"
+    }
+  ],
+  "matches": [
+    {
+      "id": 1,
+      "stage": "Group Stage",
+      "group": "A",
+      "matchday": "Thursday 11 June 2026",
+      "utc": "2026-06-11T19:00:00+00:00",
+      "local": "11 Jun 13:00",
+      "venue": "Estadio Azteca, Mexico City",
+      "city": "Mexico City",
+      "home": {
+        "name": "Mexico",
+        "flag": "https://flagcdn.com/w40/mx.png"
+      },
+      "away": {
+        "name": "South Africa",
+        "flag": "https://flagcdn.com/w40/za.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 2,
+      "stage": "Group Stage",
+      "group": "A",
+      "matchday": "Thursday 11 June 2026",
+      "utc": "2026-06-12T02:00:00+00:00",
+      "local": "11 Jun 20:00",
+      "venue": "Estadio Akron, Guadalajara",
+      "city": "Guadalajara",
+      "home": {
+        "name": "South Korea",
+        "flag": "https://flagcdn.com/w40/kr.png"
+      },
+      "away": {
+        "name": "Czech Republic",
+        "flag": "https://flagcdn.com/w40/cz.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 3,
+      "stage": "Group Stage",
+      "group": "B",
+      "matchday": "Friday 12 June 2026",
+      "utc": "2026-06-12T19:00:00+00:00",
+      "local": "12 Jun 15:00",
+      "venue": "BMO Field, Toronto",
+      "city": "Toronto",
+      "home": {
+        "name": "Canada",
+        "flag": "https://flagcdn.com/w40/ca.png"
+      },
+      "away": {
+        "name": "Bosnia and Herzegovina",
+        "flag": "https://flagcdn.com/w40/ba.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 4,
+      "stage": "Group Stage",
+      "group": "D",
+      "matchday": "Friday 12 June 2026",
+      "utc": "2026-06-13T01:00:00+00:00",
+      "local": "12 Jun 18:00",
+      "venue": "SoFi Stadium, Los Angeles",
+      "city": "Los Angeles",
+      "home": {
+        "name": "United States",
+        "flag": "https://flagcdn.com/w40/us.png"
+      },
+      "away": {
+        "name": "Paraguay",
+        "flag": "https://flagcdn.com/w40/py.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 5,
+      "stage": "Group Stage",
+      "group": "C",
+      "matchday": "Saturday 13 June 2026",
+      "utc": "2026-06-14T01:00:00+00:00",
+      "local": "13 Jun 21:00",
+      "venue": "Gillette Stadium, Boston",
+      "city": "Boston",
+      "home": {
+        "name": "Haiti",
+        "flag": "https://flagcdn.com/w40/ht.png"
+      },
+      "away": {
+        "name": "Scotland",
+        "flag": "https://flagcdn.com/w40/gb-sct.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 6,
+      "stage": "Group Stage",
+      "group": "D",
+      "matchday": "Saturday 13 June 2026",
+      "utc": "2026-06-14T04:00:00+00:00",
+      "local": "13 Jun 21:00",
+      "venue": "BC Place, Vancouver",
+      "city": "Vancouver",
+      "home": {
+        "name": "Australia",
+        "flag": "https://flagcdn.com/w40/au.png"
+      },
+      "away": {
+        "name": "Turkey",
+        "flag": "https://flagcdn.com/w40/tr.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 7,
+      "stage": "Group Stage",
+      "group": "C",
+      "matchday": "Saturday 13 June 2026",
+      "utc": "2026-06-13T22:00:00+00:00",
+      "local": "13 Jun 18:00",
+      "venue": "MetLife Stadium, New York / New Jersey",
+      "city": "New York / New Jersey",
+      "home": {
+        "name": "Brazil",
+        "flag": "https://flagcdn.com/w40/br.png"
+      },
+      "away": {
+        "name": "Morocco",
+        "flag": "https://flagcdn.com/w40/ma.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 8,
+      "stage": "Group Stage",
+      "group": "B",
+      "matchday": "Saturday 13 June 2026",
+      "utc": "2026-06-13T19:00:00+00:00",
+      "local": "13 Jun 12:00",
+      "venue": "Levi's Stadium, San Francisco Bay Area",
+      "city": "San Francisco Bay Area",
+      "home": {
+        "name": "Qatar",
+        "flag": "https://flagcdn.com/w40/qa.png"
+      },
+      "away": {
+        "name": "Switzerland",
+        "flag": "https://flagcdn.com/w40/ch.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 9,
+      "stage": "Group Stage",
+      "group": "E",
+      "matchday": "Sunday 14 June 2026",
+      "utc": "2026-06-14T23:00:00+00:00",
+      "local": "14 Jun 19:00",
+      "venue": "Lincoln Financial Field, Philadelphia",
+      "city": "Philadelphia",
+      "home": {
+        "name": "Ivory Coast",
+        "flag": "https://flagcdn.com/w40/ci.png"
+      },
+      "away": {
+        "name": "Ecuador",
+        "flag": "https://flagcdn.com/w40/ec.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 10,
+      "stage": "Group Stage",
+      "group": "E",
+      "matchday": "Sunday 14 June 2026",
+      "utc": "2026-06-14T17:00:00+00:00",
+      "local": "14 Jun 12:00",
+      "venue": "NRG Stadium, Houston",
+      "city": "Houston",
+      "home": {
+        "name": "Germany",
+        "flag": "https://flagcdn.com/w40/de.png"
+      },
+      "away": {
+        "name": "Curaçao",
+        "flag": "https://flagcdn.com/w40/cw.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 11,
+      "stage": "Group Stage",
+      "group": "F",
+      "matchday": "Sunday 14 June 2026",
+      "utc": "2026-06-14T20:00:00+00:00",
+      "local": "14 Jun 15:00",
+      "venue": "AT&T Stadium, Dallas",
+      "city": "Dallas",
+      "home": {
+        "name": "Netherlands",
+        "flag": "https://flagcdn.com/w40/nl.png"
+      },
+      "away": {
+        "name": "Japan",
+        "flag": "https://flagcdn.com/w40/jp.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 12,
+      "stage": "Group Stage",
+      "group": "F",
+      "matchday": "Sunday 14 June 2026",
+      "utc": "2026-06-15T02:00:00+00:00",
+      "local": "14 Jun 20:00",
+      "venue": "Estadio BBVA, Monterrey",
+      "city": "Monterrey",
+      "home": {
+        "name": "Sweden",
+        "flag": "https://flagcdn.com/w40/se.png"
+      },
+      "away": {
+        "name": "Tunisia",
+        "flag": "https://flagcdn.com/w40/tn.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 13,
+      "stage": "Group Stage",
+      "group": "H",
+      "matchday": "Monday 15 June 2026",
+      "utc": "2026-06-15T22:00:00+00:00",
+      "local": "15 Jun 18:00",
+      "venue": "Hard Rock Stadium, Miami",
+      "city": "Miami",
+      "home": {
+        "name": "Saudi Arabia",
+        "flag": "https://flagcdn.com/w40/sa.png"
+      },
+      "away": {
+        "name": "Uruguay",
+        "flag": "https://flagcdn.com/w40/uy.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 14,
+      "stage": "Group Stage",
+      "group": "H",
+      "matchday": "Monday 15 June 2026",
+      "utc": "2026-06-15T16:00:00+00:00",
+      "local": "15 Jun 12:00",
+      "venue": "Mercedes-Benz Stadium, Atlanta",
+      "city": "Atlanta",
+      "home": {
+        "name": "Spain",
+        "flag": "https://flagcdn.com/w40/es.png"
+      },
+      "away": {
+        "name": "Cape Verde",
+        "flag": "https://flagcdn.com/w40/cv.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 15,
+      "stage": "Group Stage",
+      "group": "G",
+      "matchday": "Monday 15 June 2026",
+      "utc": "2026-06-16T01:00:00+00:00",
+      "local": "15 Jun 18:00",
+      "venue": "SoFi Stadium, Los Angeles",
+      "city": "Los Angeles",
+      "home": {
+        "name": "Iran",
+        "flag": "https://flagcdn.com/w40/ir.png"
+      },
+      "away": {
+        "name": "New Zealand",
+        "flag": "https://flagcdn.com/w40/nz.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 16,
+      "stage": "Group Stage",
+      "group": "G",
+      "matchday": "Monday 15 June 2026",
+      "utc": "2026-06-15T19:00:00+00:00",
+      "local": "15 Jun 12:00",
+      "venue": "Lumen Field, Seattle",
+      "city": "Seattle",
+      "home": {
+        "name": "Belgium",
+        "flag": "https://flagcdn.com/w40/be.png"
+      },
+      "away": {
+        "name": "Egypt",
+        "flag": "https://flagcdn.com/w40/eg.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 17,
+      "stage": "Group Stage",
+      "group": "I",
+      "matchday": "Tuesday 16 June 2026",
+      "utc": "2026-06-16T19:00:00+00:00",
+      "local": "16 Jun 15:00",
+      "venue": "MetLife Stadium, New York / New Jersey",
+      "city": "New York / New Jersey",
+      "home": {
+        "name": "France",
+        "flag": "https://flagcdn.com/w40/fr.png"
+      },
+      "away": {
+        "name": "Senegal",
+        "flag": "https://flagcdn.com/w40/sn.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 18,
+      "stage": "Group Stage",
+      "group": "I",
+      "matchday": "Tuesday 16 June 2026",
+      "utc": "2026-06-16T22:00:00+00:00",
+      "local": "16 Jun 18:00",
+      "venue": "Gillette Stadium, Boston",
+      "city": "Boston",
+      "home": {
+        "name": "Iraq",
+        "flag": "https://flagcdn.com/w40/iq.png"
+      },
+      "away": {
+        "name": "Norway",
+        "flag": "https://flagcdn.com/w40/no.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 19,
+      "stage": "Group Stage",
+      "group": "J",
+      "matchday": "Tuesday 16 June 2026",
+      "utc": "2026-06-17T01:00:00+00:00",
+      "local": "16 Jun 20:00",
+      "venue": "Arrowhead Stadium, Kansas City",
+      "city": "Kansas City",
+      "home": {
+        "name": "Argentina",
+        "flag": "https://flagcdn.com/w40/ar.png"
+      },
+      "away": {
+        "name": "Algeria",
+        "flag": "https://flagcdn.com/w40/dz.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 20,
+      "stage": "Group Stage",
+      "group": "J",
+      "matchday": "Tuesday 16 June 2026",
+      "utc": "2026-06-17T04:00:00+00:00",
+      "local": "16 Jun 21:00",
+      "venue": "Levi's Stadium, San Francisco Bay Area",
+      "city": "San Francisco Bay Area",
+      "home": {
+        "name": "Austria",
+        "flag": "https://flagcdn.com/w40/at.png"
+      },
+      "away": {
+        "name": "Jordan",
+        "flag": "https://flagcdn.com/w40/jo.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 21,
+      "stage": "Group Stage",
+      "group": "L",
+      "matchday": "Wednesday 17 June 2026",
+      "utc": "2026-06-17T23:00:00+00:00",
+      "local": "17 Jun 19:00",
+      "venue": "BMO Field, Toronto",
+      "city": "Toronto",
+      "home": {
+        "name": "Ghana",
+        "flag": "https://flagcdn.com/w40/gh.png"
+      },
+      "away": {
+        "name": "Panama",
+        "flag": "https://flagcdn.com/w40/pa.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 22,
+      "stage": "Group Stage",
+      "group": "L",
+      "matchday": "Wednesday 17 June 2026",
+      "utc": "2026-06-17T20:00:00+00:00",
+      "local": "17 Jun 15:00",
+      "venue": "AT&T Stadium, Dallas",
+      "city": "Dallas",
+      "home": {
+        "name": "England",
+        "flag": "https://flagcdn.com/w40/gb-eng.png"
+      },
+      "away": {
+        "name": "Croatia",
+        "flag": "https://flagcdn.com/w40/hr.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 23,
+      "stage": "Group Stage",
+      "group": "K",
+      "matchday": "Wednesday 17 June 2026",
+      "utc": "2026-06-17T17:00:00+00:00",
+      "local": "17 Jun 12:00",
+      "venue": "NRG Stadium, Houston",
+      "city": "Houston",
+      "home": {
+        "name": "Portugal",
+        "flag": "https://flagcdn.com/w40/pt.png"
+      },
+      "away": {
+        "name": "DR Congo",
+        "flag": "https://flagcdn.com/w40/cd.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 24,
+      "stage": "Group Stage",
+      "group": "K",
+      "matchday": "Wednesday 17 June 2026",
+      "utc": "2026-06-18T02:00:00+00:00",
+      "local": "17 Jun 20:00",
+      "venue": "Estadio Azteca, Mexico City",
+      "city": "Mexico City",
+      "home": {
+        "name": "Uzbekistan",
+        "flag": "https://flagcdn.com/w40/uz.png"
+      },
+      "away": {
+        "name": "Colombia",
+        "flag": "https://flagcdn.com/w40/co.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 25,
+      "stage": "Group Stage",
+      "group": "A",
+      "matchday": "Thursday 18 June 2026",
+      "utc": "2026-06-18T16:00:00+00:00",
+      "local": "18 Jun 12:00",
+      "venue": "Mercedes-Benz Stadium, Atlanta",
+      "city": "Atlanta",
+      "home": {
+        "name": "Czech Republic",
+        "flag": "https://flagcdn.com/w40/cz.png"
+      },
+      "away": {
+        "name": "South Africa",
+        "flag": "https://flagcdn.com/w40/za.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 26,
+      "stage": "Group Stage",
+      "group": "B",
+      "matchday": "Thursday 18 June 2026",
+      "utc": "2026-06-18T19:00:00+00:00",
+      "local": "18 Jun 12:00",
+      "venue": "SoFi Stadium, Los Angeles",
+      "city": "Los Angeles",
+      "home": {
+        "name": "Switzerland",
+        "flag": "https://flagcdn.com/w40/ch.png"
+      },
+      "away": {
+        "name": "Bosnia and Herzegovina",
+        "flag": "https://flagcdn.com/w40/ba.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 27,
+      "stage": "Group Stage",
+      "group": "B",
+      "matchday": "Thursday 18 June 2026",
+      "utc": "2026-06-18T22:00:00+00:00",
+      "local": "18 Jun 15:00",
+      "venue": "BC Place, Vancouver",
+      "city": "Vancouver",
+      "home": {
+        "name": "Canada",
+        "flag": "https://flagcdn.com/w40/ca.png"
+      },
+      "away": {
+        "name": "Qatar",
+        "flag": "https://flagcdn.com/w40/qa.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 28,
+      "stage": "Group Stage",
+      "group": "A",
+      "matchday": "Thursday 18 June 2026",
+      "utc": "2026-06-19T01:00:00+00:00",
+      "local": "18 Jun 19:00",
+      "venue": "Estadio Akron, Guadalajara",
+      "city": "Guadalajara",
+      "home": {
+        "name": "Mexico",
+        "flag": "https://flagcdn.com/w40/mx.png"
+      },
+      "away": {
+        "name": "South Korea",
+        "flag": "https://flagcdn.com/w40/kr.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 29,
+      "stage": "Group Stage",
+      "group": "C",
+      "matchday": "Friday 19 June 2026",
+      "utc": "2026-06-20T01:00:00+00:00",
+      "local": "19 Jun 21:00",
+      "venue": "Lincoln Financial Field, Philadelphia",
+      "city": "Philadelphia",
+      "home": {
+        "name": "Brazil",
+        "flag": "https://flagcdn.com/w40/br.png"
+      },
+      "away": {
+        "name": "Haiti",
+        "flag": "https://flagcdn.com/w40/ht.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 30,
+      "stage": "Group Stage",
+      "group": "C",
+      "matchday": "Friday 19 June 2026",
+      "utc": "2026-06-19T22:00:00+00:00",
+      "local": "19 Jun 18:00",
+      "venue": "Gillette Stadium, Boston",
+      "city": "Boston",
+      "home": {
+        "name": "Scotland",
+        "flag": "https://flagcdn.com/w40/gb-sct.png"
+      },
+      "away": {
+        "name": "Morocco",
+        "flag": "https://flagcdn.com/w40/ma.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 31,
+      "stage": "Group Stage",
+      "group": "D",
+      "matchday": "Friday 19 June 2026",
+      "utc": "2026-06-20T03:00:00+00:00",
+      "local": "19 Jun 20:00",
+      "venue": "Levi's Stadium, San Francisco Bay Area",
+      "city": "San Francisco Bay Area",
+      "home": {
+        "name": "Turkey",
+        "flag": "https://flagcdn.com/w40/tr.png"
+      },
+      "away": {
+        "name": "Paraguay",
+        "flag": "https://flagcdn.com/w40/py.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 32,
+      "stage": "Group Stage",
+      "group": "D",
+      "matchday": "Friday 19 June 2026",
+      "utc": "2026-06-19T19:00:00+00:00",
+      "local": "19 Jun 12:00",
+      "venue": "Lumen Field, Seattle",
+      "city": "Seattle",
+      "home": {
+        "name": "United States",
+        "flag": "https://flagcdn.com/w40/us.png"
+      },
+      "away": {
+        "name": "Australia",
+        "flag": "https://flagcdn.com/w40/au.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 33,
+      "stage": "Group Stage",
+      "group": "E",
+      "matchday": "Saturday 20 June 2026",
+      "utc": "2026-06-20T20:00:00+00:00",
+      "local": "20 Jun 16:00",
+      "venue": "BMO Field, Toronto",
+      "city": "Toronto",
+      "home": {
+        "name": "Germany",
+        "flag": "https://flagcdn.com/w40/de.png"
+      },
+      "away": {
+        "name": "Ivory Coast",
+        "flag": "https://flagcdn.com/w40/ci.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 34,
+      "stage": "Group Stage",
+      "group": "E",
+      "matchday": "Saturday 20 June 2026",
+      "utc": "2026-06-21T00:00:00+00:00",
+      "local": "20 Jun 19:00",
+      "venue": "Arrowhead Stadium, Kansas City",
+      "city": "Kansas City",
+      "home": {
+        "name": "Ecuador",
+        "flag": "https://flagcdn.com/w40/ec.png"
+      },
+      "away": {
+        "name": "Curaçao",
+        "flag": "https://flagcdn.com/w40/cw.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 35,
+      "stage": "Group Stage",
+      "group": "F",
+      "matchday": "Saturday 20 June 2026",
+      "utc": "2026-06-20T17:00:00+00:00",
+      "local": "20 Jun 12:00",
+      "venue": "NRG Stadium, Houston",
+      "city": "Houston",
+      "home": {
+        "name": "Netherlands",
+        "flag": "https://flagcdn.com/w40/nl.png"
+      },
+      "away": {
+        "name": "Sweden",
+        "flag": "https://flagcdn.com/w40/se.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 36,
+      "stage": "Group Stage",
+      "group": "F",
+      "matchday": "Saturday 20 June 2026",
+      "utc": "2026-06-21T04:00:00+00:00",
+      "local": "20 Jun 22:00",
+      "venue": "Estadio BBVA, Monterrey",
+      "city": "Monterrey",
+      "home": {
+        "name": "Tunisia",
+        "flag": "https://flagcdn.com/w40/tn.png"
+      },
+      "away": {
+        "name": "Japan",
+        "flag": "https://flagcdn.com/w40/jp.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 37,
+      "stage": "Group Stage",
+      "group": "H",
+      "matchday": "Sunday 21 June 2026",
+      "utc": "2026-06-21T22:00:00+00:00",
+      "local": "21 Jun 18:00",
+      "venue": "Hard Rock Stadium, Miami",
+      "city": "Miami",
+      "home": {
+        "name": "Uruguay",
+        "flag": "https://flagcdn.com/w40/uy.png"
+      },
+      "away": {
+        "name": "Cape Verde",
+        "flag": "https://flagcdn.com/w40/cv.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 38,
+      "stage": "Group Stage",
+      "group": "H",
+      "matchday": "Sunday 21 June 2026",
+      "utc": "2026-06-21T16:00:00+00:00",
+      "local": "21 Jun 12:00",
+      "venue": "Mercedes-Benz Stadium, Atlanta",
+      "city": "Atlanta",
+      "home": {
+        "name": "Spain",
+        "flag": "https://flagcdn.com/w40/es.png"
+      },
+      "away": {
+        "name": "Saudi Arabia",
+        "flag": "https://flagcdn.com/w40/sa.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 39,
+      "stage": "Group Stage",
+      "group": "G",
+      "matchday": "Sunday 21 June 2026",
+      "utc": "2026-06-21T19:00:00+00:00",
+      "local": "21 Jun 12:00",
+      "venue": "SoFi Stadium, Los Angeles",
+      "city": "Los Angeles",
+      "home": {
+        "name": "Belgium",
+        "flag": "https://flagcdn.com/w40/be.png"
+      },
+      "away": {
+        "name": "Iran",
+        "flag": "https://flagcdn.com/w40/ir.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 40,
+      "stage": "Group Stage",
+      "group": "G",
+      "matchday": "Sunday 21 June 2026",
+      "utc": "2026-06-22T01:00:00+00:00",
+      "local": "21 Jun 18:00",
+      "venue": "BC Place, Vancouver",
+      "city": "Vancouver",
+      "home": {
+        "name": "New Zealand",
+        "flag": "https://flagcdn.com/w40/nz.png"
+      },
+      "away": {
+        "name": "Egypt",
+        "flag": "https://flagcdn.com/w40/eg.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 41,
+      "stage": "Group Stage",
+      "group": "I",
+      "matchday": "Monday 22 June 2026",
+      "utc": "2026-06-23T00:00:00+00:00",
+      "local": "22 Jun 20:00",
+      "venue": "MetLife Stadium, New York / New Jersey",
+      "city": "New York / New Jersey",
+      "home": {
+        "name": "Norway",
+        "flag": "https://flagcdn.com/w40/no.png"
+      },
+      "away": {
+        "name": "Senegal",
+        "flag": "https://flagcdn.com/w40/sn.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 42,
+      "stage": "Group Stage",
+      "group": "I",
+      "matchday": "Monday 22 June 2026",
+      "utc": "2026-06-22T21:00:00+00:00",
+      "local": "22 Jun 17:00",
+      "venue": "Lincoln Financial Field, Philadelphia",
+      "city": "Philadelphia",
+      "home": {
+        "name": "France",
+        "flag": "https://flagcdn.com/w40/fr.png"
+      },
+      "away": {
+        "name": "Iraq",
+        "flag": "https://flagcdn.com/w40/iq.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 43,
+      "stage": "Group Stage",
+      "group": "J",
+      "matchday": "Monday 22 June 2026",
+      "utc": "2026-06-22T17:00:00+00:00",
+      "local": "22 Jun 12:00",
+      "venue": "AT&T Stadium, Dallas",
+      "city": "Dallas",
+      "home": {
+        "name": "Argentina",
+        "flag": "https://flagcdn.com/w40/ar.png"
+      },
+      "away": {
+        "name": "Austria",
+        "flag": "https://flagcdn.com/w40/at.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 44,
+      "stage": "Group Stage",
+      "group": "J",
+      "matchday": "Monday 22 June 2026",
+      "utc": "2026-06-23T03:00:00+00:00",
+      "local": "22 Jun 20:00",
+      "venue": "Levi's Stadium, San Francisco Bay Area",
+      "city": "San Francisco Bay Area",
+      "home": {
+        "name": "Jordan",
+        "flag": "https://flagcdn.com/w40/jo.png"
+      },
+      "away": {
+        "name": "Algeria",
+        "flag": "https://flagcdn.com/w40/dz.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 45,
+      "stage": "Group Stage",
+      "group": "L",
+      "matchday": "Tuesday 23 June 2026",
+      "utc": "2026-06-23T20:00:00+00:00",
+      "local": "23 Jun 16:00",
+      "venue": "Gillette Stadium, Boston",
+      "city": "Boston",
+      "home": {
+        "name": "England",
+        "flag": "https://flagcdn.com/w40/gb-eng.png"
+      },
+      "away": {
+        "name": "Ghana",
+        "flag": "https://flagcdn.com/w40/gh.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 46,
+      "stage": "Group Stage",
+      "group": "L",
+      "matchday": "Tuesday 23 June 2026",
+      "utc": "2026-06-23T23:00:00+00:00",
+      "local": "23 Jun 19:00",
+      "venue": "BMO Field, Toronto",
+      "city": "Toronto",
+      "home": {
+        "name": "Panama",
+        "flag": "https://flagcdn.com/w40/pa.png"
+      },
+      "away": {
+        "name": "Croatia",
+        "flag": "https://flagcdn.com/w40/hr.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 47,
+      "stage": "Group Stage",
+      "group": "K",
+      "matchday": "Tuesday 23 June 2026",
+      "utc": "2026-06-23T17:00:00+00:00",
+      "local": "23 Jun 12:00",
+      "venue": "NRG Stadium, Houston",
+      "city": "Houston",
+      "home": {
+        "name": "Portugal",
+        "flag": "https://flagcdn.com/w40/pt.png"
+      },
+      "away": {
+        "name": "Uzbekistan",
+        "flag": "https://flagcdn.com/w40/uz.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 48,
+      "stage": "Group Stage",
+      "group": "K",
+      "matchday": "Tuesday 23 June 2026",
+      "utc": "2026-06-24T02:00:00+00:00",
+      "local": "23 Jun 20:00",
+      "venue": "Estadio Akron, Guadalajara",
+      "city": "Guadalajara",
+      "home": {
+        "name": "Colombia",
+        "flag": "https://flagcdn.com/w40/co.png"
+      },
+      "away": {
+        "name": "DR Congo",
+        "flag": "https://flagcdn.com/w40/cd.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 49,
+      "stage": "Group Stage",
+      "group": "C",
+      "matchday": "Wednesday 24 June 2026",
+      "utc": "2026-06-24T22:00:00+00:00",
+      "local": "24 Jun 18:00",
+      "venue": "Hard Rock Stadium, Miami",
+      "city": "Miami",
+      "home": {
+        "name": "Scotland",
+        "flag": "https://flagcdn.com/w40/gb-sct.png"
+      },
+      "away": {
+        "name": "Brazil",
+        "flag": "https://flagcdn.com/w40/br.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 50,
+      "stage": "Group Stage",
+      "group": "C",
+      "matchday": "Wednesday 24 June 2026",
+      "utc": "2026-06-24T22:00:00+00:00",
+      "local": "24 Jun 18:00",
+      "venue": "Mercedes-Benz Stadium, Atlanta",
+      "city": "Atlanta",
+      "home": {
+        "name": "Morocco",
+        "flag": "https://flagcdn.com/w40/ma.png"
+      },
+      "away": {
+        "name": "Haiti",
+        "flag": "https://flagcdn.com/w40/ht.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 51,
+      "stage": "Group Stage",
+      "group": "B",
+      "matchday": "Wednesday 24 June 2026",
+      "utc": "2026-06-24T19:00:00+00:00",
+      "local": "24 Jun 12:00",
+      "venue": "BC Place, Vancouver",
+      "city": "Vancouver",
+      "home": {
+        "name": "Switzerland",
+        "flag": "https://flagcdn.com/w40/ch.png"
+      },
+      "away": {
+        "name": "Canada",
+        "flag": "https://flagcdn.com/w40/ca.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 52,
+      "stage": "Group Stage",
+      "group": "B",
+      "matchday": "Wednesday 24 June 2026",
+      "utc": "2026-06-24T19:00:00+00:00",
+      "local": "24 Jun 12:00",
+      "venue": "Lumen Field, Seattle",
+      "city": "Seattle",
+      "home": {
+        "name": "Bosnia and Herzegovina",
+        "flag": "https://flagcdn.com/w40/ba.png"
+      },
+      "away": {
+        "name": "Qatar",
+        "flag": "https://flagcdn.com/w40/qa.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 53,
+      "stage": "Group Stage",
+      "group": "A",
+      "matchday": "Wednesday 24 June 2026",
+      "utc": "2026-06-25T01:00:00+00:00",
+      "local": "24 Jun 19:00",
+      "venue": "Estadio Azteca, Mexico City",
+      "city": "Mexico City",
+      "home": {
+        "name": "Czech Republic",
+        "flag": "https://flagcdn.com/w40/cz.png"
+      },
+      "away": {
+        "name": "Mexico",
+        "flag": "https://flagcdn.com/w40/mx.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 54,
+      "stage": "Group Stage",
+      "group": "A",
+      "matchday": "Wednesday 24 June 2026",
+      "utc": "2026-06-25T01:00:00+00:00",
+      "local": "24 Jun 19:00",
+      "venue": "Estadio BBVA, Monterrey",
+      "city": "Monterrey",
+      "home": {
+        "name": "South Africa",
+        "flag": "https://flagcdn.com/w40/za.png"
+      },
+      "away": {
+        "name": "South Korea",
+        "flag": "https://flagcdn.com/w40/kr.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 55,
+      "stage": "Group Stage",
+      "group": "E",
+      "matchday": "Thursday 25 June 2026",
+      "utc": "2026-06-25T20:00:00+00:00",
+      "local": "25 Jun 16:00",
+      "venue": "Lincoln Financial Field, Philadelphia",
+      "city": "Philadelphia",
+      "home": {
+        "name": "Curaçao",
+        "flag": "https://flagcdn.com/w40/cw.png"
+      },
+      "away": {
+        "name": "Ivory Coast",
+        "flag": "https://flagcdn.com/w40/ci.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 56,
+      "stage": "Group Stage",
+      "group": "E",
+      "matchday": "Thursday 25 June 2026",
+      "utc": "2026-06-25T20:00:00+00:00",
+      "local": "25 Jun 16:00",
+      "venue": "MetLife Stadium, New York / New Jersey",
+      "city": "New York / New Jersey",
+      "home": {
+        "name": "Ecuador",
+        "flag": "https://flagcdn.com/w40/ec.png"
+      },
+      "away": {
+        "name": "Germany",
+        "flag": "https://flagcdn.com/w40/de.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 57,
+      "stage": "Group Stage",
+      "group": "F",
+      "matchday": "Thursday 25 June 2026",
+      "utc": "2026-06-25T23:00:00+00:00",
+      "local": "25 Jun 18:00",
+      "venue": "AT&T Stadium, Dallas",
+      "city": "Dallas",
+      "home": {
+        "name": "Japan",
+        "flag": "https://flagcdn.com/w40/jp.png"
+      },
+      "away": {
+        "name": "Sweden",
+        "flag": "https://flagcdn.com/w40/se.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 58,
+      "stage": "Group Stage",
+      "group": "F",
+      "matchday": "Thursday 25 June 2026",
+      "utc": "2026-06-25T23:00:00+00:00",
+      "local": "25 Jun 18:00",
+      "venue": "Arrowhead Stadium, Kansas City",
+      "city": "Kansas City",
+      "home": {
+        "name": "Tunisia",
+        "flag": "https://flagcdn.com/w40/tn.png"
+      },
+      "away": {
+        "name": "Netherlands",
+        "flag": "https://flagcdn.com/w40/nl.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 59,
+      "stage": "Group Stage",
+      "group": "D",
+      "matchday": "Thursday 25 June 2026",
+      "utc": "2026-06-26T02:00:00+00:00",
+      "local": "25 Jun 19:00",
+      "venue": "SoFi Stadium, Los Angeles",
+      "city": "Los Angeles",
+      "home": {
+        "name": "Turkey",
+        "flag": "https://flagcdn.com/w40/tr.png"
+      },
+      "away": {
+        "name": "United States",
+        "flag": "https://flagcdn.com/w40/us.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 60,
+      "stage": "Group Stage",
+      "group": "D",
+      "matchday": "Thursday 25 June 2026",
+      "utc": "2026-06-26T02:00:00+00:00",
+      "local": "25 Jun 19:00",
+      "venue": "Levi's Stadium, San Francisco Bay Area",
+      "city": "San Francisco Bay Area",
+      "home": {
+        "name": "Paraguay",
+        "flag": "https://flagcdn.com/w40/py.png"
+      },
+      "away": {
+        "name": "Australia",
+        "flag": "https://flagcdn.com/w40/au.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 61,
+      "stage": "Group Stage",
+      "group": "I",
+      "matchday": "Friday 26 June 2026",
+      "utc": "2026-06-26T19:00:00+00:00",
+      "local": "26 Jun 15:00",
+      "venue": "Gillette Stadium, Boston",
+      "city": "Boston",
+      "home": {
+        "name": "Norway",
+        "flag": "https://flagcdn.com/w40/no.png"
+      },
+      "away": {
+        "name": "France",
+        "flag": "https://flagcdn.com/w40/fr.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 62,
+      "stage": "Group Stage",
+      "group": "I",
+      "matchday": "Friday 26 June 2026",
+      "utc": "2026-06-26T19:00:00+00:00",
+      "local": "26 Jun 15:00",
+      "venue": "BMO Field, Toronto",
+      "city": "Toronto",
+      "home": {
+        "name": "Senegal",
+        "flag": "https://flagcdn.com/w40/sn.png"
+      },
+      "away": {
+        "name": "Iraq",
+        "flag": "https://flagcdn.com/w40/iq.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 63,
+      "stage": "Group Stage",
+      "group": "G",
+      "matchday": "Friday 26 June 2026",
+      "utc": "2026-06-27T03:00:00+00:00",
+      "local": "26 Jun 20:00",
+      "venue": "Lumen Field, Seattle",
+      "city": "Seattle",
+      "home": {
+        "name": "Egypt",
+        "flag": "https://flagcdn.com/w40/eg.png"
+      },
+      "away": {
+        "name": "Iran",
+        "flag": "https://flagcdn.com/w40/ir.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 64,
+      "stage": "Group Stage",
+      "group": "G",
+      "matchday": "Friday 26 June 2026",
+      "utc": "2026-06-27T03:00:00+00:00",
+      "local": "26 Jun 20:00",
+      "venue": "BC Place, Vancouver",
+      "city": "Vancouver",
+      "home": {
+        "name": "New Zealand",
+        "flag": "https://flagcdn.com/w40/nz.png"
+      },
+      "away": {
+        "name": "Belgium",
+        "flag": "https://flagcdn.com/w40/be.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 65,
+      "stage": "Group Stage",
+      "group": "H",
+      "matchday": "Friday 26 June 2026",
+      "utc": "2026-06-27T00:00:00+00:00",
+      "local": "26 Jun 19:00",
+      "venue": "NRG Stadium, Houston",
+      "city": "Houston",
+      "home": {
+        "name": "Cape Verde",
+        "flag": "https://flagcdn.com/w40/cv.png"
+      },
+      "away": {
+        "name": "Saudi Arabia",
+        "flag": "https://flagcdn.com/w40/sa.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 66,
+      "stage": "Group Stage",
+      "group": "H",
+      "matchday": "Friday 26 June 2026",
+      "utc": "2026-06-27T00:00:00+00:00",
+      "local": "26 Jun 18:00",
+      "venue": "Estadio Akron, Guadalajara",
+      "city": "Guadalajara",
+      "home": {
+        "name": "Uruguay",
+        "flag": "https://flagcdn.com/w40/uy.png"
+      },
+      "away": {
+        "name": "Spain",
+        "flag": "https://flagcdn.com/w40/es.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 67,
+      "stage": "Group Stage",
+      "group": "L",
+      "matchday": "Saturday 27 June 2026",
+      "utc": "2026-06-27T21:00:00+00:00",
+      "local": "27 Jun 17:00",
+      "venue": "MetLife Stadium, New York / New Jersey",
+      "city": "New York / New Jersey",
+      "home": {
+        "name": "Panama",
+        "flag": "https://flagcdn.com/w40/pa.png"
+      },
+      "away": {
+        "name": "England",
+        "flag": "https://flagcdn.com/w40/gb-eng.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 68,
+      "stage": "Group Stage",
+      "group": "L",
+      "matchday": "Saturday 27 June 2026",
+      "utc": "2026-06-27T21:00:00+00:00",
+      "local": "27 Jun 17:00",
+      "venue": "Lincoln Financial Field, Philadelphia",
+      "city": "Philadelphia",
+      "home": {
+        "name": "Croatia",
+        "flag": "https://flagcdn.com/w40/hr.png"
+      },
+      "away": {
+        "name": "Ghana",
+        "flag": "https://flagcdn.com/w40/gh.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 69,
+      "stage": "Group Stage",
+      "group": "J",
+      "matchday": "Saturday 27 June 2026",
+      "utc": "2026-06-28T02:00:00+00:00",
+      "local": "27 Jun 21:00",
+      "venue": "Arrowhead Stadium, Kansas City",
+      "city": "Kansas City",
+      "home": {
+        "name": "Algeria",
+        "flag": "https://flagcdn.com/w40/dz.png"
+      },
+      "away": {
+        "name": "Austria",
+        "flag": "https://flagcdn.com/w40/at.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 70,
+      "stage": "Group Stage",
+      "group": "J",
+      "matchday": "Saturday 27 June 2026",
+      "utc": "2026-06-28T02:00:00+00:00",
+      "local": "27 Jun 21:00",
+      "venue": "AT&T Stadium, Dallas",
+      "city": "Dallas",
+      "home": {
+        "name": "Jordan",
+        "flag": "https://flagcdn.com/w40/jo.png"
+      },
+      "away": {
+        "name": "Argentina",
+        "flag": "https://flagcdn.com/w40/ar.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 71,
+      "stage": "Group Stage",
+      "group": "K",
+      "matchday": "Saturday 27 June 2026",
+      "utc": "2026-06-27T23:30:00+00:00",
+      "local": "27 Jun 19:30",
+      "venue": "Hard Rock Stadium, Miami",
+      "city": "Miami",
+      "home": {
+        "name": "Colombia",
+        "flag": "https://flagcdn.com/w40/co.png"
+      },
+      "away": {
+        "name": "Portugal",
+        "flag": "https://flagcdn.com/w40/pt.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 72,
+      "stage": "Group Stage",
+      "group": "K",
+      "matchday": "Saturday 27 June 2026",
+      "utc": "2026-06-27T23:30:00+00:00",
+      "local": "27 Jun 19:30",
+      "venue": "Mercedes-Benz Stadium, Atlanta",
+      "city": "Atlanta",
+      "home": {
+        "name": "DR Congo",
+        "flag": "https://flagcdn.com/w40/cd.png"
+      },
+      "away": {
+        "name": "Uzbekistan",
+        "flag": "https://flagcdn.com/w40/uz.png"
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 73,
+      "stage": "Round of 32",
+      "group": null,
+      "matchday": "Sunday 28 June 2026",
+      "utc": "2026-06-28T19:00:00+00:00",
+      "local": "28 Jun 12:00",
+      "venue": "SoFi Stadium, Los Angeles",
+      "city": "Los Angeles",
+      "home": {
+        "name": "Group A runners-up",
+        "flag": ""
+      },
+      "away": {
+        "name": "Group B runners-up",
+        "flag": ""
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 74,
+      "stage": "Round of 32",
+      "group": null,
+      "matchday": "Monday 29 June 2026",
+      "utc": "2026-06-29T20:30:00+00:00",
+      "local": "29 Jun 16:30",
+      "venue": "Gillette Stadium, Boston",
+      "city": "Boston",
+      "home": {
+        "name": "Group E winners",
+        "flag": ""
+      },
+      "away": {
+        "name": "Group A/B/C/D/F third place",
+        "flag": ""
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 75,
+      "stage": "Round of 32",
+      "group": null,
+      "matchday": "Monday 29 June 2026",
+      "utc": "2026-06-30T01:00:00+00:00",
+      "local": "29 Jun 19:00",
+      "venue": "Estadio BBVA, Monterrey",
+      "city": "Monterrey",
+      "home": {
+        "name": "Group F winners",
+        "flag": ""
+      },
+      "away": {
+        "name": "Group C runners-up",
+        "flag": ""
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 76,
+      "stage": "Round of 32",
+      "group": null,
+      "matchday": "Monday 29 June 2026",
+      "utc": "2026-06-29T17:00:00+00:00",
+      "local": "29 Jun 12:00",
+      "venue": "NRG Stadium, Houston",
+      "city": "Houston",
+      "home": {
+        "name": "Group C winners",
+        "flag": ""
+      },
+      "away": {
+        "name": "Group F runners-up",
+        "flag": ""
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 77,
+      "stage": "Round of 32",
+      "group": null,
+      "matchday": "Tuesday 30 June 2026",
+      "utc": "2026-06-30T21:00:00+00:00",
+      "local": "30 Jun 17:00",
+      "venue": "MetLife Stadium, New York / New Jersey",
+      "city": "New York / New Jersey",
+      "home": {
+        "name": "Group I winners",
+        "flag": ""
+      },
+      "away": {
+        "name": "Group C/D/F/G/H third place",
+        "flag": ""
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 78,
+      "stage": "Round of 32",
+      "group": null,
+      "matchday": "Tuesday 30 June 2026",
+      "utc": "2026-06-30T17:00:00+00:00",
+      "local": "30 Jun 12:00",
+      "venue": "AT&T Stadium, Dallas",
+      "city": "Dallas",
+      "home": {
+        "name": "Group E runners-up",
+        "flag": ""
+      },
+      "away": {
+        "name": "Group I runners-up",
+        "flag": ""
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 79,
+      "stage": "Round of 32",
+      "group": null,
+      "matchday": "Tuesday 30 June 2026",
+      "utc": "2026-07-01T01:00:00+00:00",
+      "local": "30 Jun 19:00",
+      "venue": "Estadio Azteca, Mexico City",
+      "city": "Mexico City",
+      "home": {
+        "name": "Group A winners",
+        "flag": ""
+      },
+      "away": {
+        "name": "Group C/E/F/H/I third place",
+        "flag": ""
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 80,
+      "stage": "Round of 32",
+      "group": null,
+      "matchday": "Wednesday 1 July 2026",
+      "utc": "2026-07-01T16:00:00+00:00",
+      "local": "1 Jul 12:00",
+      "venue": "Mercedes-Benz Stadium, Atlanta",
+      "city": "Atlanta",
+      "home": {
+        "name": "Group L winners",
+        "flag": ""
+      },
+      "away": {
+        "name": "Group E/H/I/J/K third place",
+        "flag": ""
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 81,
+      "stage": "Round of 32",
+      "group": null,
+      "matchday": "Wednesday 1 July 2026",
+      "utc": "2026-07-02T00:00:00+00:00",
+      "local": "1 Jul 17:00",
+      "venue": "Levi's Stadium, San Francisco Bay Area",
+      "city": "San Francisco Bay Area",
+      "home": {
+        "name": "Group D winners",
+        "flag": ""
+      },
+      "away": {
+        "name": "Group B/E/F/I/J third place",
+        "flag": ""
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 82,
+      "stage": "Round of 32",
+      "group": null,
+      "matchday": "Wednesday 1 July 2026",
+      "utc": "2026-07-01T20:00:00+00:00",
+      "local": "1 Jul 13:00",
+      "venue": "Lumen Field, Seattle",
+      "city": "Seattle",
+      "home": {
+        "name": "Group G winners",
+        "flag": ""
+      },
+      "away": {
+        "name": "Group A/E/H/I/J third place",
+        "flag": ""
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 83,
+      "stage": "Round of 32",
+      "group": null,
+      "matchday": "Thursday 2 July 2026",
+      "utc": "2026-07-02T23:00:00+00:00",
+      "local": "2 Jul 19:00",
+      "venue": "BMO Field, Toronto",
+      "city": "Toronto",
+      "home": {
+        "name": "Group K runners-up",
+        "flag": ""
+      },
+      "away": {
+        "name": "Group L runners-up",
+        "flag": ""
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 84,
+      "stage": "Round of 32",
+      "group": null,
+      "matchday": "Thursday 2 July 2026",
+      "utc": "2026-07-02T19:00:00+00:00",
+      "local": "2 Jul 12:00",
+      "venue": "SoFi Stadium, Los Angeles",
+      "city": "Los Angeles",
+      "home": {
+        "name": "Group H winners",
+        "flag": ""
+      },
+      "away": {
+        "name": "Group J runners-up",
+        "flag": ""
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 85,
+      "stage": "Round of 32",
+      "group": null,
+      "matchday": "Thursday 2 July 2026",
+      "utc": "2026-07-03T03:00:00+00:00",
+      "local": "2 Jul 20:00",
+      "venue": "BC Place, Vancouver",
+      "city": "Vancouver",
+      "home": {
+        "name": "Group B winners",
+        "flag": ""
+      },
+      "away": {
+        "name": "Group E/F/G/I/J third place",
+        "flag": ""
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 86,
+      "stage": "Round of 32",
+      "group": null,
+      "matchday": "Friday 3 July 2026",
+      "utc": "2026-07-03T22:00:00+00:00",
+      "local": "3 Jul 18:00",
+      "venue": "Hard Rock Stadium, Miami",
+      "city": "Miami",
+      "home": {
+        "name": "Group J winners",
+        "flag": ""
+      },
+      "away": {
+        "name": "Group H runners-up",
+        "flag": ""
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 87,
+      "stage": "Round of 32",
+      "group": null,
+      "matchday": "Friday 3 July 2026",
+      "utc": "2026-07-04T01:30:00+00:00",
+      "local": "3 Jul 20:30",
+      "venue": "Arrowhead Stadium, Kansas City",
+      "city": "Kansas City",
+      "home": {
+        "name": "Group K winners",
+        "flag": ""
+      },
+      "away": {
+        "name": "Group D/E/I/J/L third place",
+        "flag": ""
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 88,
+      "stage": "Round of 32",
+      "group": null,
+      "matchday": "Friday 3 July 2026",
+      "utc": "2026-07-03T18:00:00+00:00",
+      "local": "3 Jul 13:00",
+      "venue": "AT&T Stadium, Dallas",
+      "city": "Dallas",
+      "home": {
+        "name": "Group D runners-up",
+        "flag": ""
+      },
+      "away": {
+        "name": "Group G runners-up",
+        "flag": ""
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 89,
+      "stage": "Round of 16",
+      "group": null,
+      "matchday": "Saturday 4 July 2026",
+      "utc": "2026-07-04T21:00:00+00:00",
+      "local": "4 Jul 17:00",
+      "venue": "Lincoln Financial Field, Philadelphia",
+      "city": "Philadelphia",
+      "home": {
+        "name": "Winner Match 74",
+        "flag": ""
+      },
+      "away": {
+        "name": "Winner Match 77",
+        "flag": ""
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 90,
+      "stage": "Round of 16",
+      "group": null,
+      "matchday": "Saturday 4 July 2026",
+      "utc": "2026-07-04T17:00:00+00:00",
+      "local": "4 Jul 12:00",
+      "venue": "NRG Stadium, Houston",
+      "city": "Houston",
+      "home": {
+        "name": "Winner Match 73",
+        "flag": ""
+      },
+      "away": {
+        "name": "Winner Match 75",
+        "flag": ""
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 91,
+      "stage": "Round of 16",
+      "group": null,
+      "matchday": "Sunday 5 July 2026",
+      "utc": "2026-07-05T20:00:00+00:00",
+      "local": "5 Jul 16:00",
+      "venue": "MetLife Stadium, New York / New Jersey",
+      "city": "New York / New Jersey",
+      "home": {
+        "name": "Winner Match 76",
+        "flag": ""
+      },
+      "away": {
+        "name": "Winner Match 78",
+        "flag": ""
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 92,
+      "stage": "Round of 16",
+      "group": null,
+      "matchday": "Sunday 5 July 2026",
+      "utc": "2026-07-06T00:00:00+00:00",
+      "local": "5 Jul 18:00",
+      "venue": "Estadio Azteca, Mexico City",
+      "city": "Mexico City",
+      "home": {
+        "name": "Winner Match 79",
+        "flag": ""
+      },
+      "away": {
+        "name": "Winner Match 80",
+        "flag": ""
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 93,
+      "stage": "Round of 16",
+      "group": null,
+      "matchday": "Monday 6 July 2026",
+      "utc": "2026-07-06T19:00:00+00:00",
+      "local": "6 Jul 14:00",
+      "venue": "AT&T Stadium, Dallas",
+      "city": "Dallas",
+      "home": {
+        "name": "Winner Match 83",
+        "flag": ""
+      },
+      "away": {
+        "name": "Winner Match 84",
+        "flag": ""
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 94,
+      "stage": "Round of 16",
+      "group": null,
+      "matchday": "Monday 6 July 2026",
+      "utc": "2026-07-07T00:00:00+00:00",
+      "local": "6 Jul 17:00",
+      "venue": "Lumen Field, Seattle",
+      "city": "Seattle",
+      "home": {
+        "name": "Winner Match 81",
+        "flag": ""
+      },
+      "away": {
+        "name": "Winner Match 82",
+        "flag": ""
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 95,
+      "stage": "Round of 16",
+      "group": null,
+      "matchday": "Tuesday 7 July 2026",
+      "utc": "2026-07-07T16:00:00+00:00",
+      "local": "7 Jul 12:00",
+      "venue": "Mercedes-Benz Stadium, Atlanta",
+      "city": "Atlanta",
+      "home": {
+        "name": "Winner Match 86",
+        "flag": ""
+      },
+      "away": {
+        "name": "Winner Match 88",
+        "flag": ""
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 96,
+      "stage": "Round of 16",
+      "group": null,
+      "matchday": "Tuesday 7 July 2026",
+      "utc": "2026-07-07T20:00:00+00:00",
+      "local": "7 Jul 13:00",
+      "venue": "BC Place, Vancouver",
+      "city": "Vancouver",
+      "home": {
+        "name": "Winner Match 85",
+        "flag": ""
+      },
+      "away": {
+        "name": "Winner Match 87",
+        "flag": ""
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 97,
+      "stage": "Quarter-final",
+      "group": null,
+      "matchday": "Thursday 9 July 2026",
+      "utc": "2026-07-09T20:00:00+00:00",
+      "local": "9 Jul 16:00",
+      "venue": "Gillette Stadium, Boston",
+      "city": "Boston",
+      "home": {
+        "name": "Winner Match 89",
+        "flag": ""
+      },
+      "away": {
+        "name": "Winner Match 90",
+        "flag": ""
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 98,
+      "stage": "Quarter-final",
+      "group": null,
+      "matchday": "Friday 10 July 2026",
+      "utc": "2026-07-10T19:00:00+00:00",
+      "local": "10 Jul 12:00",
+      "venue": "SoFi Stadium, Los Angeles",
+      "city": "Los Angeles",
+      "home": {
+        "name": "Winner Match 93",
+        "flag": ""
+      },
+      "away": {
+        "name": "Winner Match 94",
+        "flag": ""
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 99,
+      "stage": "Quarter-final",
+      "group": null,
+      "matchday": "Saturday 11 July 2026",
+      "utc": "2026-07-11T21:00:00+00:00",
+      "local": "11 Jul 17:00",
+      "venue": "Hard Rock Stadium, Miami",
+      "city": "Miami",
+      "home": {
+        "name": "Winner Match 91",
+        "flag": ""
+      },
+      "away": {
+        "name": "Winner Match 92",
+        "flag": ""
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 100,
+      "stage": "Quarter-final",
+      "group": null,
+      "matchday": "Saturday 11 July 2026",
+      "utc": "2026-07-12T01:00:00+00:00",
+      "local": "11 Jul 20:00",
+      "venue": "Arrowhead Stadium, Kansas City",
+      "city": "Kansas City",
+      "home": {
+        "name": "Winner Match 95",
+        "flag": ""
+      },
+      "away": {
+        "name": "Winner Match 96",
+        "flag": ""
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 101,
+      "stage": "Semi-final",
+      "group": null,
+      "matchday": "Tuesday 14 July 2026",
+      "utc": "2026-07-14T19:00:00+00:00",
+      "local": "14 Jul 14:00",
+      "venue": "AT&T Stadium, Dallas",
+      "city": "Dallas",
+      "home": {
+        "name": "Winner Match 97",
+        "flag": ""
+      },
+      "away": {
+        "name": "Winner Match 98",
+        "flag": ""
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 102,
+      "stage": "Semi-final",
+      "group": null,
+      "matchday": "Wednesday 15 July 2026",
+      "utc": "2026-07-15T19:00:00+00:00",
+      "local": "15 Jul 15:00",
+      "venue": "Mercedes-Benz Stadium, Atlanta",
+      "city": "Atlanta",
+      "home": {
+        "name": "Winner Match 99",
+        "flag": ""
+      },
+      "away": {
+        "name": "Winner Match 100",
+        "flag": ""
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 103,
+      "stage": "Third place",
+      "group": null,
+      "matchday": "Saturday 18 July 2026",
+      "utc": "2026-07-18T21:00:00+00:00",
+      "local": "18 Jul 17:00",
+      "venue": "Hard Rock Stadium, Miami",
+      "city": "Miami",
+      "home": {
+        "name": "Loser Match 101",
+        "flag": ""
+      },
+      "away": {
+        "name": "Loser Match 102",
+        "flag": ""
+      },
+      "status": "scheduled",
+      "score": null
+    },
+    {
+      "id": 104,
+      "stage": "Final",
+      "group": null,
+      "matchday": "Sunday 19 July 2026",
+      "utc": "2026-07-19T19:00:00+00:00",
+      "local": "19 Jul 15:00",
+      "venue": "MetLife Stadium, New York / New Jersey",
+      "city": "New York / New Jersey",
+      "home": {
+        "name": "Winner Match 101",
+        "flag": ""
+      },
+      "away": {
+        "name": "Winner Match 102",
+        "flag": ""
+      },
+      "status": "scheduled",
+      "score": null
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>World Cup 2026 Match Centre</title>
+    <meta
+      name="description"
+      content="A fast static match centre for every FIFA World Cup 2026 fixture, group, venue, kickoff time, and result."
+    >
+    <meta name="theme-color" content="#0b3d2e">
+    <meta property="og:title" content="World Cup 2026 Match Centre">
+    <meta property="og:description" content="All 104 World Cup 2026 fixtures, groups, venues, and result-ready scorecards.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://flagcdn.com">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="World Cup 2026 Match Centre home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>WC26 Match Centre</span>
+      </a>
+      <nav class="toplinks" aria-label="Primary">
+        <a href="#fixtures" data-nav-tab="fixtures">Fixtures</a>
+        <a href="#results" data-nav-tab="results">Results</a>
+        <a href="#groups" data-nav-tab="groups">Groups</a>
+        <a href="#venues" data-nav-tab="venues">Venues</a>
+        <a href="data/matches.json">Data</a>
+      </nav>
+    </header>
+
+    <main id="top" class="shell">
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-copy">
+          <p class="eyebrow">USA / Canada / Mexico &middot; 11 Jun - 19 Jul 2026</p>
+          <h1 id="page-title">World Cup 2026 Match Centre</h1>
+          <p class="lede">
+            All 104 matches with venue-local kickoffs, your timezone, groups, host cities, and scorecards ready for results.
+          </p>
+        </div>
+        <aside class="next-card" id="nextCard" aria-label="Next match">
+          <div class="skeleton-line"></div>
+          <div class="skeleton-line short"></div>
+        </aside>
+      </section>
+
+      <section class="stat-grid" id="stats" aria-label="Tournament summary"></section>
+
+      <section class="control-band" aria-label="Match filters">
+        <div class="search-field">
+          <i data-lucide="search" aria-hidden="true"></i>
+          <input id="searchInput" type="search" autocomplete="off" placeholder="Search team, city, venue, match number">
+        </div>
+
+        <label>
+          <span>Stage</span>
+          <select id="stageFilter"></select>
+        </label>
+        <label>
+          <span>Group</span>
+          <select id="groupFilter"></select>
+        </label>
+        <label>
+          <span>City</span>
+          <select id="cityFilter"></select>
+        </label>
+        <label>
+          <span>Status</span>
+          <select id="statusFilter">
+            <option value="all">All statuses</option>
+            <option value="scheduled">Scheduled</option>
+            <option value="live">Live</option>
+            <option value="final">Final</option>
+          </select>
+        </label>
+
+        <button class="icon-button" id="resetFilters" type="button" title="Reset filters" aria-label="Reset filters">
+          <i data-lucide="rotate-ccw" aria-hidden="true"></i>
+        </button>
+      </section>
+
+      <section class="view-tools" aria-label="View options">
+        <nav class="tabs" id="tabs" aria-label="Match centre views">
+          <button class="tab active" type="button" data-tab="fixtures">
+            <i data-lucide="calendar-days" aria-hidden="true"></i>
+            Fixtures
+          </button>
+          <button class="tab" type="button" data-tab="results">
+            <i data-lucide="trophy" aria-hidden="true"></i>
+            Results
+          </button>
+          <button class="tab" type="button" data-tab="groups">
+            <i data-lucide="table-2" aria-hidden="true"></i>
+            Groups
+          </button>
+          <button class="tab" type="button" data-tab="venues">
+            <i data-lucide="map" aria-hidden="true"></i>
+            Venues
+          </button>
+        </nav>
+
+        <div class="segmented" role="group" aria-label="Time display">
+          <button type="button" class="active" data-time-mode="user">Your time</button>
+          <button type="button" data-time-mode="venue">Venue time</button>
+        </div>
+      </section>
+
+      <section class="view-head" aria-live="polite">
+        <div>
+          <p class="eyebrow">Current view</p>
+          <h2 id="viewTitle">Fixtures</h2>
+        </div>
+        <p id="resultCount" class="result-count"></p>
+      </section>
+
+      <section id="fixtures" class="content-view" aria-label="Fixtures"></section>
+      <section id="groups" class="content-view" aria-label="Groups" hidden></section>
+      <section id="venues" class="content-view" aria-label="Venues" hidden></section>
+      <section id="results" class="content-view" aria-label="Results" hidden></section>
+    </main>
+
+    <footer class="footer">
+      <div>
+        <strong>Schedule data</strong>
+        <span id="lastChecked"></span>
+      </div>
+      <div id="sources" class="source-links"></div>
+    </footer>
+  </body>
+</html>

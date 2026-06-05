@@ -1,0 +1,37 @@
+# World Cup 2026 Match Centre
+
+A static GitHub Pages site for browsing every FIFA World Cup 2026 match, group, host venue, kickoff time, and result-ready scorecard.
+
+## Run Locally
+
+No build step is required. Serve the repository root so `fetch("data/matches.json")` works:
+
+```powershell
+python -m http.server 4173
+```
+
+Then open `http://localhost:4173`.
+
+## Update Results
+
+Fixtures live in `data/matches.json`. To add a result, set the match to final and add the score:
+
+```json
+{
+  "status": "final",
+  "score": { "home": 2, "away": 1 }
+}
+```
+
+For live matches, use `"status": "live"` and include the current score.
+
+## GitHub Pages
+
+This repo includes `.github/workflows/pages.yml`. In GitHub, go to `Settings > Pages` and set the source to `GitHub Actions`. Pushing to `main` will deploy the static site.
+
+The site can also be hosted from the repository root using the classic branch-based Pages setting because there is no build output directory.
+
+## Data Sources
+
+- FIFA updated match schedule PDF: <https://digitalhub.fifa.com/asset/4b5d4417-3343-4732-9cdf-14b6662af407/FWC26-Match-Schedule_English.pdf>
+- WorldCuply structured fixture list: <https://worldcuply.com/schedule.html>
