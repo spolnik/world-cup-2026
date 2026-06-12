@@ -1,6 +1,6 @@
 {
   "tournament": "FIFA World Cup 2026",
-  "lastChecked": "2026-06-05",
+  "lastChecked": "2026-06-12",
   "matchCount": 104,
   "note": "Scores are null before kickoff. Update status to live or final and add score { home, away } as results arrive.",
   "sources": [
@@ -11,6 +11,14 @@
     {
       "name": "WorldCuply structured fixture list",
       "url": "https://worldcuply.com/schedule.html"
+    },
+    {
+      "name": "FOX Sports Mexico vs South Africa final score",
+      "url": "https://www.foxsports.com/soccer/fifa-world-cup-men-mexico-vs-south-africa-jun-11-2026-game-boxscore-647616"
+    },
+    {
+      "name": "FOX Sports South Korea vs Czechia final score",
+      "url": "https://www.foxsports.com/soccer/fifa-world-cup-men-south-korea-vs-czechia-jun-11-2026-game-boxscore-647617"
     }
   ],
   "matches": [
@@ -31,8 +39,11 @@
         "name": "South Africa",
         "flag": "https://flagcdn.com/w40/za.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 2,
+        "away": 0
+      }
     },
     {
       "id": 2,
@@ -51,8 +62,11 @@
         "name": "Czech Republic",
         "flag": "https://flagcdn.com/w40/cz.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 2,
+        "away": 1
+      }
     },
     {
       "id": 3,
