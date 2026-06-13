@@ -2,7 +2,7 @@
   "tournament": "FIFA World Cup 2026",
   "lastChecked": "2026-06-13",
   "matchCount": 104,
-  "note": "Scores are null before kickoff. Update status to live or final and add score { home, away } as results arrive.",
+  "note": "Scores are null before kickoff. Final matches can include goals with minute, team, player, assist, and ownGoal for scorer views.",
   "sources": [
     {
       "name": "FIFA updated match schedule PDF",
@@ -51,7 +51,27 @@
       "score": {
         "home": 2,
         "away": 0
-      }
+      },
+      "goals": [
+        {
+          "minute": "9",
+          "team": "Mexico",
+          "player": "Julián Quiñones",
+          "playerTeam": "Mexico",
+          "playerSourceUrl": "https://www.transfermarkt.us/julian-quinones/profil/spieler/416090",
+          "assist": "Érik Lira",
+          "assistSourceUrl": "https://www.transfermarkt.us/erik-lira/profil/spieler/602324"
+        },
+        {
+          "minute": "67",
+          "team": "Mexico",
+          "player": "Raúl Jiménez",
+          "playerTeam": "Mexico",
+          "playerSourceUrl": "https://www.transfermarkt.us/raul-jimenez/profil/spieler/206040",
+          "assist": "Roberto Alvarado",
+          "assistSourceUrl": "https://www.transfermarkt.us/roberto-alvarado/profil/spieler/353583"
+        }
+      ]
     },
     {
       "id": 2,
@@ -74,7 +94,36 @@
       "score": {
         "home": 2,
         "away": 1
-      }
+      },
+      "goals": [
+        {
+          "minute": "59",
+          "team": "Czech Republic",
+          "player": "Ladislav Krejčí",
+          "playerTeam": "Czech Republic",
+          "playerSourceUrl": "https://www.transfermarkt.us/ladislav-krejci/profil/spieler/345911",
+          "assist": "Vladimír Coufal",
+          "assistSourceUrl": "https://www.transfermarkt.us/vladimir-coufal/profil/spieler/157672"
+        },
+        {
+          "minute": "67",
+          "team": "South Korea",
+          "player": "In-beom Hwang",
+          "playerTeam": "South Korea",
+          "playerSourceUrl": "https://www.transfermarkt.us/in-beom-hwang/profil/spieler/365394",
+          "assist": "Kang-in Lee",
+          "assistSourceUrl": "https://www.transfermarkt.us/kang-in-lee/profil/spieler/557149"
+        },
+        {
+          "minute": "80",
+          "team": "South Korea",
+          "player": "Hyeon-gyu Oh",
+          "playerTeam": "South Korea",
+          "playerSourceUrl": "https://www.transfermarkt.us/hyeon-gyu-oh/profil/spieler/639246",
+          "assist": "In-beom Hwang",
+          "assistSourceUrl": "https://www.transfermarkt.us/in-beom-hwang/profil/spieler/365394"
+        }
+      ]
     },
     {
       "id": 3,
@@ -97,7 +146,27 @@
       "score": {
         "home": 1,
         "away": 1
-      }
+      },
+      "goals": [
+        {
+          "minute": "21",
+          "team": "Bosnia and Herzegovina",
+          "player": "Jovo Lukić",
+          "playerTeam": "Bosnia and Herzegovina",
+          "playerSourceUrl": "https://www.transfermarkt.us/jovo-lukic/profil/spieler/457738",
+          "assist": "Sead Kolašinac",
+          "assistSourceUrl": "https://www.transfermarkt.us/sead-kolasinac/profil/spieler/94005"
+        },
+        {
+          "minute": "78",
+          "team": "Canada",
+          "player": "Cyle Larin",
+          "playerTeam": "Canada",
+          "playerSourceUrl": "https://www.transfermarkt.us/cyle-larin/profil/spieler/343463",
+          "assist": "Promise David",
+          "assistSourceUrl": "https://www.transfermarkt.us/promise-david/profil/spieler/888785"
+        }
+      ]
     },
     {
       "id": 4,
@@ -120,7 +189,51 @@
       "score": {
         "home": 4,
         "away": 1
-      }
+      },
+      "goals": [
+        {
+          "minute": "7",
+          "team": "United States",
+          "player": "Damián Bobadilla",
+          "playerTeam": "Paraguay",
+          "playerSourceUrl": "https://www.transfermarkt.us/damian-bobadilla/profil/spieler/861852",
+          "ownGoal": true
+        },
+        {
+          "minute": "31",
+          "team": "United States",
+          "player": "Folarin Balogun",
+          "playerTeam": "United States",
+          "playerSourceUrl": "https://www.transfermarkt.us/folarin-balogun/profil/spieler/503770",
+          "assist": "Christian Pulisic",
+          "assistSourceUrl": "https://www.transfermarkt.us/christian-pulisic/profil/spieler/315779"
+        },
+        {
+          "minute": "45+5",
+          "team": "United States",
+          "player": "Folarin Balogun",
+          "playerTeam": "United States",
+          "playerSourceUrl": "https://www.transfermarkt.us/folarin-balogun/profil/spieler/503770",
+          "assist": "Malik Tillman",
+          "assistSourceUrl": "https://www.transfermarkt.us/malik-tillman/profil/spieler/467437"
+        },
+        {
+          "minute": "73",
+          "team": "Paraguay",
+          "player": "Mauricio",
+          "playerTeam": "Paraguay",
+          "playerSourceUrl": "https://www.transfermarkt.us/mauricio/profil/spieler/678439",
+          "assist": "Julio Enciso",
+          "assistSourceUrl": "https://www.transfermarkt.us/julio-enciso/profil/spieler/660867"
+        },
+        {
+          "minute": "90+8",
+          "team": "United States",
+          "player": "Giovanni Reyna",
+          "playerTeam": "United States",
+          "playerSourceUrl": "https://www.transfermarkt.us/giovanni-reyna/profil/spieler/504215"
+        }
+      ]
     },
     {
       "id": 5,

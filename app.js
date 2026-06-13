@@ -4,6 +4,7 @@ const state = {
   matches: [],
   teams: [],
   teamMap: new Map(),
+  playerMap: new Map(),
   flagMap: new Map(),
   tab: "fixtures",
   query: "",
@@ -48,6 +49,7 @@ function cacheElements() {
     resultCount: document.querySelector("#resultCount"),
     fixtures: document.querySelector("#fixtures"),
     groups: document.querySelector("#groups"),
+    scorers: document.querySelector("#scorers"),
     teams: document.querySelector("#teams"),
     venues: document.querySelector("#venues"),
     results: document.querySelector("#results"),
@@ -73,6 +75,7 @@ async function init() {
     }));
     state.teams = (state.teamData.teams || []).map(normalizeTeamTopEleven);
     state.teamMap = new Map(state.teams.map((team) => [team.name, team]));
+    state.playerMap = buildPlayerLookup(state.teams);
     state.flagMap = buildScheduleFlagMap(state.matches);
 
     hydrateFilters();
@@ -205,6 +208,7 @@ function renderViews() {
   const viewMap = {
     fixtures: renderFixtures,
     results: renderResults,
+    scorers: renderScorers,
     groups: renderGroups,
     teams: renderTeams,
     venues: renderVenues,
@@ -215,6 +219,7 @@ function renderViews() {
   Object.entries({
     fixtures: els.fixtures,
     groups: els.groups,
+    scorers: els.scorers,
     teams: els.teams,
     venues: els.venues,
     results: els.results,
@@ -328,6 +333,37 @@ function renderResults(matches) {
   }
 
   els.results.innerHTML = `<div class="match-grid">${finals.map(matchCard).join("")}</div>`;
+}
+
+function renderScorers() {
+  const rows = buildScorerRows();
+  const goalTotal = rows.reduce((total, row) => total + row.goals, 0);
+  els.resultCount.textContent = `${rows.length} ${plural(rows.length, "scorer", "scorers")} - ${goalTotal} ${plural(goalTotal, "goal", "goals")}`;
+
+  if (!rows.length) {
+    els.scorers.innerHTML = emptyState("No scorers found", "Try clearing search or group filters.");
+    return;
+  }
+
+  const leader = rows[0];
+  const maxValue = Math.max(...rows.map((row) => row.valueEur || 0), 1);
+
+  els.scorers.innerHTML = `
+    <div class="scorer-showcase">
+      <article class="scorer-leader">
+        <span class="player-photo">${playerPortrait(leader.player || { name: leader.name })}</span>
+        <div>
+          <span class="scorer-kicker">Golden Boot race</span>
+          <h3>${playerLink(leader)}</h3>
+          <p>${escapeHTML(`${leader.team} - ${leader.club || "Club TBD"}`)}</p>
+        </div>
+        <strong>${leader.goals}</strong>
+      </article>
+      <div class="scorer-grid">
+        ${rows.map((row, index) => scorerCard(row, index, maxValue)).join("")}
+      </div>
+    </div>
+  `;
 }
 
 function renderGroups(matches) {
@@ -666,6 +702,51 @@ function playerRow(player) {
   `;
 }
 
+function scorerCard(row, index, maxValue) {
+  const valueWidth = Math.max(6, Math.round(((row.valueEur || 0) / maxValue) * 100));
+  return `
+    <article class="scorer-card">
+      <div class="scorer-card-head">
+        <span class="scorer-rank">#${index + 1}</span>
+        ${miniFlag({ name: row.team })}
+        <span>${escapeHTML(row.team)}</span>
+        <strong>${row.goals} ${plural(row.goals, "goal", "goals")}</strong>
+      </div>
+      <div class="scorer-player">
+        <span class="player-photo">${playerPortrait(row.player || { name: row.name })}</span>
+        <div>
+          <h3>${playerLink(row)}</h3>
+          <p>${escapeHTML(row.position || "Position TBD")}</p>
+        </div>
+      </div>
+      <div class="scorer-meta">
+        <span class="club-cell">${clubLogo(row.player)}${escapeHTML(row.club || "Club TBD")}</span>
+        <strong>${escapeHTML(formatMoney(row.valueEur || 0))}</strong>
+      </div>
+      <div class="rank-feature-meter" aria-label="Transfermarkt value">
+        <span style="width: ${valueWidth}%"></span>
+      </div>
+      <div class="scorer-goal-list">
+        ${row.events
+          .map(
+            (event) => `
+              <span>
+                <strong>${minuteLabel(event.goal)}</strong>
+                ${escapeHTML(`vs ${opponentName(event.match, row.team)}`)}
+              </span>
+            `
+          )
+          .join("")}
+      </div>
+    </article>
+  `;
+}
+
+function playerLink(row) {
+  if (!row.sourceUrl) return escapeHTML(row.name);
+  return `<a href="${escapeAttribute(row.sourceUrl)}" target="_blank" rel="noreferrer">${escapeHTML(row.name)}</a>`;
+}
+
 function matchCard(match) {
   const status = statusInfo(match);
   const score = isCompleted(match) || match.score ? scoreMarkup(match) : `<span class="score-label">${formatPrimaryTime(match)}</span>`;
@@ -681,12 +762,48 @@ function matchCard(match) {
         <div class="score-box">${score}</div>
         ${team(match.away)}
       </div>
+      ${goalTimeline(match)}
       <div class="match-foot">
         <span><i data-lucide="badge" aria-hidden="true"></i><strong>${escapeHTML(match.group ? `Group ${match.group}` : match.stage)}</strong></span>
         <span><i data-lucide="clock" aria-hidden="true"></i>${escapeHTML(match.local)} venue</span>
         <span><i data-lucide="map-pin" aria-hidden="true"></i>${escapeHTML(match.venue)}</span>
       </div>
     </article>
+  `;
+}
+
+function goalTimeline(match) {
+  if (!isCompleted(match) && !(match.goals || []).length) return "";
+  const goals = (match.goals || []).slice().sort((a, b) => minuteValue(a.minute) - minuteValue(b.minute));
+
+  if (!goals.length) {
+    return `<div class="goal-timeline empty-goals"><span>No goals</span></div>`;
+  }
+
+  return `
+    <div class="goal-timeline" aria-label="Goal scorers for match ${match.id}">
+      ${goals.map((goal) => goalEvent(goal, match)).join("")}
+    </div>
+  `;
+}
+
+function goalEvent(goal, match) {
+  const side = goal.team === match.home.name ? "home" : "away";
+  const assist = goal.assist ? `Assist: ${goal.assist}` : "Unassisted";
+  const detail = goal.ownGoal ? `${goal.playerTeam || "Opponent"} own goal` : assist;
+
+  return `
+    <div class="goal-event ${side}">
+      <span class="goal-minute">${minuteLabel(goal)}</span>
+      ${miniFlag({ name: goal.team })}
+      <span class="goal-copy">
+        <strong>
+          ${escapeHTML(goal.player)}
+          ${goal.ownGoal ? `<em class="own-goal-badge">OG</em>` : ""}
+        </strong>
+        <em>${escapeHTML(detail)}</em>
+      </span>
+    </div>
   `;
 }
 
@@ -757,7 +874,7 @@ function playerPortrait(player) {
 }
 
 function clubLogo(player) {
-  if (!player.clubLogo) return "";
+  if (!player?.clubLogo) return "";
   return `<img src="${escapeAttribute(player.clubLogo)}" alt="" loading="lazy">`;
 }
 
@@ -812,6 +929,88 @@ function groupPathLabel(rank) {
   if (rank <= 2) return { label: "R32 slot", className: "direct" };
   if (rank === 3) return { label: "Best 3rd", className: "third" };
   return { label: "Chase", className: "chase" };
+}
+
+function buildScorerRows() {
+  const scorers = new Map();
+
+  state.matches.forEach((match) => {
+    if (state.group !== "all" && match.group !== state.group) return;
+
+    (match.goals || []).forEach((goal) => {
+      if (goal.ownGoal) return;
+      const player = playerForGoal(goal);
+      const key = goal.playerSourceUrl || playerLookupKey(goal.playerTeam || goal.team, goal.player);
+      const teamName = goal.playerTeam || goal.team;
+      const team = state.teamMap.get(teamName);
+
+      if (!scorers.has(key)) {
+        scorers.set(key, {
+          name: goal.player,
+          team: teamName,
+          group: team?.group || "",
+          player,
+          club: player?.club || "",
+          position: player?.position || "",
+          valueEur: player?.valueEur || 0,
+          sourceUrl: player?.sourceUrl || goal.playerSourceUrl || "",
+          goals: 0,
+          events: [],
+          matches: new Set(),
+        });
+      }
+
+      const row = scorers.get(key);
+      row.goals += 1;
+      row.matches.add(match.id);
+      row.events.push({ goal, match });
+    });
+  });
+
+  const query = normalizeSearch(state.query);
+
+  return [...scorers.values()]
+    .filter((row) => {
+      if (!query) return true;
+      return normalizeSearch(
+        [
+          row.name,
+          row.team,
+          row.group ? `Group ${row.group}` : "",
+          row.club,
+          row.position,
+          formatMoney(row.valueEur),
+          ...row.events.map((event) => `${event.match.home.name} ${event.match.away.name} ${event.goal.assist || ""}`),
+        ].join(" ")
+      ).includes(query);
+    })
+    .sort((a, b) => {
+      return (
+        b.goals - a.goals ||
+        b.valueEur - a.valueEur ||
+        a.name.localeCompare(b.name)
+      );
+    });
+}
+
+function buildPlayerLookup(teams) {
+  const lookup = new Map();
+  teams.forEach((team) => {
+    (team.players || []).forEach((player) => {
+      const entry = { ...player, team: team.name, group: team.group };
+      if (player.sourceUrl) lookup.set(player.sourceUrl, entry);
+      lookup.set(playerLookupKey(team.name, player.name), entry);
+    });
+  });
+  return lookup;
+}
+
+function playerForGoal(goal) {
+  return state.playerMap.get(goal.playerSourceUrl) || state.playerMap.get(playerLookupKey(goal.playerTeam || goal.team, goal.player));
+}
+
+function playerLookupKey(teamName, playerName) {
+  return `${normalizeSearch(teamName)}::${normalizeSearch(playerName)}`;
 }
 
 function getVisibleTeams() {
@@ -977,6 +1176,20 @@ function scoreMarkup(match) {
   `;
 }
 
+function minuteLabel(goal) {
+  const minute = String(goal.minute || "").trim();
+  return minute.endsWith("'") ? minute : `${minute}'`;
+}
+
+function minuteValue(minute) {
+  const [base, extra] = String(minute).split("+").map((part) => Number.parseInt(part, 10));
+  return (Number.isFinite(base) ? base : 0) * 100 + (Number.isFinite(extra) ? extra : 0);
+}
+
+function opponentName(match, teamName) {
+  return match.home.name === teamName ? match.away.name : match.home.name;
+}
+
 function buildStandings(filteredMatches) {
   const groupMatchesInFilter = filteredMatches.filter((match) => match.group);
   if (filteredMatches.length && !groupMatchesInFilter.length) return [];
@@ -1055,7 +1268,7 @@ function buildStandings(filteredMatches) {
 
 function getVisibleMatches() {
   return state.matches.filter((match) => {
-    const haystack = [
+    const haystack = normalizeSearch([
       match.id,
       match.stage,
       match.group ? `Group ${match.group}` : "",
@@ -1064,12 +1277,11 @@ function getVisibleMatches() {
       match.city,
       match.home.name,
       match.away.name,
-    ]
-      .join(" ")
-      .toLowerCase();
+      ...(match.goals || []).flatMap((goal) => [goal.player, goal.playerTeam, goal.team, goal.assist]),
+    ].join(" "));
 
     return (
-      (!state.query || haystack.includes(state.query)) &&
+      (!state.query || haystack.includes(normalizeSearch(state.query))) &&
       (state.stage === "all" || match.stage === state.stage) &&
       (state.group === "all" || match.group === state.group) &&
       (state.city === "all" || match.city === state.city) &&
@@ -1140,6 +1352,7 @@ function titleForTab(tab) {
   return {
     fixtures: "Fixtures",
     results: "Results",
+    scorers: "Top Scorers",
     groups: "Groups",
     teams: "Teams",
     venues: "Venues",
@@ -1196,6 +1409,15 @@ function signed(number) {
 
 function trimNumber(number) {
   return number >= 100 ? number.toFixed(0) : number >= 10 ? number.toFixed(1).replace(/\.0$/, "") : number.toFixed(2).replace(/\.00$/, "");
+}
+
+function normalizeSearch(value) {
+  return String(value || "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
 }
 
 function plural(count, singular, pluralValue) {

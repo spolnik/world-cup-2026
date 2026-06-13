@@ -26,11 +26,21 @@ Fixtures live in `data/matches.json`. To add a result, set the match to final an
 ```json
 {
   "status": "final",
-  "score": { "home": 2, "away": 1 }
+  "score": { "home": 2, "away": 1 },
+  "goals": [
+    {
+      "minute": "31",
+      "team": "United States",
+      "player": "Folarin Balogun",
+      "playerTeam": "United States",
+      "playerSourceUrl": "https://www.transfermarkt.us/folarin-balogun/profil/spieler/503770",
+      "assist": "Christian Pulisic"
+    }
+  ]
 }
 ```
 
-For live matches, use `"status": "live"` and include the current score.
+For live matches, use `"status": "live"` and include the current score. Own goals should set `"ownGoal": true`; they appear in match details but are excluded from the Top Scorers tab.
 
 ## Refresh Team Values
 

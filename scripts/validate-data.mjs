@@ -5,6 +5,9 @@ const data = JSON.parse(fs.readFileSync("data/matches.json", "utf8"));
 const teamsData = JSON.parse(fs.readFileSync("data/teams.json", "utf8"));
 
 const errors = [];
+const playerSourceUrls = new Set(
+  (teamsData.teams ?? []).flatMap((team) => (team.players ?? []).map((player) => player.sourceUrl).filter(Boolean))
+);
 
 if (data.matchCount !== 104) errors.push(`Expected matchCount to be 104, got ${data.matchCount}`);
 if (!Array.isArray(data.matches) || data.matches.length !== 104) {
@@ -25,6 +28,39 @@ for (const match of data.matches ?? []) {
   if (match.score) {
     if (!Number.isInteger(match.score.home) || !Number.isInteger(match.score.away)) {
       errors.push(`Match ${match.id} has invalid score`);
+    }
+  }
+  if (match.status === "final" && match.score && match.score.home + match.score.away > 0 && !Array.isArray(match.goals)) {
+    errors.push(`Match ${match.id} is final with goals scored but has no goals array`);
+  }
+  if (match.goals !== undefined) {
+    if (!Array.isArray(match.goals)) {
+      errors.push(`Match ${match.id} has invalid goals array`);
+    } else {
+      const goalTotals = { home: 0, away: 0 };
+      for (const goal of match.goals) {
+        if (!goal.minute) errors.push(`Match ${match.id} has a goal without a minute`);
+        if (!goal.team) errors.push(`Match ${match.id} has a goal without a team`);
+        if (!goal.player) errors.push(`Match ${match.id} has a goal without a player`);
+        if (goal.team === match.home.name) {
+          goalTotals.home += 1;
+        } else if (goal.team === match.away.name) {
+          goalTotals.away += 1;
+        } else {
+          errors.push(`Match ${match.id} goal team ${goal.team} is not playing in the match`);
+        }
+        if (goal.ownGoal && goal.playerTeam && ![match.home.name, match.away.name].includes(goal.playerTeam)) {
+          errors.push(`Match ${match.id} own goal playerTeam ${goal.playerTeam} is not playing in the match`);
+        }
+        if (goal.playerSourceUrl && !playerSourceUrls.has(goal.playerSourceUrl)) {
+          errors.push(`Match ${match.id} goal player ${goal.player} has an unknown Transfermarkt URL`);
+        }
+      }
+      if (match.score && (goalTotals.home !== match.score.home || goalTotals.away !== match.score.away)) {
+        errors.push(
+          `Match ${match.id} goals do not match score: goals ${goalTotals.home}-${goalTotals.away}, score ${match.score.home}-${match.score.away}`
+        );
+      }
     }
   }
 }
