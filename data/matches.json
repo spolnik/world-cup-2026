@@ -1,6 +1,6 @@
 {
   "tournament": "FIFA World Cup 2026",
-  "lastChecked": "2026-06-12",
+  "lastChecked": "2026-06-13",
   "matchCount": 104,
   "note": "Scores are null before kickoff. Update status to live or final and add score { home, away } as results arrive.",
   "sources": [
@@ -19,6 +19,14 @@
     {
       "name": "FOX Sports South Korea vs Czechia final score",
       "url": "https://www.foxsports.com/soccer/fifa-world-cup-men-south-korea-vs-czechia-jun-11-2026-game-boxscore-647617"
+    },
+    {
+      "name": "FOX Sports Canada vs Bosnia and Herzegovina final score",
+      "url": "https://www.foxsports.com/soccer/fifa-world-cup-men-canada-vs-bosnia-and-herzegovina-jun-12-2026-game-boxscore-647618"
+    },
+    {
+      "name": "FOX Sports United States vs Paraguay final score",
+      "url": "https://www.foxsports.com/soccer/fifa-world-cup-men-united-states-vs-paraguay-jun-12-2026-game-boxscore-647619"
     }
   ],
   "matches": [
@@ -85,8 +93,11 @@
         "name": "Bosnia and Herzegovina",
         "flag": "https://flagcdn.com/w40/ba.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 1,
+        "away": 1
+      }
     },
     {
       "id": 4,
@@ -105,8 +116,11 @@
         "name": "Paraguay",
         "flag": "https://flagcdn.com/w40/py.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 4,
+        "away": 1
+      }
     },
     {
       "id": 5,
