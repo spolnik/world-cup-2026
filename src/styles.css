@@ -2227,11 +2227,11 @@ select {
   }
 
   .standings-wrap {
-    overflow-x: visible;
+    overflow-x: auto;
   }
 
   .standings {
-    min-width: 0;
+    min-width: 520px;
     table-layout: fixed;
     font-size: 0.76rem;
   }
@@ -2246,15 +2246,16 @@ select {
     width: 36px;
   }
 
-  .standings th:nth-child(4),
-  .standings td:nth-child(4) {
-    display: none;
-  }
-
   .standings th:nth-child(3),
   .standings td:nth-child(3),
+  .standings th:nth-child(4),
+  .standings td:nth-child(4),
   .standings th:nth-child(5),
-  .standings td:nth-child(5) {
+  .standings td:nth-child(5),
+  .standings th:nth-child(6),
+  .standings td:nth-child(6),
+  .standings th:nth-child(7),
+  .standings td:nth-child(7) {
     width: 32px;
   }
 

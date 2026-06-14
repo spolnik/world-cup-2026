@@ -457,6 +457,8 @@ function renderGroups(matches) {
                         <th>Rank</th>
                         <th>Team</th>
                         <th>P</th>
+                        <th title="Goals for">GF</th>
+                        <th title="Goals against">GA</th>
                         <th>GD</th>
                         <th>Pts</th>
                         <th>Path</th>
@@ -900,6 +902,8 @@ function standingRow(row, index) {
         </span>
       </td>
       <td>${row.played}</td>
+      <td>${row.gf}</td>
+      <td>${row.ga}</td>
       <td>${signed(row.gf - row.ga)}</td>
       <td><strong>${row.points}</strong></td>
       <td><span class="path-chip ${path.className}">${path.label}</span></td>
