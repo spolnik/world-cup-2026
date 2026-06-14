@@ -39,6 +39,10 @@
     {
       "name": "FOX Sports Haiti vs Scotland final score",
       "url": "https://www.foxsports.com/soccer/fifa-world-cup-men-haiti-vs-scotland-jun-13-2026-game-boxscore-647623"
+    },
+    {
+      "name": "Sporting News Australia vs Turkey final score",
+      "url": "https://www.sportingnews.com/uk/football/news/australia-vs-turkey-world-cup-live-score-result-highlights/6ed8a86dd80e32b95d24d3b4"
     }
   ],
   "matches": [
@@ -298,8 +302,29 @@
         "name": "Turkey",
         "flag": "https://flagcdn.com/w40/tr.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 2,
+        "away": 0
+      },
+      "goals": [
+        {
+          "minute": "27",
+          "team": "Australia",
+          "player": "Nestory Irankunda",
+          "playerTeam": "Australia",
+          "playerSourceUrl": "https://www.transfermarkt.us/nestory-irankunda/profil/spieler/956920",
+          "assist": "Paul Okon-Engstler",
+          "assistSourceUrl": "https://www.transfermarkt.us/paul-okon-engstler/profil/spieler/1064377"
+        },
+        {
+          "minute": "75",
+          "team": "Australia",
+          "player": "Connor Metcalfe",
+          "playerTeam": "Australia",
+          "playerSourceUrl": "https://www.transfermarkt.us/connor-metcalfe/profil/spieler/522223"
+        }
+      ]
     },
     {
       "id": 7,
