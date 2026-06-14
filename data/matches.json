@@ -1,6 +1,6 @@
 {
   "tournament": "FIFA World Cup 2026",
-  "lastChecked": "2026-06-13",
+  "lastChecked": "2026-06-14",
   "matchCount": 104,
   "note": "Scores are null before kickoff. Final matches can include goals with minute, team, player, assist, and ownGoal for scorer views.",
   "sources": [
@@ -27,6 +27,18 @@
     {
       "name": "FOX Sports United States vs Paraguay final score",
       "url": "https://www.foxsports.com/soccer/fifa-world-cup-men-united-states-vs-paraguay-jun-12-2026-game-boxscore-647619"
+    },
+    {
+      "name": "FIFA Brazil vs Morocco match report",
+      "url": "https://fdp.fifa.org/assetspublic/ce281/r12465/pdf/FullTimeMatchReport-English.pdf"
+    },
+    {
+      "name": "FIFA Qatar vs Switzerland match report",
+      "url": "https://fdp.fifa.org/assetspublic/ce281/r12456/pdf/FullTimeMatchReport-English.pdf"
+    },
+    {
+      "name": "FOX Sports Haiti vs Scotland final score",
+      "url": "https://www.foxsports.com/soccer/fifa-world-cup-men-haiti-vs-scotland-jun-13-2026-game-boxscore-647623"
     }
   ],
   "matches": [
@@ -252,8 +264,22 @@
         "name": "Scotland",
         "flag": "https://flagcdn.com/w40/gb-sct.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 0,
+        "away": 1
+      },
+      "goals": [
+        {
+          "minute": "28",
+          "team": "Scotland",
+          "player": "John McGinn",
+          "playerTeam": "Scotland",
+          "playerSourceUrl": "https://www.transfermarkt.us/john-mcginn/profil/spieler/193116",
+          "assist": "Ben Gannon-Doak",
+          "assistSourceUrl": "https://www.transfermarkt.us/ben-gannon-doak/profil/spieler/719673"
+        }
+      ]
     },
     {
       "id": 6,
@@ -292,8 +318,31 @@
         "name": "Morocco",
         "flag": "https://flagcdn.com/w40/ma.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 1,
+        "away": 1
+      },
+      "goals": [
+        {
+          "minute": "21",
+          "team": "Morocco",
+          "player": "Ismael Saibari",
+          "playerTeam": "Morocco",
+          "playerSourceUrl": "https://www.transfermarkt.us/ismael-saibari/profil/spieler/702869",
+          "assist": "Brahim Díaz",
+          "assistSourceUrl": "https://www.transfermarkt.us/brahim-diaz/profil/spieler/314678"
+        },
+        {
+          "minute": "32",
+          "team": "Brazil",
+          "player": "Vinicius Junior",
+          "playerTeam": "Brazil",
+          "playerSourceUrl": "https://www.transfermarkt.us/vinicius-junior/profil/spieler/371998",
+          "assist": "Bruno Guimarães",
+          "assistSourceUrl": "https://www.transfermarkt.us/bruno-guimaraes/profil/spieler/520624"
+        }
+      ]
     },
     {
       "id": 8,
@@ -312,8 +361,31 @@
         "name": "Switzerland",
         "flag": "https://flagcdn.com/w40/ch.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 1,
+        "away": 1
+      },
+      "goals": [
+        {
+          "minute": "17",
+          "team": "Switzerland",
+          "player": "Breel Embolo",
+          "playerTeam": "Switzerland",
+          "playerSourceUrl": "https://www.transfermarkt.us/breel-embolo/profil/spieler/237662",
+          "penalty": true
+        },
+        {
+          "minute": "90+4",
+          "team": "Qatar",
+          "player": "Miro Muheim",
+          "playerTeam": "Switzerland",
+          "playerSourceUrl": "https://www.transfermarkt.us/miro-muheim/profil/spieler/298603",
+          "assist": "Homam Al-Amin",
+          "assistSourceUrl": "https://www.transfermarkt.us/homam-al-amin/profil/spieler/556713",
+          "ownGoal": true
+        }
+      ]
     },
     {
       "id": 9,

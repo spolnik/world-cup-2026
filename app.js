@@ -790,7 +790,7 @@ function goalTimeline(match) {
 function goalEvent(goal, match) {
   const side = goal.team === match.home.name ? "home" : "away";
   const assist = goal.assist ? `Assist: ${goal.assist}` : "Unassisted";
-  const detail = goal.ownGoal ? `${goal.playerTeam || "Opponent"} own goal` : assist;
+  const detail = goal.ownGoal ? `${goal.playerTeam || "Opponent"} own goal` : goal.penalty ? "Penalty" : assist;
 
   return `
     <div class="goal-event ${side}">
