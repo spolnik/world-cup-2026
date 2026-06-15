@@ -1,6 +1,6 @@
 {
   "tournament": "FIFA World Cup 2026",
-  "lastChecked": "2026-06-14",
+  "lastChecked": "2026-06-15",
   "matchCount": 104,
   "note": "Scores are null before kickoff. Final matches can include goals with minute, team, player, assist, and ownGoal for scorer views.",
   "sources": [
@@ -43,6 +43,22 @@
     {
       "name": "Sporting News Australia vs Turkey final score",
       "url": "https://www.sportingnews.com/uk/football/news/australia-vs-turkey-world-cup-live-score-result-highlights/6ed8a86dd80e32b95d24d3b4"
+    },
+    {
+      "name": "FOX Sports Germany vs Curacao final score",
+      "url": "https://www.foxsports.com/soccer/germany-vs-curacao-jun-14-2026-game-boxscore-647624"
+    },
+    {
+      "name": "FOX Sports Netherlands vs Japan final score",
+      "url": "https://www.foxsports.com/soccer/fifa-world-cup-men-netherlands-vs-japan-jun-14-2026-game-boxscore-647625"
+    },
+    {
+      "name": "FOX Sports Ivory Coast vs Ecuador final score",
+      "url": "https://www.foxsports.com/soccer/fifa-world-cup-men-ivory-coast-vs-ecuador-jun-14-2026-game-boxscore-647626"
+    },
+    {
+      "name": "FOX Sports Sweden vs Tunisia final score",
+      "url": "https://www.foxsports.com/soccer/fifa-world-cup-men-sweden-vs-tunisia-jun-14-2026-game-boxscore-647627"
     }
   ],
   "matches": [
@@ -429,8 +445,22 @@
         "name": "Ecuador",
         "flag": "https://flagcdn.com/w40/ec.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 1,
+        "away": 0
+      },
+      "goals": [
+        {
+          "minute": "90",
+          "team": "Ivory Coast",
+          "player": "Amad Diallo",
+          "playerTeam": "Ivory Coast",
+          "playerSourceUrl": "https://www.transfermarkt.us/amad-diallo/profil/spieler/536835",
+          "assist": "Wilfried Singo",
+          "assistSourceUrl": "https://www.transfermarkt.us/wilfried-singo/profil/spieler/648779"
+        }
+      ]
     },
     {
       "id": 10,
@@ -449,8 +479,82 @@
         "name": "Curaçao",
         "flag": "https://flagcdn.com/w40/cw.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 7,
+        "away": 1
+      },
+      "goals": [
+        {
+          "minute": "6",
+          "team": "Germany",
+          "player": "Felix Nmecha",
+          "playerTeam": "Germany",
+          "playerSourceUrl": "https://www.transfermarkt.us/felix-nmecha/profil/spieler/406640",
+          "assist": "Florian Wirtz",
+          "assistSourceUrl": "https://www.transfermarkt.us/florian-wirtz/profil/spieler/598577"
+        },
+        {
+          "minute": "21",
+          "team": "Curaçao",
+          "player": "Livano Comenencia",
+          "playerTeam": "Curaçao",
+          "playerSourceUrl": "https://www.transfermarkt.us/livano-comenencia/profil/spieler/626764"
+        },
+        {
+          "minute": "38",
+          "team": "Germany",
+          "player": "Nico Schlotterbeck",
+          "playerTeam": "Germany",
+          "playerSourceUrl": "https://www.transfermarkt.us/nico-schlotterbeck/profil/spieler/388198",
+          "assist": "Nathaniel Brown",
+          "assistSourceUrl": "https://www.transfermarkt.us/nathaniel-brown/profil/spieler/691892"
+        },
+        {
+          "minute": "45+5",
+          "team": "Germany",
+          "player": "Kai Havertz",
+          "playerTeam": "Germany",
+          "playerSourceUrl": "https://www.transfermarkt.us/kai-havertz/profil/spieler/309400",
+          "penalty": true
+        },
+        {
+          "minute": "47",
+          "team": "Germany",
+          "player": "Jamal Musiala",
+          "playerTeam": "Germany",
+          "playerSourceUrl": "https://www.transfermarkt.us/jamal-musiala/profil/spieler/580195",
+          "assist": "Joshua Kimmich",
+          "assistSourceUrl": "https://www.transfermarkt.us/joshua-kimmich/profil/spieler/161056"
+        },
+        {
+          "minute": "68",
+          "team": "Germany",
+          "player": "Nathaniel Brown",
+          "playerTeam": "Germany",
+          "playerSourceUrl": "https://www.transfermarkt.us/nathaniel-brown/profil/spieler/691892",
+          "assist": "Deniz Undav",
+          "assistSourceUrl": "https://www.transfermarkt.us/deniz-undav/profil/spieler/339314"
+        },
+        {
+          "minute": "78",
+          "team": "Germany",
+          "player": "Deniz Undav",
+          "playerTeam": "Germany",
+          "playerSourceUrl": "https://www.transfermarkt.us/deniz-undav/profil/spieler/339314",
+          "assist": "Joshua Kimmich",
+          "assistSourceUrl": "https://www.transfermarkt.us/joshua-kimmich/profil/spieler/161056"
+        },
+        {
+          "minute": "88",
+          "team": "Germany",
+          "player": "Kai Havertz",
+          "playerTeam": "Germany",
+          "playerSourceUrl": "https://www.transfermarkt.us/kai-havertz/profil/spieler/309400",
+          "assist": "Deniz Undav",
+          "assistSourceUrl": "https://www.transfermarkt.us/deniz-undav/profil/spieler/339314"
+        }
+      ]
     },
     {
       "id": 11,
@@ -469,8 +573,49 @@
         "name": "Japan",
         "flag": "https://flagcdn.com/w40/jp.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 2,
+        "away": 2
+      },
+      "goals": [
+        {
+          "minute": "51",
+          "team": "Netherlands",
+          "player": "Virgil van Dijk",
+          "playerTeam": "Netherlands",
+          "playerSourceUrl": "https://www.transfermarkt.us/virgil-van-dijk/profil/spieler/139208",
+          "assist": "Ryan Gravenberch",
+          "assistSourceUrl": "https://www.transfermarkt.us/ryan-gravenberch/profil/spieler/478573"
+        },
+        {
+          "minute": "57",
+          "team": "Japan",
+          "player": "Keito Nakamura",
+          "playerTeam": "Japan",
+          "playerSourceUrl": "https://www.transfermarkt.us/keito-nakamura/profil/spieler/405397",
+          "assist": "Takefusa Kubo",
+          "assistSourceUrl": "https://www.transfermarkt.us/takefusa-kubo/profil/spieler/405398"
+        },
+        {
+          "minute": "64",
+          "team": "Netherlands",
+          "player": "Crysencio Summerville",
+          "playerTeam": "Netherlands",
+          "playerSourceUrl": "https://www.transfermarkt.us/crysencio-summerville/profil/spieler/474701",
+          "assist": "Ryan Gravenberch",
+          "assistSourceUrl": "https://www.transfermarkt.us/ryan-gravenberch/profil/spieler/478573"
+        },
+        {
+          "minute": "89",
+          "team": "Japan",
+          "player": "Daichi Kamada",
+          "playerTeam": "Japan",
+          "playerSourceUrl": "https://www.transfermarkt.us/daichi-kamada/profil/spieler/356141",
+          "assist": "Koki Ogawa",
+          "assistSourceUrl": "https://www.transfermarkt.us/koki-ogawa/profil/spieler/351567"
+        }
+      ]
     },
     {
       "id": 12,
@@ -489,8 +634,65 @@
         "name": "Tunisia",
         "flag": "https://flagcdn.com/w40/tn.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 5,
+        "away": 1
+      },
+      "goals": [
+        {
+          "minute": "7",
+          "team": "Sweden",
+          "player": "Yasin Ayari",
+          "playerTeam": "Sweden",
+          "playerSourceUrl": "https://www.transfermarkt.us/yasin-ayari/profil/spieler/667287"
+        },
+        {
+          "minute": "30",
+          "team": "Sweden",
+          "player": "Alexander Isak",
+          "playerTeam": "Sweden",
+          "playerSourceUrl": "https://www.transfermarkt.us/alexander-isak/profil/spieler/349066",
+          "assist": "Viktor Gyökeres",
+          "assistSourceUrl": "https://www.transfermarkt.us/viktor-gyokeres/profil/spieler/325443"
+        },
+        {
+          "minute": "43",
+          "team": "Tunisia",
+          "player": "Omar Rekik",
+          "playerTeam": "Tunisia",
+          "playerSourceUrl": "https://www.transfermarkt.us/omar-rekik/profil/spieler/578292",
+          "assist": "Hannibal",
+          "assistSourceUrl": "https://www.transfermarkt.us/hannibal/profil/spieler/607224"
+        },
+        {
+          "minute": "59",
+          "team": "Sweden",
+          "player": "Viktor Gyökeres",
+          "playerTeam": "Sweden",
+          "playerSourceUrl": "https://www.transfermarkt.us/viktor-gyokeres/profil/spieler/325443",
+          "assist": "Alexander Isak",
+          "assistSourceUrl": "https://www.transfermarkt.us/alexander-isak/profil/spieler/349066"
+        },
+        {
+          "minute": "84",
+          "team": "Sweden",
+          "player": "Mattias Svanberg",
+          "playerTeam": "Sweden",
+          "playerSourceUrl": "https://www.transfermarkt.us/mattias-svanberg/profil/spieler/342405",
+          "assist": "Alexander Isak",
+          "assistSourceUrl": "https://www.transfermarkt.us/alexander-isak/profil/spieler/349066"
+        },
+        {
+          "minute": "90+6",
+          "team": "Sweden",
+          "player": "Yasin Ayari",
+          "playerTeam": "Sweden",
+          "playerSourceUrl": "https://www.transfermarkt.us/yasin-ayari/profil/spieler/667287",
+          "assist": "Lucas Bergvall",
+          "assistSourceUrl": "https://www.transfermarkt.us/lucas-bergvall/profil/spieler/866246"
+        }
+      ]
     },
     {
       "id": 13,
