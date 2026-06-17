@@ -1,6 +1,6 @@
 {
   "tournament": "FIFA World Cup 2026",
-  "lastChecked": "2026-06-15",
+  "lastChecked": "2026-06-17",
   "matchCount": 104,
   "note": "Scores are null before kickoff. Final matches can include goals with minute, team, player, assist, and ownGoal for scorer views.",
   "sources": [
@@ -59,6 +59,34 @@
     {
       "name": "FOX Sports Sweden vs Tunisia final score",
       "url": "https://www.foxsports.com/soccer/fifa-world-cup-men-sweden-vs-tunisia-jun-14-2026-game-boxscore-647627"
+    },
+    {
+      "name": "FOX Sports Saudi Arabia vs Uruguay final score",
+      "url": "https://www.foxsports.com/soccer/fifa-world-cup-men-saudi-arabia-vs-uruguay-jun-15-2026-game-boxscore-647630"
+    },
+    {
+      "name": "FOX Sports Spain vs Cape Verde final score",
+      "url": "https://www.foxsports.com/soccer/fifa-world-cup-men-spain-vs-cape-verde-jun-15-2026-game-boxscore-647628"
+    },
+    {
+      "name": "FOX Sports Iran vs New Zealand final score",
+      "url": "https://www.foxsports.com/soccer/fifa-world-cup-men-iran-vs-new-zealand-jun-15-2026-game-boxscore-647631"
+    },
+    {
+      "name": "FOX Sports Belgium vs Egypt final score",
+      "url": "https://www.foxsports.com/soccer/fifa-world-cup-men-belgium-vs-egypt-jun-15-2026-game-boxscore-647629"
+    },
+    {
+      "name": "FOX Sports France vs Senegal final score",
+      "url": "https://www.foxsports.com/soccer/fifa-world-cup-men-france-vs-senegal-jun-16-2026-game-boxscore-647633"
+    },
+    {
+      "name": "FOX Sports Iraq vs Norway final score",
+      "url": "https://www.foxsports.com/soccer/fifa-world-cup-men-iraq-vs-norway-jun-16-2026-game-boxscore-647634"
+    },
+    {
+      "name": "FOX Sports Argentina vs Algeria final score",
+      "url": "https://www.foxsports.com/soccer/fifa-world-cup-men-argentina-vs-algeria-jun-16-2026-game-boxscore-647635"
     }
   ],
   "matches": [
@@ -711,8 +739,27 @@
         "name": "Uruguay",
         "flag": "https://flagcdn.com/w40/uy.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 1,
+        "away": 1
+      },
+      "goals": [
+        {
+          "minute": "41",
+          "team": "Saudi Arabia",
+          "player": "Abdulelah Al-Amri",
+          "playerTeam": "Saudi Arabia",
+          "playerSourceUrl": "https://www.transfermarkt.us/abdulelah-al-amri/profil/spieler/509894"
+        },
+        {
+          "minute": "80",
+          "team": "Uruguay",
+          "player": "Maxi Araújo",
+          "playerTeam": "Uruguay",
+          "playerSourceUrl": "https://www.transfermarkt.us/maxi-araujo/profil/spieler/572675"
+        }
+      ]
     },
     {
       "id": 14,
@@ -731,8 +778,11 @@
         "name": "Cape Verde",
         "flag": "https://flagcdn.com/w40/cv.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 0,
+        "away": 0
+      }
     },
     {
       "id": 15,
@@ -751,8 +801,47 @@
         "name": "New Zealand",
         "flag": "https://flagcdn.com/w40/nz.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 2,
+        "away": 2
+      },
+      "goals": [
+        {
+          "minute": "7",
+          "team": "New Zealand",
+          "player": "Elijah Just",
+          "playerTeam": "New Zealand",
+          "playerSourceUrl": "https://www.transfermarkt.us/elijah-just/profil/spieler/485672",
+          "assist": "Chris Wood",
+          "assistSourceUrl": "https://www.transfermarkt.us/chris-wood/profil/spieler/108725"
+        },
+        {
+          "minute": "32",
+          "team": "Iran",
+          "player": "Ramin Rezaeian",
+          "playerTeam": "Iran",
+          "playerSourceUrl": "https://www.transfermarkt.us/ramin-rezaeian/profil/spieler/188312"
+        },
+        {
+          "minute": "54",
+          "team": "New Zealand",
+          "player": "Elijah Just",
+          "playerTeam": "New Zealand",
+          "playerSourceUrl": "https://www.transfermarkt.us/elijah-just/profil/spieler/485672",
+          "assist": "Chris Wood",
+          "assistSourceUrl": "https://www.transfermarkt.us/chris-wood/profil/spieler/108725"
+        },
+        {
+          "minute": "64",
+          "team": "Iran",
+          "player": "Mohammad Mohebi",
+          "playerTeam": "Iran",
+          "playerSourceUrl": "https://www.transfermarkt.us/mohammad-mohebi/profil/spieler/603149",
+          "assist": "Ramin Rezaeian",
+          "assistSourceUrl": "https://www.transfermarkt.us/ramin-rezaeian/profil/spieler/188312"
+        }
+      ]
     },
     {
       "id": 16,
@@ -771,8 +860,30 @@
         "name": "Egypt",
         "flag": "https://flagcdn.com/w40/eg.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 1,
+        "away": 1
+      },
+      "goals": [
+        {
+          "minute": "20",
+          "team": "Egypt",
+          "player": "Emam Ashour",
+          "playerTeam": "Egypt",
+          "playerSourceUrl": "https://www.transfermarkt.us/emam-ashour/profil/spieler/604008",
+          "assist": "Mohamed Salah",
+          "assistSourceUrl": "https://www.transfermarkt.us/mohamed-salah/profil/spieler/148455"
+        },
+        {
+          "minute": "66",
+          "team": "Belgium",
+          "player": "Mohamed Hany",
+          "playerTeam": "Egypt",
+          "playerSourceUrl": "https://www.transfermarkt.us/mohamed-hany/profil/spieler/343974",
+          "ownGoal": true
+        }
+      ]
     },
     {
       "id": 17,
@@ -791,8 +902,49 @@
         "name": "Senegal",
         "flag": "https://flagcdn.com/w40/sn.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 3,
+        "away": 1
+      },
+      "goals": [
+        {
+          "minute": "66",
+          "team": "France",
+          "player": "Kylian Mbappé",
+          "playerTeam": "France",
+          "playerSourceUrl": "https://www.transfermarkt.us/kylian-mbappe/profil/spieler/342229",
+          "assist": "Michael Olise",
+          "assistSourceUrl": "https://www.transfermarkt.us/michael-olise/profil/spieler/566723"
+        },
+        {
+          "minute": "82",
+          "team": "France",
+          "player": "Bradley Barcola",
+          "playerTeam": "France",
+          "playerSourceUrl": "https://www.transfermarkt.us/bradley-barcola/profil/spieler/708265",
+          "assist": "Adrien Rabiot",
+          "assistSourceUrl": "https://www.transfermarkt.us/adrien-rabiot/profil/spieler/182913"
+        },
+        {
+          "minute": "90+5",
+          "team": "Senegal",
+          "player": "Ibrahim Mbaye",
+          "playerTeam": "Senegal",
+          "playerSourceUrl": "https://www.transfermarkt.us/ibrahim-mbaye/profil/spieler/1185888",
+          "assist": "Iliman Ndiaye",
+          "assistSourceUrl": "https://www.transfermarkt.us/iliman-ndiaye/profil/spieler/623570"
+        },
+        {
+          "minute": "90+6",
+          "team": "France",
+          "player": "Kylian Mbappé",
+          "playerTeam": "France",
+          "playerSourceUrl": "https://www.transfermarkt.us/kylian-mbappe/profil/spieler/342229",
+          "assist": "Michael Olise",
+          "assistSourceUrl": "https://www.transfermarkt.us/michael-olise/profil/spieler/566723"
+        }
+      ]
     },
     {
       "id": 18,
@@ -811,8 +963,56 @@
         "name": "Norway",
         "flag": "https://flagcdn.com/w40/no.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 1,
+        "away": 4
+      },
+      "goals": [
+        {
+          "minute": "29",
+          "team": "Norway",
+          "player": "Erling Haaland",
+          "playerTeam": "Norway",
+          "playerSourceUrl": "https://www.transfermarkt.us/erling-haaland/profil/spieler/418560",
+          "assist": "David Møller Wolfe",
+          "assistSourceUrl": "https://www.transfermarkt.us/david-moller-wolfe/profil/spieler/661427"
+        },
+        {
+          "minute": "39",
+          "team": "Iraq",
+          "player": "Aymen Hussein",
+          "playerTeam": "Iraq",
+          "playerSourceUrl": "https://www.transfermarkt.us/aymen-hussein/profil/spieler/401054",
+          "assist": "Amir Al-Ammari",
+          "assistSourceUrl": "https://www.transfermarkt.us/amir-al-ammari/profil/spieler/303766"
+        },
+        {
+          "minute": "43",
+          "team": "Norway",
+          "player": "Erling Haaland",
+          "playerTeam": "Norway",
+          "playerSourceUrl": "https://www.transfermarkt.us/erling-haaland/profil/spieler/418560"
+        },
+        {
+          "minute": "76",
+          "team": "Norway",
+          "player": "Leo Østigård",
+          "playerTeam": "Norway",
+          "playerSourceUrl": "https://www.transfermarkt.us/leo-ostigard/profil/spieler/367284",
+          "assist": "Martin Ødegaard",
+          "assistSourceUrl": "https://www.transfermarkt.us/martin-odegaard/profil/spieler/316264"
+        },
+        {
+          "minute": "90+7",
+          "team": "Norway",
+          "player": "Kristian Thorstvedt",
+          "playerTeam": "Norway",
+          "playerSourceUrl": "https://www.transfermarkt.us/kristian-thorstvedt/profil/spieler/564785",
+          "assist": "Erling Haaland",
+          "assistSourceUrl": "https://www.transfermarkt.us/erling-haaland/profil/spieler/418560"
+        }
+      ]
     },
     {
       "id": 19,
@@ -831,8 +1031,38 @@
         "name": "Algeria",
         "flag": "https://flagcdn.com/w40/dz.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 3,
+        "away": 0
+      },
+      "goals": [
+        {
+          "minute": "17",
+          "team": "Argentina",
+          "player": "Lionel Messi",
+          "playerTeam": "Argentina",
+          "playerSourceUrl": "https://www.transfermarkt.us/lionel-messi/profil/spieler/28003",
+          "assist": "Rodrigo De Paul",
+          "assistSourceUrl": "https://www.transfermarkt.us/rodrigo-de-paul/profil/spieler/255901"
+        },
+        {
+          "minute": "60",
+          "team": "Argentina",
+          "player": "Lionel Messi",
+          "playerTeam": "Argentina",
+          "playerSourceUrl": "https://www.transfermarkt.us/lionel-messi/profil/spieler/28003"
+        },
+        {
+          "minute": "76",
+          "team": "Argentina",
+          "player": "Lionel Messi",
+          "playerTeam": "Argentina",
+          "playerSourceUrl": "https://www.transfermarkt.us/lionel-messi/profil/spieler/28003",
+          "assist": "Nico González",
+          "assistSourceUrl": "https://www.transfermarkt.us/nico-gonzalez/profil/spieler/486031"
+        }
+      ]
     },
     {
       "id": 20,
