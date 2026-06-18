@@ -1,6 +1,6 @@
 {
   "tournament": "FIFA World Cup 2026",
-  "lastChecked": "2026-06-17",
+  "lastChecked": "2026-06-18",
   "matchCount": 104,
   "note": "Scores are null before kickoff. Final matches can include goals with minute, team, player, assist, and ownGoal for scorer views.",
   "sources": [
@@ -87,6 +87,26 @@
     {
       "name": "FOX Sports Argentina vs Algeria final score",
       "url": "https://www.foxsports.com/soccer/fifa-world-cup-men-argentina-vs-algeria-jun-16-2026-game-boxscore-647635"
+    },
+    {
+      "name": "FOX Sports Austria vs Jordan final score",
+      "url": "https://www.foxsports.com/soccer/fifa-world-cup-men-austria-vs-jordan-jun-17-2026-game-boxscore-647632"
+    },
+    {
+      "name": "FOX Sports Portugal vs DR Congo final score",
+      "url": "https://www.foxsports.com/soccer/fifa-world-cup-men-portugal-vs-congo-dr-jun-17-2026-game-boxscore-647636"
+    },
+    {
+      "name": "FOX Sports England vs Croatia final score",
+      "url": "https://www.foxsports.com/soccer/fifa-world-cup-men-england-vs-croatia-jun-17-2026-game-boxscore-647637"
+    },
+    {
+      "name": "FOX Sports Ghana vs Panama final score",
+      "url": "https://www.foxsports.com/soccer/fifa-world-cup-men-ghana-vs-panama-jun-17-2026-game-boxscore-647638"
+    },
+    {
+      "name": "FOX Sports Uzbekistan vs Colombia final score",
+      "url": "https://www.foxsports.com/soccer/uzbekistan-vs-colombia-jun-18-2026-game-boxscore-647639"
     }
   ],
   "matches": [
@@ -1081,8 +1101,49 @@
         "name": "Jordan",
         "flag": "https://flagcdn.com/w40/jo.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 3,
+        "away": 1
+      },
+      "goals": [
+        {
+          "minute": "21",
+          "team": "Austria",
+          "player": "Romano Schmid",
+          "playerTeam": "Austria",
+          "playerSourceUrl": "https://www.transfermarkt.us/romano-schmid/profil/spieler/346853",
+          "assist": "Xaver Schlager",
+          "assistSourceUrl": "https://www.transfermarkt.us/xaver-schlager/profil/spieler/223979"
+        },
+        {
+          "minute": "50",
+          "team": "Jordan",
+          "player": "Ali Olwan",
+          "playerTeam": "Jordan",
+          "playerSourceUrl": "https://www.transfermarkt.us/ali-olwan/profil/spieler/664057",
+          "assist": "Noor Al-Rawabdeh",
+          "assistSourceUrl": "https://www.transfermarkt.us/noor-al-rawabdeh/profil/spieler/561485"
+        },
+        {
+          "minute": "76",
+          "team": "Austria",
+          "player": "Yazan Al-Arab",
+          "playerTeam": "Jordan",
+          "playerSourceUrl": "https://www.transfermarkt.us/yazan-al-arab/profil/spieler/539961",
+          "assist": "Marcel Sabitzer",
+          "assistSourceUrl": "https://www.transfermarkt.us/marcel-sabitzer/profil/spieler/106987",
+          "ownGoal": true
+        },
+        {
+          "minute": "90+12",
+          "team": "Austria",
+          "player": "Marko Arnautovic",
+          "playerTeam": "Austria",
+          "playerSourceUrl": "https://www.transfermarkt.us/marko-arnautovic/profil/spieler/41384",
+          "penalty": true
+        }
+      ]
     },
     {
       "id": 21,
@@ -1101,8 +1162,22 @@
         "name": "Panama",
         "flag": "https://flagcdn.com/w40/pa.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 1,
+        "away": 0
+      },
+      "goals": [
+        {
+          "minute": "90+5",
+          "team": "Ghana",
+          "player": "Caleb Yirenkyi",
+          "playerTeam": "Ghana",
+          "playerSourceUrl": "https://www.transfermarkt.us/caleb-yirenkyi/profil/spieler/1240763",
+          "assist": "Brandon Thomas-Asante",
+          "assistSourceUrl": "https://www.transfermarkt.us/brandon-thomas-asante/profil/spieler/451747"
+        }
+      ]
     },
     {
       "id": 22,
@@ -1121,8 +1196,66 @@
         "name": "Croatia",
         "flag": "https://flagcdn.com/w40/hr.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 4,
+        "away": 2
+      },
+      "goals": [
+        {
+          "minute": "12",
+          "team": "England",
+          "player": "Harry Kane",
+          "playerTeam": "England",
+          "playerSourceUrl": "https://www.transfermarkt.us/harry-kane/profil/spieler/132098",
+          "penalty": true
+        },
+        {
+          "minute": "36",
+          "team": "Croatia",
+          "player": "Martin Baturina",
+          "playerTeam": "Croatia",
+          "playerSourceUrl": "https://www.transfermarkt.us/martin-baturina/profil/spieler/580451",
+          "assist": "Petar Sučić",
+          "assistSourceUrl": "https://www.transfermarkt.us/petar-sucic/profil/spieler/668207"
+        },
+        {
+          "minute": "42",
+          "team": "England",
+          "player": "Harry Kane",
+          "playerTeam": "England",
+          "playerSourceUrl": "https://www.transfermarkt.us/harry-kane/profil/spieler/132098",
+          "assist": "Declan Rice",
+          "assistSourceUrl": "https://www.transfermarkt.us/declan-rice/profil/spieler/357662"
+        },
+        {
+          "minute": "45+5",
+          "team": "Croatia",
+          "player": "Petar Musa",
+          "playerTeam": "Croatia",
+          "playerSourceUrl": "https://www.transfermarkt.us/petar-musa/profil/spieler/387110",
+          "assist": "Ivan Perišić",
+          "assistSourceUrl": "https://www.transfermarkt.us/ivan-perisic/profil/spieler/42460"
+        },
+        {
+          "minute": "47",
+          "team": "England",
+          "player": "Jude Bellingham",
+          "playerTeam": "England",
+          "playerSourceUrl": "https://www.transfermarkt.us/jude-bellingham/profil/spieler/581678",
+          "assist": "Elliot Anderson",
+          "assistSourceUrl": "https://www.transfermarkt.us/elliot-anderson/profil/spieler/567576"
+        },
+        {
+          "minute": "85",
+          "team": "England",
+          "player": "Marcus Rashford",
+          "playerTeam": "England",
+          "playerSourceUrl": "https://www.transfermarkt.us/marcus-rashford/profil/spieler/258923",
+          "assist": "Bukayo Saka",
+          "assistSourceUrl": "https://www.transfermarkt.us/bukayo-saka/profil/spieler/433177"
+        }
+      ]
     },
     {
       "id": 23,
@@ -1141,8 +1274,31 @@
         "name": "DR Congo",
         "flag": "https://flagcdn.com/w40/cd.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 1,
+        "away": 1
+      },
+      "goals": [
+        {
+          "minute": "6",
+          "team": "Portugal",
+          "player": "João Neves",
+          "playerTeam": "Portugal",
+          "playerSourceUrl": "https://www.transfermarkt.us/joao-neves/profil/spieler/670681",
+          "assist": "Pedro Neto",
+          "assistSourceUrl": "https://www.transfermarkt.us/pedro-neto/profil/spieler/487465"
+        },
+        {
+          "minute": "45+5",
+          "team": "DR Congo",
+          "player": "Yoane Wissa",
+          "playerTeam": "DR Congo",
+          "playerSourceUrl": "https://www.transfermarkt.us/yoane-wissa/profil/spieler/388165",
+          "assist": "Arthur Masuaku",
+          "assistSourceUrl": "https://www.transfermarkt.us/arthur-masuaku/profil/spieler/181380"
+        }
+      ]
     },
     {
       "id": 24,
@@ -1161,8 +1317,47 @@
         "name": "Colombia",
         "flag": "https://flagcdn.com/w40/co.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 1,
+        "away": 3
+      },
+      "goals": [
+        {
+          "minute": "40",
+          "team": "Colombia",
+          "player": "Daniel Muñoz",
+          "playerTeam": "Colombia",
+          "playerSourceUrl": "https://www.transfermarkt.us/daniel-munoz/profil/spieler/493003",
+          "assist": "Luis Díaz",
+          "assistSourceUrl": "https://www.transfermarkt.us/luis-diaz/profil/spieler/480692"
+        },
+        {
+          "minute": "60",
+          "team": "Uzbekistan",
+          "player": "Abbosbek Fayzullaev",
+          "playerTeam": "Uzbekistan",
+          "playerSourceUrl": "https://www.transfermarkt.us/abbosbek-fayzullaev/profil/spieler/754037"
+        },
+        {
+          "minute": "65",
+          "team": "Colombia",
+          "player": "Luis Díaz",
+          "playerTeam": "Colombia",
+          "playerSourceUrl": "https://www.transfermarkt.us/luis-diaz/profil/spieler/480692",
+          "assist": "Gustavo Puerta",
+          "assistSourceUrl": "https://www.transfermarkt.us/gustavo-puerta/profil/spieler/936981"
+        },
+        {
+          "minute": "90+9",
+          "team": "Colombia",
+          "player": "Jáminton Campaz",
+          "playerTeam": "Colombia",
+          "playerSourceUrl": "https://www.transfermarkt.us/jaminton-campaz/profil/spieler/491553",
+          "assist": "Cucho Hernández",
+          "assistSourceUrl": "https://www.transfermarkt.us/cucho-hernandez/profil/spieler/459463"
+        }
+      ]
     },
     {
       "id": 25,
