@@ -1,6 +1,6 @@
 {
   "tournament": "FIFA World Cup 2026",
-  "lastChecked": "2026-06-18",
+  "lastChecked": "2026-06-19",
   "matchCount": 104,
   "note": "Scores are null before kickoff. Final matches can include goals with minute, team, player, assist, and ownGoal for scorer views.",
   "sources": [
@@ -107,6 +107,22 @@
     {
       "name": "FOX Sports Uzbekistan vs Colombia final score",
       "url": "https://www.foxsports.com/soccer/uzbekistan-vs-colombia-jun-18-2026-game-boxscore-647639"
+    },
+    {
+      "name": "FOX Sports Czech Republic vs South Africa final score",
+      "url": "https://www.foxsports.com/soccer/fifa-world-cup-men-czechia-vs-south-africa-jun-18-2026-game-boxscore-647640"
+    },
+    {
+      "name": "FOX Sports Switzerland vs Bosnia and Herzegovina final score",
+      "url": "https://www.foxsports.com/soccer/fifa-world-cup-men-switzerland-vs-bosnia-and-herzegovina-jun-18-2026-game-boxscore-647641"
+    },
+    {
+      "name": "FOX Sports Canada vs Qatar final score",
+      "url": "https://www.foxsports.com/soccer/fifa-world-cup-men-canada-vs-qatar-jun-18-2026-game-boxscore-647642"
+    },
+    {
+      "name": "FOX Sports Mexico vs South Korea final score",
+      "url": "https://www.foxsports.com/soccer/fifa-world-cup-men-mexico-vs-south-korea-jun-18-2026-game-boxscore-647643"
     }
   ],
   "matches": [
@@ -1376,8 +1392,30 @@
         "name": "South Africa",
         "flag": "https://flagcdn.com/w40/za.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 1,
+        "away": 1
+      },
+      "goals": [
+        {
+          "minute": "6",
+          "team": "Czech Republic",
+          "player": "Michal Sadílek",
+          "playerTeam": "Czech Republic",
+          "playerSourceUrl": "https://www.transfermarkt.us/michal-sadilek/profil/spieler/321204",
+          "assist": "Alexandr Sojka",
+          "assistSourceUrl": "https://www.transfermarkt.us/alexandr-sojka/profil/spieler/826103"
+        },
+        {
+          "minute": "83",
+          "team": "South Africa",
+          "player": "Teboho Mokoena",
+          "playerTeam": "South Africa",
+          "playerSourceUrl": "https://www.transfermarkt.us/teboho-mokoena/profil/spieler/436372",
+          "penalty": true
+        }
+      ]
     },
     {
       "id": 26,
@@ -1396,8 +1434,53 @@
         "name": "Bosnia and Herzegovina",
         "flag": "https://flagcdn.com/w40/ba.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 4,
+        "away": 1
+      },
+      "goals": [
+        {
+          "minute": "74",
+          "team": "Switzerland",
+          "player": "Johan Manzambi",
+          "playerTeam": "Switzerland",
+          "playerSourceUrl": "https://www.transfermarkt.us/johan-manzambi/profil/spieler/927353"
+        },
+        {
+          "minute": "84",
+          "team": "Switzerland",
+          "player": "Rubén Vargas",
+          "playerTeam": "Switzerland",
+          "playerSourceUrl": "https://www.transfermarkt.us/ruben-vargas/profil/spieler/345886",
+          "assist": "Breel Embolo",
+          "assistSourceUrl": "https://www.transfermarkt.us/breel-embolo/profil/spieler/237662"
+        },
+        {
+          "minute": "90",
+          "team": "Switzerland",
+          "player": "Johan Manzambi",
+          "playerTeam": "Switzerland",
+          "playerSourceUrl": "https://www.transfermarkt.us/johan-manzambi/profil/spieler/927353",
+          "assist": "Rubén Vargas",
+          "assistSourceUrl": "https://www.transfermarkt.us/ruben-vargas/profil/spieler/345886"
+        },
+        {
+          "minute": "90+3",
+          "team": "Bosnia and Herzegovina",
+          "player": "Ermin Mahmic",
+          "playerTeam": "Bosnia and Herzegovina",
+          "playerSourceUrl": "https://www.transfermarkt.us/ermin-mahmic/profil/spieler/803049"
+        },
+        {
+          "minute": "90+7",
+          "team": "Switzerland",
+          "player": "Granit Xhaka",
+          "playerTeam": "Switzerland",
+          "playerSourceUrl": "https://www.transfermarkt.us/granit-xhaka/profil/spieler/111455",
+          "penalty": true
+        }
+      ]
     },
     {
       "id": 27,
@@ -1416,8 +1499,58 @@
         "name": "Qatar",
         "flag": "https://flagcdn.com/w40/qa.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 6,
+        "away": 0
+      },
+      "goals": [
+        {
+          "minute": "16",
+          "team": "Canada",
+          "player": "Cyle Larin",
+          "playerTeam": "Canada",
+          "playerSourceUrl": "https://www.transfermarkt.us/cyle-larin/profil/spieler/343463"
+        },
+        {
+          "minute": "29",
+          "team": "Canada",
+          "player": "Jonathan David",
+          "playerTeam": "Canada",
+          "playerSourceUrl": "https://www.transfermarkt.us/jonathan-david/profil/spieler/533738"
+        },
+        {
+          "minute": "45+3",
+          "team": "Canada",
+          "player": "Jonathan David",
+          "playerTeam": "Canada",
+          "playerSourceUrl": "https://www.transfermarkt.us/jonathan-david/profil/spieler/533738"
+        },
+        {
+          "minute": "64",
+          "team": "Canada",
+          "player": "Nathan Saliba",
+          "playerTeam": "Canada",
+          "playerSourceUrl": "https://www.transfermarkt.us/nathan-dylan-saliba/profil/spieler/842420"
+        },
+        {
+          "minute": "75",
+          "team": "Canada",
+          "player": "Mohamed Al-Mannai",
+          "playerTeam": "Qatar",
+          "playerSourceUrl": "https://www.transfermarkt.us/mohamed-al-mannai/profil/spieler/822935",
+          "ownGoal": true
+        },
+        {
+          "minute": "90+2",
+          "team": "Canada",
+          "player": "Jonathan David",
+          "playerTeam": "Canada",
+          "playerSourceUrl": "https://www.transfermarkt.us/jonathan-david/profil/spieler/533738",
+          "assist": "Nathan Saliba",
+          "assistSourceUrl": "https://www.transfermarkt.us/nathan-dylan-saliba/profil/spieler/842420"
+        }
+      ]
     },
     {
       "id": 28,
@@ -1436,8 +1569,20 @@
         "name": "South Korea",
         "flag": "https://flagcdn.com/w40/kr.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 1,
+        "away": 0
+      },
+      "goals": [
+        {
+          "minute": "50",
+          "team": "Mexico",
+          "player": "Luis Romo",
+          "playerTeam": "Mexico",
+          "playerSourceUrl": "https://www.transfermarkt.us/luis-romo/profil/spieler/532938"
+        }
+      ]
     },
     {
       "id": 29,
