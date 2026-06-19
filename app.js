@@ -913,6 +913,20 @@ function standingRow(row, index) {
 
 function groupFixture(match) {
   const status = statusInfo(match);
+  const hasScore = Boolean(match.score);
+  const meta = hasScore
+    ? `${status.label} - ${formatPrimaryTime(match)} - ${match.city}`
+    : `${formatPrimaryTime(match)} - ${match.city}`;
+  const result = hasScore
+    ? `
+      <span class="fixture-score ${status.className}" aria-label="${escapeAttribute(`${match.home.name} ${match.score.home}, ${match.away.name} ${match.score.away}`)}">
+        <strong>${match.score.home}</strong>
+        <span>-</span>
+        <strong>${match.score.away}</strong>
+      </span>
+    `
+    : `<span class="fixture-state ${status.className}">${status.label}</span>`;
+
   return `
     <div class="fixture-strip">
       <span class="fixture-match">M${match.id}</span>
@@ -923,8 +937,8 @@ function groupFixture(match) {
         ${miniFlag(match.away)}
         <strong>${escapeHTML(match.away.name)}</strong>
       </span>
-      <span class="fixture-meta">${escapeHTML(formatPrimaryTime(match))} - ${escapeHTML(match.city)}</span>
-      <span class="fixture-state ${status.className}">${status.label}</span>
+      <span class="fixture-meta">${escapeHTML(meta)}</span>
+      ${result}
     </div>
   `;
 }
