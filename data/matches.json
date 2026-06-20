@@ -1,6 +1,6 @@
 {
   "tournament": "FIFA World Cup 2026",
-  "lastChecked": "2026-06-19",
+  "lastChecked": "2026-06-20",
   "matchCount": 104,
   "note": "Scores are null before kickoff. Final matches can include goals with minute, team, player, assist, and ownGoal for scorer views.",
   "sources": [
@@ -123,6 +123,22 @@
     {
       "name": "FOX Sports Mexico vs South Korea final score",
       "url": "https://www.foxsports.com/soccer/fifa-world-cup-men-mexico-vs-south-korea-jun-18-2026-game-boxscore-647643"
+    },
+    {
+      "name": "Guardian Brazil vs Haiti live report",
+      "url": "https://www.theguardian.com/football/live/2026/jun/20/fifa-world-cup-2026-live-brazil-v-haiti-updates-bra-vs-hai-group-c-match-score-latest"
+    },
+    {
+      "name": "Guardian Scotland vs Morocco live report",
+      "url": "https://www.theguardian.com/football/live/2026/jun/19/scotland-v-morocco-world-cup-2026-live"
+    },
+    {
+      "name": "Guardian Turkey vs Paraguay live report",
+      "url": "https://www.theguardian.com/football/live/2026/jun/20/fifa-world-cup-2026-live-turkey-v-paraguay-updates-tur-vs-par-group-d-match-score-latest"
+    },
+    {
+      "name": "Guardian United States vs Australia live report",
+      "url": "https://www.theguardian.com/football/live/2026/jun/19/usa-v-australia-world-cup-2026-live"
     }
   ],
   "matches": [
@@ -1601,8 +1617,34 @@
         "name": "Haiti",
         "flag": "https://flagcdn.com/w40/ht.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 3,
+        "away": 0
+      },
+      "goals": [
+        {
+          "minute": "23",
+          "team": "Brazil",
+          "player": "Matheus Cunha",
+          "playerTeam": "Brazil",
+          "playerSourceUrl": "https://www.transfermarkt.us/matheus-cunha/profil/spieler/517894"
+        },
+        {
+          "minute": "36",
+          "team": "Brazil",
+          "player": "Matheus Cunha",
+          "playerTeam": "Brazil",
+          "playerSourceUrl": "https://www.transfermarkt.us/matheus-cunha/profil/spieler/517894"
+        },
+        {
+          "minute": "45+3",
+          "team": "Brazil",
+          "player": "Vinicius Junior",
+          "playerTeam": "Brazil",
+          "playerSourceUrl": "https://www.transfermarkt.us/vinicius-junior/profil/spieler/371998"
+        }
+      ]
     },
     {
       "id": 30,
@@ -1621,8 +1663,20 @@
         "name": "Morocco",
         "flag": "https://flagcdn.com/w40/ma.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 0,
+        "away": 1
+      },
+      "goals": [
+        {
+          "minute": "2",
+          "team": "Morocco",
+          "player": "Ismael Saibari",
+          "playerTeam": "Morocco",
+          "playerSourceUrl": "https://www.transfermarkt.us/ismael-saibari/profil/spieler/702869"
+        }
+      ]
     },
     {
       "id": 31,
@@ -1641,8 +1695,20 @@
         "name": "Paraguay",
         "flag": "https://flagcdn.com/w40/py.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 0,
+        "away": 1
+      },
+      "goals": [
+        {
+          "minute": "1",
+          "team": "Paraguay",
+          "player": "Matias Galarza",
+          "playerTeam": "Paraguay",
+          "playerSourceUrl": "https://www.transfermarkt.us/matias-galarza/profil/spieler/661269"
+        }
+      ]
     },
     {
       "id": 32,
@@ -1661,8 +1727,28 @@
         "name": "Australia",
         "flag": "https://flagcdn.com/w40/au.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 2,
+        "away": 0
+      },
+      "goals": [
+        {
+          "minute": "11",
+          "team": "United States",
+          "player": "Cameron Burgess",
+          "playerTeam": "Australia",
+          "playerSourceUrl": "https://www.transfermarkt.us/cameron-burgess/profil/spieler/255788",
+          "ownGoal": true
+        },
+        {
+          "minute": "43",
+          "team": "United States",
+          "player": "Alex Freeman",
+          "playerTeam": "United States",
+          "playerSourceUrl": "https://www.transfermarkt.us/alex-freeman/profil/spieler/985806"
+        }
+      ]
     },
     {
       "id": 33,
