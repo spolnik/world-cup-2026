@@ -12,6 +12,7 @@
     <meta property="og:title" content="World Cup 2026 Match Centre">
     <meta property="og:description" content="All 104 World Cup 2026 fixtures, groups, venues, and result-ready scorecards.">
     <meta property="og:type" content="website">
+    <link rel="icon" href="data:,">
     <link rel="preconnect" href="https://flagcdn.com">
     <link rel="stylesheet" href="styles.css">
     <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
@@ -116,6 +117,10 @@
             <i data-lucide="table-2" aria-hidden="true"></i>
             Groups
           </button>
+          <button class="tab" type="button" data-tab="ladder">
+            <i data-lucide="git-branch" aria-hidden="true"></i>
+            Ladder
+          </button>
           <button class="tab" type="button" data-tab="teams">
             <i data-lucide="users-round" aria-hidden="true"></i>
             Teams
@@ -142,6 +147,7 @@
 
       <section id="fixtures" class="content-view" aria-label="Fixtures"></section>
       <section id="groups" class="content-view" aria-label="Groups" hidden></section>
+      <section id="ladder" class="content-view" aria-label="Tournament ladder" hidden></section>
       <section id="scorers" class="content-view" aria-label="Top Scorers" hidden></section>
       <section id="teams" class="content-view" aria-label="Teams" hidden></section>
       <section id="venues" class="content-view" aria-label="Venues" hidden></section>

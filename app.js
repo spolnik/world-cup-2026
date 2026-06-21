@@ -27,6 +27,14 @@ const TOP_ELEVEN_SHAPE = [
   { group: "Attack", count: 2 },
 ];
 
+const KNOCKOUT_ROUNDS = [
+  "Round of 32",
+  "Round of 16",
+  "Quarter-final",
+  "Semi-final",
+  "Final",
+];
+
 document.addEventListener("DOMContentLoaded", () => {
   cacheElements();
   init();
@@ -49,6 +57,7 @@ function cacheElements() {
     resultCount: document.querySelector("#resultCount"),
     fixtures: document.querySelector("#fixtures"),
     groups: document.querySelector("#groups"),
+    ladder: document.querySelector("#ladder"),
     scorers: document.querySelector("#scorers"),
     teams: document.querySelector("#teams"),
     venues: document.querySelector("#venues"),
@@ -210,6 +219,7 @@ function renderViews() {
     results: renderResults,
     scorers: renderScorers,
     groups: renderGroups,
+    ladder: renderLadder,
     teams: renderTeams,
     venues: renderVenues,
   };
@@ -219,6 +229,7 @@ function renderViews() {
   Object.entries({
     fixtures: els.fixtures,
     groups: els.groups,
+    ladder: els.ladder,
     scorers: els.scorers,
     teams: els.teams,
     venues: els.venues,
@@ -484,6 +495,289 @@ function renderGroups(matches) {
         .join("")}
     </div>
   `;
+}
+
+function renderLadder() {
+  const projection = buildKnockoutProjection();
+  const round32Projected = projection.roundMatches
+    .filter((match) => match.stage === "Round of 32")
+    .flatMap((match) => [match.projectedHome, match.projectedAway])
+    .filter((slot) => slot.team).length;
+
+  els.resultCount.textContent = `${round32Projected}/32 projected slots - ${projection.completedGroupMatches}/${projection.totalGroupMatches} group matches final`;
+
+  const assignmentByThirdGroup = new Map([...projection.thirdAssignments.values()].map((row) => [row.group, row]));
+  const thirdRows = projection.thirdRows.map((row, index) => ({
+    ...row,
+    selected: index < 8,
+    assigned: assignmentByThirdGroup.has(row.group),
+    slotMatchId: assignmentByThirdGroup.get(row.group)?.slotMatchId,
+  }));
+
+  els.ladder.innerHTML = `
+    <div class="ladder-layout">
+      <section class="ladder-summary" aria-label="Projected qualification summary">
+        ${ladderMetric(`${round32Projected}/32`, "Projected slots")}
+        ${ladderMetric(`${projection.thirdAssignments.size}/8`, "Third-place fits")}
+        ${ladderMetric(`${projection.completedGroupMatches}/${projection.totalGroupMatches}`, "Group finals")}
+      </section>
+
+      <section class="third-race" aria-label="Current third-place table">
+        <div class="ladder-section-head">
+          <div>
+            <span class="group-kicker">Current cut</span>
+            <h3>Best third-place teams</h3>
+          </div>
+          <strong>Top 8 advance</strong>
+        </div>
+        <div class="third-race-grid">
+          ${thirdRows.map(thirdPlaceChip).join("")}
+        </div>
+      </section>
+
+      <section class="bracket-board" aria-label="Projected knockout ladder">
+        <div class="bracket-scroll">
+          <div class="bracket-grid">
+            ${KNOCKOUT_ROUNDS.map((stage) => bracketRound(stage, projection)).join("")}
+          </div>
+        </div>
+      </section>
+    </div>
+  `;
+}
+
+function ladderMetric(value, label) {
+  return `
+    <article>
+      <strong>${escapeHTML(value)}</strong>
+      <span>${escapeHTML(label)}</span>
+    </article>
+  `;
+}
+
+function thirdPlaceChip(row, index) {
+  const path = row.assigned ? `M${row.slotMatchId}` : row.selected ? "In cut" : "Chase";
+  return `
+    <article class="third-chip ${row.selected ? "selected" : ""}">
+      <span class="third-rank">#${index + 1}</span>
+      ${miniFlag(row)}
+      <div>
+        <strong>${escapeHTML(row.team)}</strong>
+        <span>${escapeHTML(`Group ${row.group} - ${row.points} pts, ${signed(row.gf - row.ga)} GD`)}</span>
+      </div>
+      <em>${escapeHTML(path)}</em>
+    </article>
+  `;
+}
+
+function bracketRound(stage, projection) {
+  const matches = projection.roundMatches.filter((match) => match.stage === stage);
+  return `
+    <section class="bracket-round" aria-label="${escapeAttribute(stage)}">
+      <div class="bracket-round-head">
+        <span>${escapeHTML(stage)}</span>
+        <strong>${matches.length}</strong>
+      </div>
+      <div class="bracket-match-list">
+        ${matches.map(bracketMatch).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function bracketMatch(match) {
+  const status = statusInfo(match);
+  return `
+    <article class="bracket-match">
+      <div class="bracket-match-head">
+        <span>M${match.id}</span>
+        <strong>${escapeHTML(match.stage === "Round of 32" ? "Projected" : "Path")}</strong>
+      </div>
+      <div class="bracket-sides">
+        ${bracketSide(match.projectedHome)}
+        ${bracketSide(match.projectedAway)}
+      </div>
+      <div class="bracket-match-foot">
+        <span>${escapeHTML(formatPrimaryTime(match))}</span>
+        <span class="${status.className}">${escapeHTML(match.city)}</span>
+      </div>
+    </article>
+  `;
+}
+
+function bracketSide(slot) {
+  const flag = slot.team
+    ? miniFlag(slot)
+    : `<span class="mini-flag placeholder">${escapeHTML(initials(slot.seedLabel || slot.label))}</span>`;
+  return `
+    <div class="bracket-side ${slot.team ? "projected" : "placeholder"}">
+      ${flag}
+      <div>
+        <strong>${escapeHTML(slot.team || slot.label)}</strong>
+        <span>${escapeHTML(slot.meta)}</span>
+      </div>
+      <em>${escapeHTML(slot.seedLabel)}</em>
+    </div>
+  `;
+}
+
+function buildKnockoutProjection() {
+  const groups = buildStandings(state.matches);
+  const rowsByGroup = new Map(groups.map((group) => [group.group, group.rows]));
+  const thirdRows = groups
+    .map(({ group, rows }) => ({ ...rows[2], group }))
+    .filter(Boolean)
+    .sort(compareQualifyingRows);
+  const bestThirdRows = thirdRows.slice(0, 8).map((row, index) => ({ ...row, thirdRank: index + 1 }));
+  const roundMatches = state.matches
+    .filter((match) => KNOCKOUT_ROUNDS.includes(match.stage))
+    .map((match) => ({ ...match }));
+  const thirdAssignments = assignThirdPlaceSlots(roundMatches, bestThirdRows);
+
+  roundMatches.forEach((match) => {
+    match.projectedHome = projectKnockoutSide(match, "home", rowsByGroup, thirdAssignments);
+    match.projectedAway = projectKnockoutSide(match, "away", rowsByGroup, thirdAssignments);
+  });
+
+  return {
+    groups,
+    roundMatches,
+    thirdRows,
+    thirdAssignments,
+    completedGroupMatches: state.matches.filter((match) => match.group && isCompleted(match)).length,
+    totalGroupMatches: state.matches.filter((match) => match.group).length,
+  };
+}
+
+function projectKnockoutSide(match, side, rowsByGroup, thirdAssignments) {
+  const raw = match[side].name;
+  const direct = raw.match(/^Group ([A-Z]) (winners|runners-up)$/);
+  if (direct) {
+    const group = direct[1];
+    const rank = direct[2] === "winners" ? 1 : 2;
+    const row = rowsByGroup.get(group)?.[rank - 1];
+    return {
+      team: row?.team || "",
+      flag: row?.flag || "",
+      group,
+      seedLabel: `${rank}${group}`,
+      label: raw,
+      meta: rank === 1 ? "Current leader" : "Current runner-up",
+    };
+  }
+
+  const thirdGroups = parseThirdPlaceGroups(raw);
+  if (thirdGroups.length) {
+    const assigned = thirdAssignments.get(slotKey(match.id, side));
+    if (assigned) {
+      return {
+        team: assigned.team,
+        flag: assigned.flag,
+        group: assigned.group,
+        seedLabel: `3${assigned.group}`,
+        label: raw,
+        meta: `Best third #${assigned.thirdRank}`,
+      };
+    }
+
+    return {
+      team: "",
+      flag: "",
+      group: "",
+      seedLabel: "3rd",
+      label: raw,
+      meta: `Pool ${thirdGroups.join("/")}`,
+    };
+  }
+
+  const reference = raw.match(/^(Winner|Loser) Match (\d+)$/);
+  if (reference) {
+    return {
+      team: "",
+      flag: "",
+      group: "",
+      seedLabel: reference[1] === "Winner" ? "W" : "L",
+      label: `${reference[1]} M${reference[2]}`,
+      meta: "Bracket path",
+    };
+  }
+
+  return {
+    team: "",
+    flag: "",
+    group: "",
+    seedLabel: "TBD",
+    label: raw,
+    meta: "To be decided",
+  };
+}
+
+function assignThirdPlaceSlots(matches, bestThirdRows) {
+  const slots = matches
+    .flatMap((match) =>
+      ["home", "away"].map((side) => ({
+        matchId: match.id,
+        side,
+        groups: parseThirdPlaceGroups(match[side].name),
+      }))
+    )
+    .filter((slot) => slot.groups.length);
+  const candidates = bestThirdRows.map((row) => ({ ...row }));
+  const orderedSlots = slots
+    .slice()
+    .sort((a, b) => {
+      const aOptions = candidates.filter((row) => a.groups.includes(row.group)).length;
+      const bOptions = candidates.filter((row) => b.groups.includes(row.group)).length;
+      return aOptions - bOptions || a.matchId - b.matchId;
+    });
+  let best = { assignments: new Map(), assignedCount: -1, rankTotal: Number.POSITIVE_INFINITY };
+
+  function walk(index, usedGroups, assignments, rankTotal) {
+    if (index === orderedSlots.length) {
+      if (assignments.size > best.assignedCount || (assignments.size === best.assignedCount && rankTotal < best.rankTotal)) {
+        best = { assignments: new Map(assignments), assignedCount: assignments.size, rankTotal };
+      }
+      return;
+    }
+
+    const slot = orderedSlots[index];
+    const options = candidates
+      .filter((row) => slot.groups.includes(row.group) && !usedGroups.has(row.group))
+      .sort((a, b) => a.thirdRank - b.thirdRank || a.group.localeCompare(b.group));
+
+    options.forEach((row) => {
+      const key = slotKey(slot.matchId, slot.side);
+      assignments.set(key, { ...row, slotMatchId: slot.matchId, slotSide: slot.side });
+      usedGroups.add(row.group);
+      walk(index + 1, usedGroups, assignments, rankTotal + row.thirdRank);
+      usedGroups.delete(row.group);
+      assignments.delete(key);
+    });
+
+    walk(index + 1, usedGroups, assignments, rankTotal);
+  }
+
+  walk(0, new Set(), new Map(), 0);
+  return best.assignments;
+}
+
+function parseThirdPlaceGroups(label) {
+  const match = label.match(/^Group ([A-Z](?:\/[A-Z])*) third place$/);
+  return match ? match[1].split("/") : [];
+}
+
+function compareQualifyingRows(a, b) {
+  return (
+    b.points - a.points ||
+    b.gf - b.ga - (a.gf - a.ga) ||
+    b.gf - a.gf ||
+    a.group.localeCompare(b.group) ||
+    a.order - b.order
+  );
+}
+
+function slotKey(matchId, side) {
+  return `${matchId}:${side}`;
 }
 
 function renderTeams() {
@@ -1372,6 +1666,7 @@ function titleForTab(tab) {
     results: "Results",
     scorers: "Top Scorers",
     groups: "Groups",
+    ladder: "Tournament Ladder",
     teams: "Teams",
     venues: "Venues",
   }[tab];

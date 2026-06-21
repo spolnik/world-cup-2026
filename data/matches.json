@@ -1935,10 +1935,10 @@
         "name": "Japan",
         "flag": "https://flagcdn.com/w40/jp.png"
       },
-      "status": "live",
+      "status": "final",
       "score": {
         "home": 0,
-        "away": 2
+        "away": 4
       },
       "goals": [
         {
@@ -1946,7 +1946,9 @@
           "team": "Japan",
           "player": "Daichi Kamada",
           "playerTeam": "Japan",
-          "playerSourceUrl": "https://www.transfermarkt.us/daichi-kamada/profil/spieler/356141"
+          "playerSourceUrl": "https://www.transfermarkt.us/daichi-kamada/profil/spieler/356141",
+          "assist": "Keito Nakamura",
+          "assistSourceUrl": "https://www.transfermarkt.us/keito-nakamura/profil/spieler/405397"
         },
         {
           "minute": "31",
@@ -1954,6 +1956,24 @@
           "player": "Ayase Ueda",
           "playerTeam": "Japan",
           "playerSourceUrl": "https://www.transfermarkt.us/ayase-ueda/profil/spieler/589128"
+        },
+        {
+          "minute": "69",
+          "team": "Japan",
+          "player": "Junya Ito",
+          "playerTeam": "Japan",
+          "playerSourceUrl": "https://www.transfermarkt.us/junya-ito/profil/spieler/348791",
+          "assist": "Ayase Ueda",
+          "assistSourceUrl": "https://www.transfermarkt.us/ayase-ueda/profil/spieler/589128"
+        },
+        {
+          "minute": "83",
+          "team": "Japan",
+          "player": "Ayase Ueda",
+          "playerTeam": "Japan",
+          "playerSourceUrl": "https://www.transfermarkt.us/ayase-ueda/profil/spieler/589128",
+          "assist": "Kaishu Sano",
+          "assistSourceUrl": "https://www.transfermarkt.us/kaishu-sano/profil/spieler/643574"
         }
       ]
     },
