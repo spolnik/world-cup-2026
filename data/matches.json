@@ -1,6 +1,6 @@
 {
   "tournament": "FIFA World Cup 2026",
-  "lastChecked": "2026-06-20",
+  "lastChecked": "2026-06-21",
   "matchCount": 104,
   "note": "Scores are null before kickoff. Final matches can include goals with minute, team, player, assist, and ownGoal for scorer views.",
   "sources": [
@@ -139,6 +139,22 @@
     {
       "name": "Guardian United States vs Australia live report",
       "url": "https://www.theguardian.com/football/live/2026/jun/19/usa-v-australia-world-cup-2026-live"
+    },
+    {
+      "name": "Guardian Germany vs Ivory Coast live report",
+      "url": "https://www.theguardian.com/football/live/2026/jun/20/germany-v-cote-divoire-world-cup-2026-live"
+    },
+    {
+      "name": "Guardian Ecuador vs Curacao live report",
+      "url": "https://www.theguardian.com/football/live/2026/jun/20/ecuador-v-curacao-world-cup-2026-live"
+    },
+    {
+      "name": "Guardian Netherlands vs Sweden live report",
+      "url": "https://www.theguardian.com/football/live/2026/jun/20/netherlands-v-sweden-world-cup-2026-live"
+    },
+    {
+      "name": "Guardian Tunisia vs Japan live report",
+      "url": "https://www.theguardian.com/football/live/2026/jun/21/fifa-world-cup-2026-live-tunisia-v-japan-updates-tun-vs-jpn-group-f-match-score-latest"
     }
   ],
   "matches": [
@@ -1767,8 +1783,38 @@
         "name": "Ivory Coast",
         "flag": "https://flagcdn.com/w40/ci.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 2,
+        "away": 1
+      },
+      "goals": [
+        {
+          "minute": "30",
+          "team": "Ivory Coast",
+          "player": "Franck Kessié",
+          "playerTeam": "Ivory Coast",
+          "playerSourceUrl": "https://www.transfermarkt.us/franck-kessie/profil/spieler/294808"
+        },
+        {
+          "minute": "68",
+          "team": "Germany",
+          "player": "Deniz Undav",
+          "playerTeam": "Germany",
+          "playerSourceUrl": "https://www.transfermarkt.us/deniz-undav/profil/spieler/339314",
+          "assist": "Nadiem Amiri",
+          "assistSourceUrl": "https://www.transfermarkt.us/nadiem-amiri/profil/spieler/232454"
+        },
+        {
+          "minute": "90+4",
+          "team": "Germany",
+          "player": "Deniz Undav",
+          "playerTeam": "Germany",
+          "playerSourceUrl": "https://www.transfermarkt.us/deniz-undav/profil/spieler/339314",
+          "assist": "Felix Nmecha",
+          "assistSourceUrl": "https://www.transfermarkt.us/felix-nmecha/profil/spieler/406640"
+        }
+      ]
     },
     {
       "id": 34,
@@ -1787,8 +1833,11 @@
         "name": "Curaçao",
         "flag": "https://flagcdn.com/w40/cw.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 0,
+        "away": 0
+      }
     },
     {
       "id": 35,
@@ -1807,8 +1856,67 @@
         "name": "Sweden",
         "flag": "https://flagcdn.com/w40/se.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 5,
+        "away": 1
+      },
+      "goals": [
+        {
+          "minute": "6",
+          "team": "Netherlands",
+          "player": "Brian Brobbey",
+          "playerTeam": "Netherlands",
+          "playerSourceUrl": "https://www.transfermarkt.us/brian-brobbey/profil/spieler/473169",
+          "assist": "Cody Gakpo",
+          "assistSourceUrl": "https://www.transfermarkt.us/cody-gakpo/profil/spieler/434675"
+        },
+        {
+          "minute": "17",
+          "team": "Netherlands",
+          "player": "Brian Brobbey",
+          "playerTeam": "Netherlands",
+          "playerSourceUrl": "https://www.transfermarkt.us/brian-brobbey/profil/spieler/473169",
+          "assist": "Denzel Dumfries",
+          "assistSourceUrl": "https://www.transfermarkt.us/denzel-dumfries/profil/spieler/321528"
+        },
+        {
+          "minute": "47",
+          "team": "Netherlands",
+          "player": "Cody Gakpo",
+          "playerTeam": "Netherlands",
+          "playerSourceUrl": "https://www.transfermarkt.us/cody-gakpo/profil/spieler/434675",
+          "assist": "Denzel Dumfries",
+          "assistSourceUrl": "https://www.transfermarkt.us/denzel-dumfries/profil/spieler/321528"
+        },
+        {
+          "minute": "54",
+          "team": "Netherlands",
+          "player": "Cody Gakpo",
+          "playerTeam": "Netherlands",
+          "playerSourceUrl": "https://www.transfermarkt.us/cody-gakpo/profil/spieler/434675",
+          "assist": "Crysencio Summerville",
+          "assistSourceUrl": "https://www.transfermarkt.us/crysencio-summerville/profil/spieler/474701"
+        },
+        {
+          "minute": "59",
+          "team": "Sweden",
+          "player": "Anthony Elanga",
+          "playerTeam": "Sweden",
+          "playerSourceUrl": "https://www.transfermarkt.us/anthony-elanga/profil/spieler/583189",
+          "assist": "Alexander Isak",
+          "assistSourceUrl": "https://www.transfermarkt.us/alexander-isak/profil/spieler/349066"
+        },
+        {
+          "minute": "89",
+          "team": "Netherlands",
+          "player": "Crysencio Summerville",
+          "playerTeam": "Netherlands",
+          "playerSourceUrl": "https://www.transfermarkt.us/crysencio-summerville/profil/spieler/474701",
+          "assist": "Memphis Depay",
+          "assistSourceUrl": "https://www.transfermarkt.us/memphis-depay/profil/spieler/167850"
+        }
+      ]
     },
     {
       "id": 36,
@@ -1827,8 +1935,27 @@
         "name": "Japan",
         "flag": "https://flagcdn.com/w40/jp.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "live",
+      "score": {
+        "home": 0,
+        "away": 2
+      },
+      "goals": [
+        {
+          "minute": "4",
+          "team": "Japan",
+          "player": "Daichi Kamada",
+          "playerTeam": "Japan",
+          "playerSourceUrl": "https://www.transfermarkt.us/daichi-kamada/profil/spieler/356141"
+        },
+        {
+          "minute": "31",
+          "team": "Japan",
+          "player": "Ayase Ueda",
+          "playerTeam": "Japan",
+          "playerSourceUrl": "https://www.transfermarkt.us/ayase-ueda/profil/spieler/589128"
+        }
+      ]
     },
     {
       "id": 37,
