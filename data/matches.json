@@ -1,6 +1,6 @@
 {
   "tournament": "FIFA World Cup 2026",
-  "lastChecked": "2026-06-21",
+  "lastChecked": "2026-06-22",
   "matchCount": 104,
   "note": "Scores are null before kickoff. Final matches can include goals with minute, team, player, assist, and ownGoal for scorer views.",
   "sources": [
@@ -155,6 +155,22 @@
     {
       "name": "Guardian Tunisia vs Japan live report",
       "url": "https://www.theguardian.com/football/live/2026/jun/21/fifa-world-cup-2026-live-tunisia-v-japan-updates-tun-vs-jpn-group-f-match-score-latest"
+    },
+    {
+      "name": "Guardian Uruguay vs Cape Verde match report",
+      "url": "https://www.theguardian.com/football/2026/jun/22/cape-verde-uruguay-world-cup-group-h-match-report"
+    },
+    {
+      "name": "ESPN Spain vs Saudi Arabia final score",
+      "url": "https://www.espn.com/soccer/match/_/gameId/760453/saudi-arabia-spain"
+    },
+    {
+      "name": "Guardian Belgium vs Iran live report",
+      "url": "https://www.theguardian.com/football/live/2026/jun/21/belgium-v-iran-world-cup-2026-live"
+    },
+    {
+      "name": "Guardian New Zealand vs Egypt live report",
+      "url": "https://www.theguardian.com/football/live/2026/jun/22/fifa-world-cup-2026-live-new-zealand-v-egypt-updates-nzl-vs-egy-group-g-match-score-latest"
     }
   ],
   "matches": [
@@ -1994,8 +2010,42 @@
         "name": "Cape Verde",
         "flag": "https://flagcdn.com/w40/cv.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 2,
+        "away": 2
+      },
+      "goals": [
+        {
+          "minute": "21",
+          "team": "Cape Verde",
+          "player": "Kevin Pina",
+          "playerTeam": "Cape Verde"
+        },
+        {
+          "minute": "44",
+          "team": "Uruguay",
+          "player": "Maxi Araújo",
+          "playerTeam": "Uruguay",
+          "playerSourceUrl": "https://www.transfermarkt.us/maxi-araujo/profil/spieler/572675"
+        },
+        {
+          "minute": "45+6",
+          "team": "Uruguay",
+          "player": "Agustín Canobbio",
+          "playerTeam": "Uruguay",
+          "playerSourceUrl": "https://www.transfermarkt.us/agustin-canobbio/profil/spieler/457533",
+          "assist": "Maxi Araújo",
+          "assistSourceUrl": "https://www.transfermarkt.us/maxi-araujo/profil/spieler/572675"
+        },
+        {
+          "minute": "61",
+          "team": "Cape Verde",
+          "player": "Hélio Varela",
+          "playerTeam": "Cape Verde",
+          "playerSourceUrl": "https://www.transfermarkt.us/helio-varela/profil/spieler/840836"
+        }
+      ]
     },
     {
       "id": 38,
@@ -2014,8 +2064,44 @@
         "name": "Saudi Arabia",
         "flag": "https://flagcdn.com/w40/sa.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 4,
+        "away": 0
+      },
+      "goals": [
+        {
+          "minute": "10",
+          "team": "Spain",
+          "player": "Lamine Yamal",
+          "playerTeam": "Spain",
+          "playerSourceUrl": "https://www.transfermarkt.us/lamine-yamal/profil/spieler/937958",
+          "assist": "Mikel Oyarzabal",
+          "assistSourceUrl": "https://www.transfermarkt.us/mikel-oyarzabal/profil/spieler/351478"
+        },
+        {
+          "minute": "21",
+          "team": "Spain",
+          "player": "Mikel Oyarzabal",
+          "playerTeam": "Spain",
+          "playerSourceUrl": "https://www.transfermarkt.us/mikel-oyarzabal/profil/spieler/351478"
+        },
+        {
+          "minute": "24",
+          "team": "Spain",
+          "player": "Mikel Oyarzabal",
+          "playerTeam": "Spain",
+          "playerSourceUrl": "https://www.transfermarkt.us/mikel-oyarzabal/profil/spieler/351478"
+        },
+        {
+          "minute": "49",
+          "team": "Spain",
+          "player": "Hassan Tambakti",
+          "playerTeam": "Saudi Arabia",
+          "playerSourceUrl": "https://www.transfermarkt.us/hassan-tambakti/profil/spieler/509897",
+          "ownGoal": true
+        }
+      ]
     },
     {
       "id": 39,
@@ -2034,8 +2120,12 @@
         "name": "Iran",
         "flag": "https://flagcdn.com/w40/ir.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": []
     },
     {
       "id": 40,
@@ -2054,8 +2144,49 @@
         "name": "Egypt",
         "flag": "https://flagcdn.com/w40/eg.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 1,
+        "away": 3
+      },
+      "goals": [
+        {
+          "minute": "15",
+          "team": "New Zealand",
+          "player": "Finn Surman",
+          "playerTeam": "New Zealand",
+          "playerSourceUrl": "https://www.transfermarkt.us/finn-surman/profil/spieler/724809",
+          "assist": "Tim Payne",
+          "assistSourceUrl": "https://www.transfermarkt.us/tim-payne/profil/spieler/149901"
+        },
+        {
+          "minute": "59",
+          "team": "Egypt",
+          "player": "Mostafa Ziko",
+          "playerTeam": "Egypt",
+          "playerSourceUrl": "https://www.transfermarkt.us/mostafa-ziko/profil/spieler/896616",
+          "assist": "Mohamed Hany",
+          "assistSourceUrl": "https://www.transfermarkt.us/mohamed-hany/profil/spieler/343974"
+        },
+        {
+          "minute": "67",
+          "team": "Egypt",
+          "player": "Mohamed Salah",
+          "playerTeam": "Egypt",
+          "playerSourceUrl": "https://www.transfermarkt.us/mohamed-salah/profil/spieler/148455",
+          "assist": "Mostafa Ziko",
+          "assistSourceUrl": "https://www.transfermarkt.us/mostafa-ziko/profil/spieler/896616"
+        },
+        {
+          "minute": "82",
+          "team": "Egypt",
+          "player": "Trezeguet",
+          "playerTeam": "Egypt",
+          "playerSourceUrl": "https://www.transfermarkt.us/trezeguet/profil/spieler/234189",
+          "assist": "Mohamed Salah",
+          "assistSourceUrl": "https://www.transfermarkt.us/mohamed-salah/profil/spieler/148455"
+        }
+      ]
     },
     {
       "id": 41,
