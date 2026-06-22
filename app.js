@@ -12,6 +12,7 @@ const state = {
   group: "all",
   city: "all",
   status: "all",
+  fixturePageDateKey: null,
   resultPageDateKey: null,
   position: "all",
   teamMetric: "marketValueEur",
@@ -147,6 +148,7 @@ function bindEvents() {
     state.group = "all";
     state.city = "all";
     state.status = "all";
+    state.fixturePageDateKey = todayDateKey();
     state.resultPageDateKey = todayDateKey();
     state.position = "all";
     state.teamMetric = "marketValueEur";
@@ -171,6 +173,14 @@ function bindEvents() {
       state.expandedTeams.add(teamName);
     }
     renderTeams();
+    refreshIcons();
+  });
+
+  els.fixtures.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-fixture-page]");
+    if (!button || button.disabled) return;
+    state.fixturePageDateKey = button.dataset.fixturePage || todayDateKey();
+    renderFixtures(getVisibleMatches());
     refreshIcons();
   });
 
@@ -302,30 +312,20 @@ function renderFooter() {
 }
 
 function renderFixtures(matches) {
-  const sorted = matches.slice().sort((a, b) => a.date - b.date || a.id - b.id);
-  els.resultCount.textContent = `${sorted.length} ${plural(sorted.length, "match", "matches")}`;
+  const pager = getFixturePager(matches);
+  els.resultCount.textContent = `${pager.summary} - ${pager.dateLabel}`;
 
-  if (!sorted.length) {
-    els.fixtures.innerHTML = emptyState("No matches found", "Try another team, city, stage, or status.");
-    return;
-  }
-
-  const groups = groupBy(sorted, (match) => match.matchday);
-  els.fixtures.innerHTML = [...groups.entries()]
-    .map(([day, dayMatches]) => {
-      return `
-        <div class="date-group">
-          <div class="date-head">
-            <h3>${escapeHTML(day)}</h3>
-            <span>${dayMatches.length} ${plural(dayMatches.length, "match", "matches")}</span>
-          </div>
-          <div class="match-grid">
-            ${dayMatches.map(matchCard).join("")}
-          </div>
-        </div>
-      `;
-    })
-    .join("");
+  els.fixtures.innerHTML = `
+    ${datePagerControls(pager, {
+      ariaLabel: "Fixture day navigation",
+      dataAttribute: "data-fixture-page",
+    })}
+    ${
+      pager.matches.length
+        ? `<div class="match-grid">${pager.matches.map(matchCard).join("")}</div>`
+        : emptyState(fixtureEmptyTitle(pager), dayPagerEmptyMessage())
+    }
+  `;
 }
 
 function renderResults(matches) {
@@ -333,23 +333,47 @@ function renderResults(matches) {
   els.resultCount.textContent = `${pager.summary} - ${pager.dateLabel}`;
 
   els.results.innerHTML = `
-    ${resultPagerControls(pager)}
+    ${datePagerControls(pager, {
+      ariaLabel: "Results day navigation",
+      dataAttribute: "data-result-page",
+    })}
     ${
       pager.matches.length
         ? `<div class="match-grid">${pager.matches.map(matchCard).join("")}</div>`
-        : emptyState(resultEmptyTitle(pager), resultEmptyMessage())
+        : emptyState(resultEmptyTitle(pager), dayPagerEmptyMessage())
     }
   `;
+}
+
+function getFixturePager(matches) {
+  const todayKey = todayDateKey();
+  if (!state.fixturePageDateKey) state.fixturePageDateKey = todayKey;
+  const pager = getDatePager(matches, state.fixturePageDateKey, fixtureMatchesForDate);
+
+  return {
+    ...pager,
+    pageLabel: fixturePageLabel(pager.selectedKey, todayKey),
+    summary: fixturePageSummary(pager.matches),
+  };
 }
 
 function getResultPager(matches) {
   const todayKey = todayDateKey();
   if (!state.resultPageDateKey) state.resultPageDateKey = todayKey;
+  const pager = getDatePager(matches, state.resultPageDateKey, resultMatchesForDate);
 
-  const selectedKey = state.resultPageDateKey;
-  const renderableKeys = unique(matches.map(resultDateKey))
+  return {
+    ...pager,
+    pageLabel: resultPageLabel(pager.selectedKey, todayKey),
+    summary: resultPageSummary(pager.matches),
+  };
+}
+
+function getDatePager(matches, selectedKey, matchGetter) {
+  const todayKey = todayDateKey();
+  const renderableKeys = unique(matches.map(matchDateKey))
     .sort()
-    .filter((key) => resultMatchesForDate(matches, key, todayKey).length);
+    .filter((key) => matchGetter(matches, key).length);
 
   let previousKey = "";
   let nextKey = "";
@@ -358,7 +382,7 @@ function getResultPager(matches) {
     if (!nextKey && key > selectedKey) nextKey = key;
   }
 
-  const pageMatches = resultMatchesForDate(matches, selectedKey, todayKey).sort(
+  const pageMatches = matchGetter(matches, selectedKey).sort(
     (a, b) => a.date - b.date || a.id - b.id
   );
 
@@ -369,24 +393,29 @@ function getResultPager(matches) {
     nextKey,
     matches: pageMatches,
     dateLabel: formatResultDate(selectedKey),
-    pageLabel: resultPageLabel(selectedKey, todayKey),
-    summary: resultPageSummary(pageMatches, selectedKey, todayKey),
   };
 }
 
-function resultMatchesForDate(matches, dateKeyValue, todayKey) {
-  return matches.filter((match) => {
-    if (resultDateKey(match) !== dateKeyValue) return false;
-    if (dateKeyValue < todayKey) return isCompleted(match);
-    if (dateKeyValue > todayKey) return !isCompleted(match);
-    return true;
-  });
+function fixtureMatchesForDate(matches, dateKeyValue) {
+  return matches.filter((match) => matchDateKey(match) === dateKeyValue && isFixtureMatch(match));
 }
 
-function resultPagerControls(pager) {
+function resultMatchesForDate(matches, dateKeyValue) {
+  return matches.filter((match) => matchDateKey(match) === dateKeyValue && isCompleted(match));
+}
+
+function isFixtureMatch(match) {
+  return match.status === "live" || (!isCompleted(match) && match.date >= new Date());
+}
+
+function datePagerControls(pager, { ariaLabel, dataAttribute }) {
+  const previousAttribute = `${dataAttribute}="${escapeAttribute(pager.previousKey || pager.selectedKey)}"`;
+  const todayAttribute = `${dataAttribute}="${escapeAttribute(pager.todayKey)}"`;
+  const nextAttribute = `${dataAttribute}="${escapeAttribute(pager.nextKey || pager.selectedKey)}"`;
+
   return `
-    <div class="result-pager" aria-label="Results day navigation">
-      <div class="result-page-copy">
+    <div class="date-pager" aria-label="${escapeAttribute(ariaLabel)}">
+      <div class="date-page-copy">
         <span>${escapeHTML(pager.pageLabel)}</span>
         <h3>${escapeHTML(pager.dateLabel)}</h3>
       </div>
@@ -394,7 +423,7 @@ function resultPagerControls(pager) {
         <button
           class="pager-button"
           type="button"
-          data-result-page="${escapeAttribute(pager.previousKey || pager.selectedKey)}"
+          ${previousAttribute}
           ${pager.previousKey ? "" : "disabled"}
           aria-label="Previous match day"
           title="Previous match day"
@@ -405,7 +434,7 @@ function resultPagerControls(pager) {
         <button
           class="pager-button compact"
           type="button"
-          data-result-page="${escapeAttribute(pager.todayKey)}"
+          ${todayAttribute}
           ${pager.selectedKey === pager.todayKey ? "disabled" : ""}
           aria-label="Today"
           title="Today"
@@ -416,7 +445,7 @@ function resultPagerControls(pager) {
         <button
           class="pager-button"
           type="button"
-          data-result-page="${escapeAttribute(pager.nextKey || pager.selectedKey)}"
+          ${nextAttribute}
           ${pager.nextKey ? "" : "disabled"}
           aria-label="Next match day"
           title="Next match day"
@@ -429,39 +458,47 @@ function resultPagerControls(pager) {
   `;
 }
 
-function resultPageLabel(selectedKey, todayKey) {
+function fixturePageLabel(selectedKey, todayKey) {
   if (selectedKey === todayKey) return "Today";
-  return selectedKey < todayKey ? "Finished matches" : "Upcoming matches";
+  return selectedKey < todayKey ? "Past fixtures" : "Upcoming fixtures";
 }
 
-function resultPageSummary(matches, selectedKey, todayKey) {
+function fixturePageSummary(matches) {
   if (!matches.length) return "0 matches";
-  const finals = matches.filter(isCompleted).length;
   const live = matches.filter((match) => match.status === "live").length;
-  const scheduled = matches.length - finals - live;
+  const scheduled = matches.length - live;
   const parts = [
-    finals ? `${finals} final ${plural(finals, "score", "scores")}` : "",
     live ? `${live} live ${plural(live, "match", "matches")}` : "",
     scheduled ? `${scheduled} upcoming ${plural(scheduled, "match", "matches")}` : "",
   ].filter(Boolean);
-
-  if (selectedKey < todayKey && finals) return `${finals} finished ${plural(finals, "match", "matches")}`;
-  if (selectedKey > todayKey && scheduled + live) {
-    return `${scheduled + live} upcoming ${plural(scheduled + live, "match", "matches")}`;
-  }
   return parts.join(", ") || `${matches.length} ${plural(matches.length, "match", "matches")}`;
 }
 
-function resultEmptyTitle(pager) {
-  if (pager.selectedKey === pager.todayKey) return "No matches today";
-  return pager.selectedKey < pager.todayKey ? "No finished matches" : "No upcoming matches";
+function fixtureEmptyTitle(pager) {
+  if (pager.selectedKey === pager.todayKey) return "No live or upcoming matches today";
+  return pager.selectedKey < pager.todayKey ? "No live fixtures" : "No upcoming fixtures";
 }
 
-function resultEmptyMessage() {
+function resultPageLabel(selectedKey, todayKey) {
+  if (selectedKey === todayKey) return "Today";
+  return "Finished matches";
+}
+
+function resultPageSummary(matches) {
+  if (!matches.length) return "0 matches";
+  return `${matches.length} finished ${plural(matches.length, "match", "matches")}`;
+}
+
+function resultEmptyTitle(pager) {
+  if (pager.selectedKey === pager.todayKey) return "No finished matches today";
+  return "No finished matches";
+}
+
+function dayPagerEmptyMessage() {
   return "No matches match the current filters on this date.";
 }
 
-function resultDateKey(match) {
+function matchDateKey(match) {
   return dateKey(match.date);
 }
 

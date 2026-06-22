@@ -735,7 +735,7 @@ select {
   font-weight: 800;
 }
 
-.result-pager {
+.date-pager {
   display: flex;
   gap: 14px;
   align-items: center;
@@ -750,20 +750,20 @@ select {
   box-shadow: 0 12px 30px rgba(20, 33, 30, 0.08);
 }
 
-.result-page-copy {
+.date-page-copy {
   display: grid;
   min-width: 0;
   gap: 3px;
 }
 
-.result-page-copy span {
+.date-page-copy span {
   color: var(--muted);
   font-size: 0.74rem;
   font-weight: 950;
   text-transform: uppercase;
 }
 
-.result-page-copy h3 {
+.date-page-copy h3 {
   margin: 0;
   font-size: 1.18rem;
   line-height: 1.12;
@@ -2703,7 +2703,7 @@ select {
   .footer,
   .view-tools,
   .view-head,
-  .result-pager {
+  .date-pager {
     align-items: flex-start;
     flex-direction: column;
   }
