@@ -735,6 +735,109 @@ select {
   font-weight: 800;
 }
 
+.result-pager {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 0 16px;
+  padding: 12px;
+  border: 1px solid rgba(222, 216, 201, 0.84);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(145deg, rgba(255, 253, 247, 0.96), rgba(238, 232, 217, 0.72)),
+    var(--surface);
+  box-shadow: 0 12px 30px rgba(20, 33, 30, 0.08);
+}
+
+.result-page-copy {
+  display: grid;
+  min-width: 0;
+  gap: 3px;
+}
+
+.result-page-copy span {
+  color: var(--muted);
+  font-size: 0.74rem;
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.result-page-copy h3 {
+  margin: 0;
+  font-size: 1.18rem;
+  line-height: 1.12;
+}
+
+.pager-controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.pager-controls::-webkit-scrollbar {
+  display: none;
+}
+
+.pager-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 38px;
+  padding: 8px 11px;
+  border: 1px solid #cfc8b8;
+  border-radius: var(--radius);
+  color: var(--ink);
+  font-size: 0.82rem;
+  font-weight: 900;
+  white-space: nowrap;
+  background: rgba(255, 253, 247, 0.88);
+  box-shadow: 0 7px 18px rgba(20, 33, 30, 0.06);
+  transition:
+    color 160ms ease,
+    border-color 160ms ease,
+    background 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+.pager-button.compact {
+  color: #fff;
+  border-color: rgba(8, 61, 45, 0.82);
+  background:
+    linear-gradient(135deg, var(--pitch-dark), var(--pitch)),
+    var(--pitch-dark);
+}
+
+.pager-button:hover:not(:disabled) {
+  border-color: rgba(11, 107, 67, 0.42);
+  background: #fffdf7;
+  box-shadow: 0 10px 26px rgba(20, 33, 30, 0.11);
+  transform: translateY(-1px);
+}
+
+.pager-button.compact:hover:not(:disabled) {
+  color: #fff;
+  background:
+    linear-gradient(135deg, var(--pitch-dark), var(--pitch)),
+    var(--pitch-dark);
+}
+
+.pager-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.48;
+}
+
+.pager-button svg {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 auto;
+  stroke-width: 3;
+}
+
 .date-group {
   margin: 0 0 22px;
 }
@@ -2599,7 +2702,8 @@ select {
   .topbar,
   .footer,
   .view-tools,
-  .view-head {
+  .view-head,
+  .result-pager {
     align-items: flex-start;
     flex-direction: column;
   }
@@ -2874,7 +2978,8 @@ select {
   }
 
   .tabs,
-  .segmented {
+  .segmented,
+  .pager-controls {
     width: 100%;
   }
 }

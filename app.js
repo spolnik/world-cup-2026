@@ -12,6 +12,7 @@ const state = {
   group: "all",
   city: "all",
   status: "all",
+  resultPageDateKey: null,
   position: "all",
   teamMetric: "marketValueEur",
   timeMode: "user",
@@ -146,6 +147,7 @@ function bindEvents() {
     state.group = "all";
     state.city = "all";
     state.status = "all";
+    state.resultPageDateKey = todayDateKey();
     state.position = "all";
     state.teamMetric = "marketValueEur";
     state.expandedTeams.clear();
@@ -169,6 +171,14 @@ function bindEvents() {
       state.expandedTeams.add(teamName);
     }
     renderTeams();
+    refreshIcons();
+  });
+
+  els.results.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-result-page]");
+    if (!button || button.disabled) return;
+    state.resultPageDateKey = button.dataset.resultPage || todayDateKey();
+    renderResults(getVisibleMatches());
     refreshIcons();
   });
 
@@ -319,31 +329,164 @@ function renderFixtures(matches) {
 }
 
 function renderResults(matches) {
-  const finals = matches.filter(isCompleted).sort((a, b) => a.date - b.date || a.id - b.id);
-  els.resultCount.textContent = `${finals.length} final ${plural(finals.length, "score", "scores")}`;
+  const pager = getResultPager(matches);
+  els.resultCount.textContent = `${pager.summary} - ${pager.dateLabel}`;
 
-  if (!finals.length) {
-    const nextSix = state.matches
-      .filter((match) => !isCompleted(match))
-      .sort((a, b) => a.date - b.date || a.id - b.id)
-      .slice(0, 4);
+  els.results.innerHTML = `
+    ${resultPagerControls(pager)}
+    ${
+      pager.matches.length
+        ? `<div class="match-grid">${pager.matches.map(matchCard).join("")}</div>`
+        : emptyState(resultEmptyTitle(pager), resultEmptyMessage())
+    }
+  `;
+}
 
-    els.results.innerHTML = `
-      ${emptyState("No final scores yet", "Matches start on 11 June 2026. Results will appear here when scores are added to the data file.")}
-      <div class="date-group">
-        <div class="date-head">
-          <h3>Opening fixtures</h3>
-          <span>${nextSix.length} matches</span>
-        </div>
-        <div class="match-grid">
-          ${nextSix.map(matchCard).join("")}
-        </div>
-      </div>
-    `;
-    return;
+function getResultPager(matches) {
+  const todayKey = todayDateKey();
+  if (!state.resultPageDateKey) state.resultPageDateKey = todayKey;
+
+  const selectedKey = state.resultPageDateKey;
+  const renderableKeys = unique(matches.map(resultDateKey))
+    .sort()
+    .filter((key) => resultMatchesForDate(matches, key, todayKey).length);
+
+  let previousKey = "";
+  let nextKey = "";
+  for (const key of renderableKeys) {
+    if (key < selectedKey) previousKey = key;
+    if (!nextKey && key > selectedKey) nextKey = key;
   }
 
-  els.results.innerHTML = `<div class="match-grid">${finals.map(matchCard).join("")}</div>`;
+  const pageMatches = resultMatchesForDate(matches, selectedKey, todayKey).sort(
+    (a, b) => a.date - b.date || a.id - b.id
+  );
+
+  return {
+    todayKey,
+    selectedKey,
+    previousKey,
+    nextKey,
+    matches: pageMatches,
+    dateLabel: formatResultDate(selectedKey),
+    pageLabel: resultPageLabel(selectedKey, todayKey),
+    summary: resultPageSummary(pageMatches, selectedKey, todayKey),
+  };
+}
+
+function resultMatchesForDate(matches, dateKeyValue, todayKey) {
+  return matches.filter((match) => {
+    if (resultDateKey(match) !== dateKeyValue) return false;
+    if (dateKeyValue < todayKey) return isCompleted(match);
+    if (dateKeyValue > todayKey) return !isCompleted(match);
+    return true;
+  });
+}
+
+function resultPagerControls(pager) {
+  return `
+    <div class="result-pager" aria-label="Results day navigation">
+      <div class="result-page-copy">
+        <span>${escapeHTML(pager.pageLabel)}</span>
+        <h3>${escapeHTML(pager.dateLabel)}</h3>
+      </div>
+      <div class="pager-controls">
+        <button
+          class="pager-button"
+          type="button"
+          data-result-page="${escapeAttribute(pager.previousKey || pager.selectedKey)}"
+          ${pager.previousKey ? "" : "disabled"}
+          aria-label="Previous match day"
+          title="Previous match day"
+        >
+          <i data-lucide="chevron-left" aria-hidden="true"></i>
+          Previous
+        </button>
+        <button
+          class="pager-button compact"
+          type="button"
+          data-result-page="${escapeAttribute(pager.todayKey)}"
+          ${pager.selectedKey === pager.todayKey ? "disabled" : ""}
+          aria-label="Today"
+          title="Today"
+        >
+          <i data-lucide="calendar" aria-hidden="true"></i>
+          Today
+        </button>
+        <button
+          class="pager-button"
+          type="button"
+          data-result-page="${escapeAttribute(pager.nextKey || pager.selectedKey)}"
+          ${pager.nextKey ? "" : "disabled"}
+          aria-label="Next match day"
+          title="Next match day"
+        >
+          Next
+          <i data-lucide="chevron-right" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+  `;
+}
+
+function resultPageLabel(selectedKey, todayKey) {
+  if (selectedKey === todayKey) return "Today";
+  return selectedKey < todayKey ? "Finished matches" : "Upcoming matches";
+}
+
+function resultPageSummary(matches, selectedKey, todayKey) {
+  if (!matches.length) return "0 matches";
+  const finals = matches.filter(isCompleted).length;
+  const live = matches.filter((match) => match.status === "live").length;
+  const scheduled = matches.length - finals - live;
+  const parts = [
+    finals ? `${finals} final ${plural(finals, "score", "scores")}` : "",
+    live ? `${live} live ${plural(live, "match", "matches")}` : "",
+    scheduled ? `${scheduled} upcoming ${plural(scheduled, "match", "matches")}` : "",
+  ].filter(Boolean);
+
+  if (selectedKey < todayKey && finals) return `${finals} finished ${plural(finals, "match", "matches")}`;
+  if (selectedKey > todayKey && scheduled + live) {
+    return `${scheduled + live} upcoming ${plural(scheduled + live, "match", "matches")}`;
+  }
+  return parts.join(", ") || `${matches.length} ${plural(matches.length, "match", "matches")}`;
+}
+
+function resultEmptyTitle(pager) {
+  if (pager.selectedKey === pager.todayKey) return "No matches today";
+  return pager.selectedKey < pager.todayKey ? "No finished matches" : "No upcoming matches";
+}
+
+function resultEmptyMessage() {
+  return "No matches match the current filters on this date.";
+}
+
+function resultDateKey(match) {
+  return dateKey(match.date);
+}
+
+function todayDateKey() {
+  return dateKey(new Date());
+}
+
+function dateKey(date) {
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  return `${date.getFullYear()}-${month}-${day}`;
+}
+
+function formatResultDate(dateKeyValue) {
+  return new Intl.DateTimeFormat(undefined, {
+    weekday: "long",
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  }).format(dateFromKey(dateKeyValue));
+}
+
+function dateFromKey(dateKeyValue) {
+  const [year, month, day] = dateKeyValue.split("-").map((part) => Number.parseInt(part, 10));
+  return new Date(year, month - 1, day);
 }
 
 function renderScorers() {
