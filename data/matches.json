@@ -1,6 +1,6 @@
 {
   "tournament": "FIFA World Cup 2026",
-  "lastChecked": "2026-06-22",
+  "lastChecked": "2026-06-23",
   "matchCount": 104,
   "note": "Scores are null before kickoff. Final matches can include goals with minute, team, player, assist, and ownGoal for scorer views.",
   "sources": [
@@ -171,6 +171,22 @@
     {
       "name": "Guardian New Zealand vs Egypt live report",
       "url": "https://www.theguardian.com/football/live/2026/jun/22/fifa-world-cup-2026-live-new-zealand-v-egypt-updates-nzl-vs-egy-group-g-match-score-latest"
+    },
+    {
+      "name": "Guardian Argentina vs Austria match report",
+      "url": "https://www.theguardian.com/football/2026/jun/22/lionel-messi-breaks-men-world-cup-record-becomes-all-time-leading-scorer"
+    },
+    {
+      "name": "Guardian France vs Iraq live report",
+      "url": "https://www.theguardian.com/football/live/2026/jun/22/france-v-iraq-world-cup-2026-live-updates"
+    },
+    {
+      "name": "Guardian Norway vs Senegal live report",
+      "url": "https://www.theguardian.com/football/live/2026/jun/22/norway-v-senegal-world-cup-2026-live"
+    },
+    {
+      "name": "Guardian Jordan vs Algeria live report",
+      "url": "https://www.theguardian.com/football/live/2026/jun/23/fifa-world-cup-2026-live-jordan-v-algeria-updates-jor-v-alg-group-j-match-score-latest"
     }
   ],
   "matches": [
@@ -2205,8 +2221,56 @@
         "name": "Senegal",
         "flag": "https://flagcdn.com/w40/sn.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 3,
+        "away": 2
+      },
+      "goals": [
+        {
+          "minute": "43",
+          "team": "Norway",
+          "player": "Marcus Pedersen",
+          "playerTeam": "Norway",
+          "playerSourceUrl": "https://www.transfermarkt.us/marcus-pedersen/profil/spieler/583404"
+        },
+        {
+          "minute": "48",
+          "team": "Norway",
+          "player": "Erling Haaland",
+          "playerTeam": "Norway",
+          "playerSourceUrl": "https://www.transfermarkt.us/erling-haaland/profil/spieler/418560",
+          "assist": "Martin Ødegaard",
+          "assistSourceUrl": "https://www.transfermarkt.us/martin-odegaard/profil/spieler/316264"
+        },
+        {
+          "minute": "53",
+          "team": "Senegal",
+          "player": "Ismaïla Sarr",
+          "playerTeam": "Senegal",
+          "playerSourceUrl": "https://www.transfermarkt.us/ismaila-sarr/profil/spieler/410225",
+          "assist": "Sadio Mané",
+          "assistSourceUrl": "https://www.transfermarkt.us/sadio-mane/profil/spieler/200512"
+        },
+        {
+          "minute": "58",
+          "team": "Norway",
+          "player": "Erling Haaland",
+          "playerTeam": "Norway",
+          "playerSourceUrl": "https://www.transfermarkt.us/erling-haaland/profil/spieler/418560",
+          "assist": "Patrick Berg",
+          "assistSourceUrl": "https://www.transfermarkt.us/patrick-berg/profil/spieler/308439"
+        },
+        {
+          "minute": "90+3",
+          "team": "Senegal",
+          "player": "Ismaïla Sarr",
+          "playerTeam": "Senegal",
+          "playerSourceUrl": "https://www.transfermarkt.us/ismaila-sarr/profil/spieler/410225",
+          "assist": "Nicolas Jackson",
+          "assistSourceUrl": "https://www.transfermarkt.us/nicolas-jackson/profil/spieler/776890"
+        }
+      ]
     },
     {
       "id": 42,
@@ -2225,8 +2289,38 @@
         "name": "Iraq",
         "flag": "https://flagcdn.com/w40/iq.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 3,
+        "away": 0
+      },
+      "goals": [
+        {
+          "minute": "14",
+          "team": "France",
+          "player": "Kylian Mbappé",
+          "playerTeam": "France",
+          "playerSourceUrl": "https://www.transfermarkt.us/kylian-mbappe/profil/spieler/342229"
+        },
+        {
+          "minute": "54",
+          "team": "France",
+          "player": "Kylian Mbappé",
+          "playerTeam": "France",
+          "playerSourceUrl": "https://www.transfermarkt.us/kylian-mbappe/profil/spieler/342229",
+          "assist": "Ousmane Dembélé",
+          "assistSourceUrl": "https://www.transfermarkt.us/ousmane-dembele/profil/spieler/288230"
+        },
+        {
+          "minute": "66",
+          "team": "France",
+          "player": "Ousmane Dembélé",
+          "playerTeam": "France",
+          "playerSourceUrl": "https://www.transfermarkt.us/ousmane-dembele/profil/spieler/288230",
+          "assist": "Michael Olise",
+          "assistSourceUrl": "https://www.transfermarkt.us/michael-olise/profil/spieler/566723"
+        }
+      ]
     },
     {
       "id": 43,
@@ -2245,8 +2339,27 @@
         "name": "Austria",
         "flag": "https://flagcdn.com/w40/at.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 2,
+        "away": 0
+      },
+      "goals": [
+        {
+          "minute": "38",
+          "team": "Argentina",
+          "player": "Lionel Messi",
+          "playerTeam": "Argentina",
+          "playerSourceUrl": "https://www.transfermarkt.us/lionel-messi/profil/spieler/28003"
+        },
+        {
+          "minute": "90+5",
+          "team": "Argentina",
+          "player": "Lionel Messi",
+          "playerTeam": "Argentina",
+          "playerSourceUrl": "https://www.transfermarkt.us/lionel-messi/profil/spieler/28003"
+        }
+      ]
     },
     {
       "id": 44,
@@ -2265,8 +2378,38 @@
         "name": "Algeria",
         "flag": "https://flagcdn.com/w40/dz.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 1,
+        "away": 2
+      },
+      "goals": [
+        {
+          "minute": "36",
+          "team": "Jordan",
+          "player": "Nizar Al-Rashdan",
+          "playerTeam": "Jordan",
+          "playerSourceUrl": "https://www.transfermarkt.us/nizar-al-rashdan/profil/spieler/734751",
+          "assist": "Mousa Tamari",
+          "assistSourceUrl": "https://www.transfermarkt.us/mousa-tamari/profil/spieler/551505"
+        },
+        {
+          "minute": "69",
+          "team": "Algeria",
+          "player": "Nadhir Benbouali",
+          "playerTeam": "Algeria",
+          "playerSourceUrl": "https://www.transfermarkt.us/nadhir-benbouali/profil/spieler/840254",
+          "assist": "Riyad Mahrez",
+          "assistSourceUrl": "https://www.transfermarkt.us/riyad-mahrez/profil/spieler/171424"
+        },
+        {
+          "minute": "82",
+          "team": "Algeria",
+          "player": "Amine Gouiri",
+          "playerTeam": "Algeria",
+          "playerSourceUrl": "https://www.transfermarkt.us/amine-gouiri/profil/spieler/418659"
+        }
+      ]
     },
     {
       "id": 45,
