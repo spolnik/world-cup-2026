@@ -1,6 +1,6 @@
 {
   "tournament": "FIFA World Cup 2026",
-  "lastChecked": "2026-06-23",
+  "lastChecked": "2026-06-24",
   "matchCount": 104,
   "note": "Scores are null before kickoff. Final matches can include goals with minute, team, player, assist, and ownGoal for scorer views.",
   "sources": [
@@ -187,6 +187,22 @@
     {
       "name": "Guardian Jordan vs Algeria live report",
       "url": "https://www.theguardian.com/football/live/2026/jun/23/fifa-world-cup-2026-live-jordan-v-algeria-updates-jor-v-alg-group-j-match-score-latest"
+    },
+    {
+      "name": "Guardian Portugal vs Uzbekistan live report",
+      "url": "https://www.theguardian.com/football/live/2026/jun/23/portugal-v-uzbekistan-world-cup-2026-live"
+    },
+    {
+      "name": "Guardian England vs Ghana match report",
+      "url": "https://www.theguardian.com/football/2026/jun/23/england-0-0-ghana-world-cup-2026-group-l-player-ratings"
+    },
+    {
+      "name": "Guardian Panama vs Croatia live report",
+      "url": "https://www.theguardian.com/football/live/2026/jun/23/panama-v-croatia-world-cup-2026-live-updates"
+    },
+    {
+      "name": "Guardian Colombia vs DR Congo live report",
+      "url": "https://www.theguardian.com/football/live/2026/jun/24/fifa-world-cup-2026-live-colombia-v-dr-congo-updates-col-vs-cod-group-k-match-score-latest"
     }
   ],
   "matches": [
@@ -2428,8 +2444,12 @@
         "name": "Ghana",
         "flag": "https://flagcdn.com/w40/gh.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": []
     },
     {
       "id": 46,
@@ -2448,8 +2468,22 @@
         "name": "Croatia",
         "flag": "https://flagcdn.com/w40/hr.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 0,
+        "away": 1
+      },
+      "goals": [
+        {
+          "minute": "54",
+          "team": "Croatia",
+          "player": "Ante Budimir",
+          "playerTeam": "Croatia",
+          "playerSourceUrl": "https://www.transfermarkt.us/ante-budimir/profil/spieler/46413",
+          "assist": "Josip Stanisic",
+          "assistSourceUrl": "https://www.transfermarkt.us/josip-stanisic/profil/spieler/483046"
+        }
+      ]
     },
     {
       "id": 47,
@@ -2468,8 +2502,49 @@
         "name": "Uzbekistan",
         "flag": "https://flagcdn.com/w40/uz.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 5,
+        "away": 0
+      },
+      "goals": [
+        {
+          "minute": "7",
+          "team": "Portugal",
+          "player": "Cristiano Ronaldo",
+          "playerTeam": "Portugal",
+          "playerSourceUrl": "https://www.transfermarkt.us/cristiano-ronaldo/profil/spieler/8198"
+        },
+        {
+          "minute": "17",
+          "team": "Portugal",
+          "player": "Nuno Mendes",
+          "playerTeam": "Portugal",
+          "playerSourceUrl": "https://www.transfermarkt.us/nuno-mendes/profil/spieler/616341"
+        },
+        {
+          "minute": "39",
+          "team": "Portugal",
+          "player": "Cristiano Ronaldo",
+          "playerTeam": "Portugal",
+          "playerSourceUrl": "https://www.transfermarkt.us/cristiano-ronaldo/profil/spieler/8198"
+        },
+        {
+          "minute": "60",
+          "team": "Portugal",
+          "player": "Abdukodir Khusanov",
+          "playerTeam": "Uzbekistan",
+          "playerSourceUrl": "https://www.transfermarkt.us/abdukodir-khusanov/profil/spieler/763079",
+          "ownGoal": true
+        },
+        {
+          "minute": "88",
+          "team": "Portugal",
+          "player": "Rafael Leão",
+          "playerTeam": "Portugal",
+          "playerSourceUrl": "https://www.transfermarkt.us/rafael-leao/profil/spieler/357164"
+        }
+      ]
     },
     {
       "id": 48,
@@ -2488,8 +2563,22 @@
         "name": "DR Congo",
         "flag": "https://flagcdn.com/w40/cd.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 1,
+        "away": 0
+      },
+      "goals": [
+        {
+          "minute": "76",
+          "team": "Colombia",
+          "player": "Daniel Muñoz",
+          "playerTeam": "Colombia",
+          "playerSourceUrl": "https://www.transfermarkt.us/daniel-munoz/profil/spieler/493003",
+          "assist": "Juan Fernando Quintero",
+          "assistSourceUrl": "https://www.transfermarkt.us/juan-fernando-quintero/profil/spieler/122582"
+        }
+      ]
     },
     {
       "id": 49,
