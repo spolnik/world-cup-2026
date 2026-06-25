@@ -1,6 +1,6 @@
 {
   "tournament": "FIFA World Cup 2026",
-  "lastChecked": "2026-06-24",
+  "lastChecked": "2026-06-25",
   "matchCount": 104,
   "note": "Scores are null before kickoff. Final matches can include goals with minute, team, player, assist, and ownGoal for scorer views.",
   "sources": [
@@ -203,6 +203,30 @@
     {
       "name": "Guardian Colombia vs DR Congo live report",
       "url": "https://www.theguardian.com/football/live/2026/jun/24/fifa-world-cup-2026-live-colombia-v-dr-congo-updates-col-vs-cod-group-k-match-score-latest"
+    },
+    {
+      "name": "Guardian Scotland vs Brazil live report",
+      "url": "https://www.theguardian.com/football/live/2026/jun/24/scotland-v-brazil-world-cup-2026-live"
+    },
+    {
+      "name": "Guardian Morocco vs Haiti live report",
+      "url": "https://www.theguardian.com/football/live/2026/jun/24/morocco-v-haiti-world-cup-2026-live"
+    },
+    {
+      "name": "Guardian Switzerland vs Canada live report",
+      "url": "https://www.theguardian.com/football/live/2026/jun/24/switzerland-v-canada-world-cup-2026-live"
+    },
+    {
+      "name": "Guardian Bosnia and Herzegovina vs Qatar live report",
+      "url": "https://www.theguardian.com/football/live/2026/jun/24/bosnia-and-herzegovina-v-qatar-world-cup-2026-live"
+    },
+    {
+      "name": "Guardian Czechia vs Mexico live report",
+      "url": "https://www.theguardian.com/football/live/2026/jun/24/czechia-v-mexico-world-cup-2026-live"
+    },
+    {
+      "name": "Guardian South Africa vs South Korea live report",
+      "url": "https://www.theguardian.com/football/live/2026/jun/24/south-africa-v-south-korea-world-cup-2026-live"
     }
   ],
   "matches": [
@@ -2597,8 +2621,40 @@
         "name": "Brazil",
         "flag": "https://flagcdn.com/w40/br.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 0,
+        "away": 3
+      },
+      "goals": [
+        {
+          "minute": "7",
+          "team": "Brazil",
+          "player": "Vinicius Junior",
+          "playerTeam": "Brazil",
+          "playerSourceUrl": "https://www.transfermarkt.us/vinicius-junior/profil/spieler/371998",
+          "assist": "Rayan",
+          "assistSourceUrl": "https://www.transfermarkt.us/rayan/profil/spieler/1012564"
+        },
+        {
+          "minute": "45+4",
+          "team": "Brazil",
+          "player": "Vinicius Junior",
+          "playerTeam": "Brazil",
+          "playerSourceUrl": "https://www.transfermarkt.us/vinicius-junior/profil/spieler/371998",
+          "assist": "Bruno Guimarães",
+          "assistSourceUrl": "https://www.transfermarkt.us/bruno-guimaraes/profil/spieler/520624"
+        },
+        {
+          "minute": "60",
+          "team": "Brazil",
+          "player": "Matheus Cunha",
+          "playerTeam": "Brazil",
+          "playerSourceUrl": "https://www.transfermarkt.us/matheus-cunha/profil/spieler/517894",
+          "assist": "Bruno Guimarães",
+          "assistSourceUrl": "https://www.transfermarkt.us/bruno-guimaraes/profil/spieler/520624"
+        }
+      ]
     },
     {
       "id": 50,
@@ -2617,8 +2673,62 @@
         "name": "Haiti",
         "flag": "https://flagcdn.com/w40/ht.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 4,
+        "away": 2
+      },
+      "goals": [
+        {
+          "minute": "10",
+          "team": "Haiti",
+          "player": "Yassine Bounou",
+          "playerTeam": "Morocco",
+          "playerSourceUrl": "https://www.transfermarkt.us/yassine-bounou/profil/spieler/207834",
+          "ownGoal": true
+        },
+        {
+          "minute": "39",
+          "team": "Morocco",
+          "player": "Achraf Hakimi",
+          "playerTeam": "Morocco",
+          "playerSourceUrl": "https://www.transfermarkt.us/achraf-hakimi/profil/spieler/398073"
+        },
+        {
+          "minute": "43",
+          "team": "Haiti",
+          "player": "Wilson Isidor",
+          "playerTeam": "Haiti",
+          "playerSourceUrl": "https://www.transfermarkt.us/wilson-isidor/profil/spieler/494237",
+          "assist": "Jean-Kévin Duverne",
+          "assistSourceUrl": "https://www.transfermarkt.us/jean-kevin-duverne/profil/spieler/344864"
+        },
+        {
+          "minute": "45+1",
+          "team": "Morocco",
+          "player": "Ismael Saibari",
+          "playerTeam": "Morocco",
+          "playerSourceUrl": "https://www.transfermarkt.us/ismael-saibari/profil/spieler/702869",
+          "assist": "Achraf Hakimi",
+          "assistSourceUrl": "https://www.transfermarkt.us/achraf-hakimi/profil/spieler/398073"
+        },
+        {
+          "minute": "78",
+          "team": "Morocco",
+          "player": "Soufiane Rahimi",
+          "playerTeam": "Morocco",
+          "playerSourceUrl": "https://www.transfermarkt.us/soufiane-rahimi/profil/spieler/598506"
+        },
+        {
+          "minute": "89",
+          "team": "Morocco",
+          "player": "Gessime Yassine",
+          "playerTeam": "Morocco",
+          "playerSourceUrl": "https://www.transfermarkt.us/gessime-yassine/profil/spieler/1151929",
+          "assist": "Soufiane Rahimi",
+          "assistSourceUrl": "https://www.transfermarkt.us/soufiane-rahimi/profil/spieler/598506"
+        }
+      ]
     },
     {
       "id": 51,
@@ -2637,8 +2747,40 @@
         "name": "Canada",
         "flag": "https://flagcdn.com/w40/ca.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 2,
+        "away": 1
+      },
+      "goals": [
+        {
+          "minute": "46",
+          "team": "Switzerland",
+          "player": "Rubén Vargas",
+          "playerTeam": "Switzerland",
+          "playerSourceUrl": "https://www.transfermarkt.us/ruben-vargas/profil/spieler/345886",
+          "assist": "Johan Manzambi",
+          "assistSourceUrl": "https://www.transfermarkt.us/johan-manzambi/profil/spieler/927353"
+        },
+        {
+          "minute": "57",
+          "team": "Switzerland",
+          "player": "Johan Manzambi",
+          "playerTeam": "Switzerland",
+          "playerSourceUrl": "https://www.transfermarkt.us/johan-manzambi/profil/spieler/927353",
+          "assist": "Breel Embolo",
+          "assistSourceUrl": "https://www.transfermarkt.us/breel-embolo/profil/spieler/237662"
+        },
+        {
+          "minute": "76",
+          "team": "Canada",
+          "player": "Promise David",
+          "playerTeam": "Canada",
+          "playerSourceUrl": "https://www.transfermarkt.us/promise-david/profil/spieler/888785",
+          "assist": "Nathan-Dylan Saliba",
+          "assistSourceUrl": "https://www.transfermarkt.us/nathan-dylan-saliba/profil/spieler/842420"
+        }
+      ]
     },
     {
       "id": 52,
@@ -2657,8 +2799,48 @@
         "name": "Qatar",
         "flag": "https://flagcdn.com/w40/qa.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 3,
+        "away": 1
+      },
+      "goals": [
+        {
+          "minute": "29",
+          "team": "Bosnia and Herzegovina",
+          "player": "Kerim Alajbegovic",
+          "playerTeam": "Bosnia and Herzegovina",
+          "playerSourceUrl": "https://www.transfermarkt.us/kerim-alajbegovic/profil/spieler/929994",
+          "assist": "Ivan Basic",
+          "assistSourceUrl": "https://www.transfermarkt.us/ivan-basic/profil/spieler/620560"
+        },
+        {
+          "minute": "34",
+          "team": "Bosnia and Herzegovina",
+          "player": "Sultan Al-Brake",
+          "playerTeam": "Qatar",
+          "playerSourceUrl": "https://www.transfermarkt.us/sultan-al-brake/profil/spieler/336665",
+          "ownGoal": true
+        },
+        {
+          "minute": "42",
+          "team": "Qatar",
+          "player": "Hasan Al-Haydos",
+          "playerTeam": "Qatar",
+          "playerSourceUrl": "https://www.transfermarkt.us/hasan-al-haydos/profil/spieler/86286",
+          "assist": "Edmílson Junior",
+          "assistSourceUrl": "https://www.transfermarkt.us/edmilson-junior/profil/spieler/237846"
+        },
+        {
+          "minute": "80",
+          "team": "Bosnia and Herzegovina",
+          "player": "Ermin Mahmic",
+          "playerTeam": "Bosnia and Herzegovina",
+          "playerSourceUrl": "https://www.transfermarkt.us/ermin-mahmic/profil/spieler/803049",
+          "assist": "Dennis Hadzikadunic",
+          "assistSourceUrl": "https://www.transfermarkt.us/dennis-hadzikadunic/profil/spieler/322065"
+        }
+      ]
     },
     {
       "id": 53,
@@ -2677,8 +2859,40 @@
         "name": "Mexico",
         "flag": "https://flagcdn.com/w40/mx.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 0,
+        "away": 3
+      },
+      "goals": [
+        {
+          "minute": "55",
+          "team": "Mexico",
+          "player": "Mateo Chávez",
+          "playerTeam": "Mexico",
+          "playerSourceUrl": "https://www.transfermarkt.us/mateo-chavez/profil/spieler/1066953",
+          "assist": "Luis Romo",
+          "assistSourceUrl": "https://www.transfermarkt.us/luis-romo/profil/spieler/532938"
+        },
+        {
+          "minute": "61",
+          "team": "Mexico",
+          "player": "Julián Quiñones",
+          "playerTeam": "Mexico",
+          "playerSourceUrl": "https://www.transfermarkt.us/julian-quinones/profil/spieler/416090",
+          "assist": "Jorge Sánchez",
+          "assistSourceUrl": "https://www.transfermarkt.us/jorge-sanchez/profil/spieler/356044"
+        },
+        {
+          "minute": "90+3",
+          "team": "Mexico",
+          "player": "Álvaro Fidalgo",
+          "playerTeam": "Mexico",
+          "playerSourceUrl": "https://www.transfermarkt.us/alvaro-fidalgo/profil/spieler/261503",
+          "assist": "Roberto Alvarado",
+          "assistSourceUrl": "https://www.transfermarkt.us/roberto-alvarado/profil/spieler/353583"
+        }
+      ]
     },
     {
       "id": 54,
@@ -2697,8 +2911,22 @@
         "name": "South Korea",
         "flag": "https://flagcdn.com/w40/kr.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 1,
+        "away": 0
+      },
+      "goals": [
+        {
+          "minute": "63",
+          "team": "South Africa",
+          "player": "Thapelo Maseko",
+          "playerTeam": "South Africa",
+          "playerSourceUrl": "https://www.transfermarkt.us/thapelo-maseko/profil/spieler/983330",
+          "assist": "Tshepang Moremi",
+          "assistSourceUrl": "https://www.transfermarkt.us/tshepang-moremi/profil/spieler/844485"
+        }
+      ]
     },
     {
       "id": 55,
