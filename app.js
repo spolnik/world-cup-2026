@@ -36,6 +36,8 @@ const KNOCKOUT_ROUNDS = [
   "Semi-final",
   "Final",
 ];
+const LEFT_BRACKET_ROUNDS = ["Round of 32", "Round of 16", "Quarter-final", "Semi-final"];
+const RIGHT_BRACKET_ROUNDS = ["Semi-final", "Quarter-final", "Round of 16", "Round of 32"];
 
 document.addEventListener("DOMContentLoaded", () => {
   cacheElements();
@@ -268,9 +270,13 @@ function renderSummary() {
   const totalPlayers = state.teamData?.playerCount || state.teams.reduce((total, team) => total + team.playerCount, 0);
   const totalValue = state.teamData?.totalMarketValueEur || state.teams.reduce((total, team) => total + team.marketValueEur, 0);
   const topElevenPeak = Math.max(...state.teams.map((team) => team.topElevenValueEur || 0), 0);
+  const liveMatch = state.matches
+    .filter((match) => match.status === "live")
+    .sort((a, b) => a.date - b.date || a.id - b.id)[0];
   const next = state.matches
     .filter((match) => !isCompleted(match) && match.date >= now)
     .sort((a, b) => a.date - b.date)[0];
+  const featureMatch = liveMatch || next;
 
   els.stats.innerHTML = [
     statCard("104", "Matches"),
@@ -279,7 +285,7 @@ function renderSummary() {
     statCard(formatMoney(totalValue || topElevenPeak), "Squad value"),
   ].join("");
 
-  if (!next) {
+  if (!featureMatch) {
     els.nextCard.innerHTML = `
       <h2>Tournament complete</h2>
       <p class="next-meta">All scheduled matches have final scores in the data file.</p>
@@ -288,18 +294,18 @@ function renderSummary() {
   }
 
   els.nextCard.innerHTML = `
-    <h2>Next kickoff</h2>
+    <h2>${liveMatch ? "Live now" : "Next kickoff"}</h2>
     <div class="next-matchup">
-      ${team(next.home)}
+      ${team(featureMatch.home)}
       <div class="score-box">
-        <span class="score-label">${formatPrimaryTime(next)}</span>
+        ${liveMatch ? scoreMarkup(featureMatch) : `<span class="score-label">${formatPrimaryTime(featureMatch)}</span>`}
       </div>
-      ${team(next.away)}
+      ${team(featureMatch.away)}
     </div>
     <div class="next-meta">
-      <span class="countdown">${relativeKickoff(next.date)}</span>
-      <span><i data-lucide="calendar-clock" aria-hidden="true"></i>${escapeHTML(next.matchday)}</span>
-      <span><i data-lucide="map-pin" aria-hidden="true"></i>${escapeHTML(next.venue)}</span>
+      <span class="countdown">${liveMatch ? "In play" : relativeKickoff(featureMatch.date)}</span>
+      <span><i data-lucide="calendar-clock" aria-hidden="true"></i>${escapeHTML(featureMatch.matchday)}</span>
+      <span><i data-lucide="map-pin" aria-hidden="true"></i>${escapeHTML(featureMatch.venue)}</span>
     </div>
   `;
 }
@@ -693,6 +699,7 @@ function renderLadder() {
     assigned: assignmentByThirdGroup.has(row.group),
     slotMatchId: assignmentByThirdGroup.get(row.group)?.slotMatchId,
   }));
+  const bracket = buildBracketLadder(projection);
 
   els.ladder.innerHTML = `
     <div class="ladder-layout">
@@ -716,9 +723,30 @@ function renderLadder() {
       </section>
 
       <section class="bracket-board" aria-label="Projected knockout ladder">
+        <div class="ladder-section-head bracket-section-head">
+          <div>
+            <span class="group-kicker">Knockout path</span>
+            <h3>Projected bracket</h3>
+          </div>
+          <strong>Final centered</strong>
+        </div>
         <div class="bracket-scroll">
-          <div class="bracket-grid">
-            ${KNOCKOUT_ROUNDS.map((stage) => bracketRound(stage, projection)).join("")}
+          <div class="bracket-stage-grid">
+            <div class="bracket-half bracket-half-left" aria-label="Left side of projected bracket">
+              ${bracketColumns(bracket.left, "left")}
+            </div>
+            <section class="bracket-final-column" aria-label="Projected final">
+              <div class="bracket-round-head">
+                <span>Final</span>
+                <strong>1</strong>
+              </div>
+              <div class="bracket-final-rail">
+                ${bracket.final ? bracketMatch(bracket.final, "final") : emptyState("Final unavailable", "No final match is present in the data.")}
+              </div>
+            </section>
+            <div class="bracket-half bracket-half-right" aria-label="Right side of projected bracket">
+              ${bracketColumns(bracket.right, "right")}
+            </div>
           </div>
         </div>
       </section>
@@ -750,25 +778,65 @@ function thirdPlaceChip(row, index) {
   `;
 }
 
-function bracketRound(stage, projection) {
-  const matches = projection.roundMatches.filter((match) => match.stage === stage);
+function buildBracketLadder(projection) {
+  const matchesById = new Map(projection.roundMatches.map((match) => [match.id, match]));
+  const finalMatch = projection.roundMatches.find((match) => match.stage === "Final");
+  const leftRootId = referenceMatchId(finalMatch?.home?.name);
+  const rightRootId = referenceMatchId(finalMatch?.away?.name);
+
+  return {
+    final: finalMatch,
+    left: bracketHalfColumns(leftRootId, matchesById, LEFT_BRACKET_ROUNDS),
+    right: bracketHalfColumns(rightRootId, matchesById, RIGHT_BRACKET_ROUNDS),
+  };
+}
+
+function bracketHalfColumns(rootId, matchesById, stages) {
+  const buckets = new Map(stages.map((stage) => [stage, []]));
+  collectBracketMatches(rootId, matchesById, buckets, new Set());
+  return stages.map((stage) => ({ stage, matches: buckets.get(stage) || [] }));
+}
+
+function collectBracketMatches(matchId, matchesById, buckets, seen) {
+  if (!matchId || seen.has(matchId)) return;
+  seen.add(matchId);
+
+  const match = matchesById.get(matchId);
+  if (!match) return;
+  if (buckets.has(match.stage)) buckets.get(match.stage).push(match);
+
+  [match.home.name, match.away.name].forEach((label) => {
+    collectBracketMatches(referenceMatchId(label), matchesById, buckets, seen);
+  });
+}
+
+function referenceMatchId(label) {
+  const match = String(label || "").match(/^Winner Match (\d+)$/);
+  return match ? Number.parseInt(match[1], 10) : null;
+}
+
+function bracketColumns(columns, side) {
+  return columns.map((column) => bracketColumn(column, side)).join("");
+}
+
+function bracketColumn({ stage, matches }, side) {
   return `
-    <section class="bracket-round" aria-label="${escapeAttribute(stage)}">
+    <section class="bracket-round bracket-column-${escapeAttribute(side)} bracket-round-${escapeAttribute(stageSlug(stage))}" aria-label="${escapeAttribute(`${side} ${stage}`)}">
       <div class="bracket-round-head">
         <span>${escapeHTML(stage)}</span>
         <strong>${matches.length}</strong>
       </div>
       <div class="bracket-match-list">
-        ${matches.map(bracketMatch).join("")}
+        ${matches.map((match) => bracketMatch(match, side)).join("")}
       </div>
     </section>
   `;
 }
 
-function bracketMatch(match) {
+function bracketMatch(match, side = "") {
   const status = statusInfo(match);
   return `
-    <article class="bracket-match">
+    <article class="bracket-match ${side ? `bracket-match-${escapeAttribute(side)}` : ""}">
       <div class="bracket-match-head">
         <span>M${match.id}</span>
         <strong>${escapeHTML(match.stage === "Round of 32" ? "Projected" : "Path")}</strong>
@@ -783,6 +851,10 @@ function bracketMatch(match) {
       </div>
     </article>
   `;
+}
+
+function stageSlug(stage) {
+  return normalizeSearch(stage).replace(/\s+/g, "-");
 }
 
 function bracketSide(slot) {

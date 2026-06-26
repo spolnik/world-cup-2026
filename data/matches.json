@@ -1,6 +1,6 @@
 {
   "tournament": "FIFA World Cup 2026",
-  "lastChecked": "2026-06-25",
+  "lastChecked": "2026-06-26",
   "matchCount": 104,
   "note": "Scores are null before kickoff. Final matches can include goals with minute, team, player, assist, and ownGoal for scorer views.",
   "sources": [
@@ -227,6 +227,34 @@
     {
       "name": "Guardian South Africa vs South Korea live report",
       "url": "https://www.theguardian.com/football/live/2026/jun/24/south-africa-v-south-korea-world-cup-2026-live"
+    },
+    {
+      "name": "Guardian Curaçao vs Ivory Coast live report",
+      "url": "https://www.theguardian.com/football/live/2026/jun/25/curacao-v-cote-divoire-world-cup-2026-live"
+    },
+    {
+      "name": "Guardian Ecuador vs Germany live report",
+      "url": "https://www.theguardian.com/football/live/2026/jun/25/germany-v-ecuador-world-cup-2026-live"
+    },
+    {
+      "name": "Guardian Japan vs Sweden live report",
+      "url": "https://www.theguardian.com/football/live/2026/jun/25/japan-v-sweden-world-cup-2026-live"
+    },
+    {
+      "name": "Guardian Tunisia vs Netherlands live report",
+      "url": "https://www.theguardian.com/football/live/2026/jun/25/tunisia-v-netherlands-world-cup-2026-live"
+    },
+    {
+      "name": "Guardian Turkey vs USA live report",
+      "url": "https://www.theguardian.com/football/live/2026/jun/26/turkey-v-usa-world-cup-2026-live"
+    },
+    {
+      "name": "Ahram Turkey vs USA live score",
+      "url": "https://english.ahram.org.eg/WorldCup2026/Article/571599"
+    },
+    {
+      "name": "ABC Paraguay vs Australia score centre",
+      "url": "https://www.abc.net.au/news/sport/score-centre/fifa-world-cup/2026-06-26/paraguay-australia/2608296"
     }
   ],
   "matches": [
@@ -2945,8 +2973,31 @@
         "name": "Ivory Coast",
         "flag": "https://flagcdn.com/w40/ci.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 0,
+        "away": 2
+      },
+      "goals": [
+        {
+          "minute": "7",
+          "team": "Ivory Coast",
+          "player": "Nicolas Pépé",
+          "playerTeam": "Ivory Coast",
+          "playerSourceUrl": "https://www.transfermarkt.us/nicolas-pepe/profil/spieler/343052",
+          "assist": "Yan Diomande",
+          "assistSourceUrl": "https://www.transfermarkt.us/yan-diomande/profil/spieler/1390649"
+        },
+        {
+          "minute": "64",
+          "team": "Ivory Coast",
+          "player": "Nicolas Pépé",
+          "playerTeam": "Ivory Coast",
+          "playerSourceUrl": "https://www.transfermarkt.us/nicolas-pepe/profil/spieler/343052",
+          "assist": "Ibrahim Sangaré",
+          "assistSourceUrl": "https://www.transfermarkt.us/ibrahim-sangare/profil/spieler/375885"
+        }
+      ]
     },
     {
       "id": 56,
@@ -2965,8 +3016,36 @@
         "name": "Germany",
         "flag": "https://flagcdn.com/w40/de.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 2,
+        "away": 1
+      },
+      "goals": [
+        {
+          "minute": "2",
+          "team": "Germany",
+          "player": "Leroy Sané",
+          "playerTeam": "Germany",
+          "playerSourceUrl": "https://www.transfermarkt.us/leroy-sane/profil/spieler/192565"
+        },
+        {
+          "minute": "9",
+          "team": "Ecuador",
+          "player": "Nilson Angulo",
+          "playerTeam": "Ecuador",
+          "playerSourceUrl": "https://www.transfermarkt.us/nilson-angulo/profil/spieler/903611"
+        },
+        {
+          "minute": "77",
+          "team": "Ecuador",
+          "player": "Gonzalo Plata",
+          "playerTeam": "Ecuador",
+          "playerSourceUrl": "https://www.transfermarkt.us/gonzalo-plata/profil/spieler/592735",
+          "assist": "Kevin Rodríguez",
+          "assistSourceUrl": "https://www.transfermarkt.us/kevin-rodriguez/profil/spieler/684159"
+        }
+      ]
     },
     {
       "id": 57,
@@ -2985,8 +3064,31 @@
         "name": "Sweden",
         "flag": "https://flagcdn.com/w40/se.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 1,
+        "away": 1
+      },
+      "goals": [
+        {
+          "minute": "56",
+          "team": "Japan",
+          "player": "Daizen Maeda",
+          "playerTeam": "Japan",
+          "playerSourceUrl": "https://www.transfermarkt.us/daizen-maeda/profil/spieler/420931",
+          "assist": "Ritsu Doan",
+          "assistSourceUrl": "https://www.transfermarkt.us/ritsu-doan/profil/spieler/358504"
+        },
+        {
+          "minute": "62",
+          "team": "Sweden",
+          "player": "Anthony Elanga",
+          "playerTeam": "Sweden",
+          "playerSourceUrl": "https://www.transfermarkt.us/anthony-elanga/profil/spieler/583189",
+          "assist": "Viktor Gyökeres",
+          "assistSourceUrl": "https://www.transfermarkt.us/viktor-gyokeres/profil/spieler/325443"
+        }
+      ]
     },
     {
       "id": 58,
@@ -3005,8 +3107,48 @@
         "name": "Netherlands",
         "flag": "https://flagcdn.com/w40/nl.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 1,
+        "away": 3
+      },
+      "goals": [
+        {
+          "minute": "3",
+          "team": "Netherlands",
+          "player": "Ellyes Skhiri",
+          "playerTeam": "Tunisia",
+          "playerSourceUrl": "https://www.transfermarkt.us/ellyes-skhiri/profil/spieler/290587",
+          "ownGoal": true
+        },
+        {
+          "minute": "7",
+          "team": "Netherlands",
+          "player": "Brian Brobbey",
+          "playerTeam": "Netherlands",
+          "playerSourceUrl": "https://www.transfermarkt.us/brian-brobbey/profil/spieler/473169",
+          "assist": "Virgil van Dijk",
+          "assistSourceUrl": "https://www.transfermarkt.us/virgil-van-dijk/profil/spieler/139208"
+        },
+        {
+          "minute": "54",
+          "team": "Tunisia",
+          "player": "Hazem Mastouri",
+          "playerTeam": "Tunisia",
+          "playerSourceUrl": "https://www.transfermarkt.us/hazem-mastouri/profil/spieler/953150",
+          "assist": "Hannibal",
+          "assistSourceUrl": "https://www.transfermarkt.us/hannibal/profil/spieler/607224"
+        },
+        {
+          "minute": "62",
+          "team": "Netherlands",
+          "player": "Jan Paul van Hecke",
+          "playerTeam": "Netherlands",
+          "playerSourceUrl": "https://www.transfermarkt.us/jan-paul-van-hecke/profil/spieler/576314",
+          "assist": "Tijjani Reijnders",
+          "assistSourceUrl": "https://www.transfermarkt.us/tijjani-reijnders/profil/spieler/460939"
+        }
+      ]
     },
     {
       "id": 59,
@@ -3025,8 +3167,40 @@
         "name": "United States",
         "flag": "https://flagcdn.com/w40/us.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "live",
+      "score": {
+        "home": 2,
+        "away": 1
+      },
+      "goals": [
+        {
+          "minute": "3",
+          "team": "United States",
+          "player": "Auston Trusty",
+          "playerTeam": "United States",
+          "playerSourceUrl": "https://www.transfermarkt.us/auston-trusty/profil/spieler/389253",
+          "assist": "Sebastian Berhalter",
+          "assistSourceUrl": "https://www.transfermarkt.us/sebastian-berhalter/profil/spieler/734761"
+        },
+        {
+          "minute": "10",
+          "team": "Turkey",
+          "player": "Arda Güler",
+          "playerTeam": "Turkey",
+          "playerSourceUrl": "https://www.transfermarkt.us/arda-guler/profil/spieler/861410",
+          "assist": "Barış Alper Yılmaz",
+          "assistSourceUrl": "https://www.transfermarkt.us/baris-alper-yilmaz/profil/spieler/541537"
+        },
+        {
+          "minute": "31",
+          "team": "Turkey",
+          "player": "Orkun Kökçü",
+          "playerTeam": "Turkey",
+          "playerSourceUrl": "https://www.transfermarkt.us/orkun-kokcu/profil/spieler/454567",
+          "assist": "Eren Elmalı",
+          "assistSourceUrl": "https://www.transfermarkt.us/eren-elmali/profil/spieler/616894"
+        }
+      ]
     },
     {
       "id": 60,
@@ -3045,8 +3219,12 @@
         "name": "Australia",
         "flag": "https://flagcdn.com/w40/au.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "live",
+      "score": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": []
     },
     {
       "id": 61,
