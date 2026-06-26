@@ -253,8 +253,16 @@
       "url": "https://english.ahram.org.eg/WorldCup2026/Article/571599"
     },
     {
+      "name": "AP Turkey vs USA match report",
+      "url": "https://www.kfvs12.com/2026/06/26/turkey-beats-us-3-2-with-last-gasp-goal-americans-look-ahead-world-cup-knockout-stage/?outputType=amp"
+    },
+    {
       "name": "ABC Paraguay vs Australia score centre",
       "url": "https://www.abc.net.au/news/sport/score-centre/fifa-world-cup/2026-06-26/paraguay-australia/2608296"
+    },
+    {
+      "name": "Guardian Paraguay vs Australia match report",
+      "url": "https://www.theguardian.com/football/2026/jun/26/paraguay-australia-world-cup-2026-socceroos-group-d-match-report"
     }
   ],
   "matches": [
@@ -3167,10 +3175,10 @@
         "name": "United States",
         "flag": "https://flagcdn.com/w40/us.png"
       },
-      "status": "live",
+      "status": "final",
       "score": {
-        "home": 2,
-        "away": 1
+        "home": 3,
+        "away": 2
       },
       "goals": [
         {
@@ -3199,6 +3207,22 @@
           "playerSourceUrl": "https://www.transfermarkt.us/orkun-kokcu/profil/spieler/454567",
           "assist": "Eren Elmalı",
           "assistSourceUrl": "https://www.transfermarkt.us/eren-elmali/profil/spieler/616894"
+        },
+        {
+          "minute": "49",
+          "team": "United States",
+          "player": "Sebastian Berhalter",
+          "playerTeam": "United States",
+          "playerSourceUrl": "https://www.transfermarkt.us/sebastian-berhalter/profil/spieler/734761"
+        },
+        {
+          "minute": "90+8",
+          "team": "Turkey",
+          "player": "Kaan Ayhan",
+          "playerTeam": "Turkey",
+          "playerSourceUrl": "https://www.transfermarkt.us/kaan-ayhan/profil/spieler/119031",
+          "assist": "Can Uzun",
+          "assistSourceUrl": "https://www.transfermarkt.us/can-uzun/profil/spieler/816585"
         }
       ]
     },
@@ -3219,7 +3243,7 @@
         "name": "Australia",
         "flag": "https://flagcdn.com/w40/au.png"
       },
-      "status": "live",
+      "status": "final",
       "score": {
         "home": 0,
         "away": 0
