@@ -836,6 +836,43 @@ select {
   overflow-wrap: anywhere;
 }
 
+.slot-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  min-height: 24px;
+  max-width: 100%;
+  padding: 3px 8px;
+  border: 1px solid rgba(20, 33, 30, 0.12);
+  border-radius: 999px;
+  color: var(--muted);
+  background: rgba(238, 232, 217, 0.72);
+  font-size: 0.68rem;
+  font-weight: 950;
+  line-height: 1.1;
+  overflow-wrap: anywhere;
+}
+
+.slot-chip.confirmed {
+  color: #fff;
+  border-color: rgba(11, 107, 67, 0.34);
+  background: var(--pitch);
+}
+
+.slot-chip.projected {
+  color: var(--pitch-dark);
+  border-color: rgba(214, 167, 43, 0.42);
+  background: rgba(214, 167, 43, 0.18);
+}
+
+.slot-chip.path,
+.slot-chip.unresolved {
+  color: var(--muted);
+  border-style: dashed;
+  background: rgba(255, 253, 247, 0.72);
+}
+
 .flag-box {
   display: inline-grid;
   place-items: center;
@@ -2033,6 +2070,23 @@ select {
   border-style: dashed;
   border-color: rgba(20, 33, 30, 0.14);
   background: rgba(238, 232, 217, 0.48);
+}
+
+.bracket-side.confirmed {
+  border-color: rgba(11, 107, 67, 0.32);
+  background:
+    linear-gradient(135deg, rgba(11, 107, 67, 0.16), rgba(147, 189, 60, 0.1)),
+    rgba(255, 253, 247, 0.84);
+}
+
+.bracket-side.projected {
+  border-color: rgba(214, 167, 43, 0.34);
+  background: rgba(214, 167, 43, 0.12);
+}
+
+.bracket-side.path {
+  border-style: dashed;
+  background: rgba(255, 253, 247, 0.72);
 }
 
 .bracket-side div {
