@@ -8,6 +8,7 @@ const errors = [];
 const playerSourceUrls = new Set(
   (teamsData.teams ?? []).flatMap((team) => (team.players ?? []).map((player) => player.sourceUrl).filter(Boolean))
 );
+const teamGroupByName = new Map((teamsData.teams ?? []).map((team) => [team.name, team.group]));
 
 if (data.matchCount !== 104) errors.push(`Expected matchCount to be 104, got ${data.matchCount}`);
 if (!Array.isArray(data.matches) || data.matches.length !== 104) {
@@ -75,9 +76,29 @@ if (!Array.isArray(teamsData.teams) || teamsData.teams.length !== 48) {
 }
 
 const scheduleTeams = new Set();
+const scheduleTeamsByGroup = new Map();
 for (const match of data.matches.filter((entry) => entry.group)) {
   scheduleTeams.add(match.home.name);
   scheduleTeams.add(match.away.name);
+
+  if (!scheduleTeamsByGroup.has(match.group)) scheduleTeamsByGroup.set(match.group, new Set());
+  scheduleTeamsByGroup.get(match.group).add(match.home.name);
+  scheduleTeamsByGroup.get(match.group).add(match.away.name);
+
+  for (const teamName of [match.home.name, match.away.name]) {
+    const expectedGroup = teamGroupByName.get(teamName);
+    if (!expectedGroup) {
+      errors.push(`Match ${match.id} uses unknown team ${teamName}`);
+    } else if (expectedGroup !== match.group) {
+      errors.push(`Match ${match.id} places ${teamName} in Group ${match.group}, but teams.json has Group ${expectedGroup}`);
+    }
+  }
+}
+
+for (const [group, teams] of scheduleTeamsByGroup) {
+  if (teams.size !== 4) {
+    errors.push(`Group ${group} schedule has ${teams.size} teams: ${[...teams].sort().join(", ")}`);
+  }
 }
 
 let playerCount = 0;
