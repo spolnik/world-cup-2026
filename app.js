@@ -912,10 +912,11 @@ function buildKnockoutProjection() {
   const completedGroupMatches = state.matches.filter((match) => match.group && isCompleted(match)).length;
   const totalGroupMatches = state.matches.filter((match) => match.group).length;
   const allGroupsComplete = completedGroupMatches === totalGroupMatches;
+  const qualifiedSlotByTeam = buildQualifiedSlotLookup(groups, groupStatusByGroup, bestThirdRows, allGroupsComplete);
 
   roundMatches.forEach((match) => {
-    match.projectedHome = projectKnockoutSide(match, "home", rowsByGroup, groupStatusByGroup, thirdAssignments, allGroupsComplete);
-    match.projectedAway = projectKnockoutSide(match, "away", rowsByGroup, groupStatusByGroup, thirdAssignments, allGroupsComplete);
+    match.projectedHome = projectKnockoutSide(match, "home", rowsByGroup, groupStatusByGroup, thirdAssignments, allGroupsComplete, qualifiedSlotByTeam);
+    match.projectedAway = projectKnockoutSide(match, "away", rowsByGroup, groupStatusByGroup, thirdAssignments, allGroupsComplete, qualifiedSlotByTeam);
   });
 
   return {
@@ -929,7 +930,41 @@ function buildKnockoutProjection() {
   };
 }
 
-function projectKnockoutSide(match, side, rowsByGroup, groupStatusByGroup, thirdAssignments, allGroupsComplete) {
+function buildQualifiedSlotLookup(groups, groupStatusByGroup, bestThirdRows, allGroupsComplete) {
+  const lookup = new Map();
+
+  groups.forEach(({ group, rows }) => {
+    const groupStatus = groupStatusByGroup.get(group);
+    rows.slice(0, 2).forEach((row, index) => {
+      const rank = index + 1;
+      const rankLabel = rank === 1 ? "winner" : "runner-up";
+      const confirmed = Boolean(groupStatus?.complete);
+      lookup.set(row.team, {
+        team: row.team,
+        flag: row.flag,
+        group,
+        seedLabel: `${rank}${group}`,
+        certainty: confirmed ? "confirmed" : "projected",
+        meta: confirmed ? `Confirmed Group ${group} ${rankLabel}` : `Current Group ${group} ${rankLabel}`,
+      });
+    });
+  });
+
+  bestThirdRows.forEach((row) => {
+    lookup.set(row.team, {
+      team: row.team,
+      flag: row.flag,
+      group: row.group,
+      seedLabel: `3${row.group}`,
+      certainty: allGroupsComplete ? "confirmed" : "projected",
+      meta: allGroupsComplete ? `Confirmed third #${row.thirdRank}` : `Best third #${row.thirdRank}`,
+    });
+  });
+
+  return lookup;
+}
+
+function projectKnockoutSide(match, side, rowsByGroup, groupStatusByGroup, thirdAssignments, allGroupsComplete, qualifiedSlotByTeam) {
   const raw = match[side].name;
   const direct = raw.match(/^Group ([A-Z]) (winners|runners-up)$/);
   if (direct) {
@@ -974,6 +1009,14 @@ function projectKnockoutSide(match, side, rowsByGroup, groupStatusByGroup, third
       label: raw,
       certainty: "unresolved",
       meta: `Pool ${thirdGroups.join("/")}`,
+    };
+  }
+
+  const qualified = qualifiedSlotByTeam.get(raw);
+  if (qualified) {
+    return {
+      ...qualified,
+      label: raw,
     };
   }
 

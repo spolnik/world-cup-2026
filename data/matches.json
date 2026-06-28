@@ -1,6 +1,6 @@
 {
   "tournament": "FIFA World Cup 2026",
-  "lastChecked": "2026-06-27",
+  "lastChecked": "2026-06-28",
   "matchCount": 104,
   "note": "Scores are null before kickoff. Final matches can include goals with minute, team, player, assist, and ownGoal for scorer views.",
   "sources": [
@@ -299,6 +299,34 @@
     {
       "name": "Guardian New Zealand vs Belgium live report",
       "url": "https://www.theguardian.com/football/live/2026/jun/27/fifa-world-cup-2026-live-new-zealand-v-belgium-updates-nzl-vs-bel-group-g-match-score-latest"
+    },
+    {
+      "name": "Guardian Panama vs England match report",
+      "url": "https://www.theguardian.com/football/2026/jun/27/england-panama-world-cup-group-l-match-report"
+    },
+    {
+      "name": "Guardian Croatia vs Ghana match report",
+      "url": "https://www.theguardian.com/football/2026/jun/28/croatia-ghana-world-cup-group-l-match-report"
+    },
+    {
+      "name": "Guardian Colombia vs Portugal live report",
+      "url": "https://www.theguardian.com/football/live/2026/jun/27/colombia-v-portugal-world-cup-2026-live"
+    },
+    {
+      "name": "Guardian DR Congo vs Uzbekistan match report",
+      "url": "https://www.theguardian.com/football/2026/jun/28/democratic-republic-of-the-congo-uzbekistan-world-cup-group-k-match-report"
+    },
+    {
+      "name": "ESPN DR Congo vs Uzbekistan final score",
+      "url": "https://www.espn.com/soccer/match/_/gameId/760482"
+    },
+    {
+      "name": "Guardian Algeria vs Austria live report",
+      "url": "https://www.theguardian.com/football/live/2026/jun/28/fifa-world-cup-2026-live-algeria-v-austria-updates-alg-vs-aut-group-j-match-score-latest"
+    },
+    {
+      "name": "Guardian Jordan vs Argentina live report",
+      "url": "https://www.theguardian.com/football/live/2026/jun/28/fifa-world-cup-2026-live-jordan-v-argentina-updates-jor-vs-arg-group-j-match-score-latest"
     }
   ],
   "matches": [
@@ -1240,8 +1268,8 @@
         "flag": "https://flagcdn.com/w40/ar.png"
       },
       "away": {
-        "name": "Algeria",
-        "flag": "https://flagcdn.com/w40/dz.png"
+        "name": "Senegal",
+        "flag": "https://flagcdn.com/w40/sn.png"
       },
       "status": "final",
       "score": {
@@ -3615,8 +3643,31 @@
         "name": "England",
         "flag": "https://flagcdn.com/w40/gb-eng.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 0,
+        "away": 2
+      },
+      "goals": [
+        {
+          "minute": "62",
+          "team": "England",
+          "player": "Jude Bellingham",
+          "playerTeam": "England",
+          "playerSourceUrl": "https://www.transfermarkt.us/jude-bellingham/profil/spieler/581678",
+          "assist": "Bukayo Saka",
+          "assistSourceUrl": "https://www.transfermarkt.us/bukayo-saka/profil/spieler/433177"
+        },
+        {
+          "minute": "67",
+          "team": "England",
+          "player": "Harry Kane",
+          "playerTeam": "England",
+          "playerSourceUrl": "https://www.transfermarkt.us/harry-kane/profil/spieler/132098",
+          "assist": "Jude Bellingham",
+          "assistSourceUrl": "https://www.transfermarkt.us/jude-bellingham/profil/spieler/581678"
+        }
+      ]
     },
     {
       "id": 68,
@@ -3635,8 +3686,36 @@
         "name": "Ghana",
         "flag": "https://flagcdn.com/w40/gh.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 2,
+        "away": 1
+      },
+      "goals": [
+        {
+          "minute": "31",
+          "team": "Croatia",
+          "player": "Petar Sučić",
+          "playerTeam": "Croatia",
+          "playerSourceUrl": "https://www.transfermarkt.us/petar-sucic/profil/spieler/668207"
+        },
+        {
+          "minute": "73",
+          "team": "Ghana",
+          "player": "Derrick Luckassen",
+          "playerTeam": "Ghana",
+          "playerSourceUrl": "https://www.transfermarkt.us/derrick-luckassen/profil/spieler/241457"
+        },
+        {
+          "minute": "83",
+          "team": "Croatia",
+          "player": "Nikola Vlašić",
+          "playerTeam": "Croatia",
+          "playerSourceUrl": "https://www.transfermarkt.us/nikola-vlasic/profil/spieler/293200",
+          "assist": "Luka Modrić",
+          "assistSourceUrl": "https://www.transfermarkt.us/luka-modric/profil/spieler/27992"
+        }
+      ]
     },
     {
       "id": 69,
@@ -3655,8 +3734,61 @@
         "name": "Austria",
         "flag": "https://flagcdn.com/w40/at.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 3,
+        "away": 3
+      },
+      "goals": [
+        {
+          "minute": "11",
+          "team": "Austria",
+          "player": "Marko Arnautovic",
+          "playerTeam": "Austria",
+          "playerSourceUrl": "https://www.transfermarkt.us/marko-arnautovic/profil/spieler/41384",
+          "assist": "David Alaba",
+          "assistSourceUrl": "https://www.transfermarkt.us/david-alaba/profil/spieler/59016"
+        },
+        {
+          "minute": "45",
+          "team": "Algeria",
+          "player": "Rafik Belghali",
+          "playerTeam": "Algeria",
+          "playerSourceUrl": "https://www.transfermarkt.us/rafik-belghali/profil/spieler/864306"
+        },
+        {
+          "minute": "55",
+          "team": "Austria",
+          "player": "Marcel Sabitzer",
+          "playerTeam": "Austria",
+          "playerSourceUrl": "https://www.transfermarkt.us/marcel-sabitzer/profil/spieler/106987",
+          "assist": "Konrad Laimer",
+          "assistSourceUrl": "https://www.transfermarkt.us/konrad-laimer/profil/spieler/223967"
+        },
+        {
+          "minute": "60",
+          "team": "Algeria",
+          "player": "Riyad Mahrez",
+          "playerTeam": "Algeria",
+          "playerSourceUrl": "https://www.transfermarkt.us/riyad-mahrez/profil/spieler/171424",
+          "assist": "Houssem Aouar",
+          "assistSourceUrl": "https://www.transfermarkt.us/houssem-aouar/profil/spieler/395693"
+        },
+        {
+          "minute": "90+4",
+          "team": "Algeria",
+          "player": "Riyad Mahrez",
+          "playerTeam": "Algeria",
+          "playerSourceUrl": "https://www.transfermarkt.us/riyad-mahrez/profil/spieler/171424"
+        },
+        {
+          "minute": "90+5",
+          "team": "Austria",
+          "player": "Sasa Kalajdzic",
+          "playerTeam": "Austria",
+          "playerSourceUrl": "https://www.transfermarkt.us/sasa-kalajdzic/profil/spieler/369567"
+        }
+      ]
     },
     {
       "id": 70,
@@ -3675,8 +3807,42 @@
         "name": "Argentina",
         "flag": "https://flagcdn.com/w40/ar.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 1,
+        "away": 3
+      },
+      "goals": [
+        {
+          "minute": "19",
+          "team": "Argentina",
+          "player": "Giovani Lo Celso",
+          "playerTeam": "Argentina",
+          "playerSourceUrl": "https://www.transfermarkt.us/giovani-lo-celso/profil/spieler/348795"
+        },
+        {
+          "minute": "31",
+          "team": "Argentina",
+          "player": "Lautaro Martínez",
+          "playerTeam": "Argentina",
+          "playerSourceUrl": "https://www.transfermarkt.us/lautaro-martinez/profil/spieler/406625",
+          "penalty": true
+        },
+        {
+          "minute": "55",
+          "team": "Jordan",
+          "player": "Mousa Tamari",
+          "playerTeam": "Jordan",
+          "playerSourceUrl": "https://www.transfermarkt.us/mousa-tamari/profil/spieler/551505"
+        },
+        {
+          "minute": "80",
+          "team": "Argentina",
+          "player": "Lionel Messi",
+          "playerTeam": "Argentina",
+          "playerSourceUrl": "https://www.transfermarkt.us/lionel-messi/profil/spieler/28003"
+        }
+      ]
     },
     {
       "id": 71,
@@ -3695,8 +3861,12 @@
         "name": "Portugal",
         "flag": "https://flagcdn.com/w40/pt.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 0,
+        "away": 0
+      },
+      "goals": []
     },
     {
       "id": 72,
@@ -3715,8 +3885,44 @@
         "name": "Uzbekistan",
         "flag": "https://flagcdn.com/w40/uz.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 3,
+        "away": 1
+      },
+      "goals": [
+        {
+          "minute": "10",
+          "team": "Uzbekistan",
+          "player": "Eldor Shomurodov",
+          "playerTeam": "Uzbekistan",
+          "playerSourceUrl": "https://www.transfermarkt.us/eldor-shomurodov/profil/spieler/358166"
+        },
+        {
+          "minute": "68",
+          "team": "DR Congo",
+          "player": "Yoane Wissa",
+          "playerTeam": "DR Congo",
+          "playerSourceUrl": "https://www.transfermarkt.us/yoane-wissa/profil/spieler/388165",
+          "penalty": true
+        },
+        {
+          "minute": "78",
+          "team": "DR Congo",
+          "player": "Fiston Mayele",
+          "playerTeam": "DR Congo",
+          "playerSourceUrl": "https://www.transfermarkt.us/fiston-mayele/profil/spieler/727157"
+        },
+        {
+          "minute": "90+1",
+          "team": "DR Congo",
+          "player": "Yoane Wissa",
+          "playerTeam": "DR Congo",
+          "playerSourceUrl": "https://www.transfermarkt.us/yoane-wissa/profil/spieler/388165",
+          "assist": "Meschack Elia",
+          "assistSourceUrl": "https://www.transfermarkt.us/meschack-elia/profil/spieler/423678"
+        }
+      ]
     },
     {
       "id": 73,
@@ -3728,12 +3934,12 @@
       "venue": "SoFi Stadium, Los Angeles",
       "city": "Los Angeles",
       "home": {
-        "name": "Group A runners-up",
-        "flag": ""
+        "name": "South Africa",
+        "flag": "https://flagcdn.com/w40/za.png"
       },
       "away": {
-        "name": "Group B runners-up",
-        "flag": ""
+        "name": "Canada",
+        "flag": "https://flagcdn.com/w40/ca.png"
       },
       "status": "scheduled",
       "score": null
@@ -3748,12 +3954,12 @@
       "venue": "Gillette Stadium, Boston",
       "city": "Boston",
       "home": {
-        "name": "Group E winners",
-        "flag": ""
+        "name": "Germany",
+        "flag": "https://flagcdn.com/w40/de.png"
       },
       "away": {
-        "name": "Group A/B/C/D/F third place",
-        "flag": ""
+        "name": "Paraguay",
+        "flag": "https://flagcdn.com/w40/py.png"
       },
       "status": "scheduled",
       "score": null
@@ -3768,12 +3974,12 @@
       "venue": "Estadio BBVA, Monterrey",
       "city": "Monterrey",
       "home": {
-        "name": "Group F winners",
-        "flag": ""
+        "name": "Netherlands",
+        "flag": "https://flagcdn.com/w40/nl.png"
       },
       "away": {
-        "name": "Group C runners-up",
-        "flag": ""
+        "name": "Morocco",
+        "flag": "https://flagcdn.com/w40/ma.png"
       },
       "status": "scheduled",
       "score": null
@@ -3788,12 +3994,12 @@
       "venue": "NRG Stadium, Houston",
       "city": "Houston",
       "home": {
-        "name": "Group C winners",
-        "flag": ""
+        "name": "Brazil",
+        "flag": "https://flagcdn.com/w40/br.png"
       },
       "away": {
-        "name": "Group F runners-up",
-        "flag": ""
+        "name": "Japan",
+        "flag": "https://flagcdn.com/w40/jp.png"
       },
       "status": "scheduled",
       "score": null
@@ -3808,12 +4014,12 @@
       "venue": "MetLife Stadium, New York / New Jersey",
       "city": "New York / New Jersey",
       "home": {
-        "name": "Group I winners",
-        "flag": ""
+        "name": "France",
+        "flag": "https://flagcdn.com/w40/fr.png"
       },
       "away": {
-        "name": "Group C/D/F/G/H third place",
-        "flag": ""
+        "name": "Sweden",
+        "flag": "https://flagcdn.com/w40/se.png"
       },
       "status": "scheduled",
       "score": null
@@ -3828,12 +4034,12 @@
       "venue": "AT&T Stadium, Dallas",
       "city": "Dallas",
       "home": {
-        "name": "Group E runners-up",
-        "flag": ""
+        "name": "Ivory Coast",
+        "flag": "https://flagcdn.com/w40/ci.png"
       },
       "away": {
-        "name": "Group I runners-up",
-        "flag": ""
+        "name": "Norway",
+        "flag": "https://flagcdn.com/w40/no.png"
       },
       "status": "scheduled",
       "score": null
@@ -3848,12 +4054,12 @@
       "venue": "Estadio Azteca, Mexico City",
       "city": "Mexico City",
       "home": {
-        "name": "Group A winners",
-        "flag": ""
+        "name": "Mexico",
+        "flag": "https://flagcdn.com/w40/mx.png"
       },
       "away": {
-        "name": "Group C/E/F/H/I third place",
-        "flag": ""
+        "name": "Ecuador",
+        "flag": "https://flagcdn.com/w40/ec.png"
       },
       "status": "scheduled",
       "score": null
@@ -3868,12 +4074,12 @@
       "venue": "Mercedes-Benz Stadium, Atlanta",
       "city": "Atlanta",
       "home": {
-        "name": "Group L winners",
-        "flag": ""
+        "name": "England",
+        "flag": "https://flagcdn.com/w40/gb-eng.png"
       },
       "away": {
-        "name": "Group E/H/I/J/K third place",
-        "flag": ""
+        "name": "DR Congo",
+        "flag": "https://flagcdn.com/w40/cd.png"
       },
       "status": "scheduled",
       "score": null
@@ -3888,12 +4094,12 @@
       "venue": "Levi's Stadium, San Francisco Bay Area",
       "city": "San Francisco Bay Area",
       "home": {
-        "name": "Group D winners",
-        "flag": ""
+        "name": "United States",
+        "flag": "https://flagcdn.com/w40/us.png"
       },
       "away": {
-        "name": "Group B/E/F/I/J third place",
-        "flag": ""
+        "name": "Bosnia and Herzegovina",
+        "flag": "https://flagcdn.com/w40/ba.png"
       },
       "status": "scheduled",
       "score": null
@@ -3908,12 +4114,12 @@
       "venue": "Lumen Field, Seattle",
       "city": "Seattle",
       "home": {
-        "name": "Group G winners",
-        "flag": ""
+        "name": "Belgium",
+        "flag": "https://flagcdn.com/w40/be.png"
       },
       "away": {
-        "name": "Group A/E/H/I/J third place",
-        "flag": ""
+        "name": "Senegal",
+        "flag": "https://flagcdn.com/w40/sn.png"
       },
       "status": "scheduled",
       "score": null
@@ -3928,12 +4134,12 @@
       "venue": "BMO Field, Toronto",
       "city": "Toronto",
       "home": {
-        "name": "Group K runners-up",
-        "flag": ""
+        "name": "Portugal",
+        "flag": "https://flagcdn.com/w40/pt.png"
       },
       "away": {
-        "name": "Group L runners-up",
-        "flag": ""
+        "name": "Croatia",
+        "flag": "https://flagcdn.com/w40/hr.png"
       },
       "status": "scheduled",
       "score": null
@@ -3948,12 +4154,12 @@
       "venue": "SoFi Stadium, Los Angeles",
       "city": "Los Angeles",
       "home": {
-        "name": "Group H winners",
-        "flag": ""
+        "name": "Spain",
+        "flag": "https://flagcdn.com/w40/es.png"
       },
       "away": {
-        "name": "Group J runners-up",
-        "flag": ""
+        "name": "Austria",
+        "flag": "https://flagcdn.com/w40/at.png"
       },
       "status": "scheduled",
       "score": null
@@ -3968,12 +4174,12 @@
       "venue": "BC Place, Vancouver",
       "city": "Vancouver",
       "home": {
-        "name": "Group B winners",
-        "flag": ""
+        "name": "Switzerland",
+        "flag": "https://flagcdn.com/w40/ch.png"
       },
       "away": {
-        "name": "Group E/F/G/I/J third place",
-        "flag": ""
+        "name": "Algeria",
+        "flag": "https://flagcdn.com/w40/dz.png"
       },
       "status": "scheduled",
       "score": null
@@ -3988,12 +4194,12 @@
       "venue": "Hard Rock Stadium, Miami",
       "city": "Miami",
       "home": {
-        "name": "Group J winners",
-        "flag": ""
+        "name": "Argentina",
+        "flag": "https://flagcdn.com/w40/ar.png"
       },
       "away": {
-        "name": "Group H runners-up",
-        "flag": ""
+        "name": "Cape Verde",
+        "flag": "https://flagcdn.com/w40/cv.png"
       },
       "status": "scheduled",
       "score": null
@@ -4008,12 +4214,12 @@
       "venue": "Arrowhead Stadium, Kansas City",
       "city": "Kansas City",
       "home": {
-        "name": "Group K winners",
-        "flag": ""
+        "name": "Colombia",
+        "flag": "https://flagcdn.com/w40/co.png"
       },
       "away": {
-        "name": "Group D/E/I/J/L third place",
-        "flag": ""
+        "name": "Ghana",
+        "flag": "https://flagcdn.com/w40/gh.png"
       },
       "status": "scheduled",
       "score": null
@@ -4028,12 +4234,12 @@
       "venue": "AT&T Stadium, Dallas",
       "city": "Dallas",
       "home": {
-        "name": "Group D runners-up",
-        "flag": ""
+        "name": "Australia",
+        "flag": "https://flagcdn.com/w40/au.png"
       },
       "away": {
-        "name": "Group G runners-up",
-        "flag": ""
+        "name": "Egypt",
+        "flag": "https://flagcdn.com/w40/eg.png"
       },
       "status": "scheduled",
       "score": null
