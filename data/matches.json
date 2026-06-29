@@ -1,6 +1,6 @@
 {
   "tournament": "FIFA World Cup 2026",
-  "lastChecked": "2026-06-28",
+  "lastChecked": "2026-06-29",
   "matchCount": 104,
   "note": "Scores are null before kickoff. Final matches can include goals with minute, team, player, assist, and ownGoal for scorer views.",
   "sources": [
@@ -327,6 +327,10 @@
     {
       "name": "Guardian Jordan vs Argentina live report",
       "url": "https://www.theguardian.com/football/live/2026/jun/28/fifa-world-cup-2026-live-jordan-v-argentina-updates-jor-vs-arg-group-j-match-score-latest"
+    },
+    {
+      "name": "Guardian South Africa vs Canada match report",
+      "url": "https://www.theguardian.com/football/2026/jun/28/south-africa-canada-world-cup-last-32-match-report"
     }
   ],
   "matches": [
@@ -3941,8 +3945,20 @@
         "name": "Canada",
         "flag": "https://flagcdn.com/w40/ca.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 0,
+        "away": 1
+      },
+      "goals": [
+        {
+          "minute": "90+2",
+          "team": "Canada",
+          "player": "Stephen Eustaquio",
+          "playerTeam": "Canada",
+          "playerSourceUrl": "https://www.transfermarkt.us/stephen-eustaquio/profil/spieler/512913"
+        }
+      ]
     },
     {
       "id": 74,
@@ -4274,8 +4290,8 @@
       "venue": "NRG Stadium, Houston",
       "city": "Houston",
       "home": {
-        "name": "Winner Match 73",
-        "flag": ""
+        "name": "Canada",
+        "flag": "https://flagcdn.com/w40/ca.png"
       },
       "away": {
         "name": "Winner Match 75",
