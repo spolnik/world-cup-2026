@@ -37,6 +37,12 @@ const KNOCKOUT_ROUNDS = [
   "Semi-final",
   "Final",
 ];
+const BRACKET_FEEDER_STAGE = new Map([
+  ["Round of 16", "Round of 32"],
+  ["Quarter-final", "Round of 16"],
+  ["Semi-final", "Quarter-final"],
+  ["Final", "Semi-final"],
+]);
 const LEFT_BRACKET_ROUNDS = ["Round of 32", "Round of 16", "Quarter-final", "Semi-final"];
 const RIGHT_BRACKET_ROUNDS = ["Semi-final", "Quarter-final", "Round of 16", "Round of 32"];
 
@@ -782,23 +788,23 @@ function thirdPlaceChip(row, index) {
 function buildBracketLadder(projection) {
   const matchesById = new Map(projection.roundMatches.map((match) => [match.id, match]));
   const finalMatch = projection.roundMatches.find((match) => match.stage === "Final");
-  const leftRootId = referenceMatchId(finalMatch?.home?.name);
-  const rightRootId = referenceMatchId(finalMatch?.away?.name);
+  const leftRootId = feederMatchId(finalMatch, "home", projection.roundMatches);
+  const rightRootId = feederMatchId(finalMatch, "away", projection.roundMatches);
 
   return {
     final: finalMatch,
-    left: bracketHalfColumns(leftRootId, matchesById, LEFT_BRACKET_ROUNDS),
-    right: bracketHalfColumns(rightRootId, matchesById, RIGHT_BRACKET_ROUNDS),
+    left: bracketHalfColumns(leftRootId, matchesById, projection.roundMatches, LEFT_BRACKET_ROUNDS),
+    right: bracketHalfColumns(rightRootId, matchesById, projection.roundMatches, RIGHT_BRACKET_ROUNDS),
   };
 }
 
-function bracketHalfColumns(rootId, matchesById, stages) {
+function bracketHalfColumns(rootId, matchesById, roundMatches, stages) {
   const buckets = new Map(stages.map((stage) => [stage, []]));
-  collectBracketMatches(rootId, matchesById, buckets, new Set());
+  collectBracketMatches(rootId, matchesById, roundMatches, buckets, new Set());
   return stages.map((stage) => ({ stage, matches: buckets.get(stage) || [] }));
 }
 
-function collectBracketMatches(matchId, matchesById, buckets, seen) {
+function collectBracketMatches(matchId, matchesById, roundMatches, buckets, seen) {
   if (!matchId || seen.has(matchId)) return;
   seen.add(matchId);
 
@@ -806,14 +812,49 @@ function collectBracketMatches(matchId, matchesById, buckets, seen) {
   if (!match) return;
   if (buckets.has(match.stage)) buckets.get(match.stage).push(match);
 
-  [match.home.name, match.away.name].forEach((label) => {
-    collectBracketMatches(referenceMatchId(label), matchesById, buckets, seen);
+  ["home", "away"].forEach((side) => {
+    collectBracketMatches(feederMatchId(match, side, roundMatches), matchesById, roundMatches, buckets, seen);
   });
+}
+
+function feederMatchId(match, side, roundMatches) {
+  if (!match?.[side]?.name) return null;
+  const explicitId = referenceMatchId(match[side].name);
+  if (explicitId) return explicitId;
+
+  const feederStage = BRACKET_FEEDER_STAGE.get(match.stage);
+  if (!feederStage) return null;
+
+  const role = match.stage === "Third place" ? "loser" : "winner";
+  return roundMatches
+    .filter((candidate) => candidate.stage === feederStage && isCompleted(candidate))
+    .filter((candidate) => knockoutOutcomeSide(candidate, role)?.name === match[side].name)
+    .filter((candidate) => new Date(candidate.utc) < new Date(match.utc))
+    .sort((a, b) => new Date(b.utc) - new Date(a.utc) || b.id - a.id)[0]?.id || null;
 }
 
 function referenceMatchId(label) {
   const match = String(label || "").match(/^Winner Match (\d+)$/);
   return match ? Number.parseInt(match[1], 10) : null;
+}
+
+function pathReference(label) {
+  const match = String(label || "").match(/^(Winner|Loser) Match (\d+)$/);
+  if (!match) return null;
+  return {
+    role: match[1].toLowerCase(),
+    shortRole: match[1] === "Winner" ? "W" : "L",
+    matchId: Number.parseInt(match[2], 10),
+  };
+}
+
+function knockoutOutcomeSide(match, role = "winner") {
+  if (!match?.score || !isCompleted(match)) return null;
+  const homeWins = match.score.home > match.score.away;
+  const awayWins = match.score.away > match.score.home;
+  if (!homeWins && !awayWins) return null;
+  if (role === "loser") return homeWins ? match.away : match.home;
+  return homeWins ? match.home : match.away;
 }
 
 function bracketColumns(columns, side) {
@@ -836,11 +877,12 @@ function bracketColumn({ stage, matches }, side) {
 
 function bracketMatch(match, side = "") {
   const status = statusInfo(match);
+  const label = bracketMatchLabel(match);
   return `
     <article class="bracket-match ${side ? `bracket-match-${escapeAttribute(side)}` : ""}">
       <div class="bracket-match-head">
         <span>M${match.id}</span>
-        <strong>${escapeHTML(bracketMatchLabel(match))}</strong>
+        ${label ? `<strong>${escapeHTML(label)}</strong>` : ""}
       </div>
       <div class="bracket-sides">
         ${bracketSide(match.projectedHome)}
@@ -855,11 +897,8 @@ function bracketMatch(match, side = "") {
 }
 
 function bracketMatchLabel(match) {
-  if (match.stage !== "Round of 32") return "Path";
-  const certainties = [match.projectedHome?.certainty, match.projectedAway?.certainty];
-  if (certainties.every((certainty) => certainty === "confirmed")) return "Confirmed";
-  if (certainties.some((certainty) => certainty === "unresolved")) return "Pending";
-  return "Projected";
+  if (!isCompleted(match) || !match.score) return "";
+  return `${match.score.home}-${match.score.away}`;
 }
 
 function stageSlug(stage) {
@@ -867,17 +906,20 @@ function stageSlug(stage) {
 }
 
 function bracketSide(slot) {
+  const isPath = slot.certainty === "path" && !slot.team;
   const flag = slot.team
     ? miniFlag(slot)
-    : `<span class="mini-flag placeholder">${escapeHTML(initials(slot.seedLabel || slot.label))}</span>`;
+    : isPath
+      ? ""
+      : `<span class="mini-flag placeholder">${escapeHTML(initials(slot.seedLabel || slot.label))}</span>`;
+  const seed = slot.seedLabel && !isPath ? `<em>${escapeHTML(slot.seedLabel)}</em>` : "";
   return `
-    <div class="bracket-side ${slot.team ? slot.certainty : "placeholder"}">
+    <div class="bracket-side ${slot.certainty || ""} ${slot.team ? "" : "placeholder"}">
       ${flag}
       <div>
         <strong>${escapeHTML(slot.team || slot.label)}</strong>
-        <span>${escapeHTML(slot.meta)}</span>
       </div>
-      <em>${escapeHTML(slot.seedLabel)}</em>
+      ${seed}
     </div>
   `;
 }
@@ -908,6 +950,7 @@ function buildKnockoutProjection() {
   const roundMatches = state.matches
     .filter((match) => KNOCKOUT_ROUNDS.includes(match.stage))
     .map((match) => ({ ...match }));
+  const roundMatchById = new Map(roundMatches.map((match) => [match.id, match]));
   const thirdAssignments = assignThirdPlaceSlots(roundMatches, bestThirdRows);
   const completedGroupMatches = state.matches.filter((match) => match.group && isCompleted(match)).length;
   const totalGroupMatches = state.matches.filter((match) => match.group).length;
@@ -915,14 +958,14 @@ function buildKnockoutProjection() {
   const qualifiedSlotByTeam = buildQualifiedSlotLookup(groups, groupStatusByGroup, bestThirdRows, allGroupsComplete);
 
   roundMatches.forEach((match) => {
-    match.projectedHome = projectKnockoutSide(match, "home", rowsByGroup, groupStatusByGroup, thirdAssignments, allGroupsComplete, qualifiedSlotByTeam);
-    match.projectedAway = projectKnockoutSide(match, "away", rowsByGroup, groupStatusByGroup, thirdAssignments, allGroupsComplete, qualifiedSlotByTeam);
+    match.projectedHome = projectKnockoutSide(match, "home", rowsByGroup, groupStatusByGroup, thirdAssignments, allGroupsComplete, qualifiedSlotByTeam, roundMatchById);
+    match.projectedAway = projectKnockoutSide(match, "away", rowsByGroup, groupStatusByGroup, thirdAssignments, allGroupsComplete, qualifiedSlotByTeam, roundMatchById);
   });
 
   return {
     groups,
     roundMatches,
-    roundMatchById: new Map(roundMatches.map((match) => [match.id, match])),
+    roundMatchById,
     thirdRows,
     thirdAssignments,
     completedGroupMatches,
@@ -964,7 +1007,7 @@ function buildQualifiedSlotLookup(groups, groupStatusByGroup, bestThirdRows, all
   return lookup;
 }
 
-function projectKnockoutSide(match, side, rowsByGroup, groupStatusByGroup, thirdAssignments, allGroupsComplete, qualifiedSlotByTeam) {
+function projectKnockoutSide(match, side, rowsByGroup, groupStatusByGroup, thirdAssignments, allGroupsComplete, qualifiedSlotByTeam, roundMatchById) {
   const raw = match[side].name;
   const direct = raw.match(/^Group ([A-Z]) (winners|runners-up)$/);
   if (direct) {
@@ -1020,16 +1063,30 @@ function projectKnockoutSide(match, side, rowsByGroup, groupStatusByGroup, third
     };
   }
 
-  const reference = raw.match(/^(Winner|Loser) Match (\d+)$/);
+  const reference = pathReference(raw);
   if (reference) {
+    const referencedMatch = roundMatchById.get(reference.matchId);
+    const resolved = knockoutOutcomeSide(referencedMatch, reference.role);
+    if (resolved) {
+      return {
+        team: resolved.name,
+        flag: resolved.flag,
+        group: "",
+        seedLabel: `${reference.shortRole} M${reference.matchId}`,
+        label: `${reference.shortRole} M${reference.matchId}`,
+        certainty: "confirmed",
+        meta: "",
+      };
+    }
+
     return {
       team: "",
       flag: "",
       group: "",
-      seedLabel: reference[1] === "Winner" ? "W" : "L",
-      label: `${reference[1]} M${reference[2]}`,
+      seedLabel: reference.shortRole,
+      label: `${reference.shortRole} M${reference.matchId}`,
       certainty: "path",
-      meta: "Bracket path",
+      meta: "",
     };
   }
 
@@ -1403,9 +1460,7 @@ function sideForMatchCard(slot, fallback) {
 
 function slotBadgeLabel(slot) {
   if (!slot) return "";
-  if (slot.certainty === "confirmed") return `Confirmed ${slot.seedLabel}`;
-  if (slot.certainty === "projected") return `Projected ${slot.seedLabel}`;
-  if (slot.certainty === "path") return `Path ${slot.seedLabel}`;
+  if (slot.certainty === "path") return slot.label || slot.seedLabel;
   return slot.seedLabel || "TBD";
 }
 

@@ -1966,22 +1966,22 @@ select {
 
 .bracket-scroll {
   overflow-x: auto;
-  padding: 14px;
+  padding: 10px;
   scrollbar-width: thin;
 }
 
 .bracket-stage-grid {
   display: grid;
-  grid-template-columns: minmax(840px, 1fr) minmax(220px, 0.46fr) minmax(840px, 1fr);
-  gap: 16px;
+  grid-template-columns: minmax(660px, 1fr) minmax(190px, 0.38fr) minmax(660px, 1fr);
+  gap: 10px;
   align-items: stretch;
-  min-width: 1920px;
+  min-width: 1520px;
 }
 
 .bracket-half {
   display: grid;
-  grid-template-columns: repeat(4, minmax(190px, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(4, minmax(150px, 1fr));
+  gap: 8px;
   min-width: 0;
 }
 
@@ -1990,8 +1990,8 @@ select {
   position: relative;
   display: grid;
   grid-template-rows: auto 1fr;
-  gap: 10px;
-  min-height: 1120px;
+  gap: 8px;
+  min-height: 960px;
 }
 
 .bracket-final-column {
@@ -2064,12 +2064,12 @@ select {
 .bracket-final-rail {
   display: grid;
   align-content: space-around;
-  gap: 10px;
+  gap: 8px;
   min-height: 0;
 }
 
 .bracket-round-round-of-32 .bracket-match-list {
-  gap: 8px;
+  gap: 6px;
 }
 
 .bracket-round-quarter-final .bracket-match-list,
@@ -2104,9 +2104,9 @@ select {
 .bracket-match {
   position: relative;
   display: grid;
-  gap: 8px;
-  min-height: 132px;
-  padding: 10px;
+  gap: 6px;
+  min-height: 112px;
+  padding: 8px;
   border: 1px solid rgba(20, 33, 30, 0.12);
   border-radius: var(--radius);
   background:
@@ -2135,7 +2135,7 @@ select {
 }
 
 .bracket-match-final {
-  min-height: 176px;
+  min-height: 148px;
   border-color: rgba(214, 167, 43, 0.7);
   background:
     linear-gradient(145deg, rgba(255, 253, 247, 0.98), rgba(214, 167, 43, 0.2)),
@@ -2173,11 +2173,11 @@ select {
 
 .bracket-side {
   display: grid;
-  grid-template-columns: 28px minmax(0, 1fr) minmax(34px, auto);
-  gap: 8px;
+  grid-template-columns: 24px minmax(0, 1fr) minmax(28px, auto);
+  gap: 6px;
   align-items: center;
-  min-height: 44px;
-  padding: 7px;
+  min-height: 36px;
+  padding: 5px;
   border: 1px solid rgba(11, 107, 67, 0.14);
   border-radius: 7px;
   background: rgba(147, 189, 60, 0.12);
@@ -2210,6 +2210,10 @@ select {
   min-width: 0;
 }
 
+.bracket-side.path div {
+  grid-column: 1 / -1;
+}
+
 .bracket-side strong,
 .bracket-side span {
   display: block;
@@ -2219,7 +2223,7 @@ select {
 }
 
 .bracket-side strong {
-  font-size: 0.84rem;
+  font-size: 0.78rem;
 }
 
 .bracket-side span {
@@ -2230,12 +2234,12 @@ select {
 
 .bracket-side em {
   justify-self: end;
-  min-width: 34px;
-  padding: 4px 6px;
+  min-width: 28px;
+  padding: 3px 5px;
   border-radius: 999px;
   color: #fff;
   background: var(--pitch);
-  font-size: 0.7rem;
+  font-size: 0.66rem;
   font-style: normal;
   font-weight: 950;
   text-align: center;
@@ -2247,7 +2251,7 @@ select {
 }
 
 .bracket-match-final .bracket-side {
-  min-height: 56px;
+  min-height: 44px;
 }
 
 .bracket-match-foot {
