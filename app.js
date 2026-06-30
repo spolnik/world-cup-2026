@@ -852,9 +852,21 @@ function knockoutOutcomeSide(match, role = "winner") {
   if (!match?.score || !isCompleted(match)) return null;
   const homeWins = match.score.home > match.score.away;
   const awayWins = match.score.away > match.score.home;
-  if (!homeWins && !awayWins) return null;
-  if (role === "loser") return homeWins ? match.away : match.home;
-  return homeWins ? match.home : match.away;
+  const shootoutHomeWins =
+    match.score.home === match.score.away &&
+    Number.isFinite(match.penalties?.home) &&
+    Number.isFinite(match.penalties?.away) &&
+    match.penalties.home > match.penalties.away;
+  const shootoutAwayWins =
+    match.score.home === match.score.away &&
+    Number.isFinite(match.penalties?.home) &&
+    Number.isFinite(match.penalties?.away) &&
+    match.penalties.away > match.penalties.home;
+  const homeAdvanced = homeWins || shootoutHomeWins;
+  const awayAdvanced = awayWins || shootoutAwayWins;
+  if (!homeAdvanced && !awayAdvanced) return null;
+  if (role === "loser") return homeAdvanced ? match.away : match.home;
+  return homeAdvanced ? match.home : match.away;
 }
 
 function bracketColumns(columns, side) {
@@ -898,6 +910,7 @@ function bracketMatch(match, side = "") {
 
 function bracketMatchLabel(match) {
   if (!isCompleted(match) || !match.score) return "";
+  if (match.penalties) return `${match.score.home}-${match.score.away}p`;
   return `${match.score.home}-${match.score.away}`;
 }
 
@@ -1902,11 +1915,18 @@ function formatMoney(value) {
 
 function scoreMarkup(match) {
   if (!match.score) return `<span class="score-label">${formatPrimaryTime(match)}</span>`;
+  const penalties = match.penalties
+    ? `<span class="penalty-score">p ${match.penalties.home}-${match.penalties.away}</span>`
+    : "";
+  const scoreLabel = match.penalties
+    ? `${match.score.home} to ${match.score.away}, penalties ${match.penalties.home} to ${match.penalties.away}`
+    : `${match.score.home} to ${match.score.away}`;
   return `
-    <span class="score" aria-label="${escapeAttribute(`${match.score.home} to ${match.score.away}`)}">
+    <span class="score" aria-label="${escapeAttribute(scoreLabel)}">
       <strong>${match.score.home}</strong>
       <span>-</span>
       <strong>${match.score.away}</strong>
+      ${penalties}
     </span>
   `;
 }

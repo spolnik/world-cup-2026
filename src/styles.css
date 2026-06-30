@@ -913,9 +913,21 @@ select {
 
 .score {
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
   align-items: baseline;
+  justify-content: center;
   font-size: 1.45rem;
+}
+
+.penalty-score {
+  flex-basis: 100%;
+  color: var(--muted);
+  font-size: 0.7rem;
+  font-weight: 950;
+  line-height: 1;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .score-label {

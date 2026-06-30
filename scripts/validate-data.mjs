@@ -31,6 +31,20 @@ for (const match of data.matches ?? []) {
       errors.push(`Match ${match.id} has invalid score`);
     }
   }
+  if (match.penalties) {
+    if (!Number.isInteger(match.penalties.home) || !Number.isInteger(match.penalties.away)) {
+      errors.push(`Match ${match.id} has invalid penalties`);
+    }
+    if (match.status !== "final") {
+      errors.push(`Match ${match.id} has penalties but is not final`);
+    }
+    if (!match.score || match.score.home !== match.score.away) {
+      errors.push(`Match ${match.id} has penalties without a tied score`);
+    }
+    if (match.penalties.home === match.penalties.away) {
+      errors.push(`Match ${match.id} penalties cannot be tied`);
+    }
+  }
   if (match.status === "final" && match.score && match.score.home + match.score.away > 0 && !Array.isArray(match.goals)) {
     errors.push(`Match ${match.id} is final with goals scored but has no goals array`);
   }

@@ -1,6 +1,6 @@
 {
   "tournament": "FIFA World Cup 2026",
-  "lastChecked": "2026-06-29",
+  "lastChecked": "2026-06-30",
   "matchCount": 104,
   "note": "Scores are null before kickoff. Final matches can include goals with minute, team, player, assist, and ownGoal for scorer views.",
   "sources": [
@@ -331,6 +331,18 @@
     {
       "name": "Guardian South Africa vs Canada match report",
       "url": "https://www.theguardian.com/football/2026/jun/28/south-africa-canada-world-cup-last-32-match-report"
+    },
+    {
+      "name": "Guardian Brazil vs Japan live report",
+      "url": "https://www.theguardian.com/football/live/2026/jun/29/brazil-v-japan-world-cup-2026-last-32-live"
+    },
+    {
+      "name": "Guardian Germany vs Paraguay live report",
+      "url": "https://www.theguardian.com/football/live/2026/jun/29/germany-v-paraguay-world-cup-2026-last-32-live"
+    },
+    {
+      "name": "Guardian Netherlands vs Morocco live report",
+      "url": "https://www.theguardian.com/football/live/2026/jun/29/netherlands-v-morocco-world-cup-2026-live"
     }
   ],
   "matches": [
@@ -3977,8 +3989,31 @@
         "name": "Paraguay",
         "flag": "https://flagcdn.com/w40/py.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 1,
+        "away": 1
+      },
+      "penalties": {
+        "home": 3,
+        "away": 4
+      },
+      "goals": [
+        {
+          "minute": "42",
+          "team": "Paraguay",
+          "player": "Julio Enciso",
+          "playerTeam": "Paraguay",
+          "playerSourceUrl": "https://www.transfermarkt.us/julio-enciso/profil/spieler/660867"
+        },
+        {
+          "minute": "54",
+          "team": "Germany",
+          "player": "Kai Havertz",
+          "playerTeam": "Germany",
+          "playerSourceUrl": "https://www.transfermarkt.us/kai-havertz/profil/spieler/309400"
+        }
+      ]
     },
     {
       "id": 75,
@@ -3997,8 +4032,31 @@
         "name": "Morocco",
         "flag": "https://flagcdn.com/w40/ma.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 1,
+        "away": 1
+      },
+      "penalties": {
+        "home": 2,
+        "away": 3
+      },
+      "goals": [
+        {
+          "minute": "72",
+          "team": "Netherlands",
+          "player": "Cody Gakpo",
+          "playerTeam": "Netherlands",
+          "playerSourceUrl": "https://www.transfermarkt.us/cody-gakpo/profil/spieler/434675"
+        },
+        {
+          "minute": "90+1",
+          "team": "Morocco",
+          "player": "Issa Diop",
+          "playerTeam": "Morocco",
+          "playerSourceUrl": "https://www.transfermarkt.us/issa-diop/profil/spieler/272622"
+        }
+      ]
     },
     {
       "id": 76,
@@ -4017,8 +4075,34 @@
         "name": "Japan",
         "flag": "https://flagcdn.com/w40/jp.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 2,
+        "away": 1
+      },
+      "goals": [
+        {
+          "minute": "29",
+          "team": "Japan",
+          "player": "Kaishu Sano",
+          "playerTeam": "Japan",
+          "playerSourceUrl": "https://www.transfermarkt.us/kaishu-sano/profil/spieler/643574"
+        },
+        {
+          "minute": "56",
+          "team": "Brazil",
+          "player": "Casemiro",
+          "playerTeam": "Brazil",
+          "playerSourceUrl": "https://www.transfermarkt.us/casemiro/profil/spieler/16306"
+        },
+        {
+          "minute": "90+5",
+          "team": "Brazil",
+          "player": "Gabriel Martinelli",
+          "playerTeam": "Brazil",
+          "playerSourceUrl": "https://www.transfermarkt.us/gabriel-martinelli/profil/spieler/655488"
+        }
+      ]
     },
     {
       "id": 77,
@@ -4270,8 +4354,8 @@
       "venue": "Lincoln Financial Field, Philadelphia",
       "city": "Philadelphia",
       "home": {
-        "name": "Winner Match 74",
-        "flag": ""
+        "name": "Paraguay",
+        "flag": "https://flagcdn.com/w40/py.png"
       },
       "away": {
         "name": "Winner Match 77",
@@ -4294,8 +4378,8 @@
         "flag": "https://flagcdn.com/w40/ca.png"
       },
       "away": {
-        "name": "Winner Match 75",
-        "flag": ""
+        "name": "Morocco",
+        "flag": "https://flagcdn.com/w40/ma.png"
       },
       "status": "scheduled",
       "score": null
@@ -4310,8 +4394,8 @@
       "venue": "MetLife Stadium, New York / New Jersey",
       "city": "New York / New Jersey",
       "home": {
-        "name": "Winner Match 76",
-        "flag": ""
+        "name": "Brazil",
+        "flag": "https://flagcdn.com/w40/br.png"
       },
       "away": {
         "name": "Winner Match 78",
