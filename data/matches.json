@@ -1,6 +1,6 @@
 {
   "tournament": "FIFA World Cup 2026",
-  "lastChecked": "2026-06-30",
+  "lastChecked": "2026-07-01",
   "matchCount": 104,
   "note": "Scores are null before kickoff. Final matches can include goals with minute, team, player, assist, and ownGoal for scorer views.",
   "sources": [
@@ -343,6 +343,18 @@
     {
       "name": "Guardian Netherlands vs Morocco live report",
       "url": "https://www.theguardian.com/football/live/2026/jun/29/netherlands-v-morocco-world-cup-2026-live"
+    },
+    {
+      "name": "Guardian France vs Sweden match report",
+      "url": "https://www.theguardian.com/football/2026/jul/01/france-sweden-world-cup-2026-last-32-match-report"
+    },
+    {
+      "name": "Guardian Ivory Coast vs Norway live report",
+      "url": "https://www.theguardian.com/football/live/2026/jun/30/cote-divoire-v-norway-world-cup-2026-last-32-live"
+    },
+    {
+      "name": "Guardian Mexico vs Ecuador live report",
+      "url": "https://www.theguardian.com/football/live/2026/jul/01/fifa-world-cup-2026-live-mexico-v-ecuador-updates-mex-vs-ecu-last-round-32-match-score-latest"
     }
   ],
   "matches": [
@@ -4121,8 +4133,40 @@
         "name": "Sweden",
         "flag": "https://flagcdn.com/w40/se.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 3,
+        "away": 0
+      },
+      "goals": [
+        {
+          "minute": "45",
+          "team": "France",
+          "player": "Kylian Mbappé",
+          "playerTeam": "France",
+          "playerSourceUrl": "https://www.transfermarkt.us/kylian-mbappe/profil/spieler/342229",
+          "assist": "Ousmane Dembélé",
+          "assistSourceUrl": "https://www.transfermarkt.us/ousmane-dembele/profil/spieler/288230"
+        },
+        {
+          "minute": "53",
+          "team": "France",
+          "player": "Bradley Barcola",
+          "playerTeam": "France",
+          "playerSourceUrl": "https://www.transfermarkt.us/bradley-barcola/profil/spieler/708265",
+          "assist": "Michael Olise",
+          "assistSourceUrl": "https://www.transfermarkt.us/michael-olise/profil/spieler/566723"
+        },
+        {
+          "minute": "74",
+          "team": "France",
+          "player": "Kylian Mbappé",
+          "playerTeam": "France",
+          "playerSourceUrl": "https://www.transfermarkt.us/kylian-mbappe/profil/spieler/342229",
+          "assist": "Michael Olise",
+          "assistSourceUrl": "https://www.transfermarkt.us/michael-olise/profil/spieler/566723"
+        }
+      ]
     },
     {
       "id": 78,
@@ -4141,8 +4185,40 @@
         "name": "Norway",
         "flag": "https://flagcdn.com/w40/no.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 1,
+        "away": 2
+      },
+      "goals": [
+        {
+          "minute": "39",
+          "team": "Norway",
+          "player": "Antonio Nusa",
+          "playerTeam": "Norway",
+          "playerSourceUrl": "https://www.transfermarkt.us/antonio-nusa/profil/spieler/894914",
+          "assist": "Martin Ødegaard",
+          "assistSourceUrl": "https://www.transfermarkt.us/martin-odegaard/profil/spieler/316264"
+        },
+        {
+          "minute": "74",
+          "team": "Ivory Coast",
+          "player": "Amad Diallo",
+          "playerTeam": "Ivory Coast",
+          "playerSourceUrl": "https://www.transfermarkt.us/amad-diallo/profil/spieler/536835",
+          "assist": "Nicolas Pépé",
+          "assistSourceUrl": "https://www.transfermarkt.us/nicolas-pepe/profil/spieler/343052"
+        },
+        {
+          "minute": "86",
+          "team": "Norway",
+          "player": "Erling Haaland",
+          "playerTeam": "Norway",
+          "playerSourceUrl": "https://www.transfermarkt.us/erling-haaland/profil/spieler/418560",
+          "assist": "Patrick Berg",
+          "assistSourceUrl": "https://www.transfermarkt.us/patrick-berg/profil/spieler/308439"
+        }
+      ]
     },
     {
       "id": 79,
@@ -4161,8 +4237,27 @@
         "name": "Ecuador",
         "flag": "https://flagcdn.com/w40/ec.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 2,
+        "away": 0
+      },
+      "goals": [
+        {
+          "minute": "22",
+          "team": "Mexico",
+          "player": "Julián Quiñones",
+          "playerTeam": "Mexico",
+          "playerSourceUrl": "https://www.transfermarkt.us/julian-quinones/profil/spieler/416090"
+        },
+        {
+          "minute": "31",
+          "team": "Mexico",
+          "player": "Raúl Jiménez",
+          "playerTeam": "Mexico",
+          "playerSourceUrl": "https://www.transfermarkt.us/raul-jimenez/profil/spieler/206040"
+        }
+      ]
     },
     {
       "id": 80,
@@ -4358,8 +4453,8 @@
         "flag": "https://flagcdn.com/w40/py.png"
       },
       "away": {
-        "name": "Winner Match 77",
-        "flag": ""
+        "name": "France",
+        "flag": "https://flagcdn.com/w40/fr.png"
       },
       "status": "scheduled",
       "score": null
@@ -4398,8 +4493,8 @@
         "flag": "https://flagcdn.com/w40/br.png"
       },
       "away": {
-        "name": "Winner Match 78",
-        "flag": ""
+        "name": "Norway",
+        "flag": "https://flagcdn.com/w40/no.png"
       },
       "status": "scheduled",
       "score": null
@@ -4414,8 +4509,8 @@
       "venue": "Estadio Azteca, Mexico City",
       "city": "Mexico City",
       "home": {
-        "name": "Winner Match 79",
-        "flag": ""
+        "name": "Mexico",
+        "flag": "https://flagcdn.com/w40/mx.png"
       },
       "away": {
         "name": "Winner Match 80",
