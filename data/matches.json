@@ -1,6 +1,6 @@
 {
   "tournament": "FIFA World Cup 2026",
-  "lastChecked": "2026-07-01",
+  "lastChecked": "2026-07-02",
   "matchCount": 104,
   "note": "Scores are null before kickoff. Final matches can include goals with minute, team, player, assist, and ownGoal for scorer views.",
   "sources": [
@@ -355,6 +355,18 @@
     {
       "name": "Guardian Mexico vs Ecuador live report",
       "url": "https://www.theguardian.com/football/live/2026/jul/01/fifa-world-cup-2026-live-mexico-v-ecuador-updates-mex-vs-ecu-last-round-32-match-score-latest"
+    },
+    {
+      "name": "Guardian England vs DR Congo live report",
+      "url": "https://www.theguardian.com/football/live/2026/jul/01/england-v-dr-congo-world-cup-2026-last-32-live"
+    },
+    {
+      "name": "Guardian Belgium vs Senegal live report",
+      "url": "https://www.theguardian.com/football/live/2026/jul/01/belgium-v-senegal-world-cup-last-32-live"
+    },
+    {
+      "name": "Guardian USA vs Bosnia and Herzegovina live report",
+      "url": "https://www.theguardian.com/football/live/2026/jul/01/usa-v-bosnia-and-herzegovina-world-cup-2026-last-32-live"
     }
   ],
   "matches": [
@@ -4276,8 +4288,38 @@
         "name": "DR Congo",
         "flag": "https://flagcdn.com/w40/cd.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 2,
+        "away": 1
+      },
+      "goals": [
+        {
+          "minute": "7",
+          "team": "DR Congo",
+          "player": "Brian Cipenga",
+          "playerTeam": "DR Congo",
+          "playerSourceUrl": "https://www.transfermarkt.us/brian-cipenga/profil/spieler/700565"
+        },
+        {
+          "minute": "75",
+          "team": "England",
+          "player": "Harry Kane",
+          "playerTeam": "England",
+          "playerSourceUrl": "https://www.transfermarkt.us/harry-kane/profil/spieler/132098",
+          "assist": "Anthony Gordon",
+          "assistSourceUrl": "https://www.transfermarkt.us/anthony-gordon/profil/spieler/503733"
+        },
+        {
+          "minute": "86",
+          "team": "England",
+          "player": "Harry Kane",
+          "playerTeam": "England",
+          "playerSourceUrl": "https://www.transfermarkt.us/harry-kane/profil/spieler/132098",
+          "assist": "Anthony Gordon",
+          "assistSourceUrl": "https://www.transfermarkt.us/anthony-gordon/profil/spieler/503733"
+        }
+      ]
     },
     {
       "id": 81,
@@ -4296,8 +4338,27 @@
         "name": "Bosnia and Herzegovina",
         "flag": "https://flagcdn.com/w40/ba.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 2,
+        "away": 0
+      },
+      "goals": [
+        {
+          "minute": "45",
+          "team": "United States",
+          "player": "Folarin Balogun",
+          "playerTeam": "United States",
+          "playerSourceUrl": "https://www.transfermarkt.us/folarin-balogun/profil/spieler/503770"
+        },
+        {
+          "minute": "82",
+          "team": "United States",
+          "player": "Malik Tillman",
+          "playerTeam": "United States",
+          "playerSourceUrl": "https://www.transfermarkt.us/malik-tillman/profil/spieler/467437"
+        }
+      ]
     },
     {
       "id": 82,
@@ -4316,8 +4377,53 @@
         "name": "Senegal",
         "flag": "https://flagcdn.com/w40/sn.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 3,
+        "away": 2
+      },
+      "goals": [
+        {
+          "minute": "25",
+          "team": "Senegal",
+          "player": "Habib Diarra",
+          "playerTeam": "Senegal",
+          "playerSourceUrl": "https://www.transfermarkt.us/habib-diarra/profil/spieler/876631"
+        },
+        {
+          "minute": "51",
+          "team": "Senegal",
+          "player": "Ismaïla Sarr",
+          "playerTeam": "Senegal",
+          "playerSourceUrl": "https://www.transfermarkt.us/ismaila-sarr/profil/spieler/410225"
+        },
+        {
+          "minute": "86",
+          "team": "Belgium",
+          "player": "Romelu Lukaku",
+          "playerTeam": "Belgium",
+          "playerSourceUrl": "https://www.transfermarkt.us/romelu-lukaku/profil/spieler/96341",
+          "assist": "Thomas Meunier",
+          "assistSourceUrl": "https://www.transfermarkt.us/thomas-meunier/profil/spieler/100986"
+        },
+        {
+          "minute": "89",
+          "team": "Belgium",
+          "player": "Youri Tielemans",
+          "playerTeam": "Belgium",
+          "playerSourceUrl": "https://www.transfermarkt.us/youri-tielemans/profil/spieler/249565",
+          "assist": "Leandro Trossard",
+          "assistSourceUrl": "https://www.transfermarkt.us/leandro-trossard/profil/spieler/144028"
+        },
+        {
+          "minute": "120+5",
+          "team": "Belgium",
+          "player": "Youri Tielemans",
+          "playerTeam": "Belgium",
+          "playerSourceUrl": "https://www.transfermarkt.us/youri-tielemans/profil/spieler/249565",
+          "penalty": true
+        }
+      ]
     },
     {
       "id": 83,
@@ -4513,8 +4619,8 @@
         "flag": "https://flagcdn.com/w40/mx.png"
       },
       "away": {
-        "name": "Winner Match 80",
-        "flag": ""
+        "name": "England",
+        "flag": "https://flagcdn.com/w40/gb-eng.png"
       },
       "status": "scheduled",
       "score": null
@@ -4549,12 +4655,12 @@
       "venue": "Lumen Field, Seattle",
       "city": "Seattle",
       "home": {
-        "name": "Winner Match 81",
-        "flag": ""
+        "name": "United States",
+        "flag": "https://flagcdn.com/w40/us.png"
       },
       "away": {
-        "name": "Winner Match 82",
-        "flag": ""
+        "name": "Belgium",
+        "flag": "https://flagcdn.com/w40/be.png"
       },
       "status": "scheduled",
       "score": null
