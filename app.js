@@ -707,12 +707,14 @@ function renderLadder() {
     slotMatchId: assignmentByThirdGroup.get(row.group)?.slotMatchId,
   }));
   const bracket = buildBracketLadder(projection);
+  const selectedThirdPlaceRows = thirdRows.filter((row) => row.selected).length;
+  const completedKnockoutMatches = projection.roundMatches.filter(isCompleted).length;
 
   els.ladder.innerHTML = `
     <div class="ladder-layout">
       <section class="ladder-summary" aria-label="Projected qualification summary">
         ${ladderMetric(`${round32Resolved}/32`, "Resolved slots")}
-        ${ladderMetric(`${projection.thirdAssignments.size}/8`, "Third-place fits")}
+        ${ladderMetric(`${selectedThirdPlaceRows}/8`, "Third-place teams")}
         ${ladderMetric(`${projection.completedGroupMatches}/${projection.totalGroupMatches}`, "Group finals")}
       </section>
 
@@ -732,10 +734,10 @@ function renderLadder() {
       <section class="bracket-board" aria-label="Projected knockout ladder">
         <div class="ladder-section-head bracket-section-head">
           <div>
-            <span class="group-kicker">Knockout path</span>
+            <span class="group-kicker">Knockout</span>
             <h3>Knockout bracket</h3>
           </div>
-          <strong>Final centered</strong>
+          <strong>${completedKnockoutMatches}/${projection.roundMatches.length} complete</strong>
         </div>
         <div class="bracket-scroll">
           <div class="bracket-stage-grid">
@@ -889,16 +891,16 @@ function bracketColumn({ stage, matches }, side) {
 
 function bracketMatch(match, side = "") {
   const status = statusInfo(match);
-  const label = bracketMatchLabel(match);
+  const label = isCompleted(match) ? "Final" : status.label;
   return `
-    <article class="bracket-match ${side ? `bracket-match-${escapeAttribute(side)}` : ""}">
+    <article class="bracket-match ${side ? `bracket-match-${escapeAttribute(side)}` : ""} ${isCompleted(match) ? "bracket-match-complete" : ""}">
       <div class="bracket-match-head">
         <span>M${match.id}</span>
-        ${label ? `<strong>${escapeHTML(label)}</strong>` : ""}
+        <strong class="${escapeAttribute(status.className || "scheduled")}">${escapeHTML(label)}</strong>
       </div>
       <div class="bracket-sides">
-        ${bracketSide(match.projectedHome)}
-        ${bracketSide(match.projectedAway)}
+        ${bracketSide(match, "home")}
+        ${bracketSide(match, "away")}
       </div>
       <div class="bracket-match-foot">
         <span>${escapeHTML(formatPrimaryTime(match))}</span>
@@ -908,33 +910,47 @@ function bracketMatch(match, side = "") {
   `;
 }
 
-function bracketMatchLabel(match) {
-  if (!isCompleted(match) || !match.score) return "";
-  if (match.penalties) return `${match.score.home}-${match.score.away}p`;
-  return `${match.score.home}-${match.score.away}`;
-}
-
 function stageSlug(stage) {
   return normalizeSearch(stage).replace(/\s+/g, "-");
 }
 
-function bracketSide(slot) {
+function bracketSide(match, sideKey) {
+  const slot = sideKey === "home" ? match.projectedHome : match.projectedAway;
   const isPath = slot.certainty === "path" && !slot.team;
+  const winner = isCompleted(match) ? knockoutOutcomeSide(match, "winner") : null;
+  const hasTeam = Boolean(slot.team);
+  const isWinner = hasTeam && winner?.name === slot.team;
+  const score = bracketSideScore(match, sideKey, isWinner);
   const flag = slot.team
     ? miniFlag(slot)
     : isPath
       ? ""
       : `<span class="mini-flag placeholder">${escapeHTML(initials(slot.seedLabel || slot.label))}</span>`;
-  const seed = slot.seedLabel && !isPath ? `<em>${escapeHTML(slot.seedLabel)}</em>` : "";
+  const detail = bracketSideDetail(slot, isPath);
   return `
-    <div class="bracket-side ${slot.certainty || ""} ${slot.team ? "" : "placeholder"}">
+    <div class="bracket-side ${slot.certainty || ""} ${hasTeam ? "" : "placeholder"} ${isWinner ? "winner" : ""}">
       ${flag}
       <div>
         <strong>${escapeHTML(slot.team || slot.label)}</strong>
+        ${detail}
       </div>
-      ${seed}
+      ${score}
     </div>
   `;
+}
+
+function bracketSideDetail(slot, isPath) {
+  if (slot.team || isPath) return "";
+  const detail = slot.meta && slot.meta !== slot.label ? slot.meta : "";
+  return detail ? `<span>${escapeHTML(detail)}</span>` : "";
+}
+
+function bracketSideScore(match, sideKey, isWinner) {
+  if (!isCompleted(match) || !match.score) return "";
+  const value = sideKey === "home" ? match.score.home : match.score.away;
+  const penaltyValue = match.penalties?.[sideKey];
+  const penalty = Number.isFinite(penaltyValue) ? `<small>p${penaltyValue}</small>` : "";
+  return `<em class="bracket-side-score ${isWinner ? "winner" : ""}">${escapeHTML(value)}${penalty}</em>`;
 }
 
 function getKnockoutProjection() {
@@ -1465,9 +1481,9 @@ function sideForMatchCard(slot, fallback) {
   return {
     name,
     flag: hasResolvedTeam ? slot.flag : fallback.flag,
-    slotLabel: slotBadgeLabel(slot),
+    slotLabel: hasResolvedTeam ? "" : slotBadgeLabel(slot),
     slotCertainty: certainty,
-    slotMeta: slot?.meta || "",
+    slotMeta: hasResolvedTeam ? "" : slot?.meta || "",
   };
 }
 
