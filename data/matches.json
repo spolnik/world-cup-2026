@@ -1,6 +1,6 @@
 {
   "tournament": "FIFA World Cup 2026",
-  "lastChecked": "2026-07-02",
+  "lastChecked": "2026-07-03",
   "matchCount": 104,
   "note": "Scores are null before kickoff. Final matches can include goals with minute, team, player, assist, and ownGoal for scorer views.",
   "sources": [
@@ -367,6 +367,14 @@
     {
       "name": "Guardian USA vs Bosnia and Herzegovina live report",
       "url": "https://www.theguardian.com/football/live/2026/jul/01/usa-v-bosnia-and-herzegovina-world-cup-2026-last-32-live"
+    },
+    {
+      "name": "Guardian Spain vs Austria live report",
+      "url": "https://www.theguardian.com/football/live/2026/jul/02/spain-v-austria-world-cup-2026-last-32-live"
+    },
+    {
+      "name": "Guardian Portugal vs Croatia live report",
+      "url": "https://www.theguardian.com/football/live/2026/jul/02/portugal-v-croatia-world-cup-2026-last-32-live"
     }
   ],
   "matches": [
@@ -4442,8 +4450,37 @@
         "name": "Croatia",
         "flag": "https://flagcdn.com/w40/hr.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 2,
+        "away": 1
+      },
+      "goals": [
+        {
+          "minute": "53",
+          "team": "Croatia",
+          "player": "Ivan Perišić",
+          "playerTeam": "Croatia",
+          "playerSourceUrl": "https://www.transfermarkt.us/ivan-perisic/profil/spieler/42460"
+        },
+        {
+          "minute": "68",
+          "team": "Portugal",
+          "player": "Cristiano Ronaldo",
+          "playerTeam": "Portugal",
+          "playerSourceUrl": "https://www.transfermarkt.us/cristiano-ronaldo/profil/spieler/8198",
+          "penalty": true
+        },
+        {
+          "minute": "90+4",
+          "team": "Portugal",
+          "player": "Gonçalo Ramos",
+          "playerTeam": "Portugal",
+          "playerSourceUrl": "https://www.transfermarkt.us/goncalo-ramos/profil/spieler/550550",
+          "assist": "Rafael Leão",
+          "assistSourceUrl": "https://www.transfermarkt.us/rafael-leao/profil/spieler/357164"
+        }
+      ]
     },
     {
       "id": 84,
@@ -4462,8 +4499,38 @@
         "name": "Austria",
         "flag": "https://flagcdn.com/w40/at.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 3,
+        "away": 0
+      },
+      "goals": [
+        {
+          "minute": "36",
+          "team": "Spain",
+          "player": "Mikel Oyarzabal",
+          "playerTeam": "Spain",
+          "playerSourceUrl": "https://www.transfermarkt.us/mikel-oyarzabal/profil/spieler/351478",
+          "assist": "Marc Cucurella",
+          "assistSourceUrl": "https://www.transfermarkt.us/marc-cucurella/profil/spieler/284857"
+        },
+        {
+          "minute": "66",
+          "team": "Spain",
+          "player": "Pedro Porro",
+          "playerTeam": "Spain",
+          "playerSourceUrl": "https://www.transfermarkt.us/pedro-porro/profil/spieler/553875"
+        },
+        {
+          "minute": "89",
+          "team": "Spain",
+          "player": "Mikel Oyarzabal",
+          "playerTeam": "Spain",
+          "playerSourceUrl": "https://www.transfermarkt.us/mikel-oyarzabal/profil/spieler/351478",
+          "assist": "Marc Cucurella",
+          "assistSourceUrl": "https://www.transfermarkt.us/marc-cucurella/profil/spieler/284857"
+        }
+      ]
     },
     {
       "id": 85,
@@ -4635,12 +4702,12 @@
       "venue": "AT&T Stadium, Dallas",
       "city": "Dallas",
       "home": {
-        "name": "Winner Match 83",
-        "flag": ""
+        "name": "Portugal",
+        "flag": "https://flagcdn.com/w40/pt.png"
       },
       "away": {
-        "name": "Winner Match 84",
-        "flag": ""
+        "name": "Spain",
+        "flag": "https://flagcdn.com/w40/es.png"
       },
       "status": "scheduled",
       "score": null
