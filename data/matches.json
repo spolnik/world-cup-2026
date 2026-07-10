@@ -427,6 +427,10 @@
     {
       "name": "ESPN France vs Morocco final score",
       "url": "https://www.espn.com/soccer/match/_/gameId/760510"
+    },
+    {
+      "name": "ESPN Spain vs Belgium live score",
+      "url": "https://www.espn.com/soccer/match/_/gameId/760511"
     }
   ],
   "matches": [
@@ -5135,15 +5139,18 @@
       "venue": "SoFi Stadium, Los Angeles",
       "city": "Los Angeles",
       "home": {
-        "name": "Winner Match 93",
-        "flag": ""
+        "name": "Spain",
+        "flag": "https://flagcdn.com/w40/es.png"
       },
       "away": {
-        "name": "Winner Match 94",
-        "flag": ""
+        "name": "Belgium",
+        "flag": "https://flagcdn.com/w40/be.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "live",
+      "score": {
+        "home": 0,
+        "away": 0
+      }
     },
     {
       "id": 99,
