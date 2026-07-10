@@ -1,6 +1,6 @@
 {
   "tournament": "FIFA World Cup 2026",
-  "lastChecked": "2026-07-03",
+  "lastChecked": "2026-07-10",
   "matchCount": 104,
   "note": "Scores are null before kickoff. Final matches can include goals with minute, team, player, assist, and ownGoal for scorer views.",
   "sources": [
@@ -375,6 +375,58 @@
     {
       "name": "Guardian Portugal vs Croatia live report",
       "url": "https://www.theguardian.com/football/live/2026/jul/02/portugal-v-croatia-world-cup-2026-last-32-live"
+    },
+    {
+      "name": "ESPN Switzerland vs Algeria final score",
+      "url": "https://www.espn.com/soccer/match/_/gameId/760498"
+    },
+    {
+      "name": "ESPN Australia vs Egypt final score",
+      "url": "https://www.espn.com/soccer/match/_/gameId/760499"
+    },
+    {
+      "name": "ESPN Argentina vs Cape Verde final score",
+      "url": "https://www.espn.com/soccer/match/_/gameId/760500"
+    },
+    {
+      "name": "ESPN Colombia vs Ghana final score",
+      "url": "https://www.espn.com/soccer/match/_/gameId/760501"
+    },
+    {
+      "name": "ESPN Canada vs Morocco final score",
+      "url": "https://www.espn.com/soccer/match/_/gameId/760502"
+    },
+    {
+      "name": "ESPN Paraguay vs France final score",
+      "url": "https://www.espn.com/soccer/match/_/gameId/760503"
+    },
+    {
+      "name": "ESPN Brazil vs Norway final score",
+      "url": "https://www.espn.com/soccer/match/_/gameId/760504"
+    },
+    {
+      "name": "ESPN Mexico vs England final score",
+      "url": "https://www.espn.com/soccer/match/_/gameId/760505"
+    },
+    {
+      "name": "ESPN Portugal vs Spain final score",
+      "url": "https://www.espn.com/soccer/match/_/gameId/760506"
+    },
+    {
+      "name": "ESPN United States vs Belgium final score",
+      "url": "https://www.espn.com/soccer/match/_/gameId/760507"
+    },
+    {
+      "name": "ESPN Switzerland vs Colombia final score",
+      "url": "https://www.espn.com/soccer/match/_/gameId/760508"
+    },
+    {
+      "name": "ESPN Argentina vs Egypt final score",
+      "url": "https://www.espn.com/soccer/match/_/gameId/760509"
+    },
+    {
+      "name": "ESPN France vs Morocco final score",
+      "url": "https://www.espn.com/soccer/match/_/gameId/760510"
     }
   ],
   "matches": [
@@ -4549,8 +4601,24 @@
         "name": "Algeria",
         "flag": "https://flagcdn.com/w40/dz.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 2,
+        "away": 0
+      },
+      "goals": [
+        {
+          "minute": "10",
+          "team": "Switzerland",
+          "player": "Breel Embolo",
+          "assist": "Johan Manzambi"
+        },
+        {
+          "minute": "46",
+          "team": "Switzerland",
+          "player": "Dan Ndoye"
+        }
+      ]
     },
     {
       "id": 86,
@@ -4569,8 +4637,44 @@
         "name": "Cape Verde",
         "flag": "https://flagcdn.com/w40/cv.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 3,
+        "away": 2
+      },
+      "goals": [
+        {
+          "minute": "29",
+          "team": "Argentina",
+          "player": "Lionel Messi",
+          "assist": "Lisandro Martínez"
+        },
+        {
+          "minute": "59",
+          "team": "Cape Verde",
+          "player": "Deroy Duarte",
+          "assist": "Ryan Mendes"
+        },
+        {
+          "minute": "92",
+          "team": "Argentina",
+          "player": "Lisandro Martínez",
+          "assist": "Alexis Mac Allister"
+        },
+        {
+          "minute": "103",
+          "team": "Cape Verde",
+          "player": "Sidny Lopes Cabral",
+          "assist": "Yannick Semedo"
+        },
+        {
+          "minute": "111",
+          "team": "Argentina",
+          "player": "Diney Borges",
+          "playerTeam": "Cape Verde",
+          "ownGoal": true
+        }
+      ]
     },
     {
       "id": 87,
@@ -4589,8 +4693,19 @@
         "name": "Ghana",
         "flag": "https://flagcdn.com/w40/gh.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 1,
+        "away": 0
+      },
+      "goals": [
+        {
+          "minute": "14",
+          "team": "Colombia",
+          "player": "Jhon Arias",
+          "assist": "Luis Suárez"
+        }
+      ]
     },
     {
       "id": 88,
@@ -4609,8 +4724,30 @@
         "name": "Egypt",
         "flag": "https://flagcdn.com/w40/eg.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 1,
+        "away": 1
+      },
+      "penalties": {
+        "home": 2,
+        "away": 4
+      },
+      "goals": [
+        {
+          "minute": "13",
+          "team": "Egypt",
+          "player": "Emam Ashour",
+          "assist": "Karim Hafez"
+        },
+        {
+          "minute": "55",
+          "team": "Australia",
+          "player": "Mohamed Hany",
+          "playerTeam": "Egypt",
+          "ownGoal": true
+        }
+      ]
     },
     {
       "id": 89,
@@ -4629,8 +4766,19 @@
         "name": "France",
         "flag": "https://flagcdn.com/w40/fr.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 0,
+        "away": 1
+      },
+      "goals": [
+        {
+          "minute": "70",
+          "team": "France",
+          "player": "Kylian Mbappé",
+          "penalty": true
+        }
+      ]
     },
     {
       "id": 90,
@@ -4649,8 +4797,31 @@
         "name": "Morocco",
         "flag": "https://flagcdn.com/w40/ma.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 0,
+        "away": 3
+      },
+      "goals": [
+        {
+          "minute": "50",
+          "team": "Morocco",
+          "player": "Azzedine Ounahi",
+          "assist": "Achraf Hakimi"
+        },
+        {
+          "minute": "82",
+          "team": "Morocco",
+          "player": "Azzedine Ounahi",
+          "assist": "Brahim Díaz"
+        },
+        {
+          "minute": "90+8",
+          "team": "Morocco",
+          "player": "Soufiane Rahimi",
+          "assist": "Brahim Díaz"
+        }
+      ]
     },
     {
       "id": 91,
@@ -4669,8 +4840,31 @@
         "name": "Norway",
         "flag": "https://flagcdn.com/w40/no.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 1,
+        "away": 2
+      },
+      "goals": [
+        {
+          "minute": "79",
+          "team": "Norway",
+          "player": "Erling Haaland",
+          "assist": "Andreas Schjelderup"
+        },
+        {
+          "minute": "90",
+          "team": "Norway",
+          "player": "Erling Haaland",
+          "assist": "Andreas Schjelderup"
+        },
+        {
+          "minute": "90+10",
+          "team": "Brazil",
+          "player": "Neymar",
+          "penalty": true
+        }
+      ]
     },
     {
       "id": 92,
@@ -4689,8 +4883,42 @@
         "name": "England",
         "flag": "https://flagcdn.com/w40/gb-eng.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 2,
+        "away": 3
+      },
+      "goals": [
+        {
+          "minute": "36",
+          "team": "England",
+          "player": "Jude Bellingham",
+          "assist": "Bukayo Saka"
+        },
+        {
+          "minute": "38",
+          "team": "England",
+          "player": "Jude Bellingham",
+          "assist": "Harry Kane"
+        },
+        {
+          "minute": "42",
+          "team": "Mexico",
+          "player": "Julián Quiñones"
+        },
+        {
+          "minute": "60",
+          "team": "England",
+          "player": "Harry Kane",
+          "penalty": true
+        },
+        {
+          "minute": "69",
+          "team": "Mexico",
+          "player": "Raúl Jiménez",
+          "penalty": true
+        }
+      ]
     },
     {
       "id": 93,
@@ -4709,8 +4937,19 @@
         "name": "Spain",
         "flag": "https://flagcdn.com/w40/es.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 0,
+        "away": 1
+      },
+      "goals": [
+        {
+          "minute": "90+1",
+          "team": "Spain",
+          "player": "Mikel Merino",
+          "assist": "Ferran Torres"
+        }
+      ]
     },
     {
       "id": 94,
@@ -4729,8 +4968,42 @@
         "name": "Belgium",
         "flag": "https://flagcdn.com/w40/be.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 1,
+        "away": 4
+      },
+      "goals": [
+        {
+          "minute": "9",
+          "team": "Belgium",
+          "player": "Charles De Ketelaere",
+          "assist": "Nicolas Raskin"
+        },
+        {
+          "minute": "31",
+          "team": "United States",
+          "player": "Malik Tillman"
+        },
+        {
+          "minute": "33",
+          "team": "Belgium",
+          "player": "Charles De Ketelaere",
+          "assist": "Leandro Trossard"
+        },
+        {
+          "minute": "57",
+          "team": "Belgium",
+          "player": "Hans Vanaken",
+          "assist": "Charles De Ketelaere"
+        },
+        {
+          "minute": "90+3",
+          "team": "Belgium",
+          "player": "Romelu Lukaku",
+          "assist": "Hans Vanaken"
+        }
+      ]
     },
     {
       "id": 95,
@@ -4742,15 +5015,50 @@
       "venue": "Mercedes-Benz Stadium, Atlanta",
       "city": "Atlanta",
       "home": {
-        "name": "Winner Match 86",
-        "flag": ""
+        "name": "Argentina",
+        "flag": "https://flagcdn.com/w40/ar.png"
       },
       "away": {
-        "name": "Winner Match 88",
-        "flag": ""
+        "name": "Egypt",
+        "flag": "https://flagcdn.com/w40/eg.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 3,
+        "away": 2
+      },
+      "goals": [
+        {
+          "minute": "15",
+          "team": "Egypt",
+          "player": "Yasser Ibrahim",
+          "assist": "Marawan Attia"
+        },
+        {
+          "minute": "67",
+          "team": "Egypt",
+          "player": "Mostafa Zico",
+          "assist": "Haissem Hassan"
+        },
+        {
+          "minute": "79",
+          "team": "Argentina",
+          "player": "Cristian Romero",
+          "assist": "Lionel Messi"
+        },
+        {
+          "minute": "83",
+          "team": "Argentina",
+          "player": "Lionel Messi",
+          "assist": "Gonzalo Montiel"
+        },
+        {
+          "minute": "90+2",
+          "team": "Argentina",
+          "player": "Enzo Fernández",
+          "assist": "Lautaro Martínez"
+        }
+      ]
     },
     {
       "id": 96,
@@ -4762,15 +5070,23 @@
       "venue": "BC Place, Vancouver",
       "city": "Vancouver",
       "home": {
-        "name": "Winner Match 85",
-        "flag": ""
+        "name": "Switzerland",
+        "flag": "https://flagcdn.com/w40/ch.png"
       },
       "away": {
-        "name": "Winner Match 87",
-        "flag": ""
+        "name": "Colombia",
+        "flag": "https://flagcdn.com/w40/co.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 0,
+        "away": 0
+      },
+      "penalties": {
+        "home": 4,
+        "away": 3
+      },
+      "goals": []
     },
     {
       "id": 97,
@@ -4782,15 +5098,32 @@
       "venue": "Gillette Stadium, Boston",
       "city": "Boston",
       "home": {
-        "name": "Winner Match 89",
-        "flag": ""
+        "name": "France",
+        "flag": "https://flagcdn.com/w40/fr.png"
       },
       "away": {
-        "name": "Winner Match 90",
-        "flag": ""
+        "name": "Morocco",
+        "flag": "https://flagcdn.com/w40/ma.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 2,
+        "away": 0
+      },
+      "goals": [
+        {
+          "minute": "60",
+          "team": "France",
+          "player": "Kylian Mbappé",
+          "assist": "Désiré Doué"
+        },
+        {
+          "minute": "66",
+          "team": "France",
+          "player": "Ousmane Dembélé",
+          "assist": "Kylian Mbappé"
+        }
+      ]
     },
     {
       "id": 98,
