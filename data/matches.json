@@ -429,7 +429,7 @@
       "url": "https://www.espn.com/soccer/match/_/gameId/760510"
     },
     {
-      "name": "ESPN Spain vs Belgium live score",
+      "name": "ESPN Spain vs Belgium final score",
       "url": "https://www.espn.com/soccer/match/_/gameId/760511"
     }
   ],
@@ -5146,11 +5146,29 @@
         "name": "Belgium",
         "flag": "https://flagcdn.com/w40/be.png"
       },
-      "status": "live",
+      "status": "final",
       "score": {
-        "home": 0,
-        "away": 0
-      }
+        "home": 2,
+        "away": 1
+      },
+      "goals": [
+        {
+          "minute": "30",
+          "team": "Spain",
+          "player": "Fabián Ruiz"
+        },
+        {
+          "minute": "41",
+          "team": "Belgium",
+          "player": "Charles De Ketelaere",
+          "assist": "Timothy Castagne"
+        },
+        {
+          "minute": "88",
+          "team": "Spain",
+          "player": "Mikel Merino"
+        }
+      ]
     },
     {
       "id": 99,
