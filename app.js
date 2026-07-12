@@ -1704,7 +1704,7 @@ function buildScorerRows() {
     (match.goals || []).forEach((goal) => {
       if (goal.ownGoal) return;
       const player = playerForGoal(goal);
-      const key = goal.playerSourceUrl || playerLookupKey(goal.playerTeam || goal.team, goal.player);
+      const key = goal.playerSourceUrl || player?.sourceUrl || playerLookupKey(goal.playerTeam || goal.team, goal.player);
       const teamName = goal.playerTeam || goal.team;
       const team = state.teamMap.get(teamName);
 
