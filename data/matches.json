@@ -1,6 +1,6 @@
 {
   "tournament": "FIFA World Cup 2026",
-  "lastChecked": "2026-07-10",
+  "lastChecked": "2026-07-12",
   "matchCount": 104,
   "note": "Scores are null before kickoff. Final matches can include goals with minute, team, player, assist, and ownGoal for scorer views.",
   "sources": [
@@ -431,6 +431,14 @@
     {
       "name": "ESPN Spain vs Belgium final score",
       "url": "https://www.espn.com/soccer/match/_/gameId/760511"
+    },
+    {
+      "name": "ESPN Norway vs England final score",
+      "url": "https://www.espn.com/soccer/match/_/gameId/760512"
+    },
+    {
+      "name": "ESPN Argentina vs Switzerland final score",
+      "url": "https://www.espn.com/soccer/match/_/gameId/760513"
     }
   ],
   "matches": [
@@ -5180,15 +5188,37 @@
       "venue": "Hard Rock Stadium, Miami",
       "city": "Miami",
       "home": {
-        "name": "Winner Match 91",
-        "flag": ""
+        "name": "Norway",
+        "flag": "https://flagcdn.com/w40/no.png"
       },
       "away": {
-        "name": "Winner Match 92",
-        "flag": ""
+        "name": "England",
+        "flag": "https://flagcdn.com/w40/gb-eng.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 1,
+        "away": 2
+      },
+      "goals": [
+        {
+          "minute": "36",
+          "team": "Norway",
+          "player": "Andreas Schjelderup",
+          "assist": "Martin Ødegaard"
+        },
+        {
+          "minute": "45+2",
+          "team": "England",
+          "player": "Jude Bellingham",
+          "assist": "Anthony Gordon"
+        },
+        {
+          "minute": "93",
+          "team": "England",
+          "player": "Jude Bellingham"
+        }
+      ]
     },
     {
       "id": 100,
@@ -5200,15 +5230,43 @@
       "venue": "Arrowhead Stadium, Kansas City",
       "city": "Kansas City",
       "home": {
-        "name": "Winner Match 95",
-        "flag": ""
+        "name": "Argentina",
+        "flag": "https://flagcdn.com/w40/ar.png"
       },
       "away": {
-        "name": "Winner Match 96",
-        "flag": ""
+        "name": "Switzerland",
+        "flag": "https://flagcdn.com/w40/ch.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 3,
+        "away": 1
+      },
+      "goals": [
+        {
+          "minute": "10",
+          "team": "Argentina",
+          "player": "Alexis Mac Allister",
+          "assist": "Lionel Messi"
+        },
+        {
+          "minute": "67",
+          "team": "Switzerland",
+          "player": "Dan Ndoye",
+          "assist": "Ricardo Rodríguez"
+        },
+        {
+          "minute": "112",
+          "team": "Argentina",
+          "player": "Julián Álvarez",
+          "assist": "José Manuel López"
+        },
+        {
+          "minute": "120+1",
+          "team": "Argentina",
+          "player": "Lautaro Martínez"
+        }
+      ]
     },
     {
       "id": 101,
