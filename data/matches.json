@@ -1,6 +1,6 @@
 {
   "tournament": "FIFA World Cup 2026",
-  "lastChecked": "2026-07-12",
+  "lastChecked": "2026-07-16",
   "matchCount": 104,
   "note": "Scores are null before kickoff. Final matches can include goals with minute, team, player, assist, and ownGoal for scorer views.",
   "sources": [
@@ -439,6 +439,14 @@
     {
       "name": "ESPN Argentina vs Switzerland final score",
       "url": "https://www.espn.com/soccer/match/_/gameId/760513"
+    },
+    {
+      "name": "ESPN France vs Spain final score",
+      "url": "https://www.espn.com/soccer/match/_/gameId/760514"
+    },
+    {
+      "name": "ESPN England vs Argentina final score",
+      "url": "https://www.espn.com/soccer/match/_/gameId/760515"
     }
   ],
   "matches": [
@@ -5278,15 +5286,32 @@
       "venue": "AT&T Stadium, Dallas",
       "city": "Dallas",
       "home": {
-        "name": "Winner Match 97",
-        "flag": ""
+        "name": "France",
+        "flag": "https://flagcdn.com/w40/fr.png"
       },
       "away": {
-        "name": "Winner Match 98",
-        "flag": ""
+        "name": "Spain",
+        "flag": "https://flagcdn.com/w40/es.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 0,
+        "away": 2
+      },
+      "goals": [
+        {
+          "minute": "22",
+          "team": "Spain",
+          "player": "Mikel Oyarzabal",
+          "penalty": true
+        },
+        {
+          "minute": "58",
+          "team": "Spain",
+          "player": "Pedro Porro",
+          "assist": "Dani Olmo"
+        }
+      ]
     },
     {
       "id": 102,
@@ -5298,15 +5323,38 @@
       "venue": "Mercedes-Benz Stadium, Atlanta",
       "city": "Atlanta",
       "home": {
-        "name": "Winner Match 99",
-        "flag": ""
+        "name": "England",
+        "flag": "https://flagcdn.com/w40/gb-eng.png"
       },
       "away": {
-        "name": "Winner Match 100",
-        "flag": ""
+        "name": "Argentina",
+        "flag": "https://flagcdn.com/w40/ar.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 1,
+        "away": 2
+      },
+      "goals": [
+        {
+          "minute": "55",
+          "team": "England",
+          "player": "Anthony Gordon",
+          "assist": "Morgan Rogers"
+        },
+        {
+          "minute": "85",
+          "team": "Argentina",
+          "player": "Enzo Fernández",
+          "assist": "Lionel Messi"
+        },
+        {
+          "minute": "90+2",
+          "team": "Argentina",
+          "player": "Lautaro Martínez",
+          "assist": "Lionel Messi"
+        }
+      ]
     },
     {
       "id": 103,
@@ -5318,12 +5366,12 @@
       "venue": "Hard Rock Stadium, Miami",
       "city": "Miami",
       "home": {
-        "name": "Loser Match 101",
-        "flag": ""
+        "name": "France",
+        "flag": "https://flagcdn.com/w40/fr.png"
       },
       "away": {
-        "name": "Loser Match 102",
-        "flag": ""
+        "name": "England",
+        "flag": "https://flagcdn.com/w40/gb-eng.png"
       },
       "status": "scheduled",
       "score": null
@@ -5338,12 +5386,12 @@
       "venue": "MetLife Stadium, New York / New Jersey",
       "city": "New York / New Jersey",
       "home": {
-        "name": "Winner Match 101",
-        "flag": ""
+        "name": "Spain",
+        "flag": "https://flagcdn.com/w40/es.png"
       },
       "away": {
-        "name": "Winner Match 102",
-        "flag": ""
+        "name": "Argentina",
+        "flag": "https://flagcdn.com/w40/ar.png"
       },
       "status": "scheduled",
       "score": null
