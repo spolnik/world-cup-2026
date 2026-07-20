@@ -6,11 +6,11 @@
     <title>World Cup 2026 Match Centre</title>
     <meta
       name="description"
-      content="A fast static match centre for every FIFA World Cup 2026 fixture, group, venue, kickoff time, and result."
+      content="A fast static match centre for every FIFA World Cup 2026 result, group, venue, kickoff time, and scorecard."
     >
     <meta name="theme-color" content="#0b3d2e">
     <meta property="og:title" content="World Cup 2026 Match Centre">
-    <meta property="og:description" content="All 104 World Cup 2026 fixtures, groups, venues, and result-ready scorecards.">
+    <meta property="og:description" content="All 104 World Cup 2026 results, groups, venues, and full scorecards.">
     <meta property="og:type" content="website">
     <link rel="icon" href="data:,">
     <link rel="preconnect" href="https://flagcdn.com">
@@ -25,7 +25,6 @@
         <span>WC26 Match Centre</span>
       </a>
       <nav class="toplinks" aria-label="Primary">
-        <a href="#fixtures" data-nav-tab="fixtures">Fixtures</a>
         <a href="#results" data-nav-tab="results">Results</a>
         <a href="#scorers" data-nav-tab="scorers">Top Scorers</a>
         <a href="#groups" data-nav-tab="groups">Groups</a>
@@ -41,7 +40,7 @@
           <p class="eyebrow">USA / Canada / Mexico &middot; 11 Jun - 19 Jul 2026</p>
           <h1 id="page-title">World Cup 2026 Match Centre</h1>
           <p class="lede">
-            All 104 matches with venue-local kickoffs, your timezone, groups, host cities, and scorecards ready for results.
+            All 104 completed matches with venue-local kickoffs, your timezone, groups, host cities, and final scorecards.
           </p>
         </div>
         <aside class="next-card" id="nextCard" aria-label="Next match">
@@ -101,11 +100,7 @@
 
       <section class="view-tools" aria-label="View options">
         <nav class="tabs" id="tabs" aria-label="Match centre views">
-          <button class="tab active" type="button" data-tab="fixtures">
-            <i data-lucide="calendar-days" aria-hidden="true"></i>
-            Fixtures
-          </button>
-          <button class="tab" type="button" data-tab="results">
+          <button class="tab active" type="button" data-tab="results">
             <i data-lucide="trophy" aria-hidden="true"></i>
             Results
           </button>
@@ -140,12 +135,11 @@
       <section class="view-head" aria-live="polite">
         <div>
           <p class="eyebrow">Current view</p>
-          <h2 id="viewTitle">Fixtures</h2>
+          <h2 id="viewTitle">Results</h2>
         </div>
         <p id="resultCount" class="result-count"></p>
       </section>
 
-      <section id="fixtures" class="content-view" aria-label="Fixtures"></section>
       <section id="groups" class="content-view" aria-label="Groups" hidden></section>
       <section id="ladder" class="content-view" aria-label="Tournament ladder" hidden></section>
       <section id="scorers" class="content-view" aria-label="Top Scorers" hidden></section>

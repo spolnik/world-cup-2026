@@ -1,6 +1,6 @@
 {
   "tournament": "FIFA World Cup 2026",
-  "lastChecked": "2026-07-16",
+  "lastChecked": "2026-07-20",
   "matchCount": 104,
   "note": "Scores are null before kickoff. Final matches can include goals with minute, team, player, assist, and ownGoal for scorer views.",
   "sources": [
@@ -447,6 +447,14 @@
     {
       "name": "ESPN England vs Argentina final score",
       "url": "https://www.espn.com/soccer/match/_/gameId/760515"
+    },
+    {
+      "name": "ESPN France vs England third-place result",
+      "url": "https://www.espn.com/soccer/match/_/gameId/760516"
+    },
+    {
+      "name": "ESPN Spain vs Argentina final score",
+      "url": "https://www.espn.com/soccer/match/_/gameId/760517"
     }
   ],
   "matches": [
@@ -5373,8 +5381,71 @@
         "name": "England",
         "flag": "https://flagcdn.com/w40/gb-eng.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 4,
+        "away": 6
+      },
+      "goals": [
+        {
+          "minute": "3",
+          "team": "England",
+          "player": "Declan Rice"
+        },
+        {
+          "minute": "18",
+          "team": "England",
+          "player": "Ezri Konsa",
+          "assist": "Declan Rice"
+        },
+        {
+          "minute": "37",
+          "team": "England",
+          "player": "Bukayo Saka",
+          "assist": "Marcus Rashford"
+        },
+        {
+          "minute": "45+1",
+          "team": "England",
+          "player": "Bukayo Saka",
+          "assist": "Eberechi Eze"
+        },
+        {
+          "minute": "48",
+          "team": "France",
+          "player": "Kylian Mbappé",
+          "assist": "Michael Olise"
+        },
+        {
+          "minute": "54",
+          "team": "France",
+          "player": "Bradley Barcola",
+          "assist": "Kylian Mbappé"
+        },
+        {
+          "minute": "66",
+          "team": "France",
+          "player": "Kylian Mbappé",
+          "assist": "Michael Olise"
+        },
+        {
+          "minute": "87",
+          "team": "England",
+          "player": "Bukayo Saka",
+          "penalty": true
+        },
+        {
+          "minute": "90+6",
+          "team": "France",
+          "player": "Ousmane Dembélé",
+          "assist": "Dayot Upamecano"
+        },
+        {
+          "minute": "90+8",
+          "team": "England",
+          "player": "Jude Bellingham"
+        }
+      ]
     },
     {
       "id": 104,
@@ -5393,8 +5464,19 @@
         "name": "Argentina",
         "flag": "https://flagcdn.com/w40/ar.png"
       },
-      "status": "scheduled",
-      "score": null
+      "status": "final",
+      "score": {
+        "home": 1,
+        "away": 0
+      },
+      "goals": [
+        {
+          "minute": "106",
+          "team": "Spain",
+          "player": "Ferran Torres",
+          "assist": "Nico Williams"
+        }
+      ]
     }
   ]
 }

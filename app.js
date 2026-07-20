@@ -6,13 +6,12 @@ const state = {
   teamMap: new Map(),
   playerMap: new Map(),
   flagMap: new Map(),
-  tab: "fixtures",
+  tab: "results",
   query: "",
   stage: "all",
   group: "all",
   city: "all",
   status: "all",
-  fixturePageDateKey: null,
   resultPageDateKey: null,
   knockoutProjection: null,
   position: "all",
@@ -66,7 +65,6 @@ function cacheElements() {
     tabs: document.querySelector("#tabs"),
     viewTitle: document.querySelector("#viewTitle"),
     resultCount: document.querySelector("#resultCount"),
-    fixtures: document.querySelector("#fixtures"),
     groups: document.querySelector("#groups"),
     ladder: document.querySelector("#ladder"),
     scorers: document.querySelector("#scorers"),
@@ -157,7 +155,6 @@ function bindEvents() {
     state.group = "all";
     state.city = "all";
     state.status = "all";
-    state.fixturePageDateKey = todayDateKey();
     state.resultPageDateKey = todayDateKey();
     state.position = "all";
     state.teamMetric = "marketValueEur";
@@ -182,14 +179,6 @@ function bindEvents() {
       state.expandedTeams.add(teamName);
     }
     renderTeams();
-    refreshIcons();
-  });
-
-  els.fixtures.addEventListener("click", (event) => {
-    const button = event.target.closest("[data-fixture-page]");
-    if (!button || button.disabled) return;
-    state.fixturePageDateKey = button.dataset.fixturePage || todayDateKey();
-    renderFixtures(getVisibleMatches());
     refreshIcons();
   });
 
@@ -244,7 +233,6 @@ function renderAll() {
 function renderViews() {
   const visible = getVisibleMatches();
   const viewMap = {
-    fixtures: renderFixtures,
     results: renderResults,
     scorers: renderScorers,
     groups: renderGroups,
@@ -256,7 +244,6 @@ function renderViews() {
   document.body.dataset.view = state.tab;
 
   Object.entries({
-    fixtures: els.fixtures,
     groups: els.groups,
     ladder: els.ladder,
     scorers: els.scorers,
@@ -324,23 +311,6 @@ function renderFooter() {
     .join("");
 }
 
-function renderFixtures(matches) {
-  const pager = getFixturePager(matches);
-  els.resultCount.textContent = `${pager.summary} - ${pager.dateLabel}`;
-
-  els.fixtures.innerHTML = `
-    ${datePagerControls(pager, {
-      ariaLabel: "Fixture day navigation",
-      dataAttribute: "data-fixture-page",
-    })}
-    ${
-      pager.matches.length
-        ? `<div class="match-grid">${pager.matches.map(matchCard).join("")}</div>`
-        : emptyState(fixtureEmptyTitle(pager), dayPagerEmptyMessage())
-    }
-  `;
-}
-
 function renderResults(matches) {
   const pager = getResultPager(matches);
   els.resultCount.textContent = `${pager.summary} - ${pager.dateLabel}`;
@@ -356,18 +326,6 @@ function renderResults(matches) {
         : emptyState(resultEmptyTitle(pager), dayPagerEmptyMessage())
     }
   `;
-}
-
-function getFixturePager(matches) {
-  const todayKey = todayDateKey();
-  if (!state.fixturePageDateKey) state.fixturePageDateKey = todayKey;
-  const pager = getDatePager(matches, state.fixturePageDateKey, fixtureMatchesForDate);
-
-  return {
-    ...pager,
-    pageLabel: fixturePageLabel(pager.selectedKey, todayKey),
-    summary: fixturePageSummary(pager.matches),
-  };
 }
 
 function getResultPager(matches) {
@@ -409,16 +367,8 @@ function getDatePager(matches, selectedKey, matchGetter) {
   };
 }
 
-function fixtureMatchesForDate(matches, dateKeyValue) {
-  return matches.filter((match) => matchDateKey(match) === dateKeyValue && isFixtureMatch(match));
-}
-
 function resultMatchesForDate(matches, dateKeyValue) {
   return matches.filter((match) => matchDateKey(match) === dateKeyValue && isCompleted(match));
-}
-
-function isFixtureMatch(match) {
-  return match.status === "live" || (!isCompleted(match) && match.date >= new Date());
 }
 
 function datePagerControls(pager, { ariaLabel, dataAttribute }) {
@@ -469,27 +419,6 @@ function datePagerControls(pager, { ariaLabel, dataAttribute }) {
       </div>
     </div>
   `;
-}
-
-function fixturePageLabel(selectedKey, todayKey) {
-  if (selectedKey === todayKey) return "Today";
-  return selectedKey < todayKey ? "Past fixtures" : "Upcoming fixtures";
-}
-
-function fixturePageSummary(matches) {
-  if (!matches.length) return "0 matches";
-  const live = matches.filter((match) => match.status === "live").length;
-  const scheduled = matches.length - live;
-  const parts = [
-    live ? `${live} live ${plural(live, "match", "matches")}` : "",
-    scheduled ? `${scheduled} upcoming ${plural(scheduled, "match", "matches")}` : "",
-  ].filter(Boolean);
-  return parts.join(", ") || `${matches.length} ${plural(matches.length, "match", "matches")}`;
-}
-
-function fixtureEmptyTitle(pager) {
-  if (pager.selectedKey === pager.todayKey) return "No live or upcoming matches today";
-  return pager.selectedKey < pager.todayKey ? "No live fixtures" : "No upcoming fixtures";
 }
 
 function resultPageLabel(selectedKey, todayKey) {
@@ -2128,7 +2057,6 @@ function emptyState(title, message) {
 
 function titleForTab(tab) {
   return {
-    fixtures: "Fixtures",
     results: "Results",
     scorers: "Top Scorers",
     groups: "Groups",
