@@ -480,13 +480,14 @@ function renderScorers() {
 
   const leader = rows[0];
   const maxValue = Math.max(...rows.map((row) => row.valueEur || 0), 1);
+  const leaderLabel = state.matches.every(isCompleted) ? "Golden Boot winner" : "Golden Boot race";
 
   els.scorers.innerHTML = `
     <div class="scorer-showcase">
       <article class="scorer-leader">
         <span class="player-photo">${playerPortrait(leader.player || { name: leader.name })}</span>
         <div>
-          <span class="scorer-kicker">Golden Boot race</span>
+          <span class="scorer-kicker">${leaderLabel}</span>
           <h3>${playerLink(leader)}</h3>
           <p>${escapeHTML(`${leader.team} - ${leader.club || "Club TBD"}`)}</p>
         </div>
