@@ -155,7 +155,7 @@ function bindEvents() {
     state.group = "all";
     state.city = "all";
     state.status = "all";
-    state.resultPageDateKey = todayDateKey();
+    state.resultPageDateKey = null;
     state.position = "all";
     state.teamMetric = "marketValueEur";
     state.expandedTeams.clear();
@@ -185,7 +185,7 @@ function bindEvents() {
   els.results.addEventListener("click", (event) => {
     const button = event.target.closest("[data-result-page]");
     if (!button || button.disabled) return;
-    state.resultPageDateKey = button.dataset.resultPage || todayDateKey();
+    state.resultPageDateKey = button.dataset.resultPage || state.resultPageDateKey;
     renderResults(getVisibleMatches());
     refreshIcons();
   });
@@ -329,19 +329,21 @@ function renderResults(matches) {
 }
 
 function getResultPager(matches) {
-  const todayKey = todayDateKey();
-  if (!state.resultPageDateKey) state.resultPageDateKey = todayKey;
+  const latestKey = latestResultDateKey(matches) || latestResultDateKey(state.matches);
+  if (!state.resultPageDateKey || !resultMatchesForDate(matches, state.resultPageDateKey).length) {
+    state.resultPageDateKey = latestKey;
+  }
   const pager = getDatePager(matches, state.resultPageDateKey, resultMatchesForDate);
 
   return {
     ...pager,
-    pageLabel: resultPageLabel(pager.selectedKey, todayKey),
+    latestKey,
+    pageLabel: resultPageLabel(pager.selectedKey, latestKey),
     summary: resultPageSummary(pager.matches),
   };
 }
 
 function getDatePager(matches, selectedKey, matchGetter) {
-  const todayKey = todayDateKey();
   const renderableKeys = unique(matches.map(matchDateKey))
     .sort()
     .filter((key) => matchGetter(matches, key).length);
@@ -358,7 +360,6 @@ function getDatePager(matches, selectedKey, matchGetter) {
   );
 
   return {
-    todayKey,
     selectedKey,
     previousKey,
     nextKey,
@@ -371,9 +372,13 @@ function resultMatchesForDate(matches, dateKeyValue) {
   return matches.filter((match) => matchDateKey(match) === dateKeyValue && isCompleted(match));
 }
 
+function latestResultDateKey(matches) {
+  return unique(matches.filter(isCompleted).map(matchDateKey)).sort().at(-1) || "";
+}
+
 function datePagerControls(pager, { ariaLabel, dataAttribute }) {
   const previousAttribute = `${dataAttribute}="${escapeAttribute(pager.previousKey || pager.selectedKey)}"`;
-  const todayAttribute = `${dataAttribute}="${escapeAttribute(pager.todayKey)}"`;
+  const latestAttribute = `${dataAttribute}="${escapeAttribute(pager.latestKey)}"`;
   const nextAttribute = `${dataAttribute}="${escapeAttribute(pager.nextKey || pager.selectedKey)}"`;
 
   return `
@@ -397,13 +402,13 @@ function datePagerControls(pager, { ariaLabel, dataAttribute }) {
         <button
           class="pager-button compact"
           type="button"
-          ${todayAttribute}
-          ${pager.selectedKey === pager.todayKey ? "disabled" : ""}
-          aria-label="Today"
-          title="Today"
+          ${latestAttribute}
+          ${pager.selectedKey === pager.latestKey ? "disabled" : ""}
+          aria-label="Latest results"
+          title="Latest results"
         >
-          <i data-lucide="calendar" aria-hidden="true"></i>
-          Today
+          <i data-lucide="calendar-check" aria-hidden="true"></i>
+          Latest
         </button>
         <button
           class="pager-button"
@@ -421,8 +426,8 @@ function datePagerControls(pager, { ariaLabel, dataAttribute }) {
   `;
 }
 
-function resultPageLabel(selectedKey, todayKey) {
-  if (selectedKey === todayKey) return "Today";
+function resultPageLabel(selectedKey, latestKey) {
+  if (selectedKey === latestKey) return "Latest results";
   return "Finished matches";
 }
 
@@ -431,8 +436,7 @@ function resultPageSummary(matches) {
   return `${matches.length} finished ${plural(matches.length, "match", "matches")}`;
 }
 
-function resultEmptyTitle(pager) {
-  if (pager.selectedKey === pager.todayKey) return "No finished matches today";
+function resultEmptyTitle() {
   return "No finished matches";
 }
 
@@ -442,10 +446,6 @@ function dayPagerEmptyMessage() {
 
 function matchDateKey(match) {
   return dateKey(match.date);
-}
-
-function todayDateKey() {
-  return dateKey(new Date());
 }
 
 function dateKey(date) {
